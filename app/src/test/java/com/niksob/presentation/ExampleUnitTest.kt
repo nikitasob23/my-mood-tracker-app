@@ -1,4 +1,4 @@
-package com.niksob.mymoodtrackingapp
+package com.niksob.presentation
 
 import org.junit.Test
 

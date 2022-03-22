@@ -5,8 +5,10 @@ import com.niksob.presentation.navigation.FragmentNavigation
 import com.niksob.presentation.navigation.FragmentSetter
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.ScreenSetter
+import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.domain.usecase.PopBackFragmentUseCase
 import com.niksob.domain.usecase.SetFragmentUseCase
+import com.niksob.presentation.navigation.appprogressbar.MainProgressBar
 import dagger.Module
 import dagger.Provides
 
@@ -17,8 +19,9 @@ class ScreenNavigationModule {
     fun provideFragmentNavigation(
         setFragmentUseCase: SetFragmentUseCase,
         popBackFragmentUseCase: PopBackFragmentUseCase,
+        appProgressBar: AppProgressBar
     ): ScreenNavigation =
-        FragmentNavigation(setFragmentUseCase, popBackFragmentUseCase)
+        FragmentNavigation(setFragmentUseCase, popBackFragmentUseCase, appProgressBar)
 
     @Provides
     fun provideSetFragmentUseCase(screenSetter: ScreenSetter) = SetFragmentUseCase(screenSetter)

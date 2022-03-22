@@ -5,7 +5,7 @@ import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenSetter
 import com.niksob.presentation.R
 
-private const val FRAGMENT_CONTAINER_ID = R.id.fragment_container
+private const val FRAGMENT_CONTAINER_ID = R.id.main_layout__fragment_container
 
 class FragmentSetter(
     private val manager: FragmentManager

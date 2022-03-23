@@ -6,9 +6,8 @@ import com.niksob.presentation.navigation.FragmentSetter
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.ScreenSetter
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
-import com.niksob.domain.usecase.PopBackFragmentUseCase
-import com.niksob.domain.usecase.SetFragmentUseCase
-import com.niksob.presentation.navigation.appprogressbar.MainProgressBar
+import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
+import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 import dagger.Module
 import dagger.Provides
 

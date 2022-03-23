@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "270411479494",
+    "firebase_url": "https://mygoodmood-8d862-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "mygoodmood-8d862",
+    "storage_bucket": "mygoodmood-8d862.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:270411479494:android:d5159cdf9b1834848c1ac7",
+        "android_client_info": {
+          "package_name": "com.niksob.mymoodtrackingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "270411479494-049j8r324mgvte1rhbknjktjp3c595ro.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNhk8Z_bD1MbIvb0MJEcf4IO_4M7Vstec"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "270411479494-049j8r324mgvte1rhbknjktjp3c595ro.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

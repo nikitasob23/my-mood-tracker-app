@@ -1,10 +1,9 @@
 package com.niksob.presentation.navigation
 
 import android.util.Log
-import android.widget.ProgressBar
 import com.niksob.domain.navigation.NavigationableScreen
-import com.niksob.domain.usecase.PopBackFragmentUseCase
-import com.niksob.domain.usecase.SetFragmentUseCase
+import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
+import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 

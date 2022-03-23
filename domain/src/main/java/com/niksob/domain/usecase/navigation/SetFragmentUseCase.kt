@@ -1,4 +1,4 @@
-package com.niksob.domain.usecase
+package com.niksob.domain.usecase.navigation
 
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenSetter

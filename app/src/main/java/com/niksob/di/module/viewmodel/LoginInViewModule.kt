@@ -1,6 +1,7 @@
-package com.niksob.di.module
+package com.niksob.di.module.viewmodel
 
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.google.firebase.auth.FirebaseAuth
 import com.niksob.data.db.DbAuthStorage
 import com.niksob.data.db.firebase.DbAuthFirebase
@@ -9,12 +10,25 @@ import com.niksob.domain.data.repository.AuthRepository
 import com.niksob.domain.usecase.loginin.LoginInUseCase
 import com.niksob.domain.usecase.loginin.ValidateEmailUseCase
 import com.niksob.domain.usecase.loginin.ValidatePasswordUseCase
+import com.niksob.presentation.viewmodel.LoginInViewModel
 import com.niksob.presentation.viewmodel.factory.LoginInViewModelFactory
 import dagger.Module
 import dagger.Provides
 
 @Module
-class LoginInViewModule {
+class LoginInViewModule(
+    private val viewModelStoreOwner: ViewModelStoreOwner,
+) {
+
+    @Provides
+    fun provideLoginViewModel(
+        viewModelFactory: ViewModelProvider.Factory,
+        viewModelClass: Class<LoginInViewModel>
+    ) =
+        ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
+
+    @Provides
+    fun provideViewModelClass() = LoginInViewModel::class.java
 
     @Provides
     fun provideLoginInViewModelFactory(

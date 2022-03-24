@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.presentation.navigation.NavigationableFragment
 
 abstract class BaseView : NavigationableFragment() {

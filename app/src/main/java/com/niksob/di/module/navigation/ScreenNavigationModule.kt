@@ -1,4 +1,4 @@
-package com.niksob.di.module
+package com.niksob.di.module.navigation
 
 import androidx.fragment.app.FragmentManager
 import com.niksob.presentation.navigation.FragmentNavigation

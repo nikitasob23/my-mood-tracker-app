@@ -1,4 +1,4 @@
-package com.niksob.di.module
+package com.niksob.di.module.activity
 
 import android.content.Context
 import com.niksob.presentation.MainActivity

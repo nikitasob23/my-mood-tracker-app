@@ -5,8 +5,8 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.di.component.DaggerActivityComponent
-import com.niksob.di.module.ActivityModule
-import com.niksob.di.module.AppProgressBarModule
+import com.niksob.di.module.activity.ActivityModule
+import com.niksob.di.module.activity.AppProgressBarModule
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenNavigation
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package com.niksob.di.module
+package com.niksob.di.module.storage
 
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module

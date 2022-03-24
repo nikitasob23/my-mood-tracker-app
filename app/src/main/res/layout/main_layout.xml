@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
     <FrameLayout
-            android:id="@+id/main_layout__main_screen"
+            android:id="@+id/main_layout__fragment_container"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"/>
 
-        <ProgressBar
-                android:id="@+id/main_layout__progress_bar"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_gravity="center"/>
+    <include
+            android:id="@+id/main_layout__main_progress_bar"
+            layout="@layout/main_progress_bar_layout"
+            android:visibility="gone"/>
 
-
-        <FrameLayout
-                android:id="@+id/main_layout__fragment_container"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-    </FrameLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

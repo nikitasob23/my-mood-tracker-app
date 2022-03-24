@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/font/roboto.xml" value="0.2462962962962963" />
+        <entry key="app/src/main/res/layout/entries_view.xml" value="0.22447916666666667" />
         <entry key="app/src/main/res/layout/main_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/main_progress_bar_layout.xml" value="0.2269021739130435" />
+        <entry key="app/src/main/res/layout/view_login_in.xml" value="0.25" />
       </map>
     </option>
   </component>

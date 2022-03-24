@@ -1,8 +1,7 @@
 package com.niksob.data.db
 
-import com.niksob.domain.data.dto.AuthResponseDto
-import com.niksob.domain.data.dto.LoginDataDto
+import com.niksob.domain.data.dto.login.LoginDataCallbackDto
 
 interface DbAuthStorage {
-    fun authorize(loginData: LoginDataDto) : AuthResponseDto
+    fun authorize(loginDataCallbackDto: LoginDataCallbackDto)
 }

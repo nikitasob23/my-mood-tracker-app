@@ -2,25 +2,24 @@ package com.niksob.presentation.navigation.appprogressbar
 
 import android.view.View
 import android.widget.FrameLayout
-import android.widget.ProgressBar
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
+import com.niksob.presentation.R
 
 class MainProgressBar(
-    private val progressBar: ProgressBar,
-    private val mainScreen: FrameLayout,
+    private val progressBarFrameLayout: FrameLayout,
 ) : AppProgressBar {
 
     init {
         hideProgress()
+        val background = progressBarFrameLayout.findViewById<FrameLayout>(R.id.main_progress_bar_layout__background)
+        progressBarFrameLayout.bringChildToFront(background)
     }
 
     override fun showProgress() {
-        mainScreen.alpha = 0.2f
-        progressBar.visibility = View.VISIBLE
+        progressBarFrameLayout.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
-        mainScreen.alpha = 1f
-        progressBar.visibility = View.GONE
+        progressBarFrameLayout.visibility = View.GONE
     }
 }

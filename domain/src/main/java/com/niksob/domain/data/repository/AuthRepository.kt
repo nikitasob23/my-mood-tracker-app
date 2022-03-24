@@ -1,8 +1,7 @@
 package com.niksob.domain.data.repository
 
-import com.niksob.domain.data.dto.AuthResponseDto
-import com.niksob.domain.data.dto.LoginDataDto
+import com.niksob.domain.data.dto.login.LoginDataCallbackDto
 
 interface AuthRepository {
-    fun authorize(loginData: LoginDataDto): AuthResponseDto
+    fun authorize(callback: LoginDataCallbackDto)
 }

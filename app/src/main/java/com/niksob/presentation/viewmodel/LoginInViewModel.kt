@@ -4,12 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.domain.model.AuthResponse
-import com.niksob.domain.usecase.loginin.ValidateEmailUseCase
-import com.niksob.domain.usecase.loginin.ValidatePasswordUseCase
 import com.niksob.domain.model.LoginData
-import com.niksob.domain.usecase.loginin.LoginInUseCase
-
-const val FAILED_REASON = "Failed"
+import com.niksob.domain.model.LoginDataCallback
+import com.niksob.domain.usecase.loginin.*
 
 class LoginInViewModel(
     private val loginInUseCase: LoginInUseCase,
@@ -17,17 +14,27 @@ class LoginInViewModel(
     private val validatePasswordUseCase: ValidatePasswordUseCase,
 ) : ViewModel() {
 
-    private val response = MutableLiveData<AuthResponse>()
+    private val responseLive = MutableLiveData<AuthResponse>()
 
-    val responseLive: LiveData<AuthResponse> = response
+    val response: LiveData<AuthResponse> = responseLive
 
     fun doLoginIn(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
-            response.value = AuthResponse(
+            responseLive.value = AuthResponse(
                 success = false,
                 reason = FAILED_REASON
             )
+            return
         }
-        response.value = loginInUseCase.execute(loginData)
+
+        val loginDataCallBack = object : LoginDataCallback {
+
+            override fun getLoginData() = loginData
+
+            override fun callback(response: AuthResponse) {
+                responseLive.value = response
+            }
+        }
+        loginInUseCase.execute(loginDataCallBack)
     }
 }

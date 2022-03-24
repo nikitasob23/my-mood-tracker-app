@@ -1,4 +1,5 @@
-package com.niksob.domain.data.dto
+package com.niksob.domain.data.dto.login
+
 
 data class LoginDataDto(
     val email: String,

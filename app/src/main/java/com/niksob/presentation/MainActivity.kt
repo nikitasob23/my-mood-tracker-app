@@ -2,7 +2,6 @@ package com.niksob.presentation
 
 import android.os.Bundle
 import android.widget.FrameLayout
-import android.widget.ProgressBar
 import androidx.appcompat.app.AppCompatActivity
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.di.component.DaggerActivityComponent
@@ -23,8 +22,7 @@ class MainActivity : AppCompatActivity() {
     @Inject
     lateinit var homeScreen: NavigationableScreen
 
-    private lateinit var progressBar: ProgressBar
-    private lateinit var mainScreenFrameLayout: FrameLayout
+    private lateinit var progressBarFrameLayout: FrameLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,14 +36,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initComponents() {
-        progressBar = findViewById(R.id.main_layout__progress_bar)
-        mainScreenFrameLayout = findViewById(R.id.main_layout__main_screen)
+        progressBarFrameLayout = findViewById(R.id.main_layout__main_progress_bar)
     }
 
     private fun inject() {
         val component = DaggerActivityComponent.builder()
             .activityModule(ActivityModule(this))
-            .appProgressBarModule(AppProgressBarModule(progressBar, mainScreenFrameLayout))
+            .appProgressBarModule(AppProgressBarModule(progressBarFrameLayout))
             .build()
         component.inject(this)
     }

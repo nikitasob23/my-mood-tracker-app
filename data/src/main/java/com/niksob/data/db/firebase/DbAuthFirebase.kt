@@ -2,30 +2,33 @@ package com.niksob.data.db.firebase
 
 import com.google.firebase.auth.FirebaseAuth
 import com.niksob.data.db.DbAuthStorage
-import com.niksob.domain.data.dto.AuthResponseDto
-import com.niksob.domain.data.dto.LoginDataDto
-
-const val SUCCESS_REASON = "Completed"
-const val FAILED_REASON = "Failed"
+import com.niksob.domain.data.dto.login.AuthResponseDto
+import com.niksob.domain.data.dto.login.LoginDataCallbackDto
+import com.niksob.domain.usecase.loginin.FAILED_REASON
+import com.niksob.domain.usecase.loginin.SUCCESS_REASON
 
 class DbAuthFirebase(
     private val auth: FirebaseAuth
 ) : DbAuthStorage {
-    override fun authorize(loginData: LoginDataDto): AuthResponseDto {
 
-        var response: AuthResponseDto? = null
+    override fun authorize(loginDataCallbackDto: LoginDataCallbackDto) {
 
-        auth.signInWithEmailAndPassword(loginData.email, loginData.password).addOnCompleteListener {
-            response = AuthResponseDto(
+        val email = loginDataCallbackDto.getLoginData().email
+        val password = loginDataCallbackDto.getLoginData().password
+
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
+            val response = AuthResponseDto(
                 success = true,
                 reason = SUCCESS_REASON
             )
+            loginDataCallbackDto.callback(response)
+
         }.addOnCanceledListener {
-            response = AuthResponseDto(
+            val response = AuthResponseDto(
                 success = false,
                 reason = FAILED_REASON
             )
+            loginDataCallbackDto.callback(response)
         }
-        return response!!
     }
 }

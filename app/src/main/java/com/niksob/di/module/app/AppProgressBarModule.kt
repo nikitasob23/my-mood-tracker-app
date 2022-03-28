@@ -1,4 +1,4 @@
-package com.niksob.di.module.activity
+package com.niksob.di.module.app
 
 import android.widget.FrameLayout
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar

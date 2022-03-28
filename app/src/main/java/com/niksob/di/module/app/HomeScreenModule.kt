@@ -1,4 +1,4 @@
-package com.niksob.di.module.activity
+package com.niksob.di.module.app
 
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.presentation.view.LoginView

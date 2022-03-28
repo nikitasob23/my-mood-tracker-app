@@ -5,8 +5,8 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.di.component.DaggerActivityComponent
-import com.niksob.di.module.activity.ActivityModule
-import com.niksob.di.module.activity.AppProgressBarModule
+import com.niksob.di.module.app.FragmentManagerModule
+import com.niksob.di.module.app.AppProgressBarModule
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenNavigation
 import javax.inject.Inject
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun inject() {
         val component = DaggerActivityComponent.builder()
-            .activityModule(ActivityModule(this))
+            .fragmentManagerModule(FragmentManagerModule(supportFragmentManager))
             .appProgressBarModule(AppProgressBarModule(progressBarFrameLayout))
             .build()
         component.inject(this)

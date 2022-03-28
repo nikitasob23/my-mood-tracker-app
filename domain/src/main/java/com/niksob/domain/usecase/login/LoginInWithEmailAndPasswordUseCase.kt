@@ -1,4 +1,4 @@
-package com.niksob.domain.usecase.loginin
+package com.niksob.domain.usecase.login
 
 import com.niksob.domain.data.dto.login.AuthResponseDto
 import com.niksob.domain.data.dto.login.LoginDataDto
@@ -9,22 +9,18 @@ import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.LoginDataCallback
 
 
-class LoginInUseCase(
+class LoginInWithEmailAndPasswordUseCase(
     private val repo: AuthRepository
 ) {
     fun execute(loginDataCallback: LoginDataCallback) {
 
-        val loginDataCallbackDto = object : LoginDataCallbackDto {
-            override fun getLoginData(): LoginDataDto {
-                val loginData = loginDataCallback.getLoginData()
-                return loginData.toDto()
-            }
+        val loginData = loginDataCallback.loginData
 
-            override fun callback(authResponseDto: AuthResponseDto) {
-                val response = authResponseDto.toAuthResponse()
-                loginDataCallback.callback(response)
-            }
+        val loginDataCallbackDto = LoginDataCallbackDto(loginData.toDto()) { authResponseDto ->
+            val response = authResponseDto.toAuthResponse()
+            loginDataCallback.callback(response)
         }
+
         repo.authorize(loginDataCallbackDto)
     }
 }

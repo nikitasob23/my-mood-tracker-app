@@ -7,10 +7,15 @@ import com.niksob.data.StringProvider
 import com.niksob.domain.model.AuthResponse
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.LoginDataCallback
-import com.niksob.domain.usecase.loginin.*
+import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.login.ValidateEmailUseCase
+import com.niksob.domain.usecase.login.ValidatePasswordUseCase
+
+
+private const val FAILED_REASON = "authorize_failed"
 
 class LoginInViewModel(
-    private val loginInUseCase: LoginInUseCase,
+    private val loginInWithEmailAndPasswordUseCase: LoginInWithEmailAndPasswordUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val stringProvider: StringProvider,
@@ -29,14 +34,9 @@ class LoginInViewModel(
             return
         }
 
-        val loginDataCallBack = object : LoginDataCallback {
-
-            override fun getLoginData() = loginData
-
-            override fun callback(response: AuthResponse) {
-                responseLive.value = response
-            }
+        val loginDataCallBack = LoginDataCallback(loginData) { response ->
+            responseLive.value = response
         }
-        loginInUseCase.execute(loginDataCallBack)
+        loginInWithEmailAndPasswordUseCase.execute(loginDataCallBack)
     }
 }

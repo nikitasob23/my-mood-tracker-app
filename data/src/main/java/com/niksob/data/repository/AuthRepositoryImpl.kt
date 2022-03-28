@@ -1,6 +1,6 @@
 package com.niksob.data.repository
 
-import com.niksob.data.db.DbAuthStorage
+import com.niksob.data.storage.db.DbAuthStorage
 import com.niksob.domain.data.dto.login.LoginDataCallbackDto
 import com.niksob.domain.data.repository.AuthRepository
 
@@ -10,5 +10,9 @@ class AuthRepositoryImpl(
 
     override fun authorize(callback: LoginDataCallbackDto) {
         storage.authorize(callback)
+    }
+
+    override fun register(callback: LoginDataCallbackDto) {
+        storage.register(callback)
     }
 }

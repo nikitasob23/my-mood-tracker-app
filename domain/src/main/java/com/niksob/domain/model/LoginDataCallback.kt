@@ -1,8 +1,6 @@
 package com.niksob.domain.model
 
-
-interface LoginDataCallback {
-    fun getLoginData(): LoginData
-
-    fun callback(response: AuthResponse)
-}
+data class LoginDataCallback(
+    val loginData: LoginData,
+    val callback: (AuthResponse) -> Unit,
+)

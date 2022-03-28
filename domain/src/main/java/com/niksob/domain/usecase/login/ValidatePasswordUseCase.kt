@@ -1,4 +1,4 @@
-package com.niksob.domain.usecase.loginin
+package com.niksob.domain.usecase.login
 
 import java.util.regex.Pattern
 

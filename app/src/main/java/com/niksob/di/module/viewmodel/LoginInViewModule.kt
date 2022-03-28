@@ -12,6 +12,7 @@ import com.niksob.domain.usecase.loginin.ValidateEmailUseCase
 import com.niksob.domain.usecase.loginin.ValidatePasswordUseCase
 import com.niksob.presentation.viewmodel.LoginInViewModel
 import com.niksob.presentation.viewmodel.factory.LoginInViewModelFactory
+import com.niksob.utils.AndroidStringProvider
 import dagger.Module
 import dagger.Provides
 
@@ -35,6 +36,7 @@ class LoginInViewModule(
         loginInUseCase: LoginInUseCase,
         validateEmailUseCase: ValidateEmailUseCase,
         validatePasswordUseCase: ValidatePasswordUseCase,
+        stringProvider: StringProvider,
     ): ViewModelProvider.Factory =
         LoginInViewModelFactory(loginInUseCase, validateEmailUseCase, validatePasswordUseCase)
 
@@ -45,7 +47,16 @@ class LoginInViewModule(
     fun provideAuthRepository(storage: DbAuthStorage): AuthRepository = AuthRepositoryImpl(storage)
 
     @Provides
-    fun provideDbAuthStorage(auth: FirebaseAuth): DbAuthStorage = DbAuthFirebase(auth)
+    fun provideDbAuthStorage(
+        auth: FirebaseAuth,
+        stringStorage: StringStorage
+    ): DbAuthStorage = DbAuthFirebase(auth, stringStorage)
+
+    @Provides
+    fun provideStringStorage(provider: StringProvider) = StringStorage(provider)
+
+    @Provides
+    fun provideStringProvider(context: Context): StringProvider = AndroidStringProvider(context)
 
     @Provides
     fun provideValidateEmailUseCase() = ValidateEmailUseCase()

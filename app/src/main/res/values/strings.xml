@@ -31,6 +31,9 @@
     <string name="notification_remove_preference_key">notification_remove</string>
     <string name="log_out_preference_key">log_out</string>
 
+    <string name="authorize_completed">Authorize completed</string>
+    <string name="authorize_failed">Authorize failed</string>
+
     <string name="new_notification_button_text">Add new notification</string>
 
     <string name="edit">Edit</string>

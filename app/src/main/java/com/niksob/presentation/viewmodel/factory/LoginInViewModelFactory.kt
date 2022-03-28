@@ -12,6 +12,7 @@ class LoginInViewModelFactory(
     private val loginInUseCase: LoginInUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
+    private val stringProvider: StringProvider,
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -19,6 +20,7 @@ class LoginInViewModelFactory(
             loginInUseCase,
             validateEmailUseCase,
             validatePasswordUseCase,
+            stringProvider,
         ) as T
     }
 }

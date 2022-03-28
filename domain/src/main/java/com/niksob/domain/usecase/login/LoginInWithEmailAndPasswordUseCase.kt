@@ -8,8 +8,6 @@ import com.niksob.domain.model.AuthResponse
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.LoginDataCallback
 
-const val SUCCESS_REASON = "Successful authorize"
-const val FAILED_REASON = "Failed authorize"
 
 class LoginInUseCase(
     private val repo: AuthRepository

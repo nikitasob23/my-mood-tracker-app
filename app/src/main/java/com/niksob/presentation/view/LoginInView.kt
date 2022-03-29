@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.component.DaggerLoginInViewModelComponent
+import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.viewmodel.LoginInViewModule
 import com.niksob.domain.model.AuthResponse
 import com.niksob.domain.model.LoginData
@@ -41,6 +42,7 @@ class LoginInView : BaseView() {
 
     private fun inject() {
         DaggerLoginInViewModelComponent.builder()
+            .contextModule(ContextModule(requireContext().applicationContext))
             .loginInViewModule(LoginInViewModule(viewModelStoreOwner = this))
             .build()
             .inject(this)

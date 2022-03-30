@@ -2,5 +2,5 @@ package com.niksob.domain.data.dto.login
 
 data class LoginDataCallbackDto(
     val loginData: LoginDataDto,
-    val callback: (AuthResponseDto) -> Unit,
+    val callback: AuthCallbackDto,
 )

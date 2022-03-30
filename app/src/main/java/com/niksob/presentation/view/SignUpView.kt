@@ -54,11 +54,11 @@ class SignUpView : BaseView() {
 
             makeAuthStatusToast(authResponse)
 
-            progressBar?.hideProgress()
-
             if (authResponse.success) {
-                navigation?.goToNextView(EntriesView())
+                navigation?.goToNextView(EntriesView(uid = authResponse.uid!!))
             }
+
+            progressBar?.hideProgress()
         }
     }
 

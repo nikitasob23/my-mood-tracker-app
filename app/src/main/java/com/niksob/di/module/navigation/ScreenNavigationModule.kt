@@ -1,6 +1,8 @@
 package com.niksob.di.module.navigation
 
 import androidx.fragment.app.FragmentManager
+import com.niksob.di.module.app.AppProgressBarModule
+import com.niksob.di.module.app.FragmentManagerModule
 import com.niksob.presentation.navigation.FragmentNavigation
 import com.niksob.presentation.navigation.FragmentSetter
 import com.niksob.domain.navigation.ScreenNavigation
@@ -11,7 +13,7 @@ import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(includes = [FragmentManagerModule::class, AppProgressBarModule::class])
 class ScreenNavigationModule {
 
     @Provides

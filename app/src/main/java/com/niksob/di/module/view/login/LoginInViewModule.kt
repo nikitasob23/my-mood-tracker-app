@@ -3,6 +3,8 @@ package com.niksob.di.module.view.login
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.data.StringProvider
+import com.niksob.di.module.repository.AuthRepositoryModule
+import com.niksob.di.module.storage.StringStorageModule
 import com.niksob.domain.data.repository.AuthRepository
 import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
@@ -12,7 +14,7 @@ import com.niksob.presentation.viewmodel.factory.LoginInViewModelFactory
 import dagger.Module
 import dagger.Provides
 
-@Module
+@Module(includes = [AuthRepositoryModule::class, LoginValidationModule::class, StringStorageModule::class])
 class LoginInViewModule(
     private val viewModelStoreOwner: ViewModelStoreOwner,
 ) {

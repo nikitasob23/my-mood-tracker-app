@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.data.StringProvider
+import com.niksob.domain.model.AuthCallback
 import com.niksob.domain.model.AuthResponse
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.LoginDataCallback
@@ -33,9 +34,9 @@ class SignUpViewModel(
             return
         }
 
-        val loginDataCallback = LoginDataCallback(loginData) { response ->
+        val loginDataCallback = LoginDataCallback(loginData, AuthCallback { response ->
             responseLive.value = response
-        }
+        })
         loginUpWithEmailAndPasswordUseCase.execute(loginDataCallback)
     }
 }

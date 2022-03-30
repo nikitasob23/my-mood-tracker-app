@@ -21,8 +21,11 @@ class LoginView : BaseView() {
     }
 
     private fun initComponents() {
-        rootView.findViewById<AppCompatButton>(R.id.view_login__login_button).setOnClickListener {
+        rootView.findViewById<AppCompatButton>(R.id.login_view__login_in_button).setOnClickListener {
             navigation?.goToNextView(LoginInView())
+        }
+        rootView.findViewById<AppCompatButton>(R.id.login_view__sign_up_button).setOnClickListener {
+            navigation?.goToNextView(SignUpView())
         }
     }
 }

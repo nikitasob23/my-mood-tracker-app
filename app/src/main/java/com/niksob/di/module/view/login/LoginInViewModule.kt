@@ -1,21 +1,14 @@
-package com.niksob.di.module.viewmodel
+package com.niksob.di.module.view.login
 
-import android.content.Context
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.google.firebase.auth.FirebaseAuth
-import com.niksob.data.repository.AuthRepositoryImpl
-import com.niksob.data.storage.db.DbAuthStorage
-import com.niksob.data.storage.db.firebase.DbAuthFirebase
 import com.niksob.data.StringProvider
-import com.niksob.data.storage.string.StringStorage
 import com.niksob.domain.data.repository.AuthRepository
 import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase
 import com.niksob.presentation.viewmodel.LoginInViewModel
 import com.niksob.presentation.viewmodel.factory.LoginInViewModelFactory
-import com.niksob.utils.AndroidStringProvider
 import dagger.Module
 import dagger.Provides
 
@@ -23,9 +16,8 @@ import dagger.Provides
 class LoginInViewModule(
     private val viewModelStoreOwner: ViewModelStoreOwner,
 ) {
-
     @Provides
-    fun provideLoginViewModel(
+    fun provideLoginInViewModel(
         viewModelFactory: ViewModelProvider.Factory,
         viewModelClass: Class<LoginInViewModel>
     ) =
@@ -45,25 +37,4 @@ class LoginInViewModule(
 
     @Provides
     fun provideLoginInUseCase(repo: AuthRepository) = LoginInWithEmailAndPasswordUseCase(repo)
-
-    @Provides
-    fun provideAuthRepository(storage: DbAuthStorage): AuthRepository = AuthRepositoryImpl(storage)
-
-    @Provides
-    fun provideDbAuthStorage(
-        auth: FirebaseAuth,
-        stringStorage: StringStorage
-    ): DbAuthStorage = DbAuthFirebase(auth, stringStorage)
-
-    @Provides
-    fun provideStringStorage(provider: StringProvider) = StringStorage(provider)
-
-    @Provides
-    fun provideStringProvider(context: Context): StringProvider = AndroidStringProvider(context)
-
-    @Provides
-    fun provideValidateEmailUseCase() = ValidateEmailUseCase()
-
-    @Provides
-    fun provideValidatePasswordUseCase() = ValidatePasswordUseCase()
 }

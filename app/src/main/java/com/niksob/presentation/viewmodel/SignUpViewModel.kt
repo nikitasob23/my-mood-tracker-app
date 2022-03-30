@@ -7,15 +7,14 @@ import com.niksob.data.StringProvider
 import com.niksob.domain.model.AuthResponse
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.LoginDataCallback
-import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.login.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase
 
-
 private const val FAILED_REASON = "registration_failed"
 
-class LoginInViewModel(
-    private val loginInWithEmailAndPasswordUseCase: LoginInWithEmailAndPasswordUseCase,
+class SignUpViewModel(
+    private val loginUpWithEmailAndPasswordUseCase: SignUpWithEmailAndPasswordUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val stringProvider: StringProvider,
@@ -25,7 +24,7 @@ class LoginInViewModel(
 
     val response: LiveData<AuthResponse> = responseLive
 
-    fun doLoginIn(loginData: LoginData) {
+    fun doLoginUp(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
             responseLive.value = AuthResponse(
                 success = false,
@@ -34,9 +33,9 @@ class LoginInViewModel(
             return
         }
 
-        val loginDataCallBack = LoginDataCallback(loginData) { response ->
+        val loginDataCallback = LoginDataCallback(loginData) { response ->
             responseLive.value = response
         }
-        loginInWithEmailAndPasswordUseCase.execute(loginDataCallBack)
+        loginUpWithEmailAndPasswordUseCase.execute(loginDataCallback)
     }
 }

@@ -8,21 +8,20 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import com.niksob.di.component.DaggerLoginInViewComponent
+import com.niksob.di.component.DaggerSignUpViewComponent
+import com.niksob.di.module.view.login.SignUpViewModule
 import com.niksob.di.module.app.ContextModule
-import com.niksob.di.module.view.login.LoginInViewModule
 import com.niksob.domain.model.AuthResponse
 import com.niksob.domain.model.LoginData
 import com.niksob.presentation.R
-import com.niksob.presentation.viewmodel.LoginInViewModel
+import com.niksob.presentation.viewmodel.SignUpViewModel
 import javax.inject.Inject
 
-class LoginInView : BaseView() {
-
-    override val layout = R.layout.login_view_in
+class SignUpView : BaseView() {
+    override val layout = R.layout.sign_up_view
 
     @Inject
-    lateinit var viewModel: LoginInViewModel
+    lateinit var viewModel: SignUpViewModel
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -41,17 +40,17 @@ class LoginInView : BaseView() {
     }
 
     private fun inject() {
-        DaggerLoginInViewComponent.builder()
-            .contextModule(ContextModule(requireContext().applicationContext))
-            .loginInViewModule(LoginInViewModule(viewModelStoreOwner = this))
+        DaggerSignUpViewComponent.builder()
+            .contextModule(ContextModule(context = requireContext().applicationContext))
+            .signUpViewModule(SignUpViewModule(viewModelStoreOwner = this))
             .build()
             .inject(this)
     }
 
     private fun initViewModelObserver() {
         viewModel.response.observe(viewLifecycleOwner) { authResponse ->
-            Log.d(this@LoginInView.javaClass.simpleName, "Authorize: success = ${authResponse.success}; "
-                        + "reason = ${authResponse.reason}")
+            Log.d(this@SignUpView.javaClass.simpleName, "Registration: success = ${authResponse.success}; "
+                    + "reason = ${authResponse.reason}")
 
             makeAuthStatusToast(authResponse)
 
@@ -68,18 +67,17 @@ class LoginInView : BaseView() {
     }
 
     private fun initComponents() {
-        emailEditText = rootView.findViewById(R.id.login_in_view__email_et)
-        passwordEditText = rootView.findViewById(R.id.login_in_view__password_et)
+        emailEditText = rootView.findViewById(R.id.sign_up_view__email_et)
+        passwordEditText = rootView.findViewById(R.id.login_up_view__password_et)
 
-        rootView.findViewById<AppCompatButton>(R.id.login_in_view___login_in_button).setOnClickListener {
+        rootView.findViewById<AppCompatButton>(R.id.sign_up_view___login_up_button).setOnClickListener {
             progressBar?.showProgress()
 
             val loginData = LoginData(
                 email = emailEditText.text.toString(),
                 password = passwordEditText.text.toString()
             )
-            viewModel.doLoginIn(loginData)
+            viewModel.doLoginUp(loginData)
         }
     }
 }
-

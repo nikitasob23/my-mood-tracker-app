@@ -35,6 +35,8 @@
     <string name="authorize_failed">Authorize failed</string>
     <string name="registration_completed">Registration completed</string>
     <string name="registration_failed">Registration failed</string>
+    <string name="success_user_addition">Success user addition</string>
+    <string name="failed_user_addition">Failed user addition</string>
 
     <string name="new_notification_button_text">Add new notification</string>
 

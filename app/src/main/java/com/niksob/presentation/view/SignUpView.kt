@@ -11,13 +11,14 @@ import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.component.DaggerSignUpViewComponent
 import com.niksob.di.module.view.login.SignUpViewModule
 import com.niksob.di.module.app.ContextModule
-import com.niksob.domain.model.AuthResponse
-import com.niksob.domain.model.LoginData
+import com.niksob.domain.model.db.User
+import com.niksob.domain.model.login.LoginData
 import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.SignUpViewModel
 import javax.inject.Inject
 
 class SignUpView : BaseView() {
+
     override val layout = R.layout.sign_up_view
 
     @Inject
@@ -33,8 +34,8 @@ class SignUpView : BaseView() {
         super.onCreateView(inflater, container, savedInstanceState)
 
         inject()
-        initViewModelObserver()
         initComponents()
+        initViewModelObservers()
 
         return rootView
     }
@@ -47,12 +48,23 @@ class SignUpView : BaseView() {
             .inject(this)
     }
 
-    private fun initViewModelObserver() {
-        viewModel.response.observe(viewLifecycleOwner) { authResponse ->
+    private fun initViewModelObservers() {
+        initAuthResponseObserver()
+        initAdditionUserResponseObserver()
+    }
+
+    private fun initAuthResponseObserver() {
+        viewModel.authResponse.observe(viewLifecycleOwner) { authResponse ->
             Log.d(this@SignUpView.javaClass.simpleName, "Registration: success = ${authResponse.success}; "
                     + "reason = ${authResponse.reason}")
 
-            makeAuthStatusToast(authResponse)
+            makeAuthStatusToast(authResponse.reason)
+
+            val user = User(
+                id = authResponse.uid!!,
+                email = emailEditText.text.toString(),
+            )
+            viewModel.addUser(user)
 
             if (authResponse.success) {
                 navigation?.goToNextView(EntriesView(uid = authResponse.uid!!))
@@ -62,8 +74,17 @@ class SignUpView : BaseView() {
         }
     }
 
-    private fun makeAuthStatusToast(authResponse: AuthResponse) {
-        Toast.makeText(activity?.applicationContext, authResponse.reason, Toast.LENGTH_SHORT).show()
+    private fun initAdditionUserResponseObserver() {
+        viewModel.userAdditionResponse.observe(viewLifecycleOwner) { response ->
+            Log.d(this@SignUpView.javaClass.simpleName, "Addition user: success = ${response.success}; "
+                    + "reason = ${response.reason}")
+
+            makeAuthStatusToast(response.reason)
+        }
+    }
+
+    private fun makeAuthStatusToast(text: String) {
+        Toast.makeText(activity?.applicationContext, text, Toast.LENGTH_SHORT).show()
     }
 
     private fun initComponents() {

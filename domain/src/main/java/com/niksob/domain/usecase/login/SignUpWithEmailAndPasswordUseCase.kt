@@ -3,7 +3,7 @@ package com.niksob.domain.usecase.login
 import com.niksob.domain.data.dto.login.AuthCallbackDto
 import com.niksob.domain.data.dto.login.LoginDataCallbackDto
 import com.niksob.domain.data.repository.AuthRepository
-import com.niksob.domain.model.LoginDataCallback
+import com.niksob.domain.model.login.LoginDataCallback
 
 class SignUpWithEmailAndPasswordUseCase(
     private val repo: AuthRepository

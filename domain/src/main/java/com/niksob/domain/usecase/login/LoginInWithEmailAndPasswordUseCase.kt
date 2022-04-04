@@ -5,9 +5,9 @@ import com.niksob.domain.data.dto.login.AuthResponseDto
 import com.niksob.domain.data.dto.login.LoginDataDto
 import com.niksob.domain.data.dto.login.LoginDataCallbackDto
 import com.niksob.domain.data.repository.AuthRepository
-import com.niksob.domain.model.AuthResponse
-import com.niksob.domain.model.LoginData
-import com.niksob.domain.model.LoginDataCallback
+import com.niksob.domain.model.login.AuthResponse
+import com.niksob.domain.model.login.LoginData
+import com.niksob.domain.model.login.LoginDataCallback
 
 
 class LoginInWithEmailAndPasswordUseCase(

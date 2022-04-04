@@ -3,8 +3,8 @@ package com.niksob.presentation.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.niksob.domain.model.AuthCallback
-import com.niksob.domain.model.AuthResponse
+import com.niksob.domain.model.login.AuthCallback
+import com.niksob.domain.model.login.AuthResponse
 import com.niksob.domain.usecase.login.LoadAuthorizeUserIdUseCase
 
 class LoginViewModel(

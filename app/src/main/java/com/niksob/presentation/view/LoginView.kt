@@ -10,7 +10,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.view.login.LoginViewModule
 import com.niksob.di.component.DaggerLoginViewComponent
-import com.niksob.domain.model.AuthResponse
+import com.niksob.domain.model.login.AuthResponse
 import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.LoginViewModel
 import javax.inject.Inject

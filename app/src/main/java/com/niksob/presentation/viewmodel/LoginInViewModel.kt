@@ -4,10 +4,10 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.data.StringProvider
-import com.niksob.domain.model.AuthCallback
-import com.niksob.domain.model.AuthResponse
-import com.niksob.domain.model.LoginData
-import com.niksob.domain.model.LoginDataCallback
+import com.niksob.domain.model.login.AuthCallback
+import com.niksob.domain.model.login.AuthResponse
+import com.niksob.domain.model.login.LoginData
+import com.niksob.domain.model.login.LoginDataCallback
 import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase

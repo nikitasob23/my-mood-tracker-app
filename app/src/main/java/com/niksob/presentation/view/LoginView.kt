@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
 import com.niksob.presentation.R
+import javax.inject.Inject
 
-class LoginView : BaseView() {
+class LoginView @Inject constructor() : BaseView() {
 
     override val layout = R.layout.login_view
 

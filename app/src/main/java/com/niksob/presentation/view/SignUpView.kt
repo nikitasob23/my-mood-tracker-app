@@ -17,7 +17,7 @@ import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.SignUpViewModel
 import javax.inject.Inject
 
-class SignUpView : BaseView() {
+class SignUpView @Inject constructor() : BaseView() {
 
     override val layout = R.layout.sign_up_view
 
@@ -74,7 +74,7 @@ class SignUpView : BaseView() {
 
             viewModel.addUser(user)
 
-            navigation?.goToNextView(EntriesView(user.id))
+            navigation?.goToNextView(SignOutTestView(user.id))
             progressBar?.hideProgress()
         }
     }

@@ -1,4 +1,4 @@
-package com.niksob.di.module.view.login
+package com.niksob.di.module.usecase.login
 
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase

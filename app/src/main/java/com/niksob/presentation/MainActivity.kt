@@ -10,10 +10,10 @@ import com.niksob.di.module.app.FragmentManagerModule
 import com.niksob.di.module.app.AppProgressBarModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.app.MainActivityViewModule
-import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.presentation.view.LoginView
 import com.niksob.presentation.view.SignOutTestView
+import com.niksob.presentation.view.SignUpView
 import com.niksob.presentation.viewmodel.MainActivityViewModel
 import javax.inject.Inject
 
@@ -29,7 +29,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainProgressBar: AppProgressBar
 
     @Inject
-    lateinit var homeScreen: NavigationableScreen
+    lateinit var loginView: LoginView
 
     private lateinit var progressBarFrameLayout: FrameLayout
 
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
             if (response.completed) {
                 navigation.goToNextView(SignOutTestView(uid!!))
             } else {
-                navigation.goToNextView(LoginView())
+                navigation.goToNextView(loginView)
             }
 
             mainProgressBar.hideProgress()

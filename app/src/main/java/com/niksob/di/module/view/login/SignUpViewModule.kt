@@ -3,11 +3,10 @@ package com.niksob.di.module.view.login
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.data.StringProvider
-import com.niksob.di.module.repository.AuthRepositoryModule
-import com.niksob.di.module.repository.UserRepositoryModule
 import com.niksob.di.module.storage.StringStorageModule
-import com.niksob.domain.data.repository.AuthRepository
-import com.niksob.domain.data.repository.UserRepository
+import com.niksob.di.module.usecase.AddUserUseCaseModule
+import com.niksob.di.module.usecase.login.LoginValidationModule
+import com.niksob.di.module.usecase.login.SignUpWithEmailAndPasswordUseCaseModule
 import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.login.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
@@ -19,9 +18,8 @@ import dagger.Provides
 
 @Module(
     includes = [
-        AuthRepositoryModule::class,
-        UserRepositoryModule::class,
-        LoadAuthorizeUserIdUseCaseModule::class,
+        SignUpWithEmailAndPasswordUseCaseModule::class,
+        AddUserUseCaseModule::class,
         LoginValidationModule::class,
         StringStorageModule::class,
     ]
@@ -41,23 +39,17 @@ class SignUpViewModule(
 
     @Provides
     fun provideViewModelFactory(
-        loginUpUseCase: SignUpWithEmailAndPasswordUseCase,
+        signUpUseCase: SignUpWithEmailAndPasswordUseCase,
         addUserUseCase: AddUserUseCase,
         validateEmailUseCase: ValidateEmailUseCase,
         validatePasswordUseCase: ValidatePasswordUseCase,
         stringProvider: StringProvider,
     ): ViewModelProvider.Factory =
         SignUpViewModelFactory(
-            loginUpUseCase,
+            signUpUseCase,
             addUserUseCase,
             validateEmailUseCase,
             validatePasswordUseCase,
             stringProvider
         )
-
-    @Provides
-    fun provideSignUpUseCase(repo: AuthRepository) = SignUpWithEmailAndPasswordUseCase(repo)
-
-    @Provides
-    fun provideAddUserUseCase(repo: UserRepository) = AddUserUseCase(repo)
 }

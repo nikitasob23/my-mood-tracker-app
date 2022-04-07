@@ -2,7 +2,7 @@ package com.niksob.di.module.app
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.di.module.usecase.LoadAuthorizeUserIdUseCaseModule
+import com.niksob.di.module.usecase.login.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.login.LoadAuthorizeUserIdUseCase
 import com.niksob.presentation.viewmodel.MainActivityViewModel
 import com.niksob.presentation.viewmodel.factory.MainViewModelFactory

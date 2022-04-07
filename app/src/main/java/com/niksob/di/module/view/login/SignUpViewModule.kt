@@ -21,6 +21,7 @@ import dagger.Provides
     includes = [
         AuthRepositoryModule::class,
         UserRepositoryModule::class,
+        LoadAuthorizeUserIdUseCaseModule::class,
         LoginValidationModule::class,
         StringStorageModule::class,
     ]

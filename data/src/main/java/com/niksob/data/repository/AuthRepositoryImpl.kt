@@ -1,23 +1,27 @@
 package com.niksob.data.repository
 
 import com.niksob.data.storage.db.DbAuthStorage
-import com.niksob.domain.data.dto.login.AuthCallbackDto
-import com.niksob.domain.data.dto.login.LoginDataCallbackDto
 import com.niksob.domain.data.repository.AuthRepository
+import com.niksob.domain.model.Callback
+import com.niksob.domain.model.Query
 
 class AuthRepositoryImpl(
     private val storage: DbAuthStorage
 ) : AuthRepository {
 
-    override fun authorize(callback: LoginDataCallbackDto) {
-        storage.authorize(callback)
+    override fun authorize(query: Query) {
+        storage.authorize(query)
     }
 
-    override fun register(callback: LoginDataCallbackDto) {
-        storage.register(callback)
+    override fun register(query: Query) {
+        storage.register(query)
     }
 
-    override fun loadAuthorizeUserId(callback: AuthCallbackDto) {
-        storage.loadAuthorizeUserId(callback)
+    override fun loginOut(callback: Callback<Query>) {
+        storage.signOut(callback)
+    }
+
+    override fun loadAuthorizeUserId(query: Query) {
+        storage.loadAuthorizeUserId(query)
     }
 }

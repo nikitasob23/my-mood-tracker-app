@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="40dp"
                 android:background="@drawable/rounded_corners"
-                android:text="@string/login_up"
+                android:text="@string/sign_up"
 
                 android:textColor="@color/light_blue"
                 app:layout_constraintBottom_toBottomOf="parent"

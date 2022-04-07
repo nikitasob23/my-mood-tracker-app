@@ -1,8 +1,8 @@
 package com.niksob.domain.data.repository
 
-import com.niksob.domain.data.dto.db.UserCallbackDto
+import com.niksob.domain.model.Query
 
 interface UserRepository {
 
-    fun add(userCallback: UserCallbackDto)
+    fun add(query: Query)
 }

@@ -1,20 +1,27 @@
 package com.niksob.domain.usecase.login
 
-import com.niksob.domain.data.dto.login.AuthCallbackDto
 import com.niksob.domain.data.repository.AuthRepository
-import com.niksob.domain.model.login.AuthCallback
+import com.niksob.domain.model.Callback
+import com.niksob.domain.model.Query
 
 class LoadAuthorizeUserIdUseCase(
     private val authRepo: AuthRepository
 ) {
 
-    fun execute(callback: AuthCallback) {
+    fun execute(query: Query) {
 
-        val callbackDto = AuthCallbackDto { responseDto ->
+        val queryCallback = query.callback
 
-            val response = responseDto.toAuthResponse()
-            callback.invoke(response)
-        }
-        authRepo.loadAuthorizeUserId(callbackDto)
+        val queryDto = Query(
+            callback = Callback { queryDto ->
+                val newQuery = Query(
+                    data = queryDto.data,
+                    completed = queryDto.completed,
+                    reason = queryDto.reason,
+                )
+                queryCallback?.call?.invoke(newQuery)
+            }
+        )
+        authRepo.loadAuthorizeUserId(queryDto)
     }
 }

@@ -1,12 +1,15 @@
 package com.niksob.domain.data.repository
 
-import com.niksob.domain.data.dto.login.AuthCallbackDto
-import com.niksob.domain.data.dto.login.LoginDataCallbackDto
+import com.niksob.domain.model.Callback
+import com.niksob.domain.model.Query
 
 interface AuthRepository {
-    fun authorize(callback: LoginDataCallbackDto)
+    fun authorize(query: Query)
 
-    fun register(callback: LoginDataCallbackDto)
+    fun register(query: Query)
 
-    fun loadAuthorizeUserId(callback: AuthCallbackDto)
+    fun loginOut(callback: Callback<Query>)
+
+    fun loadAuthorizeUserId(query: Query)
+
 }

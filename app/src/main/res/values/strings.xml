@@ -35,6 +35,8 @@
     <string name="authorize_failed">Authorize failed</string>
     <string name="registration_completed">Registration completed</string>
     <string name="registration_failed">Registration failed</string>
+    <string name="sign_out_completed">Sign out completed</string>
+    <string name="sign_out_failed">Sign out failed</string>
     <string name="success_user_addition">Success user addition</string>
     <string name="failed_user_addition">Failed user addition</string>
 
@@ -195,5 +197,5 @@
     <string name="neutral_color_preference_key" translatable="false">neutral_color_preference_key</string>
     <string name="bad_color_preference_key" translatable="false">bad_color_preference_key</string>
     <string name="very_bad_color_preference_key" translatable="false">very_bad_color_preference_key</string>
-    <string name="login_up">login up</string>
+    <string name="sign_out">Sign out</string>
 </resources>

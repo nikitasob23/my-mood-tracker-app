@@ -14,7 +14,7 @@ class FragmentNavigation(
 ) : ScreenNavigation {
 
     override fun goToNextView(screen: NavigationableScreen) {
-        Log.d(this::class.simpleName, "goToView() started")
+        Log.d(this::class.simpleName, "Go to view: ${screen.javaClass.simpleName}")
         screen.attachNavigation(this)
         screen.attachAppProgressBar(progressBar)
         setFragmentUseCase.execute(screen)

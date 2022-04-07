@@ -4,10 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.data.StringProvider
-import com.niksob.domain.model.login.AuthCallback
-import com.niksob.domain.model.login.AuthResponse
-import com.niksob.domain.model.login.LoginData
-import com.niksob.domain.model.login.LoginDataCallback
+import com.niksob.domain.model.Callback
+import com.niksob.domain.model.Query
+import com.niksob.domain.model.LoginData
 import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase
@@ -22,22 +21,28 @@ class LoginInViewModel(
     private val stringProvider: StringProvider,
 ) : ViewModel() {
 
-    private val responseLive = MutableLiveData<AuthResponse>()
+    private val queryLive = MutableLiveData<Query>()
 
-    val response: LiveData<AuthResponse> = responseLive
+    val query: LiveData<Query> = queryLive
 
     fun doLoginIn(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
-            responseLive.value = AuthResponse(
-                success = false,
+
+            queryLive.value = Query(
+                data = loginData,
+                completed = false,
                 reason = stringProvider.getString(FAILED_REASON)
             )
             return
         }
 
-        val loginDataCallBack = LoginDataCallback(loginData, AuthCallback { response ->
-            responseLive.value = response
-        })
-        loginInWithEmailAndPasswordUseCase.execute(loginDataCallBack)
+        val query = Query(
+            data = loginData,
+            callback = Callback { query ->
+                queryLive.value = query
+            }
+        )
+
+        loginInWithEmailAndPasswordUseCase.execute(query)
     }
 }

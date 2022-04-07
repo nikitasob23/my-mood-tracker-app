@@ -1,27 +1,33 @@
 package com.niksob.domain.usecase.db
 
-import com.niksob.domain.data.dto.db.UserCallbackDto
 import com.niksob.domain.data.repository.UserRepository
 import com.niksob.domain.model.Callback
-import com.niksob.domain.model.db.UserCallback
+import com.niksob.domain.model.Query
+import com.niksob.domain.model.User
 
 class AddUserUseCase(
     private val userRepo: UserRepository
 ) {
 
-    fun execute(userCallback: UserCallback) {
-        val user = userCallback.user
-        val callback = userCallback.callback
+    fun execute(query: Query) {
 
-        val userCallbackDto = UserCallbackDto(
-            user.toDto(),
-            Callback { responseDto ->
+        val userQueryCallback = query.callback
 
-                val response = responseDto.fromDto()
-                callback.invoke(response)
+        val queryDto = Query(
+            data = (query.data as User).toDto(),
+            callback = Callback { queryDto ->
+
+                val user = queryDto.data?.let { queryDto.data as User }
+
+                val newQuery = Query(
+                    data = user?.fromDto(),
+                    completed = queryDto.completed,
+                    reason = queryDto.reason,
+                )
+                userQueryCallback?.call?.invoke(newQuery)
             }
         )
 
-        userRepo.add(userCallbackDto)
+        userRepo.add(queryDto)
     }
 }

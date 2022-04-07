@@ -11,8 +11,8 @@ import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.component.DaggerSignUpViewComponent
 import com.niksob.di.module.view.login.SignUpViewModule
 import com.niksob.di.module.app.ContextModule
-import com.niksob.domain.model.db.User
-import com.niksob.domain.model.login.LoginData
+import com.niksob.domain.model.User
+import com.niksob.domain.model.LoginData
 import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.SignUpViewModel
 import javax.inject.Inject
@@ -26,6 +26,8 @@ class SignUpView : BaseView() {
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
+
+    private var userEmail: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,32 +56,40 @@ class SignUpView : BaseView() {
     }
 
     private fun initAuthResponseObserver() {
-        viewModel.authResponse.observe(viewLifecycleOwner) { authResponse ->
-            Log.d(this@SignUpView.javaClass.simpleName, "Registration: success = ${authResponse.success}; "
-                    + "reason = ${authResponse.reason}")
+        viewModel.authQuery.observe(viewLifecycleOwner) { query ->
+            Log.d(this@SignUpView.javaClass.simpleName, "Registration: success = ${query.completed}; "
+                        + "reason = ${query.reason}")
 
-            makeAuthStatusToast(authResponse.reason)
-
-            val user = User(
-                id = authResponse.uid!!,
-                email = emailEditText.text.toString(),
-            )
-            viewModel.addUser(user)
-
-            if (authResponse.success) {
-                navigation?.goToNextView(EntriesView(uid = authResponse.uid!!))
+            if (!query.completed) {
+                onCanceledLoadData(query.reason)
+                return@observe
             }
 
+            makeAuthStatusToast(query.reason)
+
+            val user = User(
+                id = query.data as String,
+                email = userEmail,
+            )
+
+            viewModel.addUser(user)
+
+            navigation?.goToNextView(EntriesView(user.id))
             progressBar?.hideProgress()
         }
     }
 
     private fun initAdditionUserResponseObserver() {
-        viewModel.userAdditionResponse.observe(viewLifecycleOwner) { response ->
-            Log.d(this@SignUpView.javaClass.simpleName, "Addition user: success = ${response.success}; "
-                    + "reason = ${response.reason}")
+        viewModel.userAdditionQuery.observe(viewLifecycleOwner) { query ->
+            Log.d(this@SignUpView.javaClass.simpleName, "Addition user: success = ${query.completed}; "
+                        + "reason = ${query.reason}")
 
-            makeAuthStatusToast(response.reason)
+            if (!query.completed) {
+                onCanceledLoadData(query.reason)
+                return@observe
+            }
+
+            progressBar?.hideProgress()
         }
     }
 
@@ -94,11 +104,19 @@ class SignUpView : BaseView() {
         rootView.findViewById<AppCompatButton>(R.id.sign_up_view___login_up_button).setOnClickListener {
             progressBar?.showProgress()
 
+            userEmail = emailEditText.text.toString()
+
             val loginData = LoginData(
-                email = emailEditText.text.toString(),
+                email = userEmail,
                 password = passwordEditText.text.toString()
             )
             viewModel.doLoginUp(loginData)
         }
+    }
+
+    private fun onCanceledLoadData(toastText: String) {
+        makeAuthStatusToast(toastText)
+        userEmail = ""
+        progressBar?.hideProgress()
     }
 }

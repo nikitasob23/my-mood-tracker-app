@@ -11,8 +11,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.component.DaggerLoginInViewComponent
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.view.login.LoginInViewModule
-import com.niksob.domain.model.login.AuthResponse
-import com.niksob.domain.model.login.LoginData
+import com.niksob.domain.model.LoginData
 import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.LoginInViewModel
 import javax.inject.Inject
@@ -28,7 +27,8 @@ class LoginInView : BaseView() {
     private lateinit var passwordEditText: EditText
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -49,22 +49,23 @@ class LoginInView : BaseView() {
     }
 
     private fun initViewModelObserver() {
-        viewModel.response.observe(viewLifecycleOwner) { authResponse ->
-            Log.d(this@LoginInView.javaClass.simpleName, "Authorize: success = ${authResponse.success}; "
-                        + "reason = ${authResponse.reason}")
+        viewModel.query.observe(viewLifecycleOwner) { query ->
+            Log.d(this@LoginInView.javaClass.simpleName, "Authorize: success = ${query.completed}; "
+                        + "reason = ${query.reason}")
 
-            makeAuthStatusToast(authResponse)
+            makeAuthStatusToast(query.reason)
 
-            if (authResponse.success) {
-                navigation?.goToNextView(EntriesView(uid = authResponse.uid!!))
+            if (query.completed) {
+                val uid = query.data as String
+                navigation?.goToNextView(SignOutTestView(uid))
             }
 
             progressBar?.hideProgress()
         }
     }
 
-    private fun makeAuthStatusToast(authResponse: AuthResponse) {
-        Toast.makeText(activity?.applicationContext, authResponse.reason, Toast.LENGTH_SHORT).show()
+    private fun makeAuthStatusToast(text: String) {
+        Toast.makeText(activity?.applicationContext, text, Toast.LENGTH_SHORT).show()
     }
 
     private fun initComponents() {

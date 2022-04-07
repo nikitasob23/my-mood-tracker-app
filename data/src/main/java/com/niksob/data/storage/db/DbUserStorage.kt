@@ -1,7 +1,7 @@
 package com.niksob.data.storage.db
 
-import com.niksob.domain.data.dto.db.UserCallbackDto
+import com.niksob.domain.model.Query
 
 interface DbUserStorage {
-    fun addUser(userCallback: UserCallbackDto)
+    fun addUser(query: Query)
 }

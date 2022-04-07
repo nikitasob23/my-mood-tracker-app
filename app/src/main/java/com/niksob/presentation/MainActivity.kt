@@ -1,17 +1,26 @@
 package com.niksob.presentation
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
-import com.niksob.di.component.DaggerActivityComponent
+import com.niksob.di.component.DaggerMainActivityComponent
 import com.niksob.di.module.app.FragmentManagerModule
 import com.niksob.di.module.app.AppProgressBarModule
+import com.niksob.di.module.app.ContextModule
+import com.niksob.di.module.app.MainActivityViewModule
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenNavigation
+import com.niksob.presentation.view.LoginView
+import com.niksob.presentation.view.SignOutTestView
+import com.niksob.presentation.viewmodel.MainActivityViewModel
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
+
+    @Inject
+    lateinit var viewModel: MainActivityViewModel
 
     @Inject
     lateinit var navigation: ScreenNavigation
@@ -29,10 +38,12 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_layout)
 
         initComponents()
-
         inject()
+        initViewModelUidObserver()
 
-        navigation.goToNextView(homeScreen)
+        mainProgressBar.showProgress()
+
+        viewModel.loadAuthorizeUserId()
     }
 
     private fun initComponents() {
@@ -40,10 +51,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun inject() {
-        val component = DaggerActivityComponent.builder()
+        val component = DaggerMainActivityComponent.builder()
+            .contextModule(ContextModule(applicationContext))
+            .mainActivityViewModule(MainActivityViewModule(this))
             .fragmentManagerModule(FragmentManagerModule(supportFragmentManager))
             .appProgressBarModule(AppProgressBarModule(progressBarFrameLayout))
             .build()
         component.inject(this)
+    }
+
+    private fun initViewModelUidObserver() {
+        viewModel.response.observe(this) { response ->
+            val uid = response.data?.let { response.data as String }
+
+            Log.d(this.javaClass.simpleName, "Login in authorize: success = ${response.completed}; "
+                    + "reason = ${response.reason}; UID = $uid")
+
+            if (response.completed) {
+                navigation.goToNextView(SignOutTestView(uid!!))
+            } else {
+                navigation.goToNextView(LoginView())
+            }
+
+            mainProgressBar.hideProgress()
+        }
     }
 }

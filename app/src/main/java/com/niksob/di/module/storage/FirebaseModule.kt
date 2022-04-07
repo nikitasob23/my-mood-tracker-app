@@ -13,6 +13,11 @@ private const val USERS_DB_REF = "users"
 
 @Module
 class FirebaseModule {
+
+    init {
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+    }
+
     @Provides
     fun provideFirebaseAuth(): FirebaseAuth {
         return FirebaseAuth.getInstance()

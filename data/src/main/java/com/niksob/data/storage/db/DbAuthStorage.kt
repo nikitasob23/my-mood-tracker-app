@@ -1,12 +1,14 @@
 package com.niksob.data.storage.db
 
-import com.niksob.domain.data.dto.login.AuthCallbackDto
-import com.niksob.domain.data.dto.login.LoginDataCallbackDto
+import com.niksob.domain.model.Callback
+import com.niksob.domain.model.Query
 
 interface DbAuthStorage {
-    fun authorize(loginDataCallbackDto: LoginDataCallbackDto)
+    fun authorize(query: Query)
 
-    fun register(loginDataCallbackDto: LoginDataCallbackDto)
+    fun register(query: Query)
 
-    fun loadAuthorizeUserId(callback: AuthCallbackDto)
+    fun signOut(callback: Callback<Query>)
+
+    fun loadAuthorizeUserId(query: Query)
 }

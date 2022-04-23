@@ -4,7 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.niksob.data.repository.AuthRepositoryImpl
 import com.niksob.data.storage.db.DbAuthStorage
 import com.niksob.data.storage.db.firebase.DbAuthFirebase
-import com.niksob.data.storage.string.StringStorage
+import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.di.module.storage.FirebaseModule
 import com.niksob.di.module.storage.StringStorageModule
 import com.niksob.domain.data.repository.AuthRepository
@@ -19,6 +19,6 @@ class AuthRepositoryModule {
     @Provides
     fun provideDbAuthStorage(
         auth: FirebaseAuth,
-        stringStorage: StringStorage
+        stringStorage: AppStringStorage
     ): DbAuthStorage = DbAuthFirebase(auth, stringStorage)
 }

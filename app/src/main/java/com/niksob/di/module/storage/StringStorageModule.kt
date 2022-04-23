@@ -1,18 +1,18 @@
 package com.niksob.di.module.storage
 
 import android.content.Context
-import com.niksob.data.StringProvider
-import com.niksob.data.storage.string.StringStorage
+import com.niksob.data.storage.string.AppStringProvider
+import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.di.module.app.ContextModule
-import com.niksob.utils.AndroidStringProvider
+import com.niksob.appstring.AndroidStringProvider
 import dagger.Module
 import dagger.Provides
 
 @Module(includes = [ContextModule::class])
 class StringStorageModule {
     @Provides
-    fun provideStringStorage(provider: StringProvider) = StringStorage(provider)
+    fun provideStringStorage(provider: AppStringProvider) = AppStringStorage(provider)
 
     @Provides
-    fun provideStringProvider(context: Context): StringProvider = AndroidStringProvider(context)
+    fun provideStringProvider(context: Context): AppStringProvider = AndroidStringProvider(context)
 }

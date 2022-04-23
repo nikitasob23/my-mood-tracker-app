@@ -2,7 +2,7 @@ package com.niksob.di.module.view.login
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.data.StringProvider
+import com.niksob.data.storage.string.AppStringProvider
 import com.niksob.di.module.storage.StringStorageModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule
 import com.niksob.di.module.usecase.login.LoginValidationModule
@@ -43,7 +43,7 @@ class SignUpViewModule(
         addUserUseCase: AddUserUseCase,
         validateEmailUseCase: ValidateEmailUseCase,
         validatePasswordUseCase: ValidatePasswordUseCase,
-        stringProvider: StringProvider,
+        stringProvider: AppStringProvider,
     ): ViewModelProvider.Factory =
         SignUpViewModelFactory(
             signUpUseCase,

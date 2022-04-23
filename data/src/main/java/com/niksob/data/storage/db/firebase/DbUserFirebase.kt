@@ -5,7 +5,7 @@ import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.database.DatabaseReference
 import com.niksob.data.storage.db.DbUserStorage
-import com.niksob.data.storage.string.StringStorage
+import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.dto.UserDto
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
@@ -16,7 +16,7 @@ const val FAILED_USER_ADDITION = "failed_user_addition"
 
 class DbUserFirebase(
     private val usersDbRef: DatabaseReference,
-    private val stringStorage: StringStorage,
+    private val stringStorage: AppStringStorage,
 ) : DbUserStorage, OnCompleteListener<Void>, OnCanceledListener {
 
     private var callback: Callback<Query>? = null

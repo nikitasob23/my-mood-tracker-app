@@ -2,7 +2,7 @@ package com.niksob.presentation.viewmodel.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.data.StringProvider
+import com.niksob.data.storage.string.AppStringProvider
 import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.login.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
@@ -16,7 +16,7 @@ class SignUpViewModelFactory(
     private val addUserUseCase: AddUserUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
-    private val stringProvider: StringProvider,
+    private val stringProvider: AppStringProvider,
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

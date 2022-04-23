@@ -1,9 +1,7 @@
 package com.niksob.data.storage.string
 
-import com.niksob.data.StringProvider
-
-class StringStorage(
-    private val stringProvider: StringProvider
+class AppStringStorage(
+    private val stringProvider: AppStringProvider
 ) {
     fun getString(name: String) = stringProvider.getString(name)
 }

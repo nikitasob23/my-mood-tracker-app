@@ -4,7 +4,7 @@ import com.google.android.gms.tasks.OnCanceledListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.niksob.data.storage.db.DbAuthStorage
-import com.niksob.data.storage.string.StringStorage
+import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
@@ -19,7 +19,7 @@ private const val FAILED_SIGN_OUT_REASON = "sign_out_failed"
 
 class DbAuthFirebase(
     private val auth: FirebaseAuth,
-    private val stringStorage: StringStorage,
+    private val stringStorage: AppStringStorage,
 ) : DbAuthStorage {
 
     override fun authorize(query: Query) {

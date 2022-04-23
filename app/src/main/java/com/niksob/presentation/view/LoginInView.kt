@@ -23,6 +23,9 @@ class LoginInView : BaseView() {
     @Inject
     lateinit var viewModel: LoginInViewModel
 
+    @Inject
+    lateinit var signOutTestViewClass: Class<SignOutTestView>
+
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
 
@@ -56,8 +59,7 @@ class LoginInView : BaseView() {
             makeAuthStatusToast(query.reason)
 
             if (query.completed) {
-                val uid = query.data as String
-                navigation?.goToNextView(SignOutTestView(uid))
+                navigation?.goToNextView(signOutTestViewClass)
             }
 
             progressBar?.hideProgress()

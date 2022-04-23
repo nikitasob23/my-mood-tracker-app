@@ -17,12 +17,15 @@ import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.SignUpViewModel
 import javax.inject.Inject
 
-class SignUpView @Inject constructor() : BaseView() {
+class SignUpView : BaseView() {
 
     override val layout = R.layout.sign_up_view
 
     @Inject
     lateinit var viewModel: SignUpViewModel
+
+    @Inject
+    lateinit var signOutTestViewClass: Class<SignOutTestView>
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -74,7 +77,7 @@ class SignUpView @Inject constructor() : BaseView() {
 
             viewModel.addUser(user)
 
-            navigation?.goToNextView(SignOutTestView(user.id))
+            navigation?.goToNextView(signOutTestViewClass)
             progressBar?.hideProgress()
         }
     }

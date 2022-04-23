@@ -1,7 +1,7 @@
 package com.niksob.domain.navigation
 
 interface ScreenNavigation {
-    fun goToNextView(screen: NavigationableScreen)
+    fun <T : NavigationableScreen> goToNextView(screenClass: Class<T>)
 
     fun goToPreviousView()
 }

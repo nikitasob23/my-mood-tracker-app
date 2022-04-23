@@ -9,6 +9,7 @@ import com.niksob.di.module.usecase.login.LoginValidationModule
 import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase
+import com.niksob.presentation.view.SignOutTestView
 import com.niksob.presentation.viewmodel.LoginInViewModel
 import com.niksob.presentation.viewmodel.factory.LoginInViewModelFactory
 import dagger.Module
@@ -41,4 +42,7 @@ class LoginInViewModule(
         stringProvider: AppStringProvider,
     ): ViewModelProvider.Factory =
         LoginInViewModelFactory(loginInUseCase, validateEmailUseCase, validatePasswordUseCase, stringProvider)
+
+    @Provides
+    fun provideSignOutTestViewClass() = SignOutTestView::class.java
 }

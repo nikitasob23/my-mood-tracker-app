@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.niksob.presentation.R
 
-class EntriesView(
-    private val uid: String
-) : BaseView() {
+class EntriesView : BaseView() {
 
     override val layout = R.layout.entries_view
 

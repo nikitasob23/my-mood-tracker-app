@@ -13,8 +13,10 @@ class FragmentNavigation(
     var progressBar: AppProgressBar? = null,
 ) : ScreenNavigation {
 
-    override fun goToNextView(screen: NavigationableScreen) {
-        Log.d(this::class.simpleName, "Go to view: ${screen.javaClass.simpleName}")
+    override fun <T : NavigationableScreen> goToNextView(screenClass: Class<T>) {
+        Log.d(this::class.simpleName, "Go to view: ${screenClass.simpleName}")
+
+        val screen = screenClass.newInstance()
         screen.attachNavigation(this)
         screen.attachAppProgressBar(progressBar)
         setFragmentUseCase.execute(screen)

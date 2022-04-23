@@ -20,9 +20,7 @@ import com.niksob.presentation.R
 import com.niksob.appstring.AndroidStringProvider
 
 
-class SignOutTestView(
-    private val uid: String,
-): BaseView() {
+class SignOutTestView : BaseView() {
 
     override val layout = R.layout.sign_out_test_view
 
@@ -43,7 +41,7 @@ class SignOutTestView(
             if (!response.completed) {
                 return@Callback
             }
-            navigation?.goToNextView(LoginView())
+            navigation?.goToNextView(LoginView::class.java)
             progressBar?.hideProgress()
         }
 

@@ -11,6 +11,7 @@ import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.login.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.login.ValidateEmailUseCase
 import com.niksob.domain.usecase.login.ValidatePasswordUseCase
+import com.niksob.presentation.view.SignOutTestView
 import com.niksob.presentation.viewmodel.SignUpViewModel
 import com.niksob.presentation.viewmodel.factory.SignUpViewModelFactory
 import dagger.Module
@@ -52,4 +53,7 @@ class SignUpViewModule(
             validatePasswordUseCase,
             stringProvider
         )
+
+    @Provides
+    fun provideSignOutTestViewClass() = SignOutTestView::class.java
 }

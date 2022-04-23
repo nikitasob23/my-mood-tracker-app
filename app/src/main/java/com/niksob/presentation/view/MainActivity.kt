@@ -11,9 +11,7 @@ import com.niksob.di.module.app.AppProgressBarModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.app.MainActivityViewModule
 import com.niksob.domain.navigation.ScreenNavigation
-import com.niksob.presentation.view.LoginView
-import com.niksob.presentation.view.SignOutTestView
-import com.niksob.presentation.view.SignUpView
+import com.niksob.presentation.R
 import com.niksob.presentation.viewmodel.MainActivityViewModel
 import javax.inject.Inject
 
@@ -29,7 +27,10 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainProgressBar: AppProgressBar
 
     @Inject
-    lateinit var loginView: LoginView
+    lateinit var loginViewClass: Class<LoginView>
+
+    @Inject
+    lateinit var signOutTestViewClass: Class<SignOutTestView>
 
     private lateinit var progressBarFrameLayout: FrameLayout
 
@@ -68,9 +69,9 @@ class MainActivity : AppCompatActivity() {
                     + "reason = ${response.reason}; UID = $uid")
 
             if (response.completed) {
-                navigation.goToNextView(SignOutTestView(uid!!))
+                navigation.goToNextView(signOutTestViewClass)
             } else {
-                navigation.goToNextView(loginView)
+                navigation.goToNextView(loginViewClass)
             }
 
             mainProgressBar.hideProgress()

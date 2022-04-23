@@ -1,4 +1,4 @@
-package com.niksob.presentation
+package com.niksob.presentation.view
 
 import android.os.Bundle
 import android.util.Log

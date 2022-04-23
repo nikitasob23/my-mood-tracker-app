@@ -1,8 +1,7 @@
 package com.niksob.data.storage.db.firebase
 
 import com.google.android.gms.tasks.OnCanceledListener
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.DatabaseReference
 import com.niksob.data.storage.db.DbUserStorage
 import com.niksob.data.storage.string.AppStringStorage
@@ -14,10 +13,12 @@ import com.niksob.domain.model.Query
 const val SUCCESS_USER_ADDITION = "success_user_addition"
 const val FAILED_USER_ADDITION = "failed_user_addition"
 
+const val EMAIL_KEY = "email"
+
 class DbUserFirebase(
     private val usersDbRef: DatabaseReference,
     private val stringStorage: AppStringStorage,
-) : DbUserStorage, OnCompleteListener<Void>, OnCanceledListener {
+) : DbUserStorage, OnSuccessListener<Void>, OnCanceledListener {
 
     private var callback: Callback<Query>? = null
 
@@ -27,26 +28,31 @@ class DbUserFirebase(
         callback = query.callback
 
         setUserId(user)
-        setEmail(user)
+        setEmailKey(user)
+        setEmailValue(user)
     }
 
     private fun setUserId(user: UserDto) {
 
         usersDbRef.setValue(user.id)
-            .addOnCompleteListener(this)
-            .addOnCanceledListener(this)
     }
 
-    private fun setEmail(user: UserDto) {
+    private fun setEmailKey(user: UserDto) {
 
         usersDbRef.child(user.id)
+            .setValue(EMAIL_KEY)
+    }
+
+    private fun setEmailValue(user: UserDto) {
+
+        usersDbRef.child(user.id)
+            .child(EMAIL_KEY)
             .setValue(user.email)
-            .addOnCompleteListener(this)
+            .addOnSuccessListener(this)
             .addOnCanceledListener(this)
     }
 
-    override fun onComplete(task: Task<Void>) {
-
+    override fun onSuccess(p0: Void?) {
         val query = Query(
             completed = true,
             reason = stringStorage.getString(SUCCESS_USER_ADDITION)

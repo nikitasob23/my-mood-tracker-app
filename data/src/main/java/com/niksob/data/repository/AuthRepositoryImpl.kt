@@ -21,7 +21,7 @@ class AuthRepositoryImpl(
         storage.signOut(callback)
     }
 
-    override fun loadAuthorizeUserId(query: Query) {
-        storage.loadAuthorizeUserId(query)
+    override fun loadAuthorizeUserId(callback: Callback<Query>) {
+        storage.loadAuthorizeUserId(callback)
     }
 }

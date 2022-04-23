@@ -57,7 +57,7 @@ class DbAuthFirebase(
         auth.signOut()
     }
 
-    override fun loadAuthorizeUserId(query: Query) {
+    override fun loadAuthorizeUserId(callback: Callback<Query>) {
 
         val currentUser = auth.currentUser
 
@@ -70,8 +70,6 @@ class DbAuthFirebase(
                     completed = true,
                     reason = stringStorage.getString(SUCCESS_AUTH_REASON),
                 )
-
-        val callback = query.callback!!
         callback.call(response)
     }
 

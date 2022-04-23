@@ -10,5 +10,5 @@ interface DbAuthStorage {
 
     fun signOut(callback: Callback<Query>)
 
-    fun loadAuthorizeUserId(query: Query)
+    fun loadAuthorizeUserId(callback: Callback<Query>)
 }

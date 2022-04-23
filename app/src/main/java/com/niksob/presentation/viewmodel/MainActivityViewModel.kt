@@ -17,11 +17,9 @@ class MainActivityViewModel(
 
     fun loadAuthorizeUserId() {
 
-        val query = Query(
-            callback = Callback { query ->
-                responseLive.value = query
-            }
-        )
-        loadAuthorizeUserIdUseCase.execute(query)
+        val callback = Callback<Query> { query ->
+            responseLive.value = query
+        }
+        loadAuthorizeUserIdUseCase.execute(callback)
     }
 }

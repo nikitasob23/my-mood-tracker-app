@@ -8,20 +8,16 @@ class LoadAuthorizeUserIdUseCase(
     private val authRepo: AuthRepository
 ) {
 
-    fun execute(query: Query) {
+    fun execute(callback: Callback<Query>) {
 
-        val queryCallback = query.callback
-
-        val queryDto = Query(
-            callback = Callback { queryDto ->
-                val newQuery = Query(
-                    data = queryDto.data,
-                    completed = queryDto.completed,
-                    reason = queryDto.reason,
-                )
-                queryCallback?.call?.invoke(newQuery)
-            }
-        )
-        authRepo.loadAuthorizeUserId(queryDto)
+        val callbackDto = Callback<Query> { queryDto ->
+            val newQuery = Query(
+                data = queryDto.data,
+                completed = queryDto.completed,
+                reason = queryDto.reason,
+            )
+            callback.call(newQuery)
+        }
+        authRepo.loadAuthorizeUserId(callbackDto)
     }
 }

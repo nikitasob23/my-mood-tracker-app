@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LoginEdit.Email">
+        <item name="android:autofillHints">emailAddress</item>
+        <item name="android:drawableStart">@drawable/ic_baseline_email_24</item>
+        <item name="android:inputType">textEmailAddress</item>
+        <item name="android:hint">@string/email_here</item>
+    </style>
+    <style name="LoginEdit.Password">
+        <item name="android:autofillHints">password</item>
+        <item name="android:drawableStart">@drawable/ic_baseline_lock_24</item>
+        <item name="android:hint">@string/password_here</item>
+        <item name="android:inputType">textPassword</item>
+    </style>
+</resources>

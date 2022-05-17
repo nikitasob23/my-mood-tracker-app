@@ -3,10 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/entry_background.xml" value="0.5135416666666667" />
+        <entry key="app/src/main/res/drawable/entry_list_tag.xml" value="0.67" />
+        <entry key="app/src/main/res/drawable/terrible_emoji.xml" value="0.5125" />
+        <entry key="app/src/main/res/drawable/transparent_bg.xml" value="0.2390625" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.2462962962962963" />
+        <entry key="app/src/main/res/layout-v31/terrible_emoji_layout.xml" value="0.3967391304347826" />
         <entry key="app/src/main/res/layout/entries_view.xml" value="0.22447916666666667" />
+        <entry key="app/src/main/res/layout/login_view.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/login_view_in.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/main_progress_bar_layout.xml" value="0.2269021739130435" />
+        <entry key="app/src/main/res/layout/mood_entry_list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/sign_out_test_view.xml" value="0.2942708333333333" />
+        <entry key="app/src/main/res/layout/terrible_emoji_layout.xml" value="0.46875" />
         <entry key="app/src/main/res/layout/view_login_in.xml" value="0.25" />
       </map>
     </option>

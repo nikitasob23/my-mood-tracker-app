@@ -13,5 +13,4 @@
             android:id="@+id/main_layout__main_progress_bar"
             layout="@layout/main_progress_bar_layout"
             android:visibility="gone"/>
-
 </FrameLayout>

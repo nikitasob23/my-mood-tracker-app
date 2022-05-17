@@ -29,4 +29,7 @@
     <color name="neutral_mood">#AEAEAE</color>
     <color name="good_mood">#a0af22</color>
     <color name="very_good_mood">#5A9216</color>
+
+    <color name="terrible_entry_background">#B15671</color>
+    <color name="terrible_tag_background">#B15671</color>
 </resources>

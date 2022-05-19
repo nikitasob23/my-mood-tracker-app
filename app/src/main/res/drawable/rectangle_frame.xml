@@ -3,7 +3,7 @@
     android:shape="rectangle">
 
     <size android:width="50dp" android:height="50dp"/>
-    <solid android:color="@color/neutral"/>
+    <solid android:color="@color/excellent_tag_background"/>
     <corners android:radius="10dp"/>
 
 </shape>

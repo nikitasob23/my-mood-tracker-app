@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="15dp"
+        android:height="@dimen/mood_tag_height"
+        android:viewportWidth="15"
+        android:viewportHeight="66">
+
+    <path android:fillColor="@color/excellent_tag_background"
+          android:pathData="M0 0H15V66H0L10 33L0 0Z"/>
+</vector>

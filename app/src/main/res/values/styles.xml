@@ -3,38 +3,38 @@
     <style name="LoginButton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:width">@dimen/login_screen__button_width</item>
+        <item name="android:width">@dimen/login_button_width</item>
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">@dimen/button_text_size</item>
     </style>
     <style name="LoginButton.White">
-        <item name="android:background">@drawable/rounded_corners</item>
+        <item name="android:background">@drawable/login_solid_button_background</item>
         <item name="android:textColor">@color/light_blue</item>
     </style>
     <style name="LoginButton.Blue">
-        <item name="android:background">@drawable/transparent_bg</item>
+        <item name="android:background">@drawable/login_corner_button_background</item>
         <item name="android:textColor">@color/white</item>
     </style>
     <style name="LoginEdit">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">@dimen/login_edit_width</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/transparent_bg</item>
-        <item name="android:drawablePadding">8dp</item>
+        <item name="android:background">@drawable/login_corner_button_background</item>
+        <item name="android:drawablePadding">@dimen/login_button_drawable_padding</item>
         <item name="android:ems">10</item>
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:textColorHint">@color/white</item>
-        <item name="android:layout_marginStart">64dp</item>
-        <item name="android:layout_marginEnd">64dp</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:layout_marginStart">@dimen/login_edit_margin_horizontal</item>
+        <item name="android:layout_marginEnd">@dimen/login_edit_margin_horizontal</item>
+        <item name="android:padding">@dimen/login_edit_padding</item>
     </style>
     <style name="LoginEdit.Email">
-        <item name="android:drawableStart">@drawable/ic_baseline_email_24</item>
+        <item name="android:drawableStart">@drawable/ic_email</item>
         <item name="android:inputType">textEmailAddress</item>
         <item name="android:hint">@string/email_here</item>
     </style>
     <style name="LoginEdit.Password">
-        <item name="android:drawableStart">@drawable/ic_baseline_lock_24</item>
+        <item name="android:drawableStart">@drawable/ic_lock</item>
         <item name="android:hint">@string/password_here</item>
         <item name="android:inputType">textPassword</item>
     </style>

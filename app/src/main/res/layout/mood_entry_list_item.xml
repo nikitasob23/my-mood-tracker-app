@@ -1,43 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="75dp"
-                android:background="@drawable/entry_background"
->
 
-    <LinearLayout
-            android:id="@+id/mood_entry_list_item__container_linear_layout"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/mood_entry_list_item__container_linear_layout"
+              android:layout_width="match_parent"
+              android:layout_height="@dimen/mood_tag_height"
+              android:background="@drawable/entry_background"
+              android:orientation="horizontal"
+              android:layout_marginVertical="5dp"
+              android:layout_marginHorizontal="10dp">
+
+    <ImageView
+            android:id="@+id/mood_entry_list_item__emoji_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/terrible"
+            android:src="@drawable/ic_terrible_emoji"
+            android:layout_gravity="center_vertical"/>
+
+    <TextView
+            android:id="@+id/mood_entry_list_item__time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textSize="10sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="5dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mood_entry_list_item__tags_rv"
+            tools:listitem="@layout/mood_tag"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="5dp"
-    >
+            android:layout_marginStart="5dp"/>
 
-        <ImageView
-                android:id="@+id/mood_entry_list_item__emoji_iv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:contentDescription="@string/terrible"
-                android:src="@drawable/terrible_emoji"
-                android:layout_gravity="center_vertical"/>
-
-        <TextView
-                android:id="@+id/mood_entry_list_item__time_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="00:00"
-                android:textSize="10sp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginStart="5dp"/>
-
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/mood_entry_list_item__tags_rv"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:layout_marginStart="5dp"/>
-
-    </LinearLayout>
-
-</RelativeLayout>
+</LinearLayout>

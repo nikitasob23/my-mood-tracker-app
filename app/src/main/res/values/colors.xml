@@ -17,19 +17,20 @@
     <color name="grey">#AEAEAE</color>
     <color name="dark_grey">#616161</color>
     <color name="very_light_grey">#C4C4C4</color>
-    <color name="light_red">#D25657</color>
-    <color name="light_green">#B6CB9E</color>
-    <color name="terrible">#D36F70</color>
-    <color name="bad">#FFC268</color>
-    <color name="neutral">#BEBEBF</color>
-    <color name="good">#F1E367</color>
-    <color name="excellent">#B6CB9E</color>
-    <color name="very_bad_mood">#BA6B6C</color>
-    <color name="bad_mood">#FFC268</color>
-    <color name="neutral_mood">#AEAEAE</color>
-    <color name="good_mood">#a0af22</color>
-    <color name="very_good_mood">#5A9216</color>
+<!--    <color name="light_red">#D25657</color>-->
+<!--    <color name="light_green">#B6CB9E</color>-->
+<!--    <color name="terrible">#D36F70</color>-->
+<!--    <color name="bad">#FFC268</color>-->
+<!--    <color name="neutral">#BEBEBF</color>-->
+<!--    <color name="good">#F1E367</color>-->
+<!--    <color name="excellent">#B6CB9E</color>-->
+<!--    <color name="very_bad_mood">#BA6B6C</color>-->
+<!--    <color name="bad_mood">#FFC268</color>-->
+<!--    <color name="neutral_mood">#AEAEAE</color>-->
+<!--    <color name="good_mood">#a0af22</color>-->
+<!--    <color name="very_good_mood">#5A9216</color>-->
 
     <color name="terrible_entry_background">#B15671</color>
     <color name="terrible_tag_background">#B15671</color>
+    <color name="excellent_tag_background">#8EBE82</color>
 </resources>

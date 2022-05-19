@@ -9,8 +9,8 @@ import androidx.appcompat.widget.AppCompatButton
 import com.google.firebase.auth.FirebaseAuth
 import com.niksob.data.storage.string.AppStringProvider
 import com.niksob.data.repository.AuthRepositoryImpl
-import com.niksob.data.storage.db.DbAuthStorage
-import com.niksob.data.storage.db.firebase.DbAuthFirebase
+import com.niksob.data.storage.db.AuthStorage
+import com.niksob.data.storage.db.firebase.AuthFirebase
 import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.repository.AuthRepository
 import com.niksob.domain.model.Callback
@@ -30,7 +30,7 @@ class SignOutTestView : BaseView() {
         val stringProvider: AppStringProvider = AndroidStringProvider(requireContext().applicationContext)
         val stringStorage = AppStringStorage(stringProvider)
         val auth = FirebaseAuth.getInstance()
-        val storage: DbAuthStorage = DbAuthFirebase(auth, stringStorage)
+        val storage: AuthStorage = AuthFirebase(auth, stringStorage)
         val repo: AuthRepository = AuthRepositoryImpl(storage)
         val signOutUseCase = SignOutUseCase(repo)
 

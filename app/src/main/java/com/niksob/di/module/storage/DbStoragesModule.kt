@@ -1,7 +1,7 @@
 package com.niksob.di.module.storage
 
 import com.google.firebase.database.DatabaseReference
-import com.niksob.data.storage.db.DbUserStorage
+import com.niksob.data.storage.db.UserStorage
 import com.niksob.data.storage.db.firebase.DbUserFirebase
 import com.niksob.data.storage.string.AppStringStorage
 import dagger.Module
@@ -14,6 +14,6 @@ class DbStoragesModule {
     fun provideDbUserStorage(
         @Named("users_db_ref") dbUserRef: DatabaseReference,
         stringStorage: AppStringStorage,
-    ): DbUserStorage =
+    ): UserStorage =
         DbUserFirebase(dbUserRef, stringStorage)
 }

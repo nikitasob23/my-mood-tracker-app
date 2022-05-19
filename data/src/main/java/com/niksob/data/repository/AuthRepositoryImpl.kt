@@ -1,12 +1,12 @@
 package com.niksob.data.repository
 
-import com.niksob.data.storage.db.DbAuthStorage
+import com.niksob.data.storage.db.AuthStorage
 import com.niksob.domain.data.repository.AuthRepository
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
 class AuthRepositoryImpl(
-    private val storage: DbAuthStorage
+    private val storage: AuthStorage
 ) : AuthRepository {
 
     override fun authorize(query: Query) {

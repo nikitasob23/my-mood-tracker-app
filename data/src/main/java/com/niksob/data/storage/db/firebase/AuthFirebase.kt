@@ -3,7 +3,7 @@ package com.niksob.data.storage.db.firebase
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
-import com.niksob.data.storage.db.DbAuthStorage
+import com.niksob.data.storage.db.AuthStorage
 import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Callback
@@ -17,10 +17,10 @@ private const val FAILED_REGISTER_REASON = "registration_failed"
 private const val SUCCESS_SIGN_OUT_REASON = "sign_out_completed"
 private const val FAILED_SIGN_OUT_REASON = "sign_out_failed"
 
-class DbAuthFirebase(
+class AuthFirebase(
     private val auth: FirebaseAuth,
     private val stringStorage: AppStringStorage,
-) : DbAuthStorage {
+) : AuthStorage {
 
     override fun authorize(query: Query) {
         initOnAuthStateListener(query.callback!!, SUCCESS_AUTH_REASON)

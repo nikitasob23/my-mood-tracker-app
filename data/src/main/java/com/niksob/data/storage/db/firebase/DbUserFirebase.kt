@@ -3,7 +3,7 @@ package com.niksob.data.storage.db.firebase
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.DatabaseReference
-import com.niksob.data.storage.db.DbUserStorage
+import com.niksob.data.storage.db.UserStorage
 import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.dto.UserDto
 import com.niksob.domain.model.Callback
@@ -18,7 +18,7 @@ const val EMAIL_KEY = "email"
 class DbUserFirebase(
     private val usersDbRef: DatabaseReference,
     private val stringStorage: AppStringStorage,
-) : DbUserStorage, OnSuccessListener<Void>, OnCanceledListener {
+) : UserStorage, OnSuccessListener<Void>, OnCanceledListener {
 
     private var callback: Callback<Query>? = null
 

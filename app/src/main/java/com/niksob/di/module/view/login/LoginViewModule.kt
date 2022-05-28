@@ -1,7 +1,7 @@
 package com.niksob.di.module.view.login
 
-import com.niksob.presentation.view.LoginInView
-import com.niksob.presentation.view.SignUpView
+import com.niksob.app.view.LoginInView
+import com.niksob.app.view.SignUpView
 import dagger.Module
 import dagger.Provides
 

@@ -3,11 +3,11 @@ package com.niksob.di.module.app
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.di.module.usecase.login.LoadAuthorizeUserIdUseCaseModule
-import com.niksob.domain.usecase.login.LoadAuthorizeUserIdUseCase
-import com.niksob.presentation.view.LoginView
-import com.niksob.presentation.view.SignOutTestView
-import com.niksob.presentation.viewmodel.MainActivityViewModel
-import com.niksob.presentation.viewmodel.factory.MainViewModelFactory
+import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
+import com.niksob.app.view.LoginView
+import com.niksob.app.view.SignOutTestView
+import com.niksob.app.viewmodel.MainActivityViewModel
+import com.niksob.app.viewmodel.factory.MainViewModelFactory
 import dagger.Module
 import dagger.Provides
 

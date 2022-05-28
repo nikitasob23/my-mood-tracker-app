@@ -4,7 +4,7 @@ import android.content.Context
 import com.niksob.data.storage.string.AppStringProvider
 import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.di.module.app.ContextModule
-import com.niksob.appstring.AndroidStringProvider
+import com.niksob.utils.appstring.AndroidStringProvider
 import dagger.Module
 import dagger.Provides
 

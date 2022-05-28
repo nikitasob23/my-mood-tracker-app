@@ -76,7 +76,7 @@ class AuthFirebase(
     private fun onDataLoadCanceled(callback: Callback<Query>, reason: String): OnCanceledListener {
         return OnCanceledListener {
 
-            val response = Query(reason)
+            val response = Query(reason = reason)
             callback.call(response)
         }
     }
@@ -85,18 +85,19 @@ class AuthFirebase(
         auth.addAuthStateListener(object : AuthStateListener {
 
             override fun onAuthStateChanged(currentFirebase: FirebaseAuth) {
+                auth.removeAuthStateListener(this)
+
                 if (auth.currentUser == null) {
                     return
                 }
 
                 val response = Query(
-                    data = auth.currentUser?.uid,
+                    data = auth.currentUser?.uid!!,
                     completed = true,
                     reason = stringStorage.getString(reason),
                 )
 
                 callback.call(response)
-                auth.removeAuthStateListener(this)
             }
         })
     }

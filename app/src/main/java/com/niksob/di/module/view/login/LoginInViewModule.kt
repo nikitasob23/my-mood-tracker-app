@@ -6,12 +6,12 @@ import com.niksob.data.storage.string.AppStringProvider
 import com.niksob.di.module.storage.StringStorageModule
 import com.niksob.di.module.usecase.login.LoginInWithEmailAndPasswordUseCaseModule
 import com.niksob.di.module.usecase.login.LoginValidationModule
-import com.niksob.domain.usecase.login.LoginInWithEmailAndPasswordUseCase
-import com.niksob.domain.usecase.login.ValidateEmailUseCase
-import com.niksob.domain.usecase.login.ValidatePasswordUseCase
-import com.niksob.presentation.view.SignOutTestView
-import com.niksob.presentation.viewmodel.LoginInViewModel
-import com.niksob.presentation.viewmodel.factory.LoginInViewModelFactory
+import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.ValidateEmailUseCase
+import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
+import com.niksob.app.view.SignOutTestView
+import com.niksob.app.viewmodel.LoginInViewModel
+import com.niksob.app.viewmodel.factory.LoginInViewModelFactory
 import dagger.Module
 import dagger.Provides
 

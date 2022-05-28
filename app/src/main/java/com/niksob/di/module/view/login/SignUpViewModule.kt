@@ -8,12 +8,12 @@ import com.niksob.di.module.usecase.AddUserUseCaseModule
 import com.niksob.di.module.usecase.login.LoginValidationModule
 import com.niksob.di.module.usecase.login.SignUpWithEmailAndPasswordUseCaseModule
 import com.niksob.domain.usecase.db.AddUserUseCase
-import com.niksob.domain.usecase.login.SignUpWithEmailAndPasswordUseCase
-import com.niksob.domain.usecase.login.ValidateEmailUseCase
-import com.niksob.domain.usecase.login.ValidatePasswordUseCase
-import com.niksob.presentation.view.SignOutTestView
-import com.niksob.presentation.viewmodel.SignUpViewModel
-import com.niksob.presentation.viewmodel.factory.SignUpViewModelFactory
+import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.ValidateEmailUseCase
+import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
+import com.niksob.app.view.SignOutTestView
+import com.niksob.app.viewmodel.SignUpViewModel
+import com.niksob.app.viewmodel.factory.SignUpViewModelFactory
 import dagger.Module
 import dagger.Provides
 

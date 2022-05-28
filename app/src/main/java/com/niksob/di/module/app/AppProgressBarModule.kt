@@ -2,7 +2,7 @@ package com.niksob.di.module.app
 
 import android.widget.FrameLayout
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
-import com.niksob.presentation.navigation.appprogressbar.MainProgressBar
+import com.niksob.app.navigation.appprogressbar.MainProgressBar
 import dagger.Module
 import dagger.Provides
 

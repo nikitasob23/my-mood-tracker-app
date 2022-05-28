@@ -3,8 +3,8 @@ package com.niksob.di.module.navigation
 import androidx.fragment.app.FragmentManager
 import com.niksob.di.module.app.AppProgressBarModule
 import com.niksob.di.module.app.FragmentManagerModule
-import com.niksob.presentation.navigation.FragmentNavigation
-import com.niksob.presentation.navigation.FragmentSetter
+import com.niksob.app.navigation.FragmentNavigation
+import com.niksob.app.navigation.FragmentSetter
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.ScreenSetter
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar

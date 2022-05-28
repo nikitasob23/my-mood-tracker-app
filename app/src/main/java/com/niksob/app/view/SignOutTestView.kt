@@ -1,4 +1,4 @@
-package com.niksob.presentation.view
+package com.niksob.app.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -15,9 +15,9 @@ import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.repository.AuthRepository
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
-import com.niksob.domain.usecase.login.SignOutUseCase
-import com.niksob.presentation.R
-import com.niksob.appstring.AndroidStringProvider
+import com.niksob.domain.usecase.auth.SignOutUseCase
+import com.niksob.app.R
+import com.niksob.utils.appstring.AndroidStringProvider
 
 
 class SignOutTestView : BaseView() {

@@ -1,6 +1,5 @@
 package com.niksob.data.storage.db.firebase
 
-import com.google.android.gms.tasks.OnCanceledListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.niksob.data.storage.db.AuthStorage
@@ -23,23 +22,63 @@ class AuthFirebase(
 ) : AuthStorage {
 
     override fun authorize(query: Query) {
-        initOnAuthStateListener(query.callback!!, SUCCESS_AUTH_REASON)
         val (email, password) = query.data as LoginDataDto
 
         auth.signInWithEmailAndPassword(email, password)
-            .addOnCanceledListener { onDataLoadCanceled(query.callback!!, FAILED_AUTH_REASON) }
+            .addOnCompleteListener { authResult ->
+                onComplete(
+                    isSuccessfulAuth = authResult.isSuccessful,
+                    callback = query.callback!!,
+                    successReasonId = SUCCESS_AUTH_REASON,
+                    failedReasonId = FAILED_AUTH_REASON,
+                )
+            }
     }
 
     override fun register(query: Query) {
-        initOnAuthStateListener(query.callback!!, SUCCESS_REGISTER_REASON)
         val (email, password) = query.data as LoginDataDto
 
         auth.createUserWithEmailAndPassword(email, password)
-            .addOnCanceledListener { onDataLoadCanceled(query.callback!!, FAILED_REGISTER_REASON) }
+            .addOnCompleteListener { authResult ->
+                onComplete(
+                    isSuccessfulAuth = authResult.isSuccessful,
+                    callback = query.callback!!,
+                    successReasonId = SUCCESS_REGISTER_REASON,
+                    failedReasonId = FAILED_REGISTER_REASON,
+                )
+            }
     }
 
     override fun signOut(callback: Callback<Query>) {
-        auth.addAuthStateListener(object : AuthStateListener {
+        auth.addAuthStateListener(onAuthStateChanged(callback))
+        auth.signOut()
+    }
+
+    override fun loadAuthorizeUserId(callback: Callback<Query>) {
+        onComplete(
+            isSuccessfulAuth = auth.currentUser != null,
+            callback = callback,
+            successReasonId = SUCCESS_AUTH_REASON,
+            failedReasonId = FAILED_AUTH_REASON,
+        )
+    }
+
+    private fun onComplete(
+        isSuccessfulAuth: Boolean,
+        callback: Callback<Query>,
+        successReasonId: String,
+        failedReasonId: String
+    ) {
+        val resultQuery =
+            if (isSuccessfulAuth)
+                getAuthSuccessQuery(successReasonId)
+            else
+                getAuthFailedQuery(failedReasonId)
+        callback.call(resultQuery)
+    }
+
+    private fun onAuthStateChanged(callback: Callback<Query>) =
+        object : AuthStateListener {
             override fun onAuthStateChanged(currentAuth: FirebaseAuth) {
                 val response =
                     if (auth.currentUser == null)
@@ -53,52 +92,15 @@ class AuthFirebase(
                 callback.call(response)
                 auth.removeAuthStateListener(this)
             }
-        })
-        auth.signOut()
-    }
-
-    override fun loadAuthorizeUserId(callback: Callback<Query>) {
-
-        val currentUser = auth.currentUser
-
-        val response =
-            if (currentUser == null)
-                Query(reason = stringStorage.getString(FAILED_AUTH_REASON))
-            else
-                Query(
-                    data = currentUser.uid,
-                    completed = true,
-                    reason = stringStorage.getString(SUCCESS_AUTH_REASON),
-                )
-        callback.call(response)
-    }
-
-    private fun onDataLoadCanceled(callback: Callback<Query>, reason: String): OnCanceledListener {
-        return OnCanceledListener {
-
-            val response = Query(reason = reason)
-            callback.call(response)
         }
-    }
 
-    private fun initOnAuthStateListener(callback: Callback<Query>, reason: String) {
-        auth.addAuthStateListener(object : AuthStateListener {
+    private fun getAuthSuccessQuery(reasonId: String) =
+        Query(
+            data = auth.currentUser?.uid!!,
+            completed = true,
+            reason = stringStorage.getString(reasonId),
+        )
 
-            override fun onAuthStateChanged(currentFirebase: FirebaseAuth) {
-                auth.removeAuthStateListener(this)
-
-                if (auth.currentUser == null) {
-                    return
-                }
-
-                val response = Query(
-                    data = auth.currentUser?.uid!!,
-                    completed = true,
-                    reason = stringStorage.getString(reason),
-                )
-
-                callback.call(response)
-            }
-        })
-    }
+    private fun getAuthFailedQuery(reasonId: String) =
+        Query(reason = stringStorage.getString(reasonId))
 }

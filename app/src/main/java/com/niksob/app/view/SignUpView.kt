@@ -30,7 +30,7 @@ class SignUpView : BaseView() {
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
 
-    private var userEmail: String = ""
+    private var userEmail = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

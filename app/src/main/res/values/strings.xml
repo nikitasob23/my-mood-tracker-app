@@ -39,6 +39,10 @@
     <string name="sign_out_failed">Sign out failed</string>
     <string name="success_user_addition">Success user addition</string>
     <string name="failed_user_addition">Failed user addition</string>
+    <string name="success_saving">Success saving</string>
+    <string name="failure_saving">Failure saving</string>
+    <string name="mood_entry_was_load">Mood entry was load</string>
+    <string name="mood_entry_was_not_load">Mood entry was not load</string>
 
     <string name="new_notification_button_text">Add new notification</string>
 

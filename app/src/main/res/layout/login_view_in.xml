@@ -19,7 +19,8 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.4"
-                app:layout_constraintVertical_chainStyle="packed"/>
+                app:layout_constraintVertical_chainStyle="packed"
+                android:contentDescription="@string/app_name"/>
 
         <TextView
                 android:id="@+id/login_in_view___app_name_text"

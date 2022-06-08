@@ -5,7 +5,7 @@
     <dimen name="login_button_width">250dp</dimen>
     <dimen name="login_edit_width">0dp</dimen>
     <dimen name="login_button_drawable_padding">8dp</dimen>
-    <dimen name="login_edit_margin_horizontal">8dp</dimen>
+    <dimen name="login_edit_margin_horizontal">64dp</dimen>
     <dimen name="login_edit_padding">16dp</dimen>
     <dimen name="app_name_size">36sp</dimen>
     <dimen name="tag_text_size">16sp</dimen>
@@ -15,4 +15,5 @@
     <dimen name="mood_tag_body_height">66dp</dimen>
     <dimen name="rounded_button_radius">25dp</dimen>
     <dimen name="mood_tag_height">66dp</dimen>
+    <dimen name="main_toolbar_height">60dp</dimen>
 </resources>

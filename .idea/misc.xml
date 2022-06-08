@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_baseline_email_24.xml" value="0.1140625" />
         <entry key="app/src/main/res/drawable/ic_baseline_lock_24.xml" value="0.1140625" />
+        <entry key="app/src/main/res/drawable/ic_check.xml" value="0.2074074074074074" />
         <entry key="app/src/main/res/drawable/ic_check_mark.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_check_mark_button.xml" value="0.1140625" />
         <entry key="app/src/main/res/drawable/ic_create_entry.xml" value="0.2328125" />
@@ -70,6 +71,7 @@
         <entry key="app/src/main/res/layout/sign_out_test_view.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/sign_up_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/terrible_emoji_layout.xml" value="0.46875" />
+        <entry key="app/src/main/res/layout/test_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/view_login_in.xml" value="0.25" />
       </map>
     </option>

@@ -9,7 +9,7 @@
     </style>
     <style name="LoginButton.White">
         <item name="android:background">@drawable/login_solid_button_background</item>
-        <item name="android:textColor">@color/light_blue</item>
+        <item name="android:textColor">@color/primary_app_color</item>
     </style>
     <style name="LoginButton.Blue">
         <item name="android:background">@drawable/login_corner_button_background</item>
@@ -79,5 +79,10 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@drawable/ic_app_logo</item>
         <item name="android:contentDescription">@string/app_logo_description</item>
+    </style>
+    <style name="main_toolbar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/main_toolbar_height</item>
+        <item name="android:background">@color/primary_app_color</item>
     </style>
 </resources>

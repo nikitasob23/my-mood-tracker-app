@@ -18,8 +18,32 @@
             android:textColor="@color/light_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/add_data_test_view__sign_out_btn"
+            style="@style/LoginButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/login_solid_button_background"
+            android:text="Add data"
+            android:textColor="@color/light_blue"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/sign_out_test_view__sign_out_btn"/>
+
+    <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/output_text__test_sign_out_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Output"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@+id/add_data_test_view__sign_out_btn"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

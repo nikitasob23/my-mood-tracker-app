@@ -3,6 +3,7 @@ package com.niksob.data.storage.db.firebase
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.DatabaseReference
+import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.UserStorage
 import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.dto.UserDto
@@ -16,11 +17,28 @@ const val FAILED_USER_ADDITION = "failed_user_addition"
 const val EMAIL_KEY = "email"
 
 class DbUserFirebase(
-    private val usersDbRef: DatabaseReference,
+    dbProvider: DbProvider,
     private val stringStorage: AppStringStorage,
-) : UserStorage, OnSuccessListener<Void>, OnCanceledListener {
+) : UserStorage {
+
+    private val usersDbRef: DatabaseReference = dbProvider.getUserReference()
 
     private var callback: Callback<Query>? = null
+
+    private val onSuccessListener = OnSuccessListener<Void> {
+        val query = Query(
+            completed = true,
+            reason = stringStorage.getString(SUCCESS_USER_ADDITION)
+        )
+        callback?.call?.invoke(query)
+    }
+
+    private val onCanceledListener = OnCanceledListener {
+        val query = Query(
+            reason = stringStorage.getString(FAILED_USER_ADDITION)
+        )
+        callback?.call?.invoke(query)
+    }
 
     override fun addUser(query: Query) {
 
@@ -48,24 +66,7 @@ class DbUserFirebase(
         usersDbRef.child(user.id)
             .child(EMAIL_KEY)
             .setValue(user.email)
-            .addOnSuccessListener(this)
-            .addOnCanceledListener(this)
+            .addOnSuccessListener(onSuccessListener)
+            .addOnCanceledListener(onCanceledListener)
     }
-
-    override fun onSuccess(p0: Void?) {
-        val query = Query(
-            completed = true,
-            reason = stringStorage.getString(SUCCESS_USER_ADDITION)
-        )
-        callback?.call?.invoke(query)
-    }
-
-    override fun onCanceled() {
-
-        val query = Query(
-            reason = stringStorage.getString(FAILED_USER_ADDITION)
-        )
-        callback?.call?.invoke(query)
-    }
-
 }

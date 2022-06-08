@@ -2,6 +2,7 @@ package com.niksob.data.storage.db.firebase
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
+import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.AuthStorage
 import com.niksob.data.storage.string.AppStringStorage
 import com.niksob.domain.data.dto.LoginDataDto
@@ -15,11 +16,14 @@ private const val SUCCESS_REGISTER_REASON = "registration_completed"
 private const val FAILED_REGISTER_REASON = "registration_failed"
 private const val SUCCESS_SIGN_OUT_REASON = "sign_out_completed"
 private const val FAILED_SIGN_OUT_REASON = "sign_out_failed"
+private const val EXCEPTION_MESSAGE_PREFIX = ". Exception message: "
 
 class AuthFirebase(
-    private val auth: FirebaseAuth,
+    dbProvider: DbProvider,
     private val stringStorage: AppStringStorage,
 ) : AuthStorage {
+
+    private val auth: FirebaseAuth = dbProvider.getAuth()
 
     override fun authorize(query: Query) {
         val (email, password) = query.data as LoginDataDto
@@ -67,13 +71,16 @@ class AuthFirebase(
         isSuccessfulAuth: Boolean,
         callback: Callback<Query>,
         successReasonId: String,
-        failedReasonId: String
+        failedReasonId: String,
+        exception: Exception? = null
     ) {
         val resultQuery =
             if (isSuccessfulAuth)
-                getAuthSuccessQuery(successReasonId)
+                getAuthSuccessQuery(stringStorage.getString(successReasonId))
             else
-                getAuthFailedQuery(failedReasonId)
+                getAuthFailedQuery(
+                    stringStorage.getString(failedReasonId) + EXCEPTION_MESSAGE_PREFIX + exception?.message
+                )
         callback.call(resultQuery)
     }
 
@@ -94,13 +101,13 @@ class AuthFirebase(
             }
         }
 
-    private fun getAuthSuccessQuery(reasonId: String) =
+    private fun getAuthSuccessQuery(reason: String) =
         Query(
             data = auth.currentUser?.uid!!,
             completed = true,
-            reason = stringStorage.getString(reasonId),
+            reason = reason,
         )
 
-    private fun getAuthFailedQuery(reasonId: String) =
-        Query(reason = stringStorage.getString(reasonId))
+    private fun getAuthFailedQuery(reason: String) =
+        Query(reason = reason)
 }

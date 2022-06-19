@@ -13,6 +13,7 @@ import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.view.login.LoginInViewModule
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
+import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.LoginInViewModel
 import javax.inject.Inject
 
@@ -24,7 +25,7 @@ class LoginInView : BaseView() {
     lateinit var viewModel: LoginInViewModel
 
     @Inject
-    lateinit var signOutTestViewClass: Class<SignOutTestView>
+    lateinit var moodEntriesViewClass: Class<MoodEntriesView>
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -59,7 +60,7 @@ class LoginInView : BaseView() {
             makeAuthStatusToast(query.reason)
 
             if (query.completed) {
-                navigation?.goToNextView(signOutTestViewClass)
+                navigation?.goToNextView(moodEntriesViewClass)
             }
 
             progressBar?.hideProgress()

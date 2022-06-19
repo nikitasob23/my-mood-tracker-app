@@ -2,7 +2,7 @@ package com.niksob.app.viewmodel.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.data.storage.string.AppStringProvider
+import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase

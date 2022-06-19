@@ -3,7 +3,7 @@ package com.niksob.app.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.niksob.data.storage.string.AppStringProvider
+import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.User

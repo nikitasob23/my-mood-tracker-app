@@ -5,12 +5,13 @@ import com.google.android.gms.tasks.OnSuccessListener
 import com.google.firebase.database.DatabaseReference
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.UserStorage
-import com.niksob.data.storage.string.AppStringStorage
+import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.UserDto
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
 
+const val USERS_DB_REF_NAME = "users"
 const val SUCCESS_USER_ADDITION = "success_user_addition"
 const val FAILED_USER_ADDITION = "failed_user_addition"
 
@@ -21,7 +22,8 @@ class DbUserFirebase(
     private val stringStorage: AppStringStorage,
 ) : UserStorage {
 
-    private val usersDbRef: DatabaseReference = dbProvider.getUserReference()
+    private val usersDbRef: DatabaseReference = dbProvider.getDbReference()
+        .child(USERS_DB_REF_NAME)
 
     private var callback: Callback<Query>? = null
 

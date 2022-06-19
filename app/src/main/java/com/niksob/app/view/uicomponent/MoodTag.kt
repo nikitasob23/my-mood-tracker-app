@@ -14,7 +14,7 @@ class MoodTag(
     color: Int = R.color.excellent_tag_background
 ) : LinearLayout(context, attrs) {
 
-    private val layout = R.layout.mood_tag
+    private val layout = R.layout.mood_tag_layout
 
     private lateinit var tail: AppCompatImageView
     private lateinit var body: AppCompatTextView

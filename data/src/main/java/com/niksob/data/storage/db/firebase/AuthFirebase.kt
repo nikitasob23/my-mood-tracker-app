@@ -4,7 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.AuthStorage
-import com.niksob.data.storage.string.AppStringStorage
+import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query

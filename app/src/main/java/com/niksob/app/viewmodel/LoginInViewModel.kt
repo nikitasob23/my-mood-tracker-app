@@ -3,7 +3,7 @@ package com.niksob.app.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.niksob.data.storage.string.AppStringProvider
+import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.LoginData
@@ -21,14 +21,14 @@ class LoginInViewModel(
     private val stringProvider: AppStringProvider,
 ) : ViewModel() {
 
-    private val queryLive = MutableLiveData<Query>()
+    private val _query = MutableLiveData<Query>()
 
-    val query: LiveData<Query> = queryLive
+    val query: LiveData<Query> = _query
 
     fun doLoginIn(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
 
-            queryLive.value = Query(
+            _query.value = Query(
                 data = loginData,
                 completed = false,
                 reason = stringProvider.getString(FAILED_REASON)
@@ -39,7 +39,7 @@ class LoginInViewModel(
         val query = Query(
             data = loginData,
             callback = Callback { query ->
-                queryLive.value = query
+                _query.value = query
             }
         )
 

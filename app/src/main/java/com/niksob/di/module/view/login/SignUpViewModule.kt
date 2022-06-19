@@ -2,11 +2,11 @@ package com.niksob.di.module.view.login
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.data.storage.string.AppStringProvider
+import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.storage.StringStorageModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule
-import com.niksob.di.module.usecase.login.LoginValidationModule
-import com.niksob.di.module.usecase.login.SignUpWithEmailAndPasswordUseCaseModule
+import com.niksob.di.module.usecase.auth.LoginValidationModule
+import com.niksob.di.module.usecase.auth.SignUpWithEmailAndPasswordUseCaseModule
 import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase

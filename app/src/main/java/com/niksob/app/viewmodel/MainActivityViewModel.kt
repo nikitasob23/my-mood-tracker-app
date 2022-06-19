@@ -6,20 +6,33 @@ import androidx.lifecycle.ViewModel
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
+import com.niksob.domain.usecase.auth.SignOutUseCase
 
 class MainActivityViewModel(
-    private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase
+    private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
+    private val signOutUseCase: SignOutUseCase,
 ) : ViewModel() {
 
-    private val responseLive = MutableLiveData<Query>()
+    private val _loadAuthUserResponse = MutableLiveData<Query>()
 
-    val response: LiveData<Query> = responseLive
+    private val _signOutResponse = MutableLiveData<Query>()
+
+    val loadAuthUserResponse: LiveData<Query> = _loadAuthUserResponse
+
+    val signOutResponse: LiveData<Query> = _signOutResponse
 
     fun loadAuthorizeUserId() {
 
         val callback = Callback<Query> { query ->
-            responseLive.value = query
+            _loadAuthUserResponse.value = query
         }
         loadAuthorizeUserIdUseCase.execute(callback)
+    }
+
+    fun signOut() {
+        val callback = Callback<Query> { query ->
+            _signOutResponse.value = query
+        }
+        signOutUseCase.execute(callback)
     }
 }

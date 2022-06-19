@@ -202,4 +202,10 @@
     <string name="bad_color_preference_key" translatable="false">bad_color_preference_key</string>
     <string name="very_bad_color_preference_key" translatable="false">very_bad_color_preference_key</string>
     <string name="sign_out">Sign out</string>
+    <string name="exit_title">Exit title</string>
+    <string name="ic_emoji">ic_emoji</string>
+    <string name="save_button_on_mood_entry_panel">save button on mood entry panel</string>
+    <string name="test_mood_entry_time">15:31</string>
+    <string name="test_title">Test title</string>
+    <string name="mood_entry_title">Mood entry title</string>
 </resources>

@@ -7,12 +7,14 @@ import com.niksob.di.module.navigation.ScreenNavigationModule
 import com.niksob.app.view.MainActivity
 import dagger.Component
 
-@Component(modules = [
-    MainActivityViewModule::class,
-    FragmentManagerModule::class,
-    ScreenNavigationModule::class,
-    AppProgressBarModule::class,
-])
+@Component(
+    modules = [
+        MainActivityViewModule::class,
+        FragmentManagerModule::class,
+        ScreenNavigationModule::class,
+        AppProgressBarModule::class,
+    ]
+)
 interface MainActivityComponent {
     fun inject(mainActivity: MainActivity)
 }

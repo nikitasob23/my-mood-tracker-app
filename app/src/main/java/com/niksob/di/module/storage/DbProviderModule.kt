@@ -1,4 +1,4 @@
-package com.niksob.di.db
+package com.niksob.di.module.storage
 
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.provider.FirebaseProvider

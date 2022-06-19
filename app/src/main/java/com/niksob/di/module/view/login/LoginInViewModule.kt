@@ -2,14 +2,14 @@ package com.niksob.di.module.view.login
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.data.storage.string.AppStringProvider
+import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.storage.StringStorageModule
-import com.niksob.di.module.usecase.login.LoginInWithEmailAndPasswordUseCaseModule
-import com.niksob.di.module.usecase.login.LoginValidationModule
+import com.niksob.di.module.usecase.auth.LoginInWithEmailAndPasswordUseCaseModule
+import com.niksob.di.module.usecase.auth.LoginValidationModule
 import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase
 import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
-import com.niksob.app.view.SignOutTestView
+import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.LoginInViewModel
 import com.niksob.app.viewmodel.factory.LoginInViewModelFactory
 import dagger.Module
@@ -19,7 +19,8 @@ import dagger.Provides
     includes = [
         LoginInWithEmailAndPasswordUseCaseModule::class,
         LoginValidationModule::class,
-        StringStorageModule::class]
+        StringStorageModule::class
+    ]
 )
 class LoginInViewModule(
     private val viewModelStoreOwner: ViewModelStoreOwner,
@@ -44,5 +45,5 @@ class LoginInViewModule(
         LoginInViewModelFactory(loginInUseCase, validateEmailUseCase, validatePasswordUseCase, stringProvider)
 
     @Provides
-    fun provideSignOutTestViewClass() = SignOutTestView::class.java
+    fun provideMoodEntriesViewClass() = MoodEntriesView::class.java
 }

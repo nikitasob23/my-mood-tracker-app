@@ -1,4 +1,4 @@
-package com.niksob.di.module.usecase.login
+package com.niksob.di.module.usecase.auth
 
 import com.niksob.di.module.repository.AuthRepositoryModule
 import com.niksob.domain.data.repository.AuthRepository

@@ -8,6 +8,7 @@ data class MoodEntry(
     val id: String = "",
     val uid: String,
     val dateTime: ZonedDateTime = ZonedDateTime.now(),
-    val degree: Int = -1,
+    val colorId: Int = -1,
+    val emojiId: Int = -1,
     val tags: List<MoodTag> = ArrayList()
 )

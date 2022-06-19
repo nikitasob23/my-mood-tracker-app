@@ -6,5 +6,5 @@ import com.google.firebase.database.DatabaseReference
 interface DbProvider {
     fun getAuth(): FirebaseAuth
 
-    fun getUserReference(): DatabaseReference
+    fun getDbReference(): DatabaseReference
 }

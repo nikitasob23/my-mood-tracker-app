@@ -1,4 +1,4 @@
-package com.niksob.data.storage.string
+package com.niksob.data.provider
 
 interface AppStringProvider {
     fun getString(name: String): String

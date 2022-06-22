@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical">
+
+    <include layout="@layout/addition_mood_entry_panel_layout"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="15dp"
+            android:orientation="vertical">
+
+        <include layout="@layout/title_with_line_layout"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+            <com.niksob.app.view.moodentry.uicomponent.MoodTagView
+                    android:id="@+id/addition_mood_entry_view_layout__add_tag_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_plus"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    tools:listitem="@layout/mood_tag_layout"
+                    android:orientation="horizontal"/>
+
+            <com.niksob.app.view.moodentry.uicomponent.MoodTagView
+                    android:id="@+id/addition_mood_entry_view_layout__hide_tags_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_back_arrow"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

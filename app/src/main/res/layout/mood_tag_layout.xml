@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              tools:parentTag="android.widget.LinearLayout"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mood_tag__tail_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mood_tag_tail_background"/>
+
+    <FrameLayout
+            android:id="@+id/mood_tag__body_frame_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/excellent_tag_background">
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/mood_tag__body_tv__body_text_view"
+                android:layout_width="wrap_content"
+                android:minWidth="50dp"
+                android:layout_height="@dimen/mood_tag_body_height"
+                android:text="@string/test_text"
+                android:textSize="20sp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:paddingBottom="8dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/mood_tag__body_tv__body_image_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/mood_tag__head_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/mood_tag_head_background"/>
+</LinearLayout>

@@ -13,6 +13,7 @@
         <entry key="app/src/main/res/drawable/exitdoor_87195.xml" value="0.5135416666666667" />
         <entry key="app/src/main/res/drawable/gradient_divider.xml" value="0.1140625" />
         <entry key="app/src/main/res/drawable/ic_app_logo.xml" value="0.1140625" />
+        <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.10364583333333334" />
         <entry key="app/src/main/res/drawable/ic_bad_emoji.xml" value="0.32760416666666664" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_forward_24.xml" value="0.2328125" />
@@ -29,7 +30,7 @@
         <entry key="app/src/main/res/drawable/ic_entry__title_line.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_entry_check_mark__grey_background.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_excellent_emoji.xml" value="0.2328125" />
-        <entry key="app/src/main/res/drawable/ic_exit.xml" value="0.5265625" />
+        <entry key="app/src/main/res/drawable/ic_exit.xml" value="0.5" />
         <entry key="app/src/main/res/drawable/ic_good_emoji.xml" value="0.32760416666666664" />
         <entry key="app/src/main/res/drawable/ic_happy_emoji.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2328125" />
@@ -38,6 +39,7 @@
         <entry key="app/src/main/res/drawable/ic_mood_tag__head.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_mood_tag__tail.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_neutral_emoji.xml" value="0.2328125" />
+        <entry key="app/src/main/res/drawable/ic_plus.xml" value="0.165" />
         <entry key="app/src/main/res/drawable/ic_sad_emoji.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_slider__thumb.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/ic_slider__track.xml" value="0.2328125" />
@@ -70,7 +72,7 @@
         <entry key="app/src/main/res/layout-v31/terrible_emoji_layout.xml" value="0.3967391304347826" />
         <entry key="app/src/main/res/layout/addition_mood_entry_panel_layout.xml" value="0.5" />
         <entry key="app/src/main/res/layout/addition_mood_entry_view.xml" value="0.452445652173913" />
-        <entry key="app/src/main/res/layout/addition_mood_entry_view_layout.xml" value="0.48451554293082943" />
+        <entry key="app/src/main/res/layout/addition_mood_entry_view_layout.xml" value="0.375" />
         <entry key="app/src/main/res/layout/check_btn_layout.xml" value="0.5" />
         <entry key="app/src/main/res/layout/entries_view.xml" value="0.4388586956521739" />
         <entry key="app/src/main/res/layout/login_view.xml" value="0.33" />
@@ -83,12 +85,15 @@
         <entry key="app/src/main/res/layout/mood_entry_list_item.xml" value="0.5" />
         <entry key="app/src/main/res/layout/mood_list_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/mood_tag.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/mood_tag_layout.xml" value="0.24214792299898683" />
+        <entry key="app/src/main/res/layout/mood_tag_view_layout.xml" value="0.13994565217391305" />
         <entry key="app/src/main/res/layout/my_mood_tag.xml" value="0.10790273556231003" />
         <entry key="app/src/main/res/layout/sign_out_test_view.xml" value="0.2942708333333333" />
         <entry key="app/src/main/res/layout/sign_up_view.xml" value="0.25" />
         <entry key="app/src/main/res/layout/terrible_emoji_layout.xml" value="0.46875" />
         <entry key="app/src/main/res/layout/test_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/titile_with_line_layout.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/title_with_line_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/view_login_in.xml" value="0.25" />
         <entry key="app/src/main/res/menu/toolbar_exit.xml" value="0.3814814814814815" />
         <entry key="app/src/main/res/menu/toolbar_exit_menu.xml" value="0.3814814814814815" />

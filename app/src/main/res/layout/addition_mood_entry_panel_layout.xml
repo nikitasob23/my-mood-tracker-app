@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        style="@style/MoodEntry">
+
+    <ImageView
+            android:id="@+id/addition_mood_entry_view_layout__mood_entry__emoji"
+            style="@style/MoodEntryEmoji"
+            android:contentDescription="@string/ic_emoji"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+    />
+
+    <TextView
+            android:id="@+id/addition_mood_entry_view_layout__mood_entry__time"
+            style="@style/MoodEntryTime"
+            android:layout_marginStart="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/addition_mood_entry_view_layout__mood_entry__emoji"
+    />
+
+    <TextView
+            android:id="@+id/addition_mood_entry_view_layout__mood_entry__title"
+            style="@style/MoodEntryTitle"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/addition_mood_entry_view_layout__mood_entry__time"
+    />
+
+    <include
+            android:id="@+id/addition_mood_entry_view_layout__mood_entry__save_btn"
+            layout="@layout/check_btn_layout"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

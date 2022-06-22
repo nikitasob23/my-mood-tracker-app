@@ -13,6 +13,7 @@ import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.di.component.DaggerMainActivityComponent
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.app.R
+import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.MainActivityViewModel
 import com.niksob.di.module.app.*

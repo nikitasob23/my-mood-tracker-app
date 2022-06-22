@@ -1,4 +1,5 @@
-package com.niksob.app.view
+
+package com.niksob.app.view.auth
 
 import android.os.Bundle
 import android.util.Log
@@ -14,6 +15,7 @@ import com.niksob.di.module.app.ContextModule
 import com.niksob.domain.model.User
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
+import com.niksob.app.view.BaseView
 import com.niksob.app.viewmodel.SignUpViewModel
 import javax.inject.Inject
 

@@ -11,7 +11,7 @@ import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase
 import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
-import com.niksob.app.view.SignOutTestView
+import com.niksob.app.view.auth.SignOutTestView
 import com.niksob.app.viewmodel.SignUpViewModel
 import com.niksob.app.viewmodel.factory.SignUpViewModelFactory
 import dagger.Module

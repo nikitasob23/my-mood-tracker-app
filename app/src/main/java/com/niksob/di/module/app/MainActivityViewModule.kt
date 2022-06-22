@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.app.view.LoginView
+import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.MainActivityViewModel
 import com.niksob.app.viewmodel.factory.MainViewModelFactory

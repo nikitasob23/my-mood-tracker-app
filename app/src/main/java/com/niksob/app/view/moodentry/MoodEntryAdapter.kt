@@ -20,9 +20,11 @@ class MoodEntryAdapter(
     private val context: Context,
 ) : RecyclerView.Adapter<MoodEntryAdapter.MoodEntryViewHolder>() {
 
+    private val layout = R.layout.mood_entry_layout
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoodEntryViewHolder {
         val entryView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.mood_entry_layout, parent, false)
+            .inflate(layout, parent, false)
 
         return MoodEntryViewHolder(entryView)
     }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/mood_entry_layout__container"
+        style="@style/MoodEntryItem">
+
+    <ImageView
+            android:id="@+id/mood_entry_layout__emoji_iv"
+            android:contentDescription="@string/ic_emoji"
+            style="@style/MoodEntryEmoji"/>
+
+    <TextView
+            android:id="@+id/mood_entry_layout__time_tv"
+            style="@style/MoodEntryTime"/>
+
+</LinearLayout>

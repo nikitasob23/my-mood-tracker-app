@@ -1,4 +1,4 @@
-package com.niksob.app.view
+package com.niksob.app.view.auth
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import androidx.appcompat.widget.AppCompatButton
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 import com.niksob.app.R
+import com.niksob.app.view.BaseView
 
 
 class SignOutTestView : BaseView() {

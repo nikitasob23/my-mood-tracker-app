@@ -15,7 +15,7 @@ import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdUseCase
 import java.time.ZonedDateTime
 
 
-private const val DAY_EDGE_VALUE = 5
+private const val LOADED_DAYS_INTERVAL = 5
 private const val AUTH_FAILED_REASON_ID = "authorize_failed"
 
 private const val UID_REQUEST_STATUS_LOG_MESSAGE_PREFIX = "Loading current user id is success: "
@@ -29,23 +29,39 @@ class MoodEntriesViewModel(
     private val stringProvider: AppStringProvider,
 ) : ViewModel() {
 
-    private val TAG = MoodEntriesViewModel::class.simpleName
+    private val TAG get() = MoodEntriesViewModel::class.simpleName
 
     private val _moodEntriesResponse = MutableLiveData<Query>()
 
-    val moodEntriesResponse: LiveData<Query> = _moodEntriesResponse
+    val moodEntriesResponse: LiveData<Query> get() = _moodEntriesResponse
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun loadMoodEntriesByUserId() {
-        val callback = Callback<Query> { userIdResponse ->
 
-            loadMoodEntriesByUserId(userIdResponse)
+        val callback = Callback<Query> { userIdResponse ->
+            onAuthorizeUserIdLoaded(userIdResponse)
         }
         loadAuthorizeUserIdUseCase.execute(callback)
     }
 
+    fun loadMoodEntries(entriesData: MoodEntriesData) {
+
+        val request = Query(
+            data = entriesData,
+            callback = Callback { moodEntriesResponse ->
+
+                Log.d(
+                    TAG, MOOD_ENTRIES_REQUEST_STATUS_LOG_MESSAGE_PREFIX + moodEntriesResponse.completed
+                            + REQUEST_REASON_LOG_MESSAGE_PREFIX + moodEntriesResponse.reason
+                )
+                _moodEntriesResponse.value = moodEntriesResponse
+            }
+        )
+        loadMoodEntriesByUserIdUseCase.execute(request)
+    }
+
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun loadMoodEntriesByUserId(userIdResponse: Query) {
+    private fun onAuthorizeUserIdLoaded(userIdResponse: Query) {
 
         Log.d(
             TAG, UID_REQUEST_STATUS_LOG_MESSAGE_PREFIX + userIdResponse.completed
@@ -59,24 +75,11 @@ class MoodEntriesViewModel(
             return
         }
 
-        val callback = Callback<Query> { moodEntriesResponse ->
-            Log.d(
-                TAG, MOOD_ENTRIES_REQUEST_STATUS_LOG_MESSAGE_PREFIX + moodEntriesResponse.completed
-                        + REQUEST_REASON_LOG_MESSAGE_PREFIX + moodEntriesResponse.reason
-            )
-            _moodEntriesResponse.value = moodEntriesResponse
-        }
-
-        val moodEntriesData = MoodEntriesData(
+        val entriesData = MoodEntriesData(
             uid = userIdResponse.data as String,
             dateTime = ZonedDateTime.now(),
-            dayEdge = DAY_EDGE_VALUE
+            loadedDaysInterval = LOADED_DAYS_INTERVAL
         )
-
-        val request = Query(
-            data = moodEntriesData,
-            callback = callback,
-        )
-        loadMoodEntriesByUserIdUseCase.execute(request)
+        loadMoodEntries(entriesData)
     }
 }

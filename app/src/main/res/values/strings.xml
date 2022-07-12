@@ -41,8 +41,11 @@
     <string name="failed_user_addition">Failed user addition</string>
     <string name="success_saving">Success saving</string>
     <string name="failure_saving">Failure saving</string>
-    <string name="mood_entry_was_load">Mood entry was load</string>
-    <string name="mood_entry_was_not_load">Mood entry was not load</string>
+    <string name="mood_entries_was_load">Mood entries was load</string>
+    <string name="mood_entries_was_not_load">Mood entries was not load</string>
+    <string name="mood_tags_was_load">Mood tags was load</string>
+    <string name="mood_tags_was_not_load">Mood tags was not load</string>
+    <string name="failure_load_tag_ids">Mood tag ids was not load</string>
 
     <string name="new_notification_button_text">Add new notification</string>
 

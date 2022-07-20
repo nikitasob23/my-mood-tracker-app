@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".view.moodentry.EntriesView">
+        tools:context=".view.moodentry.MoodEntriesView">
 
     <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/entries_view__entry_recycle_view"

@@ -1,99 +1,104 @@
 package com.niksob.app.view.moodentry.uicomponent
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.View
-import android.widget.FrameLayout
+import android.widget.ImageView
 import android.widget.LinearLayout
-import androidx.appcompat.widget.AppCompatImageView
-import androidx.appcompat.widget.AppCompatTextView
+import android.widget.TextView
 import com.niksob.app.R
 
-
-private const val BACKGROUND_ATTR = R.styleable.MoodTagView_android_background
-private const val TEXT_ATTR = R.styleable.MoodTagView_android_text
-private const val DEF_TEXT_ATTR = ""
-
+const val TAG_ENVELOP_OTHER_TAGS = true
+const val TAG_NOT_ENVELOP_OTHER_TAGS = false
+private const val DEF_COLOR = R.color.grey
+private const val DEF_TEXT = ""
+private const val ENVELOP_TAG_MARGIN_START_IN_DP = -16f
+private const val NOT_ENVELOP_TAG_MARGIN_START_IN_DP = 0f
 
 class MoodTagView(
     context: Context,
-    attrs: AttributeSet,
+    attrs: AttributeSet? = null,
 ) : LinearLayout(context, attrs) {
 
-    var color = R.color.grey
-        set(value) {
-            field = value
-            changeColor()
+    var color: Int = DEF_COLOR
+        set(newColor) {
+            field = newColor
+            changeTagColor(newColor)
         }
 
-    var name = ""
-        set(value) {
-            field = value
-            changeText()
+    var text: String = DEF_TEXT
+        set(newText) {
+            field = newText
+            changeTagText(newText)
         }
 
-    private lateinit var tail: AppCompatImageView
-    private lateinit var body: FrameLayout
-    private lateinit var head: AppCompatImageView
+    var isEnvelopsOtherTags: Boolean? = null
+        set(isEnvelopsOtherTags) {
 
-    private lateinit var textView: AppCompatTextView
-    private lateinit var imageView: AppCompatImageView
+            if (isEnvelopsOtherTags == field) {
+                return
+            }
+            field = isEnvelopsOtherTags
 
-    private val viewAttrsId = R.styleable.MoodTagView
+            changeMarginStart()
+        }
 
-    private val backgroundDrawable: Drawable?
+    private val layout get() = R.layout.mood_tag_layout
 
-    private val hasText
-        get() = name.isNotEmpty()
+    private lateinit var _rootView: View
+
+    private lateinit var tailImageView: ImageView
+    private lateinit var bodyTextView: TextView
+    private lateinit var headImageView: ImageView
 
     init {
-        val attrsTypeArray = context.obtainStyledAttributes(attrs, viewAttrsId)
-        backgroundDrawable = attrsTypeArray.getDrawable(BACKGROUND_ATTR)
-        name = attrsTypeArray.getString(TEXT_ATTR) ?: DEF_TEXT_ATTR
-
         initComponents()
+    }
 
-        changeColor()
-
-        if (hasText) {
-            showText()
-            changeText()
-        } else {
-            showImage()
-            changeImage()
-        }
+    override fun onFinishInflate() {
+        super.onFinishInflate()
+        isEnvelopsOtherTags = TAG_ENVELOP_OTHER_TAGS
     }
 
     private fun initComponents() {
-        tail = findViewById(R.id.mood_tag__tail_iv)
-        body = findViewById(R.id.mood_tag__body_frame_layout)
-        head = findViewById(R.id.mood_tag__head_iv)
-        textView = findViewById(R.id.mood_tag__body_tv__body_text_view)
-        imageView = findViewById(R.id.mood_tag__body_tv__body_image_view)
+
+        _rootView = View.inflate(context, layout, this)
+
+        tailImageView = _rootView.findViewById(R.id.mood_tag_layout2__mood_tail_image_view)
+        bodyTextView = _rootView.findViewById(R.id.mood_tag_layout2__mood_body_text_view)
+        headImageView = _rootView.findViewById(R.id.mood_tag_layout2__mood_head_image_view)
     }
 
-    private fun changeColor() {
-        tail.setBackgroundColor(color)
-        body.setBackgroundColor(color)
-        head.setBackgroundColor(color)
+    private fun changeTagColor(newColor: Int) {
+        tailImageView.background.setTint(newColor)
+        bodyTextView.setBackgroundColor(newColor)
+        headImageView.background.setTint(newColor)
     }
 
-    private fun showText() {
-        textView.visibility = View.VISIBLE
-        imageView.visibility = View.GONE
+    private fun changeTagText(newText: String) {
+        bodyTextView.text = newText
     }
 
-    private fun showImage() {
-        imageView.visibility = View.VISIBLE
-        textView.visibility = View.GONE
+    private fun changeMarginStart() {
+
+        if (layoutParams !is MarginLayoutParams) {
+            return
+        }
+
+        val dp = toDp(
+            if (isEnvelopsOtherTags!!) {
+                ENVELOP_TAG_MARGIN_START_IN_DP
+            } else {
+                NOT_ENVELOP_TAG_MARGIN_START_IN_DP
+            }
+        )
+        (layoutParams as MarginLayoutParams).marginStart = dp
     }
 
-    private fun changeText() {
-        textView.text = name
-    }
-
-    private fun changeImage() {
-        imageView.background = backgroundDrawable
-    }
+    private fun toDp(value: Float) = TypedValue.applyDimension(
+        TypedValue.COMPLEX_UNIT_DIP,
+        value,
+        resources.displayMetrics,
+    ).toInt()
 }

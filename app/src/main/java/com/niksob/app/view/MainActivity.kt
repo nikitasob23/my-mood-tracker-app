@@ -9,6 +9,7 @@ import android.widget.Toast
 import  androidx.appcompat.widget.Toolbar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.di.component.DaggerMainActivityComponent
 import com.niksob.domain.navigation.ScreenNavigation
@@ -36,6 +37,8 @@ class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var moodEntriesViewClass: Class<MoodEntriesView>
+
+    private val mainActivityViewModelStoreOwner: ViewModelStoreOwner = this
 
     private lateinit var progressBarFrameLayout: FrameLayout
 
@@ -84,16 +87,16 @@ class MainActivity : AppCompatActivity() {
         progressBarFrameLayout = findViewById(R.id.main_layout__main_progress_bar)
 
         toolbar = findViewById(R.id.main_layout__toolbar)
-//        toolbar.visibility = View.GONE
         setSupportActionBar(toolbar)
     }
 
     private fun inject() {
         val component = DaggerMainActivityComponent.builder()
             .contextModule(ContextModule(applicationContext))
-            .mainActivityViewModule(MainActivityViewModule(this))
+            .mainActivityViewModule(MainActivityViewModule(mainActivityViewModelStoreOwner))
             .fragmentManagerModule(FragmentManagerModule(supportFragmentManager))
             .appProgressBarModule(AppProgressBarModule(progressBarFrameLayout))
+            .mainActivityViewModelStoreOwnerModule(MainActivityViewModelStoreOwnerModule(mainActivityViewModelStoreOwner))
             .build()
         component.inject(this)
     }

@@ -2,6 +2,7 @@ package com.niksob.app.navigation
 
 import android.util.Log
 import androidx.appcompat.widget.Toolbar
+import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
@@ -14,8 +15,9 @@ private const val ON_GO_TO_NEXT_VIEW_PREFIX_MESSAGE = "Go to view: "
 class FragmentNavigation(
     private val setFragmentUseCase: SetFragmentUseCase,
     private val popBackFragmentUseCase: PopBackFragmentUseCase,
-    var progressBar: AppProgressBar? = null,
+    var appProgressBar: AppProgressBar? = null,
     var toolbar: Toolbar? = null,
+    var viewModelStoreOwner: ViewModelStoreOwner,
 ) : ScreenNavigation {
 
     override fun <T : NavigationableScreen> goToNextView(screenClass: Class<T>) {
@@ -23,10 +25,12 @@ class FragmentNavigation(
 
         val screen = screenClass.newInstance()
         screen.attachNavigation(this)
-        screen.attachAppProgressBar(progressBar)
+        screen.attachAppProgressBar(appProgressBar)
 
         if (screen is NavigationableFragment) {
-            (screen as NavigationableFragment).attachToolbar(toolbar)
+            val navigationableFragment = screen as NavigationableFragment
+            navigationableFragment.attachToolbar(toolbar)
+            navigationableFragment.attachViewModelStoreOwner(viewModelStoreOwner)
         }
         setFragmentUseCase.execute(screen)
     }

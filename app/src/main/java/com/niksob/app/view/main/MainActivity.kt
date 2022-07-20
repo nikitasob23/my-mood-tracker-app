@@ -1,4 +1,4 @@
-package com.niksob.app.view
+package com.niksob.app.view.main
 
 import android.os.Bundle
 import android.util.Log
@@ -11,13 +11,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
-import com.niksob.di.component.DaggerMainActivityComponent
+import com.niksob.di.component.view.main.DaggerMainActivityComponent
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.app.R
 import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.moodentry.MoodEntriesView
-import com.niksob.app.viewmodel.MainActivityViewModel
+import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.di.module.app.*
+import com.niksob.di.module.view.main.MainActivityViewModule
 import com.niksob.domain.model.Query
 import javax.inject.Inject
 

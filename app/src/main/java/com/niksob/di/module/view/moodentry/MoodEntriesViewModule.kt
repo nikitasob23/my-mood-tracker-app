@@ -1,12 +1,12 @@
-package com.niksob.di.module.view
+package com.niksob.di.module.view.moodentry
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.viewmodel.MVVMBaseViewModel
-import com.niksob.app.viewmodel.MoodEntriesViewModel
-import com.niksob.app.viewmodel.factory.MoodEntriesViewModelFactory
+import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
+import com.niksob.app.viewmodel.moodentry.factory.MoodEntriesViewModelFactory
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdUseCaseModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule

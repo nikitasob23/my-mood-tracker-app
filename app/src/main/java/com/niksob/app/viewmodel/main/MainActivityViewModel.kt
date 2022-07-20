@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel
+package com.niksob.app.viewmodel.main
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

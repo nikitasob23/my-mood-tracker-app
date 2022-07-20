@@ -1,9 +1,9 @@
-package com.niksob.app.viewmodel.factory
+package com.niksob.app.viewmodel.main.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.app.viewmodel.MainActivityViewModel
+import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.domain.usecase.auth.SignOutUseCase
 
 @Suppress("UNCHECKED_CAST")

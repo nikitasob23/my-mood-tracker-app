@@ -9,14 +9,15 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import com.niksob.di.component.DaggerSignUpViewComponent
+import com.niksob.di.component.view.auth.DaggerSignUpViewComponent
 import com.niksob.di.module.view.login.SignUpViewModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.domain.model.User
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
-import com.niksob.app.view.BaseView
-import com.niksob.app.viewmodel.SignUpViewModel
+import com.niksob.app.view.base.BaseView
+import com.niksob.app.view.moodentry.MoodEntriesView
+import com.niksob.app.viewmodel.auth.SignUpViewModel
 import javax.inject.Inject
 
 class SignUpView : BaseView() {
@@ -27,7 +28,7 @@ class SignUpView : BaseView() {
     lateinit var viewModel: SignUpViewModel
 
     @Inject
-    lateinit var signOutTestViewClass: Class<SignOutTestView>
+    lateinit var moodEntriesViewClass: Class<MoodEntriesView>
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText
@@ -79,7 +80,7 @@ class SignUpView : BaseView() {
 
             viewModel.addUser(user)
 
-            navigation?.goToNextView(signOutTestViewClass)
+            navigation?.goToNextView(moodEntriesViewClass)
             progressBar?.hideProgress()
         }
     }

@@ -1,7 +1,7 @@
-package com.niksob.di.component
+package com.niksob.di.component.view.moodentry
 
 import com.niksob.app.view.moodentry.MoodEntriesView
-import com.niksob.di.module.view.MoodEntriesViewModule
+import com.niksob.di.module.view.moodentry.MoodEntriesViewModule
 import dagger.Component
 
 @Component(modules = [MoodEntriesViewModule::class])

@@ -2,6 +2,7 @@ package com.niksob.di.module.view.login
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.storage.StringStorageModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule
@@ -11,9 +12,8 @@ import com.niksob.domain.usecase.db.AddUserUseCase
 import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase
 import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
-import com.niksob.app.view.auth.SignOutTestView
-import com.niksob.app.viewmodel.SignUpViewModel
-import com.niksob.app.viewmodel.factory.SignUpViewModelFactory
+import com.niksob.app.viewmodel.auth.SignUpViewModel
+import com.niksob.app.viewmodel.auth.factory.SignUpViewModelFactory
 import dagger.Module
 import dagger.Provides
 
@@ -55,5 +55,5 @@ class SignUpViewModule(
         )
 
     @Provides
-    fun provideSignOutTestViewClass() = SignOutTestView::class.java
+    fun provideMoodEntriesViewClass() = MoodEntriesView::class.java
 }

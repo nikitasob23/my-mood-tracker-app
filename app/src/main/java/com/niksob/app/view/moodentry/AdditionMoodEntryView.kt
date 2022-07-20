@@ -1,7 +1,7 @@
 package com.niksob.app.view.moodentry
 
 import com.niksob.app.R
-import com.niksob.app.view.BaseView
+import com.niksob.app.view.base.BaseView
 import com.niksob.domain.model.MoodEntriesData
 
 class AdditionMoodEntryView : BaseView() {

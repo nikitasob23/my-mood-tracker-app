@@ -1,10 +1,10 @@
-package com.niksob.di.component
+package com.niksob.di.component.view.main
 
 import com.niksob.di.module.app.FragmentManagerModule
 import com.niksob.di.module.app.AppProgressBarModule
-import com.niksob.di.module.app.MainActivityViewModule
+import com.niksob.di.module.view.main.MainActivityViewModule
 import com.niksob.di.module.navigation.ScreenNavigationModule
-import com.niksob.app.view.MainActivity
+import com.niksob.app.view.main.MainActivity
 import dagger.Component
 
 @Component(

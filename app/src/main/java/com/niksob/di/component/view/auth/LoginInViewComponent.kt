@@ -1,4 +1,4 @@
-package com.niksob.di.component
+package com.niksob.di.component.view.auth
 
 import com.niksob.di.module.view.login.LoginInViewModule
 import com.niksob.app.view.auth.LoginInView

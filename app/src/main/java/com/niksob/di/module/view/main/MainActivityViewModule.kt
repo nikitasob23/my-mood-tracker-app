@@ -1,4 +1,4 @@
-package com.niksob.di.module.app
+package com.niksob.di.module.view.main
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
@@ -6,8 +6,8 @@ import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.moodentry.MoodEntriesView
-import com.niksob.app.viewmodel.MainActivityViewModel
-import com.niksob.app.viewmodel.factory.MainViewModelFactory
+import com.niksob.app.viewmodel.main.MainActivityViewModel
+import com.niksob.app.viewmodel.main.factory.MainViewModelFactory
 import com.niksob.di.module.usecase.auth.SignOutUseCaseModule
 import com.niksob.domain.usecase.auth.SignOutUseCase
 import dagger.Module

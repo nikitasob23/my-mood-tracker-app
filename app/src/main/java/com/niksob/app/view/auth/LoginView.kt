@@ -5,9 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
-import com.niksob.di.component.DaggerLoginViewComponent
+import com.niksob.di.component.view.auth.DaggerLoginViewComponent
 import com.niksob.app.R
-import com.niksob.app.view.BaseView
+import com.niksob.app.view.base.BaseView
 import javax.inject.Inject
 
 class LoginView : BaseView() {

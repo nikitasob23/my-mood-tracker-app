@@ -1,10 +1,12 @@
-package com.niksob.app.viewmodel
+package com.niksob.app.viewmodel.moodentry
 
 import android.os.Build
 import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.niksob.app.viewmodel.DataLoadingStatus
+import com.niksob.app.viewmodel.MVVMBaseViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntriesData

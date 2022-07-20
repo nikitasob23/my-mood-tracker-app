@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntriesData
@@ -27,7 +26,7 @@ class MoodEntriesViewModel(
     private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
     private val loadMoodEntriesByUserIdUseCase: LoadMoodEntriesByUserIdUseCase,
     private val stringProvider: AppStringProvider,
-) : ViewModel() {
+) : MVVMBaseViewModel() {
 
     private val TAG get() = MoodEntriesViewModel::class.simpleName
 
@@ -38,13 +37,18 @@ class MoodEntriesViewModel(
     @RequiresApi(Build.VERSION_CODES.O)
     fun loadMoodEntriesByUserId() {
 
+        dataLoadingStatus.value = DataLoadingStatus.LOADING
+
         val callback = Callback<Query> { userIdResponse ->
             onAuthorizeUserIdLoaded(userIdResponse)
+            dataLoadingStatus.value = DataLoadingStatus.LOADING_COMPLETED
         }
         loadAuthorizeUserIdUseCase.execute(callback)
     }
 
     fun loadMoodEntries(entriesData: MoodEntriesData) {
+
+        dataLoadingStatus.value = DataLoadingStatus.LOADING
 
         val request = Query(
             data = entriesData,
@@ -55,6 +59,7 @@ class MoodEntriesViewModel(
                             + REQUEST_REASON_LOG_MESSAGE_PREFIX + moodEntriesResponse.reason
                 )
                 _moodEntriesResponse.value = moodEntriesResponse
+                dataLoadingStatus.value = DataLoadingStatus.LOADING_COMPLETED
             }
         )
         loadMoodEntriesByUserIdUseCase.execute(request)
@@ -72,6 +77,7 @@ class MoodEntriesViewModel(
             _moodEntriesResponse.value = Query(
                 reason = stringProvider.getString(AUTH_FAILED_REASON_ID)
             )
+            dataLoadingStatus.value = DataLoadingStatus.LOADING_FAILURE
             return
         }
 

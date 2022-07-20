@@ -1,74 +1,70 @@
 package com.niksob.app.view.moodentry
 
 import android.os.Build
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.app.view.BaseView
+import com.niksob.app.view.MVVMBaseView
 import com.niksob.app.viewmodel.MoodEntriesViewModel
 import com.niksob.di.component.DaggerMoodEntriesViewComponent
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.view.MoodEntriesViewModule
 import com.niksob.domain.model.MoodEntry
 import com.niksob.domain.model.Query
-import javax.inject.Inject
 
-class MoodEntriesView : BaseView() {
+class MoodEntriesView : MVVMBaseView() {
 
-    override val layout = R.layout.entries_view
+    override val layout get() = R.layout.entries_view
 
-    @Inject
-    lateinit var viewModel: MoodEntriesViewModel
+    private lateinit var moodEntryRecycleView: RecyclerView
 
     @Suppress("UNCHECKED_CAST")
     private val moodEntriesObserver = Observer<Query> { response ->
-
-        if (!response.completed) {
-
-            navigation?.goToPreviousView()
-            return@Observer
-        }
-
-        val entries = response.data as List<MoodEntry>
-        initMoodEntriesList(entries)
-
-        progressBar?.hideProgress()
+        initMoodEntriesList(response.data as List<MoodEntry>)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        super.onCreateView(inflater, container, savedInstanceState)
+    @Suppress("UNCHECKED_CAST")
+    override fun onCreateViewDataLoading() {
 
-        progressBar?.showProgress()
+        val moodEntriesViewModel = viewModel as MoodEntriesViewModel
 
-        inject()
-
-        viewModel.apply {
-            loadMoodEntriesByUserId()
-            moodEntriesResponse.observe(viewLifecycleOwner, moodEntriesObserver)
+        if (viewModel!!.loadingIsCompleted()) {
+            val response = moodEntriesViewModel.moodEntriesResponse.value
+            response?.apply { initMoodEntriesList(data as List<MoodEntry>) }
+        } else {
+            moodEntriesViewModel.loadMoodEntriesByUserId()
         }
-        return rootView
     }
 
-    private fun inject() {
-        DaggerMoodEntriesViewComponent.builder()
-            .contextModule(ContextModule(requireContext().applicationContext))
-            .moodEntriesViewModule(MoodEntriesViewModule(viewModelStoreOwner = this))
+    override fun inject() {
+
+        val contextModule = ContextModule(requireContext().applicationContext)
+
+        val moodEntriesViewModule = MoodEntriesViewModule(
+            viewModelStoreOwner = viewModelStoreOwner,
+            viewLifecycleOwner = viewLifecycleOwner,
+            moodEntriesObserver = moodEntriesObserver
+        )
+
+        val component = DaggerMoodEntriesViewComponent.builder()
+            .contextModule(contextModule)
+            .moodEntriesViewModule(moodEntriesViewModule)
             .build()
-            .inject(this)
+
+        component.inject(this)
+    }
+
+    override fun initComponents() {
+        moodEntryRecycleView = rootView.findViewById(R.id.entries_view__entry_recycle_view)
     }
 
     private fun initMoodEntriesList(moodEntries: List<MoodEntry>) {
-        rootView.findViewById<RecyclerView>(R.id.entries_view__entry_recycle_view).apply {
-
+        moodEntryRecycleView.apply {
             layoutManager = LinearLayoutManager(requireContext().applicationContext)
-            adapter = MoodEntryAdapter(moodEntries, requireContext().applicationContext)
+            adapter = MoodEntryAdapter(moodEntries)
         }
     }
 }

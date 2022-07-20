@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/mood_entry_layout__container"
         style="@style/MoodEntryItem">
 
@@ -12,5 +13,11 @@
     <TextView
             android:id="@+id/mood_entry_layout__time_tv"
             style="@style/MoodEntryTime"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/mood_entry_layout__mood_tag_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:listitem="@layout/mood_tag_view_layout"/>
 
 </LinearLayout>

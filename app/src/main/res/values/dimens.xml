@@ -14,6 +14,10 @@
     <dimen name="toolbar_text_size">24sp</dimen>
     <dimen name="mood_tag_body_height">66dp</dimen>
     <dimen name="rounded_button_radius">25dp</dimen>
-    <dimen name="mood_tag_height">66dp</dimen>
     <dimen name="main_toolbar_height">60dp</dimen>
+    <dimen name="mood_entry_height">70dp</dimen>
+    <dimen name="mood_tag_tail_width">15dp</dimen>
+    <dimen name="mood_tag_head_width">10dp</dimen>
+    <dimen name="mood_tag_min_width">50dp</dimen>
+    <dimen name="mood_tag_text_size">20sp</dimen>
 </resources>

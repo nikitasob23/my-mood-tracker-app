@@ -98,6 +98,7 @@
         <item name="android:layout_width">60dp</item>
         <item name="android:layout_height">60dp</item>
         <item name="android:background">@drawable/ic_excellent_emoji</item>
+        <item name="android:layout_gravity">center</item>
     </style>
     <style name="MoodEntryTime">
         <item name="android:layout_width">wrap_content</item>
@@ -116,5 +117,25 @@
         <item name="android:gravity">center_vertical</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:layout_marginStart">5dp</item>
+    </style>
+    <style name="MoodTag">
+        <item name = "android:layout_height">@dimen/mood_entry_height</item>
+    </style>
+    <style name="MoodTag.Tail">
+        <item name = "android:layout_width">@dimen/mood_tag_tail_width</item>
+        <item name = "android:background">@drawable/ic_mood_tag_tail</item>
+    </style>
+    <style name="MoodTag.Body">
+        <item name = "android:minWidth">@dimen/mood_tag_min_width</item>
+        <item name = "android:text">@string/test_text</item>
+        <item name = "android:textSize">@dimen/mood_tag_text_size</item>
+        <item name = "android:textColor">@color/black</item>
+        <item name = "android:fontFamily">@font/roboto</item>
+        <item name = "android:gravity">center</item>
+        <item name = "android:background">@color/grey</item>
+    </style>
+    <style name="MoodTag.Head">
+        <item name = "android:layout_width">@dimen/mood_tag_head_width</item>
+        <item name = "android:background">@drawable/ic_mood_tag_head</item>
     </style>
 </resources>

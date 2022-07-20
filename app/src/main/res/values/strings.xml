@@ -212,4 +212,6 @@
     <string name="test_title">Test title</string>
     <string name="mood_entry_title">Mood entry title</string>
     <string name="test_text">text</string>
+    <string name="mood_tag_tail_image">mood tag tail image</string>
+    <string name="mood_tag_head_image">mood tag head image</string>
 </resources>

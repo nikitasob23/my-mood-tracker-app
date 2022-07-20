@@ -5,22 +5,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.niksob.app.viewmodel.BaseViewModel
+import com.niksob.app.viewmodel.DataLoadingStatus
+import com.niksob.app.viewmodel.DataLoadingStatus.*
+import com.niksob.app.viewmodel.MVVMBaseViewModel
 import javax.inject.Inject
 
 abstract class MVVMBaseView : BaseView() {
 
-    @Inject @JvmField
-    var viewModel: BaseViewModel? = null
+    @Inject
+    @JvmField
+    var viewModel: MVVMBaseViewModel? = null
 
-    protected abstract val onCreateViewDataLoading: (() -> Unit)?
+    private var dataIsLoadingObserver = Observer<DataLoadingStatus> { loadingStatus ->
 
-    private val dataIsLoadingObserver = Observer<Boolean> { isLoading ->
-        if (isLoading) {
+        if (loadingStatus == LOADING) {
             progressBar?.showProgress()
-            return@Observer
+        } else if (loadingStatus == LOADING_COMPLETED) {
+            progressBar?.hideProgress()
         }
-        progressBar?.hideProgress()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
@@ -30,14 +32,16 @@ abstract class MVVMBaseView : BaseView() {
 
         initComponents()
 
-        viewModel?.dataIsLoading?.observe(viewLifecycleOwner, dataIsLoadingObserver)
+        viewModel?.dataLoadingStatus?.observe(viewLifecycleOwner, dataIsLoadingObserver)
 
-        onCreateViewDataLoading?.invoke()
+        onCreateViewDataLoading()
 
         return rootView
     }
 
-    protected abstract fun inject()
+    protected open fun onCreateViewDataLoading() = Unit
 
-    protected abstract fun initComponents()
+    protected open fun inject() = Unit
+
+    protected open fun initComponents() = Unit
 }

@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="MoodTagView">
         <attr name="android:background"/>
+        <attr name="android:color"/>
         <attr name="android:text"/>
     </declare-styleable>
 </resources>

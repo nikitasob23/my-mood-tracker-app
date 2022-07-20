@@ -1,6 +1,5 @@
 package com.niksob.app.view.moodentry
 
-import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater
 import android.view.View
@@ -9,15 +8,17 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
 import com.niksob.domain.model.MoodEntry
+import com.niksob.domain.model.MoodTag
 import com.niksob.domain.utils.date.localTime
 
+private const val LAYOUT_IS_REVERSED = false
 
 class MoodEntryAdapter(
     private val moodEntries: List<MoodEntry>,
-    private val context: Context,
 ) : RecyclerView.Adapter<MoodEntryAdapter.MoodEntryViewHolder>() {
 
     private val layout = R.layout.mood_entry_layout
@@ -30,7 +31,7 @@ class MoodEntryAdapter(
     }
 
     override fun onBindViewHolder(holder: MoodEntryViewHolder, position: Int) {
-        holder.bindView(moodEntries[position], context)
+        holder.bindView(moodEntries[position])
     }
 
     override fun getItemCount() = moodEntries.size
@@ -40,11 +41,14 @@ class MoodEntryAdapter(
         private val containerLinearLayout: LinearLayout = itemView.findViewById(R.id.mood_entry_layout__container)
         private val emojiImageView: ImageView = itemView.findViewById(R.id.mood_entry_layout__emoji_iv)
         private val timeTextView: TextView = itemView.findViewById(R.id.mood_entry_layout__time_tv)
+        private val moodTagRecyclerView: RecyclerView =
+            itemView.findViewById(R.id.mood_entry_layout__mood_tag_recycle_view)
 
-        fun bindView(entry: MoodEntry, context: Context) {
+        fun bindView(entry: MoodEntry) {
             setBackgroundColor(entry.colorId)
-            setEmoji(context, entry.emojiId)
+            setEmoji(entry.emojiId)
             setTime(entry.dateTime.localTime)
+            initMoodTagAdapter(entry.tags)
         }
 
         private fun setBackgroundColor(colorId: Int) {
@@ -52,12 +56,20 @@ class MoodEntryAdapter(
             container.setTint(colorId)
         }
 
-        private fun setEmoji(context: Context, emojiId: Int) {
-            emojiImageView.background = AppCompatResources.getDrawable(context, emojiId)
+        private fun setEmoji(emojiId: Int) {
+            emojiImageView.background = AppCompatResources.getDrawable(itemView.context, emojiId)
         }
 
         private fun setTime(time: String) {
             timeTextView.text = time
+        }
+
+        private fun initMoodTagAdapter(tags: List<MoodTag>) {
+
+            moodTagRecyclerView.apply {
+                layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, LAYOUT_IS_REVERSED)
+                adapter = MoodTagAdapter(tags)
+            }
         }
     }
 }

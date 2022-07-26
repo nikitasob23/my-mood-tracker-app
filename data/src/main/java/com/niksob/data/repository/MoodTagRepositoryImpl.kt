@@ -7,7 +7,7 @@ import com.niksob.domain.model.Query
 class MoodTagRepositoryImpl(
     private val storage: MoodTagStorage
 ) : MoodTagRepository {
-    override fun loadByUserIdAndDate(request: Query) {
+    override fun loadByEntryId(request: Query) {
         storage.loadByUserIdAndDate(request)
     }
 }

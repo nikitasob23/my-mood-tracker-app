@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase
+package com.niksob.data.storage.db.firebase.moodentry
 
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.database.DataSnapshot
@@ -8,10 +8,10 @@ import com.google.firebase.database.ValueEventListener
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
 import com.niksob.data.storage.provider.AppStringStorage
-import com.niksob.domain.model.Callback
-import com.niksob.domain.model.Query
 import com.niksob.domain.data.dto.MoodEntriesDataDto
+import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntryDto
+import com.niksob.domain.model.Query
 
 private const val MOOD_ENTRIES_DB_REF_NAME = "mood_entries"
 
@@ -24,6 +24,7 @@ private const val SUCCESS_STATUS = true
 
 private const val DEGREE_KEY = "degree"
 private const val TIME_KEY = "time"
+private const val TAG_IDS_KEY = "tagIds"
 
 class DbMoodEntryFirebase(
     private val dbProvider: DbProvider,
@@ -32,38 +33,26 @@ class DbMoodEntryFirebase(
 
     private lateinit var callback: Callback<Query>
 
-    private val loadedMoodEntries = ArrayList<MoodEntryDto>()
-
     @Suppress("UNCHECKED_CAST")
     private val moodEntriesEventListener
         get() = object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
+            override fun onDataChange(userIdSnapshot: DataSnapshot) {
 
-                val uid = snapshot.key!!
-
-                snapshot.children.forEach { dateSnapshot ->
-
-                    val date = dateSnapshot.key!!
-
-                    dateSnapshot.children.forEach { idSnapshot ->
-
-                        val id = idSnapshot.key!!
-
-                        val degree = idSnapshot.child(DEGREE_KEY)
-                            .getValue(Int::class.java)!!
-                        val time = idSnapshot.child(TIME_KEY)
-                            .getValue(String::class.java)!!
-
-                        val entry = MoodEntryDto(
-                            id = id,
-                            uid = uid,
-                            degree = degree,
-                            date = date,
-                            time = time,
+                val loadedMoodEntries = userIdSnapshot.children.map { dateSnapshot ->
+                    dateSnapshot.children.map { idSnapshot ->
+                        MoodEntryDto(
+                            id = idSnapshot.key!!,
+                            uid = userIdSnapshot.key!!,
+                            date = dateSnapshot.key!!,
+                            degree = idSnapshot.child(DEGREE_KEY)
+                                .getValue(Int::class.java)!!,
+                            time = idSnapshot.child(TIME_KEY)
+                                .getValue(String::class.java)!!,
+                            tagIds = idSnapshot.child(TAG_IDS_KEY).children
+                                .map { tagIdSnapshot -> tagIdSnapshot.key!! },
                         )
-                        loadedMoodEntries.add(entry)
                     }
-                }
+                }.flatten()
 
                 val response = Query(
                     data = loadedMoodEntries,

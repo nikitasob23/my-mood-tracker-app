@@ -12,7 +12,7 @@ import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdUseCaseModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.model.Query
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdUseCase
+import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdAndDateUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -46,7 +46,7 @@ class MoodEntriesViewModule(
     @Provides
     fun provideViewModelFactory(
         loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
-        loadMoodEntriesByUserIdUseCase: LoadMoodEntriesByUserIdUseCase,
+        loadMoodEntriesByUserIdUseCase: /*LoadMoodEntriesByUserIdUseCase*/LoadMoodEntriesByUserIdAndDateUseCase,
         stringProvider: AppStringProvider,
     ): ViewModelProvider.Factory =
         MoodEntriesViewModelFactory(

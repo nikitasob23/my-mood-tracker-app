@@ -12,7 +12,7 @@ import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Query
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdUseCase
+import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdAndDateUseCase
 import java.time.ZonedDateTime
 
 
@@ -26,7 +26,7 @@ private const val REQUEST_REASON_LOG_MESSAGE_PREFIX = ", reason: "
 
 class MoodEntriesViewModel(
     private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
-    private val loadMoodEntriesByUserIdUseCase: LoadMoodEntriesByUserIdUseCase,
+    private val loadMoodEntriesByUserIdUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
     private val stringProvider: AppStringProvider,
 ) : MVVMBaseViewModel() {
 
@@ -46,25 +46,6 @@ class MoodEntriesViewModel(
             dataLoadingStatus.value = DataLoadingStatus.LOADING_COMPLETED
         }
         loadAuthorizeUserIdUseCase.execute(callback)
-    }
-
-    fun loadMoodEntries(entriesData: MoodEntriesData) {
-
-        dataLoadingStatus.value = DataLoadingStatus.LOADING
-
-        val request = Query(
-            data = entriesData,
-            callback = Callback { moodEntriesResponse ->
-
-                Log.d(
-                    TAG, MOOD_ENTRIES_REQUEST_STATUS_LOG_MESSAGE_PREFIX + moodEntriesResponse.completed
-                            + REQUEST_REASON_LOG_MESSAGE_PREFIX + moodEntriesResponse.reason
-                )
-                _moodEntriesResponse.value = moodEntriesResponse
-                dataLoadingStatus.value = DataLoadingStatus.LOADING_COMPLETED
-            }
-        )
-        loadMoodEntriesByUserIdUseCase.execute(request)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -89,5 +70,24 @@ class MoodEntriesViewModel(
             loadedDaysInterval = LOADED_DAYS_INTERVAL
         )
         loadMoodEntries(entriesData)
+    }
+
+    private fun loadMoodEntries(entriesData: MoodEntriesData) {
+
+        dataLoadingStatus.value = DataLoadingStatus.LOADING
+
+        val request = Query(
+            data = entriesData,
+            callback = Callback { moodEntriesResponse ->
+
+                Log.d(
+                    TAG, MOOD_ENTRIES_REQUEST_STATUS_LOG_MESSAGE_PREFIX + moodEntriesResponse.completed
+                            + REQUEST_REASON_LOG_MESSAGE_PREFIX + moodEntriesResponse.reason
+                )
+                _moodEntriesResponse.value = moodEntriesResponse
+                dataLoadingStatus.value = DataLoadingStatus.LOADING_COMPLETED
+            }
+        )
+        loadMoodEntriesByUserIdUseCase.execute(request)
     }
 }

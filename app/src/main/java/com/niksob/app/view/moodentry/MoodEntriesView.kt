@@ -33,10 +33,10 @@ class MoodEntriesView : MVVMBaseView() {
 
         if (viewModel!!.loadingIsCompleted()) {
             val response = moodEntriesViewModel.moodEntriesResponse.value
-            response?.apply { initMoodEntriesList(data as List<MoodEntry>) }
-        } else {
-            moodEntriesViewModel.loadMoodEntriesByUserId()
+            initMoodEntriesList(response!!.data as List<MoodEntry>)
+            return
         }
+        moodEntriesViewModel.loadMoodEntriesByUserId()
     }
 
     override fun inject() {

@@ -6,4 +6,5 @@ data class MoodEntryDto(
     val degree: Int,
     val date: String,
     val time: String,
+    val tagIds: List<String>,
 )

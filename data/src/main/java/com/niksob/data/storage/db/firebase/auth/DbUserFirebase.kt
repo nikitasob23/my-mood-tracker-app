@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase
+package com.niksob.data.storage.db.firebase.auth
 
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnSuccessListener

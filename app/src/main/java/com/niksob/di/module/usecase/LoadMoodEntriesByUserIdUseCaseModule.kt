@@ -8,7 +8,7 @@ import com.niksob.di.module.repository.MoodTagRepositoryModule
 import com.niksob.domain.data.converter.DbMoodTagConverter
 import com.niksob.domain.data.repository.MoodEntryRepository
 import com.niksob.domain.data.repository.MoodTagRepository
-import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdUseCase
+import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdAndDateUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -28,7 +28,7 @@ class LoadMoodEntriesByUserIdUseCaseModule {
         entryConverter: DbMoodEntryConverter,
         tagConverter: DbMoodTagConverter,
     ) =
-        LoadMoodEntriesByUserIdUseCase(
+        LoadMoodEntriesByUserIdAndDateUseCase(
             entryRepo = entryRepo,
             tagRepo = tagRepo,
             dbMoodEntryConverter = entryConverter,

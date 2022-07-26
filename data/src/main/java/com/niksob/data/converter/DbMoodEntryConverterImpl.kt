@@ -4,8 +4,10 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.converter.DbMoodEntryConverter
+import com.niksob.domain.data.converter.DbMoodTagConverter
 import com.niksob.domain.data.converter.MoodColorIdConverter
 import com.niksob.domain.data.converter.MoodEmojiIdConverter
+import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.MoodEntry
 import com.niksob.domain.model.MoodEntryDto
@@ -14,6 +16,7 @@ import com.niksob.domain.utils.date.utcDate
 
 
 class DbMoodEntryConverterImpl(
+    private val moodTagConverter: DbMoodTagConverter,
     private val moodColorIdConverter: MoodColorIdConverter,
     private val moodEmojiIdConverter: MoodEmojiIdConverter,
 ) : DbMoodEntryConverter {
@@ -36,16 +39,18 @@ class DbMoodEntryConverterImpl(
     }
 
     @Suppress("UNCHECKED_CAST", "NewApi")
-    override fun fromDto(moodEntriesDto: List<MoodEntryDto>) =
+    override fun fromDto(moodEntriesDto: List<MoodEntryDto>, moodTagsDto: List<MoodTagDto>) =
         moodEntriesDto.map { entryDto ->
 
-            val dateTime = ZonedDateTimeUtil.fromDateAndTime(entryDto.date, entryDto.time)
+            val tagsGroupByEntry = moodTagConverter.fromDto(moodTagsDto)
+                .groupBy({ it.entryId }, { it })
 
             MoodEntry(
                 id = entryDto.id,
-                dateTime = dateTime,
+                dateTime = ZonedDateTimeUtil.fromDateAndTime(entryDto.date, entryDto.time),
                 colorId = moodColorIdConverter.getColorIdByMoodDegree(entryDto.degree),
                 emojiId = moodEmojiIdConverter.getEmojiIdByMoodDegree(entryDto.degree),
+                tags = tagsGroupByEntry[entryDto.id]!!,
             )
         }
 }

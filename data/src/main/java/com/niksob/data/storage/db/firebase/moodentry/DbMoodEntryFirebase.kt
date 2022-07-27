@@ -98,6 +98,7 @@ class DbMoodEntryFirebase(
 
         setValueToDbRef(entryRef, DEGREE_KEY, entryDto.degree)
         setValueToDbRef(entryRef, TIME_KEY, entryDto.time)
+        setValueToDbRef(entryRef, TAG_IDS_KEY, entryDto)
     }
 
     private fun setValueToDbRef(ref: DatabaseReference, key: String, value: Any) {

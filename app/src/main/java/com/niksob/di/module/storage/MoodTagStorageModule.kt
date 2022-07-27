@@ -19,11 +19,13 @@ class MoodTagStorageModule {
     @Provides
     fun provideStorage(
         dbProvider: DbProvider,
-        moodTagsEventProvider: MoodTagsValueEventFirebaseProvider
+        moodTagsEventProvider: MoodTagsValueEventFirebaseProvider,
+        stringStorage: AppStringStorage,
     ): MoodTagStorage =
         DbMoodTagFirebase(
             dbProvider = dbProvider,
             moodTagsEventProvider = moodTagsEventProvider,
+            stringStorage = stringStorage,
         )
 
     @Provides

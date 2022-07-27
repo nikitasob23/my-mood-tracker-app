@@ -2,15 +2,14 @@ package com.niksob.data.converter
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.converter.DbMoodEntryConverter
 import com.niksob.domain.data.converter.DbMoodTagConverter
 import com.niksob.domain.data.converter.MoodColorIdConverter
 import com.niksob.domain.data.converter.MoodEmojiIdConverter
-import com.niksob.domain.data.dto.MoodTagDto
+import com.niksob.domain.data.dto.*
+import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.MoodEntry
-import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.utils.date.ZonedDateTimeUtil
 import com.niksob.domain.utils.date.utcDate
 
@@ -38,19 +37,20 @@ class DbMoodEntryConverterImpl(
         )
     }
 
-    @Suppress("UNCHECKED_CAST", "NewApi")
-    override fun fromDto(moodEntriesDto: List<MoodEntryDto>, moodTagsDto: List<MoodTagDto>) =
-        moodEntriesDto.map { entryDto ->
+    override fun fromDto(moodEntriesDataDto: Any, moodTagsDataDto: Any) =
+        MoodEntries(
+            (moodEntriesDataDto as MoodEntriesDto).data.map { entryDto ->
 
-            val tagsGroupByEntry = moodTagConverter.fromDto(moodTagsDto)
-                .groupBy({ it.entryId }, { it })
+                val tagsGroupByEntry = moodTagConverter.fromDto(moodTagsDataDto as MoodTagsDto).data
+                    .groupBy({ it.entryId }, { it })
 
-            MoodEntry(
-                id = entryDto.id,
-                dateTime = ZonedDateTimeUtil.fromDateAndTime(entryDto.date, entryDto.time),
-                colorId = moodColorIdConverter.getColorIdByMoodDegree(entryDto.degree),
-                emojiId = moodEmojiIdConverter.getEmojiIdByMoodDegree(entryDto.degree),
-                tags = tagsGroupByEntry[entryDto.id]!!,
-            )
-        }
+                MoodEntry(
+                    id = entryDto.id,
+                    dateTime = ZonedDateTimeUtil.fromDateAndTime(entryDto.date, entryDto.time),
+                    colorId = moodColorIdConverter.getColorIdByMoodDegree(entryDto.degree),
+                    emojiId = moodEmojiIdConverter.getEmojiIdByMoodDegree(entryDto.degree),
+                    tags = tagsGroupByEntry[entryDto.id]!!,
+                )
+            }
+        )
 }

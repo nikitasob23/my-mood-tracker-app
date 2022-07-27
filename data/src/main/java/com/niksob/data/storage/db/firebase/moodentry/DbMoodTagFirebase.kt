@@ -32,6 +32,7 @@ class DbMoodTagFirebase(
             .addListenerForSingleValueEvent(moodTagsEventProvider.getListener(tagsDataDto, request.callback!!))
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun save(request: Query) {
         val tagsDto = request.data as Map<String, Any>
         moodTagDbProvider.updateChildren(tagsDto)

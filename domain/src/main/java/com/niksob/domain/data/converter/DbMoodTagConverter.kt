@@ -1,13 +1,11 @@
 package com.niksob.domain.data.converter
 
-import com.niksob.domain.data.dto.MoodTagDto
-import com.niksob.domain.data.dto.MoodEntryDto
-import com.niksob.domain.model.MoodTag
-import com.niksob.domain.data.dto.MoodTagDataDto
+import com.niksob.domain.data.dto.*
+import com.niksob.domain.model.MoodTags
 
 interface DbMoodTagConverter {
 
-    fun toDto(moodEntries: List<MoodEntryDto>): MoodTagDataDto
+    fun toDto(data: Any): MoodTagDataDto
 
-    fun fromDto(moodTagsDto: List<MoodTagDto>): List<MoodTag>
+    fun fromDto(data: Any): MoodTags
 }

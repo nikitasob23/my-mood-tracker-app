@@ -11,7 +11,7 @@ import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
 import com.niksob.di.component.view.moodentry.DaggerMoodEntriesViewComponent
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.view.moodentry.MoodEntriesViewModule
-import com.niksob.domain.model.MoodEntry
+import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.Query
 
 class MoodEntriesView : MVVMBaseView() {
@@ -22,7 +22,7 @@ class MoodEntriesView : MVVMBaseView() {
 
     @Suppress("UNCHECKED_CAST")
     private val moodEntriesObserver = Observer<Query> { response ->
-        initMoodEntriesList(response.data as List<MoodEntry>)
+        initMoodEntriesList(response.data as MoodEntries)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -33,7 +33,7 @@ class MoodEntriesView : MVVMBaseView() {
 
         if (viewModel!!.loadingIsCompleted()) {
             val response = moodEntriesViewModel.moodEntriesResponse.value
-            initMoodEntriesList(response!!.data as List<MoodEntry>)
+            initMoodEntriesList(response!!.data as MoodEntries)
             return
         }
         moodEntriesViewModel.loadMoodEntriesByUserId()
@@ -61,7 +61,7 @@ class MoodEntriesView : MVVMBaseView() {
         moodEntryRecycleView = rootView.findViewById(R.id.entries_view__entry_recycle_view)
     }
 
-    private fun initMoodEntriesList(moodEntries: List<MoodEntry>) {
+    private fun initMoodEntriesList(moodEntries: MoodEntries) {
         moodEntryRecycleView.apply {
             layoutManager = LinearLayoutManager(requireContext().applicationContext)
             adapter = MoodEntryAdapter(moodEntries)

@@ -11,6 +11,7 @@ import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
+import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.MoodEntry
 import com.niksob.domain.model.MoodTag
 import com.niksob.domain.utils.date.localTime
@@ -18,7 +19,7 @@ import com.niksob.domain.utils.date.localTime
 private const val LAYOUT_IS_REVERSED = false
 
 class MoodEntryAdapter(
-    private val moodEntries: List<MoodEntry>,
+    private val moodEntries: MoodEntries,
 ) : RecyclerView.Adapter<MoodEntryAdapter.MoodEntryViewHolder>() {
 
     private val layout = R.layout.mood_entry_layout
@@ -31,10 +32,10 @@ class MoodEntryAdapter(
     }
 
     override fun onBindViewHolder(holder: MoodEntryViewHolder, position: Int) {
-        holder.bindView(moodEntries[position])
+        holder.bindView(moodEntries.data[position])
     }
 
-    override fun getItemCount() = moodEntries.size
+    override fun getItemCount() = moodEntries.data.size
 
     class MoodEntryViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 

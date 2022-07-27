@@ -9,6 +9,7 @@ import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.MoodEntriesDataDto
+import com.niksob.domain.data.dto.MoodEntriesDto
 import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.model.*
 
@@ -54,7 +55,7 @@ class DbMoodEntryFirebase(
                 }.flatten()
 
                 val response = Query(
-                    data = loadedMoodEntries,
+                    data = MoodEntriesDto(loadedMoodEntries),
                     completed = true,
                     reason = successLoadReason()
                 )

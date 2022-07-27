@@ -7,6 +7,7 @@ import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.model.Callback
 import com.niksob.domain.data.dto.MoodTagDataDto
+import com.niksob.domain.data.dto.MoodTagsDto
 import com.niksob.domain.model.MoodTagId
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
@@ -36,7 +37,7 @@ class MoodTagsValueEventFirebaseProvider(
                     .flatMap { flatToMoodTagDto(it, uid) }
 
                 val response = Query(
-                    data = moodTagsDto,
+                    data = MoodTagsDto(moodTagsDto),
                     completed = true,
                     reason = successLoadTagsReason()
                 )

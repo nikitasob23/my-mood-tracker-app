@@ -4,7 +4,7 @@ import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.MoodEntry
-import com.niksob.domain.model.MoodEntryDto
+import com.niksob.domain.data.dto.MoodEntryDto
 
 interface DbMoodEntryConverter {
     fun toDto(moodEntriesData: MoodEntriesData): MoodEntriesDataDto

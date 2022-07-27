@@ -5,7 +5,7 @@ import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodTagStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.model.Callback
-import com.niksob.domain.model.MoodTagDataDto
+import com.niksob.domain.data.dto.MoodTagDataDto
 import com.niksob.domain.model.Query
 
 private const val MOOD_TAGS_DB_REF_NAME = "mood_tags"
@@ -28,7 +28,7 @@ class DbMoodTagFirebase(
 
         val tagsDataDto = request.data as MoodTagDataDto
 
-        moodTagDbProvider.child(tagsDataDto.uid)
+        moodTagDbProvider.child(tagsDataDto.uid.data)
             .addListenerForSingleValueEvent(moodTagsEventProvider.getListener(tagsDataDto, request.callback!!))
     }
 

@@ -3,10 +3,10 @@ package com.niksob.data.converter
 import com.niksob.domain.data.converter.DbMoodTagConverter
 import com.niksob.domain.data.converter.MoodColorIdConverter
 import com.niksob.domain.data.dto.MoodTagDto
-import com.niksob.domain.model.MoodEntryDto
+import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.model.MoodTag
 import com.niksob.domain.model.MoodTagData
-import com.niksob.domain.model.MoodTagDataDto
+import com.niksob.domain.data.dto.MoodTagDataDto
 
 class DbMoodTagConverterImpl(
     private val colorIdConverter: MoodColorIdConverter,

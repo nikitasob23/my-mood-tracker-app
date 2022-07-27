@@ -6,8 +6,10 @@ import com.google.firebase.database.ValueEventListener
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.model.Callback
-import com.niksob.domain.model.MoodTagDataDto
+import com.niksob.domain.data.dto.MoodTagDataDto
+import com.niksob.domain.model.MoodTagId
 import com.niksob.domain.model.Query
+import com.niksob.domain.model.Uid
 
 private const val DEGREE_KEY = "degree"
 private const val NAME_KEY = "name"
@@ -49,11 +51,11 @@ class MoodTagsValueEventFirebaseProvider(
             }
 
             private fun flatToMoodTagDto(idSnapshot: DataSnapshot, uid: String): List<MoodTagDto> {
-                val id = idSnapshot.key!!
+                val id = MoodTagId(idSnapshot.key!!)
                 return moodTagDataDto.tagToEntryIds[id]!!.map { entryId ->
                     MoodTagDto(
                         id = id,
-                        uid = uid,
+                        uid = Uid(uid),
                         degree = idSnapshot.child(DEGREE_KEY)
                             .getValue(Int::class.java)!!,
                         name = idSnapshot.child(NAME_KEY)
@@ -64,7 +66,7 @@ class MoodTagsValueEventFirebaseProvider(
             }
 
             private fun filterByRequestTagIds(idSnapshot: DataSnapshot): Boolean {
-                val id = idSnapshot.key!! //can try to take it outside "stream"
+                val id = MoodTagId(idSnapshot.key!!) //can try to take it outside "stream"
                 return moodTagDataDto.tagToEntryIds[id] != null
             }
         }

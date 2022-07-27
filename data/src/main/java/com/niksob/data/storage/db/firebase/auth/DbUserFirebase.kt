@@ -2,7 +2,6 @@ package com.niksob.data.storage.db.firebase.auth
 
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.google.firebase.database.DatabaseReference
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.UserStorage
 import com.niksob.data.storage.provider.AppStringStorage
@@ -22,7 +21,7 @@ class DbUserFirebase(
     private val stringStorage: AppStringStorage,
 ) : UserStorage {
 
-    private val usersDbRef: DatabaseReference = dbProvider.getDbReference()
+    private val usersDbRef = dbProvider.getDbReference()
         .child(USERS_DB_REF_NAME)
 
     private var callback: Callback<Query>? = null
@@ -59,13 +58,13 @@ class DbUserFirebase(
 
     private fun setEmailKey(user: UserDto) {
 
-        usersDbRef.child(user.id)
+        usersDbRef.child(user.id.data)
             .setValue(EMAIL_KEY)
     }
 
     private fun setEmailValue(user: UserDto) {
 
-        usersDbRef.child(user.id)
+        usersDbRef.child(user.id.data)
             .child(EMAIL_KEY)
             .setValue(user.email)
             .addOnSuccessListener(onSuccessListener)

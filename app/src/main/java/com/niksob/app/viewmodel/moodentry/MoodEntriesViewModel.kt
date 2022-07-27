@@ -11,6 +11,7 @@ import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Query
+import com.niksob.domain.model.Uid
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdAndDateUseCase
 import java.time.ZonedDateTime
@@ -65,7 +66,7 @@ class MoodEntriesViewModel(
         }
 
         val entriesData = MoodEntriesData(
-            uid = userIdResponse.data as String,
+            uid = userIdResponse.data as Uid,
             dateTime = ZonedDateTime.now(),
             loadedDaysInterval = LOADED_DAYS_INTERVAL
         )

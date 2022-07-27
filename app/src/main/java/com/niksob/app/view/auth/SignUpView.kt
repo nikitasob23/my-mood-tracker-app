@@ -18,6 +18,7 @@ import com.niksob.app.R
 import com.niksob.app.view.base.BaseView
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.auth.SignUpViewModel
+import com.niksob.domain.model.Uid
 import javax.inject.Inject
 
 class SignUpView : BaseView() {
@@ -74,7 +75,7 @@ class SignUpView : BaseView() {
             makeAuthStatusToast(query.reason)
 
             val user = User(
-                id = query.data as String,
+                id = query.data as Uid,
                 email = userEmail,
             )
 

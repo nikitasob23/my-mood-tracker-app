@@ -4,10 +4,11 @@ import com.niksob.domain.model.MoodEntryId
 import com.niksob.domain.model.MoodTagId
 import com.niksob.domain.model.Uid
 
-data class MoodTagDto(
-    val id: MoodTagId,
+data class MoodEntryDto(
+    val id: MoodEntryId,
     val uid: Uid,
     val degree: Int,
-    val name: String,
-    val entryId: MoodEntryId,
+    val date: String,
+    val time: String,
+    val tagIds: List<MoodTagId>,
 )

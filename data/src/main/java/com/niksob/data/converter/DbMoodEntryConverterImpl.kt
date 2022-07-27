@@ -10,7 +10,7 @@ import com.niksob.domain.data.converter.MoodEmojiIdConverter
 import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.MoodEntry
-import com.niksob.domain.model.MoodEntryDto
+import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.utils.date.ZonedDateTimeUtil
 import com.niksob.domain.utils.date.utcDate
 

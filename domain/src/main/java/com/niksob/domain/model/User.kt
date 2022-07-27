@@ -3,7 +3,7 @@ package com.niksob.domain.model
 import com.niksob.domain.data.dto.UserDto
 
 data class User(
-    val id: String,
+    val id: Uid,
     val email: String,
 ) {
     fun toDto() = UserDto(

@@ -9,9 +9,8 @@ import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.MoodEntriesDataDto
-import com.niksob.domain.model.Callback
-import com.niksob.domain.model.MoodEntryDto
-import com.niksob.domain.model.Query
+import com.niksob.domain.data.dto.MoodEntryDto
+import com.niksob.domain.model.*
 
 private const val MOOD_ENTRIES_DB_REF_NAME = "mood_entries"
 
@@ -41,15 +40,15 @@ class DbMoodEntryFirebase(
                 val loadedMoodEntries = userIdSnapshot.children.map { dateSnapshot ->
                     dateSnapshot.children.map { idSnapshot ->
                         MoodEntryDto(
-                            id = idSnapshot.key!!,
-                            uid = userIdSnapshot.key!!,
+                            id = MoodEntryId(idSnapshot.key!!),
+                            uid = Uid(userIdSnapshot.key!!),
                             date = dateSnapshot.key!!,
                             degree = idSnapshot.child(DEGREE_KEY)
                                 .getValue(Int::class.java)!!,
                             time = idSnapshot.child(TIME_KEY)
                                 .getValue(String::class.java)!!,
                             tagIds = idSnapshot.child(TAG_IDS_KEY).children
-                                .map { tagIdSnapshot -> tagIdSnapshot.key!! },
+                                .map { tagIdSnapshot -> MoodTagId(tagIdSnapshot.key!!) },
                         )
                     }
                 }.flatten()
@@ -78,7 +77,7 @@ class DbMoodEntryFirebase(
 
         dbProvider.getDbReference()
             .child(MOOD_ENTRIES_DB_REF_NAME)
-            .child(requestDtoData.uid)
+            .child(requestDtoData.uid.data)
             .orderByKey()
             .startAt(requestDtoData.startDate)
             .endAt(requestDtoData.endDate)
@@ -92,9 +91,9 @@ class DbMoodEntryFirebase(
 
         val entryRef = dbProvider.getDbReference()
             .child(MOOD_ENTRIES_DB_REF_NAME)
-            .child(entryDto.uid)
+            .child(entryDto.uid.data)
             .child(entryDto.date)
-            .child(entryDto.id)
+            .child(entryDto.id.data)
 
         setValueToDbRef(entryRef, DEGREE_KEY, entryDto.degree)
         setValueToDbRef(entryRef, TIME_KEY, entryDto.time)

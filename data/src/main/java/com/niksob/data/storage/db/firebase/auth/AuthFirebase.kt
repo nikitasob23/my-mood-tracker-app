@@ -8,6 +8,7 @@ import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
+import com.niksob.domain.model.Uid
 
 
 private const val SUCCESS_AUTH_REASON = "authorize_completed"
@@ -103,7 +104,7 @@ class AuthFirebase(
 
     private fun getAuthSuccessQuery(reason: String) =
         Query(
-            data = auth.currentUser?.uid!!,
+            data = Uid(auth.currentUser?.uid!!),
             completed = true,
             reason = reason,
         )

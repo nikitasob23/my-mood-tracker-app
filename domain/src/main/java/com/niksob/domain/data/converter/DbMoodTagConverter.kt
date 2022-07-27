@@ -1,9 +1,9 @@
 package com.niksob.domain.data.converter
 
 import com.niksob.domain.data.dto.MoodTagDto
-import com.niksob.domain.model.MoodEntryDto
+import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.model.MoodTag
-import com.niksob.domain.model.MoodTagDataDto
+import com.niksob.domain.data.dto.MoodTagDataDto
 
 interface DbMoodTagConverter {
 

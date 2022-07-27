@@ -20,6 +20,7 @@ import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.di.module.app.*
 import com.niksob.di.module.view.main.MainActivityViewModule
 import com.niksob.domain.model.Query
+import com.niksob.domain.model.Uid
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity() {
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
 
     private val loadAuthUserResponseObserver = Observer<Query> { response ->
-        val uid = response.data?.let { response.data as String }
+        val uid = response.data?.let { response.data as Uid }
 
         Log.d(
             this.javaClass.simpleName, "Login in authorize: success = ${response.completed}; "

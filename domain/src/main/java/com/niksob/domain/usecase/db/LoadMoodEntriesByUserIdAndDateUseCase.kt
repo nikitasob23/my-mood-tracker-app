@@ -2,6 +2,7 @@ package com.niksob.domain.usecase.db
 
 import com.niksob.domain.data.converter.DbMoodEntryConverter
 import com.niksob.domain.data.converter.DbMoodTagConverter
+import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.data.repository.MoodEntryRepository
 import com.niksob.domain.data.repository.MoodTagRepository

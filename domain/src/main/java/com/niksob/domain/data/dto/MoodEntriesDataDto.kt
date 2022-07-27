@@ -1,8 +1,9 @@
 package com.niksob.domain.data.dto
 
+import com.niksob.domain.model.Uid
+
 data class MoodEntriesDataDto(
-    val id: String = "",
-    val uid: String,
+    val uid: Uid,
     val startDate: String,
     val endDate: String,
 )

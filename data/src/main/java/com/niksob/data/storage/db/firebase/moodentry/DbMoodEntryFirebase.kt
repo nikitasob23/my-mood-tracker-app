@@ -11,6 +11,7 @@ import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.dto.MoodEntriesDto
 import com.niksob.domain.data.dto.MoodEntryDto
+import com.niksob.domain.data.dto.MoodEntryForSaveDto
 import com.niksob.domain.model.*
 
 private const val MOOD_ENTRIES_DB_REF_NAME = "mood_entries"
@@ -42,7 +43,6 @@ class DbMoodEntryFirebase(
                     dateSnapshot.children.map { idSnapshot ->
                         MoodEntryDto(
                             id = MoodEntryId(idSnapshot.key!!),
-                            uid = Uid(userIdSnapshot.key!!),
                             date = dateSnapshot.key!!,
                             degree = idSnapshot.child(DEGREE_KEY)
                                 .getValue(Int::class.java)!!,
@@ -55,8 +55,8 @@ class DbMoodEntryFirebase(
                 }.flatten()
 
                 val response = Query(
-                    data = MoodEntriesDto(loadedMoodEntries),
-                    completed = true,
+                    data = MoodEntriesDto(uid = Uid(userIdSnapshot.key!!), data = loadedMoodEntries),
+                    completed = SUCCESS_STATUS,
                     reason = successLoadReason()
                 )
                 callback.call(response)
@@ -88,11 +88,11 @@ class DbMoodEntryFirebase(
     override fun save(request: Query) {
 
         callback = request.callback!!
-        val entryDto = request.data as MoodEntryDto
+        val (uid, entryDto) = request.data as MoodEntryForSaveDto
 
         val entryRef = dbProvider.getDbReference()
             .child(MOOD_ENTRIES_DB_REF_NAME)
-            .child(entryDto.uid.data)
+            .child(uid.data)
             .child(entryDto.date)
             .child(entryDto.id.data)
 

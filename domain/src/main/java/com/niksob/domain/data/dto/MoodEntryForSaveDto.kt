@@ -2,7 +2,7 @@ package com.niksob.domain.data.dto
 
 import com.niksob.domain.model.Uid
 
-data class MoodEntriesDto(
+data class MoodEntryForSaveDto(
     val uid: Uid,
-    val data: List<MoodEntryDto>,
+    val data: MoodEntryDto,
 )

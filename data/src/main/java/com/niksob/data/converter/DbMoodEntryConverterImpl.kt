@@ -41,7 +41,7 @@ class DbMoodEntryConverterImpl(
         MoodEntries(
             (moodEntriesDataDto as MoodEntriesDto).data.map { entryDto ->
 
-                val tagsGroupByEntry = moodTagConverter.fromDto(moodTagsDataDto as MoodTagsDto).data
+                val tagsGroupByEntry = moodTagConverter.fromDto(moodTagsDataDto).data
                     .groupBy({ it.entryId }, { it })
 
                 MoodEntry(

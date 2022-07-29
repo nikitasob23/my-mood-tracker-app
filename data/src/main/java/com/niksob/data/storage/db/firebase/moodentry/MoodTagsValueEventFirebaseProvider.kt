@@ -10,7 +10,6 @@ import com.niksob.domain.data.dto.MoodTagDataDto
 import com.niksob.domain.data.dto.MoodTagsDto
 import com.niksob.domain.model.MoodTagId
 import com.niksob.domain.model.Query
-import com.niksob.domain.model.Uid
 
 private const val DEGREE_KEY = "degree"
 private const val NAME_KEY = "name"
@@ -30,15 +29,13 @@ class MoodTagsValueEventFirebaseProvider(
         object : ValueEventListener {
             override fun onDataChange(userIdSnapshot: DataSnapshot) {
 
-                val uid = userIdSnapshot.key!!
-
                 val moodTagsDto = userIdSnapshot.children
                     .filter { filterByRequestTagIds(it) }
-                    .flatMap { flatToMoodTagDto(it, uid) }
+                    .flatMap { flatToMoodTagDto(it) }
 
                 val response = Query(
                     data = MoodTagsDto(moodTagsDto),
-                    completed = true,
+                    completed = SUCCESS_STATUS,
                     reason = successLoadTagsReason()
                 )
                 callback.call(response)
@@ -51,12 +48,11 @@ class MoodTagsValueEventFirebaseProvider(
                 callback.call(errorResponse)
             }
 
-            private fun flatToMoodTagDto(idSnapshot: DataSnapshot, uid: String): List<MoodTagDto> {
+            private fun flatToMoodTagDto(idSnapshot: DataSnapshot): List<MoodTagDto> {
                 val id = MoodTagId(idSnapshot.key!!)
                 return moodTagDataDto.tagToEntryIds[id]!!.map { entryId ->
                     MoodTagDto(
                         id = id,
-                        uid = Uid(uid),
                         degree = idSnapshot.child(DEGREE_KEY)
                             .getValue(Int::class.java)!!,
                         name = idSnapshot.child(NAME_KEY)

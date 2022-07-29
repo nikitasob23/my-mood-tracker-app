@@ -19,7 +19,7 @@ class DbMoodTagConverterImpl(
 
         val tagToEntryIds = moodEntries.data.map { entry ->
             val tagData = MoodTagData(
-                uid = entry.uid,
+                uid = moodEntries.uid,
                 entryToTagIds = mapOf(entry.id to entry.tagIds),
             )
             tagData.entryToTagIds
@@ -30,7 +30,7 @@ class DbMoodTagConverterImpl(
         }.reduce { map1, map2 -> map1.plus(map2) }
 
         return MoodTagDataDto(
-            uid = moodEntries.data[0].uid,
+            uid = moodEntries.uid,
             tagToEntryIds = tagToEntryIds,
         )
     }

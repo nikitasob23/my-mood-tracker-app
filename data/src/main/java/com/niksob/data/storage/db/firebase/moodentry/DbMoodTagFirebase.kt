@@ -3,22 +3,16 @@ package com.niksob.data.storage.db.firebase.moodentry
 import com.google.android.gms.tasks.Task
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodTagStorage
-import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.model.Callback
 import com.niksob.domain.data.dto.MoodTagDataDto
 import com.niksob.domain.model.Query
 
 private const val MOOD_TAGS_DB_REF_NAME = "mood_tags"
 
-private const val SUCCESS_SAVING_REASON_STR_ID = "success_saving"
-private const val FAILURE_SAVING_REASON_STR_ID = "failure_saving"
-private const val EXCEPTION_MESSAGE_PREFIX = ". Exception message: "
-private const val SUCCESS_STATUS = true
-
 class DbMoodTagFirebase(
     dbProvider: DbProvider,
     private val moodTagsEventProvider: MoodTagsValueEventFirebaseProvider,
-    private val stringStorage: AppStringStorage,
+    private val saveReasonProvider: ResponseReasonProvider,
 ) : MoodTagStorage {
 
     private val moodTagDbProvider = dbProvider.getDbReference()
@@ -43,14 +37,9 @@ class DbMoodTagFirebase(
 
         val entryResponse =
             if (task.isSuccessful)
-                Query(completed = SUCCESS_STATUS, reason = successSaveReason())
+                Query(completed = saveReasonProvider.successStatus, reason = saveReasonProvider.successfulReason)
             else
-                Query(reason = failureSaveReason(task.exception?.message))
+                Query(reason = saveReasonProvider.failureReason(task.exception?.message))
         callback.call(entryResponse)
     }
-
-    private fun successSaveReason() = stringStorage.getString(SUCCESS_SAVING_REASON_STR_ID)
-
-    private fun failureSaveReason(failureMessage: String?) =
-        stringStorage.getString(FAILURE_SAVING_REASON_STR_ID) + failureMessage.let { EXCEPTION_MESSAGE_PREFIX + it }
 }

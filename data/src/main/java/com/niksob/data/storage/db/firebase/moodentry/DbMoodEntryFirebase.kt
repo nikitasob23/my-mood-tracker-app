@@ -7,7 +7,6 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.ValueEventListener
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
-import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.dto.MoodEntriesDto
 import com.niksob.domain.data.dto.MoodEntryDto
@@ -16,20 +15,14 @@ import com.niksob.domain.model.*
 
 private const val MOOD_ENTRIES_DB_REF_NAME = "mood_entries"
 
-private const val SUCCESS_LOAD_REASON_STR_ID = "mood_entries_was_load"
-private const val FAILURE_LOAD_REASON_STR_ID = "mood_entries_was_not_load"
-private const val SUCCESS_SAVING_REASON_STR_ID = "success_saving"
-private const val FAILURE_SAVING_REASON_STR_ID = "failure_saving"
-private const val EXCEPTION_MESSAGE_PREFIX = ". Exception message: "
-private const val SUCCESS_STATUS = true
-
 private const val DEGREE_KEY = "degree"
 private const val TIME_KEY = "time"
 private const val TAG_IDS_KEY = "tagIds"
 
 class DbMoodEntryFirebase(
     private val dbProvider: DbProvider,
-    private val stringStorage: AppStringStorage,
+    private val loadReasonProvider: ResponseReasonProvider,
+    private val saveReasonProvider: ResponseReasonProvider,
 ) : MoodEntryStorage {
 
     private lateinit var callback: Callback<Query>
@@ -56,8 +49,8 @@ class DbMoodEntryFirebase(
 
                 val response = Query(
                     data = MoodEntriesDto(uid = Uid(userIdSnapshot.key!!), data = loadedMoodEntries),
-                    completed = SUCCESS_STATUS,
-                    reason = successLoadReason()
+                    completed = loadReasonProvider.successStatus,
+                    reason = loadReasonProvider.successfulReason
                 )
                 callback.call(response)
             }
@@ -65,7 +58,7 @@ class DbMoodEntryFirebase(
             override fun onCancelled(error: DatabaseError) {
 
                 val response = Query(
-                    reason = failureLoadReason(error.message)
+                    reason = loadReasonProvider.failureReason(error.message)
                 )
                 callback.call(response)
             }
@@ -111,19 +104,9 @@ class DbMoodEntryFirebase(
 
         val entryResponse =
             if (task.isSuccessful)
-                Query(completed = SUCCESS_STATUS, reason = successSaveReason())
+                Query(completed = saveReasonProvider.successStatus, reason = saveReasonProvider.successfulReason)
             else
-                Query(reason = failureSaveReason(task.exception?.message))
+                Query(reason = saveReasonProvider.failureReason(task.exception?.message))
         callback.call(entryResponse)
     }
-
-    private fun successSaveReason() = stringStorage.getString(SUCCESS_SAVING_REASON_STR_ID)
-
-    private fun successLoadReason() = stringStorage.getString(SUCCESS_LOAD_REASON_STR_ID)
-
-    private fun failureSaveReason(failureMessage: String?) =
-        stringStorage.getString(FAILURE_SAVING_REASON_STR_ID) + failureMessage.let { EXCEPTION_MESSAGE_PREFIX + it }
-
-    private fun failureLoadReason(failureMessage: String?) =
-        stringStorage.getString(FAILURE_LOAD_REASON_STR_ID) + failureMessage.let { EXCEPTION_MESSAGE_PREFIX + it }
 }

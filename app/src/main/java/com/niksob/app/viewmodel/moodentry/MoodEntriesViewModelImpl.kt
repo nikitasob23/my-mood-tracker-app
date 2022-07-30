@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel
+package com.niksob.app.viewmodel.moodentry
 
 import android.os.Build
 import android.util.Log
@@ -23,20 +23,20 @@ private const val MOOD_ENTRIES_REQUEST_STATUS_LOG_MESSAGE_PREFIX = "Loading mood
 private const val REQUEST_REASON_LOG_MESSAGE_PREFIX = ", reason: "
 
 
-class MoodEntriesViewModel(
+open class MoodEntriesViewModelImpl(
     private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
     private val loadMoodEntriesByUserIdUseCase: LoadMoodEntriesByUserIdUseCase,
     private val stringProvider: AppStringProvider,
-) : ViewModel() {
+) : MoodEntriesViewModel, ViewModel() {
 
-    private val TAG get() = MoodEntriesViewModel::class.simpleName
+    override val moodEntriesResponse: LiveData<Query> get() = _moodEntriesResponse
 
     private val _moodEntriesResponse = MutableLiveData<Query>()
 
-    val moodEntriesResponse: LiveData<Query> get() = _moodEntriesResponse
+    private val TAG get() = MoodEntriesViewModelImpl::class.simpleName
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun loadMoodEntriesByUserId() {
+    override fun loadMoodEntriesByUserId() {
 
         val callback = Callback<Query> { userIdResponse ->
             onAuthorizeUserIdLoaded(userIdResponse)
@@ -44,7 +44,7 @@ class MoodEntriesViewModel(
         loadAuthorizeUserIdUseCase.execute(callback)
     }
 
-    fun loadMoodEntries(entriesData: MoodEntriesData) {
+    private fun loadMoodEntries(entriesData: MoodEntriesData) {
 
         val request = Query(
             data = entriesData,
@@ -61,7 +61,7 @@ class MoodEntriesViewModel(
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun onAuthorizeUserIdLoaded(userIdResponse: Query) {
+    protected open fun onAuthorizeUserIdLoaded(userIdResponse: Query) {
 
         Log.d(
             TAG, UID_REQUEST_STATUS_LOG_MESSAGE_PREFIX + userIdResponse.completed

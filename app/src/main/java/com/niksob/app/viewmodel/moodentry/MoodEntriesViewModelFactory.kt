@@ -1,8 +1,7 @@
-package com.niksob.app.viewmodel.factory
+package com.niksob.app.viewmodel.moodentry
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.app.viewmodel.MoodEntriesViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdUseCase
@@ -14,7 +13,7 @@ class MoodEntriesViewModelFactory(
     private val stringProvider: AppStringProvider,
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>) =
-        MoodEntriesViewModel(
+        MoodEntriesViewModelWithLoadingStatus(
             loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
             loadMoodEntriesByUserIdUseCase = loadMoodEntriesByUserIdUseCase,
             stringProvider = stringProvider,

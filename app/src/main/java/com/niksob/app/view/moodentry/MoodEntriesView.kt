@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
 import com.niksob.app.view.BaseView
-import com.niksob.app.viewmodel.MoodEntriesViewModel
+import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
 import com.niksob.di.component.DaggerMoodEntriesViewComponent
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.view.MoodEntriesViewModule

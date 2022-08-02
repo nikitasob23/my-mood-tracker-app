@@ -1,4 +1,4 @@
-package com.niksob.data.provider
+package com.niksob.data.storage.db.firebase.provider
 
 import com.google.firebase.database.FirebaseDatabase
 

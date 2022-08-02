@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase.moodentry
+package com.niksob.data.provider
 
 interface ResponseReasonProvider {
 

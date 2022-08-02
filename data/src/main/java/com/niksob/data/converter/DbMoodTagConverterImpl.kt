@@ -3,11 +3,9 @@ package com.niksob.data.converter
 import com.niksob.domain.data.converter.DbMoodTagConverter
 import com.niksob.domain.data.converter.MoodColorIdConverter
 import com.niksob.domain.data.dto.MoodEntriesDto
-import com.niksob.domain.model.MoodTag
-import com.niksob.domain.model.MoodTagData
 import com.niksob.domain.data.dto.MoodTagDataDto
 import com.niksob.domain.data.dto.MoodTagsDto
-import com.niksob.domain.model.MoodTags
+import com.niksob.domain.model.*
 
 class DbMoodTagConverterImpl(
     private val colorIdConverter: MoodColorIdConverter,
@@ -17,17 +15,13 @@ class DbMoodTagConverterImpl(
 
         val moodEntries = data as MoodEntriesDto
 
-        val tagToEntryIds = moodEntries.data.map { entry ->
-            val tagData = MoodTagData(
-                uid = moodEntries.uid,
-                entryToTagIds = mapOf(entry.id to entry.tagIds),
-            )
-            tagData.entryToTagIds
-                .map { (entryId, tagIds) -> tagIds.map { it to entryId } }
-                .flatten()
-                .groupBy({ it.first }, { it.second })
-
-        }.reduce { map1, map2 -> map1.plus(map2) }
+        val tagToEntryIds = moodEntries.data
+            .map { entry -> entry.id to entry.tagIds }
+            .map { (entryId, tagIds) ->
+                tagIds.map { tagId -> tagId to entryId }
+            }
+            .flatten()
+            .groupBy({ it.first }, { it.second })
 
         return MoodTagDataDto(
             uid = moodEntries.uid,

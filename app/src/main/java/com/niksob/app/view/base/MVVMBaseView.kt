@@ -7,14 +7,14 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import com.niksob.app.viewmodel.DataLoadingStatus
 import com.niksob.app.viewmodel.DataLoadingStatus.*
-import com.niksob.app.viewmodel.MVVMBaseViewModel
+import com.niksob.app.viewmodel.ViewModelWithLoadingStatus
 import javax.inject.Inject
 
 abstract class MVVMBaseView : BaseView() {
 
     @Inject
     @JvmField
-    var viewModel: MVVMBaseViewModel? = null
+    var viewModel: ViewModelWithLoadingStatus? = null
 
     private var dataIsLoadingObserver = Observer<DataLoadingStatus> { loadingStatus ->
 

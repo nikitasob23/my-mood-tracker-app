@@ -4,9 +4,10 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.viewmodel.MVVMBaseViewModel
+import com.niksob.app.viewmodel.ViewModelWithLoadingStatus
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
-import com.niksob.app.viewmodel.moodentry.factory.MoodEntriesViewModelFactory
+import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelFactory
+import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelImpl
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdUseCaseModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
@@ -29,29 +30,29 @@ class MoodEntriesViewModule(
 ) {
 
     @Provides
-    fun provideViewModelWithObservers(viewModel: MoodEntriesViewModel): MVVMBaseViewModel {
+    fun provideViewModelWithObservers(viewModel: MoodEntriesViewModel): ViewModelWithLoadingStatus {
         viewModel.moodEntriesResponse.observe(viewLifecycleOwner, moodEntriesObserver)
-        return viewModel
+        return viewModel as ViewModelWithLoadingStatus
     }
 
     @Provides
     fun provideViewModel(
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<MoodEntriesViewModel>
-    ) = ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
+        viewModelClass: Class<MoodEntriesViewModelImpl>
+    ): MoodEntriesViewModel = ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
 
     @Provides
-    fun provideViewModelClass() = MoodEntriesViewModel::class.java
+    fun provideViewModelClass() = MoodEntriesViewModelImpl::class.java
 
     @Provides
     fun provideViewModelFactory(
         loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
-        loadMoodEntriesByUserIdUseCase: /*LoadMoodEntriesByUserIdUseCase*/LoadMoodEntriesByUserIdAndDateUseCase,
+        loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
         stringProvider: AppStringProvider,
     ): ViewModelProvider.Factory =
         MoodEntriesViewModelFactory(
             loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
-            loadMoodEntriesByUserIdUseCase = loadMoodEntriesByUserIdUseCase,
+            loadMoodEntriesByUserIdAndDateUseCase = loadMoodEntriesByUserIdAndDateUseCase,
             stringProvider = stringProvider,
         )
 }

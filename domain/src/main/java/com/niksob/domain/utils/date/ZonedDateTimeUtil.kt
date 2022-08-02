@@ -6,7 +6,7 @@ import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 
 
-const val DATE_PATTERN = "MM-dd-yy"
+const val DATE_PATTERN = "yy-MM-dd"
 const val TIME_PATTERN = "HH:mm"
 
 class ZonedDateTimeUtil {

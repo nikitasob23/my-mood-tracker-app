@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase.provider.reason.moodentry
+package com.niksob.data.storage.db.firebase.moodentry
 
 import com.niksob.data.storage.db.firebase.provider.reason.ResponseReasonProviderImpl
 import com.niksob.data.storage.provider.AppStringStorage

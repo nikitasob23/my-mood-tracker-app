@@ -3,8 +3,6 @@ package com.niksob.di.module.storage
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
 import com.niksob.data.storage.db.firebase.moodentry.*
-import com.niksob.data.storage.db.firebase.provider.reason.moodentry.MoodEntryLoadResponseReasonProvider
-import com.niksob.data.storage.db.firebase.provider.reason.moodentry.MoodEntrySaveResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage
 import dagger.Module
 import dagger.Provides
@@ -19,18 +17,24 @@ class MoodEntryStorageModule {
     @Provides
     fun provideMoodEntryStorage(
         dbProvider: DbProvider,
-        loadReasonProvider: MoodEntryLoadResponseReasonProvider,
         saveReasonProvider: MoodEntrySaveResponseReasonProvider,
+        moodEntriesValueEventProvider: MoodEntriesValueEventFirebaseProvider,
     ): MoodEntryStorage =
         DbMoodEntryFirebase(
             dbProvider = dbProvider,
-            loadReasonProvider = loadReasonProvider,
             saveReasonProvider = saveReasonProvider,
+            moodEntriesValueEventProvider = moodEntriesValueEventProvider,
         )
 
     @Provides
-    fun provideLoadReasonProvider(stringStorage: AppStringStorage) = MoodEntryLoadResponseReasonProvider(stringStorage)
+    fun provideValueEventFirebaseProvider(loadResponseProvider: MoodEntryLoadResponseReasonProvider) =
+        MoodEntriesValueEventFirebaseProvider(loadResponseProvider)
 
     @Provides
-    fun provideSaveReasonProvider(stringStorage: AppStringStorage) = MoodEntrySaveResponseReasonProvider(stringStorage)
+    fun provideMoodEntryLoadResponseReasonProvider(stringStorage: AppStringStorage) =
+        MoodEntryLoadResponseReasonProvider(stringStorage)
+
+    @Provides
+    fun provideMoodEntrySaveResponseReasonProvider(stringStorage: AppStringStorage) =
+        MoodEntrySaveResponseReasonProvider(stringStorage)
 }

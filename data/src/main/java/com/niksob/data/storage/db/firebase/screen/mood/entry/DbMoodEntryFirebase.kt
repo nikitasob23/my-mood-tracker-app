@@ -1,10 +1,10 @@
-package com.niksob.data.storage.db.firebase.moodentry
+package com.niksob.data.storage.db.firebase.screen.mood.entry
 
 import com.google.firebase.database.DatabaseReference
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.provider.ResponseReasonProvider
 import com.niksob.data.storage.db.MoodEntryStorage
-import com.niksob.data.storage.db.firebase.SaveCompletionAction
+import com.niksob.data.storage.db.firebase.saver.SaveCompletionAction
 import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.dto.MoodEntryForSaveDto
 import com.niksob.domain.model.*

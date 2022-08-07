@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase.provider.reason
+package com.niksob.data.storage.db.firebase.response.reason
 
 import com.niksob.data.provider.ResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage

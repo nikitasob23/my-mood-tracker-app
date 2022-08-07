@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase
+package com.niksob.data.storage.db.firebase.saver
 
 import com.google.android.gms.tasks.Task
 import com.niksob.data.provider.ResponseReasonProvider

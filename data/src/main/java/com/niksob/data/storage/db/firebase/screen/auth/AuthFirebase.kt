@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase.auth
+package com.niksob.data.storage.db.firebase.screen.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener

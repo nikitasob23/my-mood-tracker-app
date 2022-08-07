@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase.moodentry
+package com.niksob.data.storage.db.firebase.screen.mood.entry
 
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError

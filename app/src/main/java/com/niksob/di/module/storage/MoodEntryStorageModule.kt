@@ -2,7 +2,10 @@ package com.niksob.di.module.storage
 
 import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
-import com.niksob.data.storage.db.firebase.moodentry.*
+import com.niksob.data.storage.db.firebase.screen.mood.entry.DbMoodEntryFirebase
+import com.niksob.data.storage.db.firebase.screen.mood.entry.MoodEntriesValueEventFirebaseProvider
+import com.niksob.data.storage.db.firebase.screen.mood.entry.MoodEntryLoadResponseReasonProvider
+import com.niksob.data.storage.db.firebase.screen.mood.entry.MoodEntrySaveResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage
 import dagger.Module
 import dagger.Provides

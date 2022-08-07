@@ -1,6 +1,6 @@
-package com.niksob.data.storage.db.firebase.moodtag
+package com.niksob.data.storage.db.firebase.screen.mood.tag.saving
 
-import com.niksob.data.storage.db.firebase.provider.reason.ResponseReasonProviderImpl
+import com.niksob.data.storage.db.firebase.response.reason.ResponseReasonProviderImpl
 import com.niksob.data.storage.provider.AppStringStorage
 
 private const val SUCCESS_SAVING_TAGS_REASON_STR_ID = "success_saving"

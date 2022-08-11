@@ -1,4 +1,4 @@
-package com.niksob.data.storage.db.firebase.screen.mood.entry
+package com.niksob.data.storage.db.firebase.screen.mood.entry.saving
 
 import com.niksob.data.storage.db.firebase.response.reason.ResponseReasonProviderImpl
 import com.niksob.data.storage.provider.AppStringStorage

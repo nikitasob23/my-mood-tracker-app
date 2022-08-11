@@ -6,7 +6,7 @@ import com.niksob.domain.model.Query
 
 interface OnDataLoadedAction {
 
-    fun onDataLoaded(snapshot: DataSnapshot, request: Query)
+    fun onDataLoaded(userIdSnapshot: DataSnapshot, request: Query)
 
     fun onDataCancelled(error: DatabaseError, request: Query)
 }

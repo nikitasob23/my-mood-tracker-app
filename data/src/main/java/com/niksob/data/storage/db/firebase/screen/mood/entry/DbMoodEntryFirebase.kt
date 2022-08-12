@@ -4,7 +4,7 @@ import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodEntryStorage
 import com.niksob.data.storage.db.firebase.loader.FirebaseLoader
 import com.niksob.data.storage.db.firebase.saver.FirebaseSaver
-import com.niksob.domain.data.dto.MoodEntriesDataDto
+import com.niksob.data.storage.db.firebase.screen.mood.entry.loading.LoadableDbMoodEntryFirebase
 import com.niksob.domain.data.dto.MoodEntryForSaveDto
 import com.niksob.domain.model.*
 
@@ -14,28 +14,21 @@ private const val TAG_IDS_KEY = "tagIds"
 
 class DbMoodEntryFirebase(
     private val moodEntryDbProvider: DbProvider,
-    private val loader: FirebaseLoader,
     private val saver: FirebaseSaver,
-) : MoodEntryStorage {
+    loader: FirebaseLoader,
+) : MoodEntryStorage, LoadableDbMoodEntryFirebase(moodEntryDbProvider, loader) {
 
-    override fun loadByUserIdAndDate(requestDto: Query) {
+    private lateinit var moodEntryForSaveDto: MoodEntryForSaveDto
 
-        val requestDtoData = requestDto.data as MoodEntriesDataDto
+    private val firebaseQuery
+        get() = moodEntryDbProvider.dbReference
+            .updateChildren(getUpdateChildrenMap())
 
-        val firebaseQuery = moodEntryDbProvider.dbReference
-            .child(requestDtoData.uid.data)
-            .orderByKey()
-            .startAt(requestDtoData.startDate)
-            .endAt(requestDtoData.endDate)
+    private fun getUpdateChildrenMap(): Map<String, Any> {
 
-        loader.load(requestDto, firebaseQuery)
-    }
+        val (uid, entryDto) = moodEntryForSaveDto
 
-    override fun save(request: Query) {
-
-        val (uid, entryDto) = request.data as MoodEntryForSaveDto
-
-        val updateChildrenMap = mapOf(
+        return mapOf(
             uid.data to mapOf(
                 entryDto.date to mapOf(
                     entryDto.id.data to mapOf(
@@ -46,10 +39,11 @@ class DbMoodEntryFirebase(
                 )
             )
         )
+    }
 
-        val firebaseQuery = moodEntryDbProvider.dbReference
-            .updateChildren(updateChildrenMap)
+    override fun save(request: Query) {
 
+        moodEntryForSaveDto = request.data as MoodEntryForSaveDto
         saver.save(firebaseQuery, request.callback!!)
     }
 }

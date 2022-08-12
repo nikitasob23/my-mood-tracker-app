@@ -25,8 +25,8 @@ class MoodTagStorageModule {
     ): MoodTagStorage =
         DbMoodTagFirebase(
             moodTagDbProvider = dbProvider,
-            loader = loader,
             saver = saver,
+            loader = loader,
         )
 
     @Provides

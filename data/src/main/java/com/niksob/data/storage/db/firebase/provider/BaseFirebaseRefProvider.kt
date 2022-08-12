@@ -9,9 +9,9 @@ private const val DB_REF = "https://mygoodmood-8d862-default-rtdb.europe-west1.f
 abstract class BaseFirebaseRefProvider(
 ) : DbProvider {
 
-    init {
-        FirebaseOfflineWork.turnOn()
-    }
+//    init {
+//        FirebaseOfflineWork.turnOn()
+//    }
 
     override val dbReference = Firebase.database(DB_REF).reference
 }

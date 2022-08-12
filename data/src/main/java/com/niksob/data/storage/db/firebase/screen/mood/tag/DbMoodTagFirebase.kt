@@ -4,30 +4,25 @@ import com.niksob.data.provider.DbProvider
 import com.niksob.data.storage.db.MoodTagStorage
 import com.niksob.data.storage.db.firebase.loader.FirebaseLoader
 import com.niksob.data.storage.db.firebase.saver.FirebaseSaver
-import com.niksob.domain.data.dto.MoodTagDataDto
+import com.niksob.data.storage.db.firebase.screen.mood.tag.loading.LoadableDbMoodTagFirebase
 import com.niksob.domain.model.Query
 
 class DbMoodTagFirebase(
     private val moodTagDbProvider: DbProvider,
-    private val loader: FirebaseLoader,
     private val saver: FirebaseSaver,
-) : MoodTagStorage {
+    loader: FirebaseLoader,
+) : MoodTagStorage, LoadableDbMoodTagFirebase(moodTagDbProvider, loader) {
 
-    override fun loadByUserIdAndDate(request: Query) {
+    private lateinit var tagsDto: Map<String, Any>
 
-        val tagsDataDto = request.data as MoodTagDataDto
-
-        val firebaseQuery = moodTagDbProvider.dbReference
-            .child(tagsDataDto.uid.data).ref
-        loader.load(request, firebaseQuery)
-    }
-
-    @Suppress("UNCHECKED_CAST")
-    override fun save(request: Query) {
-        val tagsDto = request.data as Map<String, Any>
-
-        val firebaseTask = moodTagDbProvider.dbReference
+    private val firebaseTask
+        get() = moodTagDbProvider.dbReference
             .updateChildren(tagsDto)
+
+    override fun save(request: Query) {
+
+        @Suppress("UNCHECKED_CAST")
+        tagsDto = request.data as Map<String, Any>
         saver.save(firebaseTask, request.callback!!)
     }
 }

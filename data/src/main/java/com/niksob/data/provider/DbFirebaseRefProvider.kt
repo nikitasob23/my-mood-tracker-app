@@ -2,7 +2,7 @@ package com.niksob.data.provider
 
 import com.google.firebase.database.DatabaseReference
 
-interface DbProvider {
+interface DbFirebaseRefProvider {
 
-    val dbReference: DatabaseReference
+    val ref: DatabaseReference
 }

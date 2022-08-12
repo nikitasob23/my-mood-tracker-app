@@ -1,6 +1,6 @@
 package com.niksob.data.storage.db.firebase.screen.mood.entry
 
-import com.niksob.data.provider.DbProvider
+import com.niksob.data.provider.DbFirebaseRefProvider
 import com.niksob.data.storage.db.MoodEntryStorage
 import com.niksob.data.storage.db.firebase.loader.FirebaseLoader
 import com.niksob.data.storage.db.firebase.saver.FirebaseSaver
@@ -13,7 +13,7 @@ private const val TIME_KEY = "time"
 private const val TAG_IDS_KEY = "tagIds"
 
 class DbMoodEntryFirebase(
-    private val moodEntryDbProvider: DbProvider,
+    private val moodEntryDbProvider: DbFirebaseRefProvider,
     private val saver: FirebaseSaver,
     loader: FirebaseLoader,
 ) : MoodEntryStorage, LoadableDbMoodEntryFirebase(moodEntryDbProvider, loader) {
@@ -21,7 +21,7 @@ class DbMoodEntryFirebase(
     private lateinit var moodEntryForSaveDto: MoodEntryForSaveDto
 
     private val firebaseQuery
-        get() = moodEntryDbProvider.dbReference
+        get() = moodEntryDbProvider.ref
             .updateChildren(getUpdateChildrenMap())
 
     private fun getUpdateChildrenMap(): Map<String, Any> {

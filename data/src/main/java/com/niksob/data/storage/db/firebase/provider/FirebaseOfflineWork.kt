@@ -11,8 +11,11 @@ class FirebaseOfflineWork {
             if (enable) {
                 return
             }
-            FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+            turnOnFirebaseOfflineWork()
             enable = true
         }
+
+        private fun turnOnFirebaseOfflineWork() =
+            FirebaseDatabase.getInstance().setPersistenceEnabled(true)
     }
 }

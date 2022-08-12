@@ -1,6 +1,5 @@
-package com.niksob.di.module.storage
+package com.niksob.di.module.storage.db
 
-import com.niksob.data.storage.db.MoodTagStorage
 import com.niksob.data.storage.db.firebase.loader.FirebaseLoaderImpl
 import com.niksob.data.storage.db.firebase.provider.MoodTagFirebaseRefProvider
 import com.niksob.data.storage.db.firebase.screen.mood.tag.DbMoodTagFirebase
@@ -10,19 +9,20 @@ import com.niksob.data.storage.db.firebase.saver.FirebaseSaverImpl
 import com.niksob.data.storage.db.firebase.screen.mood.tag.saving.MoodTagOnDataSavedAction
 import com.niksob.data.storage.db.firebase.screen.mood.tag.saving.MoodTagSaveResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage
+import com.niksob.di.module.storage.string.StringStorageModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 
 @Module(includes = [StringStorageModule::class])
-class MoodTagStorageModule {
+class DbMoodTagFirebaseModule {
 
     @Provides
     fun provideStorage(
         dbProvider: MoodTagFirebaseRefProvider,
         @Named("mood_entry_on_data_loaded_action") loader: FirebaseLoaderImpl,
         @Named("mood_entry_on_data_saved_action") saver: FirebaseSaverImpl,
-    ): MoodTagStorage =
+    ): DbMoodTagFirebase =
         DbMoodTagFirebase(
             moodTagDbProvider = dbProvider,
             saver = saver,

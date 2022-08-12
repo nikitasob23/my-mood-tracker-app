@@ -1,6 +1,6 @@
 package com.niksob.data.storage.db.firebase.screen.mood.tag
 
-import com.niksob.data.provider.DbProvider
+import com.niksob.data.provider.DbFirebaseRefProvider
 import com.niksob.data.storage.db.MoodTagStorage
 import com.niksob.data.storage.db.firebase.loader.FirebaseLoader
 import com.niksob.data.storage.db.firebase.saver.FirebaseSaver
@@ -8,7 +8,7 @@ import com.niksob.data.storage.db.firebase.screen.mood.tag.loading.LoadableDbMoo
 import com.niksob.domain.model.Query
 
 class DbMoodTagFirebase(
-    private val moodTagDbProvider: DbProvider,
+    private val moodTagDbProvider: DbFirebaseRefProvider,
     private val saver: FirebaseSaver,
     loader: FirebaseLoader,
 ) : MoodTagStorage, LoadableDbMoodTagFirebase(moodTagDbProvider, loader) {
@@ -16,7 +16,7 @@ class DbMoodTagFirebase(
     private lateinit var tagsDto: Map<String, Any>
 
     private val firebaseTask
-        get() = moodTagDbProvider.dbReference
+        get() = moodTagDbProvider.ref
             .updateChildren(tagsDto)
 
     override fun save(request: Query) {

@@ -4,6 +4,6 @@ private const val DB_MOOD_ENTRY_REF = "mood_entries"
 
 class MoodEntryFirebaseRefProvider : BaseFirebaseRefProvider() {
 
-    override val dbReference = super.dbReference
+    override val ref = super.ref
         .child(DB_MOOD_ENTRY_REF)
 }

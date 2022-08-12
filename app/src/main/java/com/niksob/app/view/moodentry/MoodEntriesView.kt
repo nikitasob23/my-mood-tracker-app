@@ -20,15 +20,15 @@ class MoodEntriesView : MVVMBaseView() {
 
     private lateinit var moodEntryRecycleView: RecyclerView
 
-    @Suppress("UNCHECKED_CAST")
     private val moodEntriesObserver = Observer<Query> { response ->
+        @Suppress("UNCHECKED_CAST")
         initMoodEntriesList(response.data as MoodEntries)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    @Suppress("UNCHECKED_CAST")
     override fun onCreateViewDataLoading() {
 
+        @Suppress("UNCHECKED_CAST")
         val moodEntriesViewModel = viewModel as MoodEntriesViewModel
 
         if (viewModel!!.loadingIsCompleted()) {
@@ -39,32 +39,30 @@ class MoodEntriesView : MVVMBaseView() {
         moodEntriesViewModel.loadMoodEntriesByUserId()
     }
 
-    override fun inject() {
+    private val contextModule get() = ContextModule(requireContext().applicationContext)
 
-        val contextModule = ContextModule(requireContext().applicationContext)
-
-        val moodEntriesViewModule = MoodEntriesViewModule(
+    private val moodEntriesViewModule
+        get() = MoodEntriesViewModule(
             viewModelStoreOwner = viewModelStoreOwner,
             viewLifecycleOwner = viewLifecycleOwner,
             moodEntriesObserver = moodEntriesObserver
         )
 
-        val component = DaggerMoodEntriesViewComponent.builder()
+    private val component
+        get() = DaggerMoodEntriesViewComponent.builder()
             .contextModule(contextModule)
             .moodEntriesViewModule(moodEntriesViewModule)
             .build()
 
-        component.inject(this)
-    }
+    override fun inject() = component.inject(this)
 
     override fun initComponents() {
         moodEntryRecycleView = rootView.findViewById(R.id.entries_view__entry_recycle_view)
     }
 
-    private fun initMoodEntriesList(moodEntries: MoodEntries) {
+    private fun initMoodEntriesList(moodEntries: MoodEntries) =
         moodEntryRecycleView.apply {
             layoutManager = LinearLayoutManager(requireContext().applicationContext)
             adapter = MoodEntryAdapter(moodEntries)
         }
-    }
 }

@@ -1,4 +1,4 @@
-package com.niksob.di.module.storage
+package com.niksob.di.module.storage.auth
 
 import com.niksob.data.provider.AuthProvider
 import com.niksob.data.storage.db.firebase.provider.FirebaseAuthProvider

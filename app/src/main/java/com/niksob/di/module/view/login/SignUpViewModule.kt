@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.data.provider.AppStringProvider
-import com.niksob.di.module.storage.StringStorageModule
+import com.niksob.di.module.storage.string.StringStorageModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule
 import com.niksob.di.module.usecase.auth.LoginValidationModule
 import com.niksob.di.module.usecase.auth.SignUpWithEmailAndPasswordUseCaseModule

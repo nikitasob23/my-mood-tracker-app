@@ -5,8 +5,8 @@ import com.niksob.data.repository.AuthRepositoryImpl
 import com.niksob.data.storage.db.AuthStorage
 import com.niksob.data.storage.db.firebase.screen.auth.AuthFirebase
 import com.niksob.data.storage.provider.AppStringStorage
-import com.niksob.di.module.storage.AuthProviderModule
-import com.niksob.di.module.storage.StringStorageModule
+import com.niksob.di.module.storage.auth.AuthProviderModule
+import com.niksob.di.module.storage.string.StringStorageModule
 import com.niksob.domain.data.repository.AuthRepository
 import dagger.Module
 import dagger.Provides

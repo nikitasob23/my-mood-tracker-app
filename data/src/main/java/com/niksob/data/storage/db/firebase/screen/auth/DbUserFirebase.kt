@@ -2,7 +2,7 @@ package com.niksob.data.storage.db.firebase.screen.auth
 
 import com.google.android.gms.tasks.OnCanceledListener
 import com.google.android.gms.tasks.OnSuccessListener
-import com.niksob.data.provider.DbProvider
+import com.niksob.data.provider.DbFirebaseRefProvider
 import com.niksob.data.storage.db.UserStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.UserDto
@@ -17,11 +17,11 @@ const val FAILED_USER_ADDITION = "failed_user_addition"
 const val EMAIL_KEY = "email"
 
 class DbUserFirebase(
-    dbProvider: DbProvider,
+    dbProvider: DbFirebaseRefProvider,
     private val stringStorage: AppStringStorage,
 ) : UserStorage {
 
-    private val usersDbRef = dbProvider.dbReference
+    private val usersDbRef = dbProvider.ref
         .child(USERS_DB_REF_NAME)
 
     private var callback: Callback<Query>? = null

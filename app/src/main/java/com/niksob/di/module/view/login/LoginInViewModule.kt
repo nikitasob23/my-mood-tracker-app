@@ -3,7 +3,7 @@ package com.niksob.di.module.view.login
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.data.provider.AppStringProvider
-import com.niksob.di.module.storage.StringStorageModule
+import com.niksob.di.module.storage.string.StringStorageModule
 import com.niksob.di.module.usecase.auth.LoginInWithEmailAndPasswordUseCaseModule
 import com.niksob.di.module.usecase.auth.LoginValidationModule
 import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase

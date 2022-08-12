@@ -1,4 +1,4 @@
-package com.niksob.di.module.storage
+package com.niksob.di.module.storage.string
 
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.data.storage.provider.AppStringStorage

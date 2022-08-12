@@ -4,6 +4,6 @@ private const val DB_USER_REF = "users"
 
 class UserFirebaseRefProvider : BaseFirebaseRefProvider() {
 
-    override val dbReference = super.dbReference
+    override val ref = super.ref
         .child(DB_USER_REF)
 }

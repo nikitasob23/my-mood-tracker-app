@@ -21,7 +21,7 @@ class DbUserFirebase(
     private val stringStorage: AppStringStorage,
 ) : UserStorage {
 
-    private val usersDbRef = dbProvider.getDbReference()
+    private val usersDbRef = dbProvider.dbReference
         .child(USERS_DB_REF_NAME)
 
     private var callback: Callback<Query>? = null

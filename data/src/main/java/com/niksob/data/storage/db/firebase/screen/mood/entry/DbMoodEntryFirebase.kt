@@ -8,26 +8,21 @@ import com.niksob.domain.data.dto.MoodEntriesDataDto
 import com.niksob.domain.data.dto.MoodEntryForSaveDto
 import com.niksob.domain.model.*
 
-private const val MOOD_ENTRIES_DB_REF_NAME = "mood_entries"
-
 private const val DEGREE_KEY = "degree"
 private const val TIME_KEY = "time"
 private const val TAG_IDS_KEY = "tagIds"
 
 class DbMoodEntryFirebase(
-    dbProvider: DbProvider,
+    private val moodEntryDbProvider: DbProvider,
     private val loader: FirebaseLoader,
     private val saver: FirebaseSaver,
 ) : MoodEntryStorage {
-
-    private val moodEntryDbProvider = dbProvider.getDbReference()
-        .child(MOOD_ENTRIES_DB_REF_NAME)
 
     override fun loadByUserIdAndDate(requestDto: Query) {
 
         val requestDtoData = requestDto.data as MoodEntriesDataDto
 
-        val firebaseQuery = moodEntryDbProvider
+        val firebaseQuery = moodEntryDbProvider.dbReference
             .child(requestDtoData.uid.data)
             .orderByKey()
             .startAt(requestDtoData.startDate)
@@ -52,7 +47,8 @@ class DbMoodEntryFirebase(
             )
         )
 
-        val firebaseQuery = moodEntryDbProvider.updateChildren(updateChildrenMap)
+        val firebaseQuery = moodEntryDbProvider.dbReference
+            .updateChildren(updateChildrenMap)
 
         saver.save(firebaseQuery, request.callback!!)
     }

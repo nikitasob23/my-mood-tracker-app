@@ -2,7 +2,7 @@ package com.niksob.data.storage.db.firebase.screen.auth
 
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
-import com.niksob.data.provider.DbProvider
+import com.niksob.data.provider.AuthProvider
 import com.niksob.data.storage.db.AuthStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.domain.data.dto.LoginDataDto
@@ -20,11 +20,11 @@ private const val FAILED_SIGN_OUT_REASON = "sign_out_failed"
 private const val EXCEPTION_MESSAGE_PREFIX = ". Exception message: "
 
 class AuthFirebase(
-    dbProvider: DbProvider,
+    authProvider: AuthProvider,
     private val stringStorage: AppStringStorage,
 ) : AuthStorage {
 
-    private val auth: FirebaseAuth = dbProvider.getAuth()
+    private val auth: FirebaseAuth = authProvider.auth
 
     override fun authorize(query: Query) {
         val (email, password) = query.data as LoginDataDto

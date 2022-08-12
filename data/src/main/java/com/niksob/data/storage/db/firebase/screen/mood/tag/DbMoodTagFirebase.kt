@@ -7,22 +7,18 @@ import com.niksob.data.storage.db.firebase.saver.FirebaseSaver
 import com.niksob.domain.data.dto.MoodTagDataDto
 import com.niksob.domain.model.Query
 
-private const val MOOD_TAGS_DB_REF_NAME = "mood_tags"
-
 class DbMoodTagFirebase(
-    dbProvider: DbProvider,
+    private val moodTagDbProvider: DbProvider,
     private val loader: FirebaseLoader,
     private val saver: FirebaseSaver,
 ) : MoodTagStorage {
-
-    private val moodTagDbProvider = dbProvider.getDbReference()
-        .child(MOOD_TAGS_DB_REF_NAME)
 
     override fun loadByUserIdAndDate(request: Query) {
 
         val tagsDataDto = request.data as MoodTagDataDto
 
-        val firebaseQuery = moodTagDbProvider.child(tagsDataDto.uid.data).ref
+        val firebaseQuery = moodTagDbProvider.dbReference
+            .child(tagsDataDto.uid.data).ref
         loader.load(request, firebaseQuery)
     }
 
@@ -30,7 +26,8 @@ class DbMoodTagFirebase(
     override fun save(request: Query) {
         val tagsDto = request.data as Map<String, Any>
 
-        val firebaseTask = moodTagDbProvider.updateChildren(tagsDto)
+        val firebaseTask = moodTagDbProvider.dbReference
+            .updateChildren(tagsDto)
         saver.save(firebaseTask, request.callback!!)
     }
 }

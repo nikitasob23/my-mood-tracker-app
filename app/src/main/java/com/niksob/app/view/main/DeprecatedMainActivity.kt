@@ -11,19 +11,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
-import com.niksob.di.component.view.main.DaggerMainActivityComponent
+import com.niksob.di.component.view.main.DaggerDeprecatedMainActivityComponent
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.app.R
 import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.di.module.app.*
-import com.niksob.di.module.view.main.MainActivityViewModule
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
 import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+@Deprecated(message = "Deprecated", replaceWith = ReplaceWith("InjectedMainActivity"), level = DeprecationLevel.WARNING)
+class DeprecatedMainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: MainActivityViewModel
@@ -93,9 +93,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun inject() {
-        val component = DaggerMainActivityComponent.builder()
+        val component = DaggerDeprecatedMainActivityComponent.builder()
             .contextModule(ContextModule(applicationContext))
-            .mainActivityViewModule(MainActivityViewModule(mainActivityViewModelStoreOwner))
             .fragmentManagerModule(FragmentManagerModule(supportFragmentManager))
             .appProgressBarModule(AppProgressBarModule(progressBarFrameLayout))
             .mainActivityViewModelStoreOwnerModule(MainActivityViewModelStoreOwnerModule(mainActivityViewModelStoreOwner))

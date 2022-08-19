@@ -8,6 +8,7 @@ import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.app.viewmodel.main.factory.MainViewModelFactory
+import com.niksob.di.module.app.MainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.usecase.auth.SignOutUseCaseModule
 import com.niksob.domain.usecase.auth.SignOutUseCase
 import dagger.Module
@@ -17,15 +18,16 @@ import dagger.Provides
     includes = [
         LoadAuthorizeUserIdUseCaseModule::class,
         SignOutUseCaseModule::class,
+        MainActivityViewModelStoreOwnerModule::class,
     ]
 )
-class MainActivityViewModule(
-    private val viewModelStoreOwner: ViewModelStoreOwner,
-) {
+open class MainActivityViewModelModule {
+
     @Provides
     fun provideViewModel(
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<MainActivityViewModel>
+        viewModelClass: Class<MainActivityViewModel>,
+        viewModelStoreOwner: ViewModelStoreOwner,
     ) =
         ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
 

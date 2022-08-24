@@ -22,7 +22,11 @@ import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
 import javax.inject.Inject
 
-@Deprecated(message = "Deprecated", replaceWith = ReplaceWith("InjectedMainActivity"), level = DeprecationLevel.WARNING)
+@Deprecated(
+    message = "Deprecated",
+    replaceWith = ReplaceWith("InjectedMainActivity"),
+    level = DeprecationLevel.WARNING,
+)
 class DeprecatedMainActivity : AppCompatActivity() {
 
     @Inject

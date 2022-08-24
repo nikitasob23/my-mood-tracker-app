@@ -1,9 +1,8 @@
 package com.niksob.app.view.main
 
-import com.niksob.app.view.main.injection.InjectableView
-import com.niksob.app.view.main.mvvm.MainActivityWithStartDataLoader
+import com.niksob.app.view.main.logging.LoggableMVVMMainActivity
 
-class InjectedMainActivity : InjectableView, MainActivityWithStartDataLoader() {
+class InjectedMainActivity : LoggableMVVMMainActivity() {
 
     private val component get() = super.injectableComponentBuilder.build()
 

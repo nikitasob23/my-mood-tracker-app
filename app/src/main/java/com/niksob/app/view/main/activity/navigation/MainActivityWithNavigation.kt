@@ -1,12 +1,12 @@
-package com.niksob.app.view.main.navigation
+package com.niksob.app.view.main.activity.navigation
 
 import com.niksob.app.view.auth.LoginView
-import com.niksob.app.view.main.injection.MainActivityWithInjectionComponent
+import com.niksob.app.view.main.activity.injection.InjectableComponentInitializer
 import com.niksob.app.view.moodentry.MoodEntriesView
 import com.niksob.domain.navigation.ScreenNavigation
 import javax.inject.Inject
 
-open class MainActivityWithNavigation : MainActivityWithInjectionComponent() {
+open class MainActivityWithNavigation : InjectableComponentInitializer() {
 
     @Inject
     lateinit var navigation: ScreenNavigation

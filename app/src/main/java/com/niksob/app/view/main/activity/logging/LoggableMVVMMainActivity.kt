@@ -1,6 +1,6 @@
-package com.niksob.app.view.main.logging
+package com.niksob.app.view.main.activity.logging
 
-import com.niksob.app.view.main.mvvm.MainActivityWithStartDataLoader
+import com.niksob.app.view.main.activity.mvvm.MainActivityWithStartDataLoader
 import com.niksob.domain.model.Query
 import com.niksob.domain.utils.logger.AppDebugLogger
 import javax.inject.Inject

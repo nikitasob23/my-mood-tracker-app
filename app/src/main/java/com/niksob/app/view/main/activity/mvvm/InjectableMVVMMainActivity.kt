@@ -1,18 +1,18 @@
-package com.niksob.app.view.main.mvvm
+package com.niksob.app.view.main.activity.mvvm
 
 import androidx.lifecycle.Observer
 import com.niksob.di.component.view.main.DaggerMainActivityComponent
-import com.niksob.di.module.view.main.MainActivityViewModelWithObserverModule
+import com.niksob.di.module.view.main.AppMainActivityViewModelWithObserverModule
 import com.niksob.domain.model.Query
 
 open class InjectableMVVMMainActivity : MVVMMainActivity() {
 
     override val injectableComponentBuilder: DaggerMainActivityComponent.Builder
         get() = super.injectableComponentBuilder
-            .mainActivityViewModelWithObserverModule(mainActivityViewModelWithObserverModule)
+            .appMainActivityViewModelWithObserverModule(appMainActivityViewModelWithObserverModule)
 
-    private val mainActivityViewModelWithObserverModule
-        get() = MainActivityViewModelWithObserverModule(
+    private val appMainActivityViewModelWithObserverModule
+        get() = AppMainActivityViewModelWithObserverModule(
             lifecycleOwner = this,
             authUserResponseObserver = authUserResponseObserver,
             signOutResponseObserver = signOutResponseObserver,

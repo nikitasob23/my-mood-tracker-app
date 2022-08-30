@@ -1,11 +1,11 @@
-package com.niksob.app.view.main.progressbar
+package com.niksob.app.view.main.activity.progressbar
 
-import com.niksob.app.view.main.mvvm.InjectableMVVMMainActivity
+import com.niksob.app.view.main.activity.mvvm.InjectableAppMVVMMainActivity
 import com.niksob.domain.model.Query
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import javax.inject.Inject
 
-open class MainActivityWithProgressBar : InjectableMVVMMainActivity() {
+open class MainActivityWithProgressBar : InjectableAppMVVMMainActivity() {
     @Inject
     lateinit var mainProgressBar: AppProgressBar
 

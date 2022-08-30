@@ -1,4 +1,4 @@
-package com.niksob.app.view.main
+package com.niksob.app.view.main.activity
 
 import android.os.Bundle
 import android.util.Log
@@ -27,7 +27,7 @@ import javax.inject.Inject
     replaceWith = ReplaceWith("InjectedMainActivity"),
     level = DeprecationLevel.WARNING,
 )
-class DeprecatedMainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     @Inject
     lateinit var viewModel: MainActivityViewModel

@@ -1,7 +1,7 @@
 package com.niksob.di.component.view.main
 
 import com.niksob.di.module.navigation.ScreenNavigationModule
-import com.niksob.app.view.main.DeprecatedMainActivity
+import com.niksob.app.view.main.activity.MainActivity
 import com.niksob.di.module.view.main.MainActivityViewModelModule
 import dagger.Component
 
@@ -13,5 +13,5 @@ import dagger.Component
 )
 interface DeprecatedMainActivityComponent {
 
-    fun inject(mainActivity: DeprecatedMainActivity)
+    fun inject(mainActivity: MainActivity)
 }

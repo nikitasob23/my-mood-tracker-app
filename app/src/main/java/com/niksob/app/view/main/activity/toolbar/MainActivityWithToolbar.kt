@@ -1,20 +1,20 @@
-package com.niksob.app.view.main.toolbar
+package com.niksob.app.view.main.activity.toolbar
 
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.niksob.app.R
-import com.niksob.app.view.main.progressbar.InjectableMainActivityWithProgressBar
+import com.niksob.app.view.main.activity.progressbar.InjectableAppMainActivityWithProgressBar
 
-open class MainActivityWithToolbar : InjectableMainActivityWithProgressBar() {
+open class MainActivityWithToolbar : InjectableAppMainActivityWithProgressBar() {
+
+    protected lateinit var appToolbar: Toolbar
 
     private val toolbarExitMenuLayout get() = R.menu.toolbar_exit_menu
 
     private val toolbarLayoutId get() = R.id.main_layout__toolbar
 
     private val toolbarExitMenuId get() = R.id.toolbar_exit_menu
-
-    private lateinit var mainToolbar: Toolbar
 
     override fun initComponents() {
         super.initComponents()
@@ -34,7 +34,7 @@ open class MainActivityWithToolbar : InjectableMainActivityWithProgressBar() {
     }
 
     private fun initToolbar() {
-        mainToolbar = findViewById(toolbarLayoutId)
-        setSupportActionBar(mainToolbar)
+        appToolbar = findViewById(toolbarLayoutId)
+        setSupportActionBar(appToolbar)
     }
 }

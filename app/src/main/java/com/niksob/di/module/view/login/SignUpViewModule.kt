@@ -2,7 +2,7 @@ package com.niksob.di.module.view.login
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.view.moodentry.MoodEntriesView
+import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.storage.string.StringStorageModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule

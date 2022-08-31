@@ -1,4 +1,4 @@
-package com.niksob.app.view.base
+package com.niksob.app.view.main.activity.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

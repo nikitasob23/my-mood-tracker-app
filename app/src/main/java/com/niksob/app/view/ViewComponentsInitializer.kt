@@ -1,4 +1,4 @@
-package com.niksob.app.view.main.activity
+package com.niksob.app.view
 
 interface ViewComponentsInitializer {
     fun initComponents()

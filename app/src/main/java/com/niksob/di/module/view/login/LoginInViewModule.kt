@@ -9,7 +9,7 @@ import com.niksob.di.module.usecase.auth.LoginValidationModule
 import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase
 import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
-import com.niksob.app.view.moodentry.MoodEntriesView
+import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.auth.LoginInViewModel
 import com.niksob.app.viewmodel.auth.factory.LoginInViewModelFactory
 import dagger.Module

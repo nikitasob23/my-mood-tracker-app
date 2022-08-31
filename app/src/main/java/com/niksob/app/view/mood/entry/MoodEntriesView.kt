@@ -1,12 +1,10 @@
-package com.niksob.app.view.moodentry
+package com.niksob.app.view.mood.entry
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.app.view.base.MVVMBaseView
+import com.niksob.app.view.main.activity.base.MVVMBaseView
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
 import com.niksob.di.component.view.moodentry.DaggerMoodEntriesViewComponent
 import com.niksob.di.module.app.ContextModule
@@ -25,7 +23,6 @@ class MoodEntriesView : MVVMBaseView() {
         initMoodEntriesList(response.data as MoodEntries)
     }
 
-    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreateViewDataLoading() {
 
         @Suppress("UNCHECKED_CAST")

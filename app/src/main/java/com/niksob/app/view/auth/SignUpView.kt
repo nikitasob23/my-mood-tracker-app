@@ -15,8 +15,8 @@ import com.niksob.di.module.app.ContextModule
 import com.niksob.domain.model.User
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
-import com.niksob.app.view.base.BaseView
-import com.niksob.app.view.moodentry.MoodEntriesView
+import com.niksob.app.view.main.activity.base.BaseView
+import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.auth.SignUpViewModel
 import com.niksob.domain.model.Uid
 import javax.inject.Inject

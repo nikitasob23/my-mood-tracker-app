@@ -1,6 +1,7 @@
 package com.niksob.app.view.main.activity.injection
 
 import android.os.Bundle
+import com.niksob.app.view.Injectable
 import com.niksob.app.view.main.activity.BaseMainActivity
 
 open class InjectableMainActivity : Injectable, BaseMainActivity() {

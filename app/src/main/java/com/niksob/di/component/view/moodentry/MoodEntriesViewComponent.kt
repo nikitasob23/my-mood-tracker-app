@@ -1,6 +1,6 @@
 package com.niksob.di.component.view.moodentry
 
-import com.niksob.app.view.moodentry.MoodEntriesView
+import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.di.module.view.moodentry.MoodEntriesViewModule
 import dagger.Component
 

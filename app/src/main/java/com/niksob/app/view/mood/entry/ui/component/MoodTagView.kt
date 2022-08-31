@@ -1,4 +1,4 @@
-package com.niksob.app.view.moodentry.uicomponent
+package com.niksob.app.view.mood.entry.ui.component
 
 import android.content.Context
 import android.util.AttributeSet

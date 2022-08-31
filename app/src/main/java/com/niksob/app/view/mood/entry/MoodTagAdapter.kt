@@ -1,12 +1,12 @@
-package com.niksob.app.view.moodentry
+package com.niksob.app.view.mood.entry
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.app.view.moodentry.uicomponent.MoodTagView
-import com.niksob.app.view.moodentry.uicomponent.TAG_NOT_ENVELOP_OTHER_TAGS
+import com.niksob.app.view.mood.entry.ui.component.MoodTagView
+import com.niksob.app.view.mood.entry.ui.component.TAG_NOT_ENVELOP_OTHER_TAGS
 import com.niksob.domain.model.MoodTag
 
 

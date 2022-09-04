@@ -3,7 +3,7 @@ package com.niksob.app.view.main.activity.progressbar
 import android.view.ViewGroup
 import com.niksob.app.R
 import com.niksob.di.component.application.DaggerApplicationComponent
-import com.niksob.di.module.app.AppProgressBarLayoutComponentModule
+import com.niksob.di.module.app.progressbar.AppProgressBarLayoutComponentModule
 
 open class InjectableAppMainActivityWithProgressBar : MainActivityWithProgressBar() {
 

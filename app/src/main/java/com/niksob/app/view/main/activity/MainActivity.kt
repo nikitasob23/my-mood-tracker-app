@@ -18,6 +18,7 @@ import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.di.module.app.*
+import com.niksob.di.module.app.progressbar.AppProgressBarModule
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
 import javax.inject.Inject

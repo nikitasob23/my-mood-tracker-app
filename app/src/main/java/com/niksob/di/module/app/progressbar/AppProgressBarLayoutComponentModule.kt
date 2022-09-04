@@ -1,4 +1,4 @@
-package com.niksob.di.module.app
+package com.niksob.di.module.app.progressbar
 
 import android.view.ViewGroup
 import dagger.Module

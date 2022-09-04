@@ -2,37 +2,37 @@ package com.niksob.di.module.navigation
 
 import android.content.Context
 import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.application.App
-import com.niksob.app.navigation.FragmentNavigation
 import com.niksob.app.navigation.FragmentSetter
+import com.niksob.app.navigation.LoggableAppFragmentNavigation
 import com.niksob.di.module.app.*
+import com.niksob.di.module.logger.AppDebugLoggerModule
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.ScreenSetter
-import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
+import com.niksob.domain.utils.logger.AppDebugLogger
 import dagger.Module
 import dagger.Provides
 
-@Module(includes = [
-    ContextModule::class,
-    AppProgressBarFromContextModule::class,
-])
+@Module(
+    includes = [
+        ContextModule::class,
+        AppDebugLoggerModule::class,
+    ]
+)
 class AppScreenNavigationModule {
 
     @Provides
     fun provideFragmentNavigation(
         setFragmentUseCase: SetFragmentUseCase,
         popBackFragmentUseCase: PopBackFragmentUseCase,
-        appProgressBar: AppProgressBar,
-        viewModelStoreOwner: ViewModelStoreOwner,
+        logger: AppDebugLogger,
     ): ScreenNavigation =
-        FragmentNavigation(
+        LoggableAppFragmentNavigation(
             setFragmentUseCase = setFragmentUseCase,
             popBackFragmentUseCase = popBackFragmentUseCase,
-            appProgressBar = appProgressBar,
-            viewModelStoreOwner = viewModelStoreOwner,
+            logger = logger,
         )
 
     @Provides

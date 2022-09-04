@@ -2,7 +2,7 @@ package com.niksob.di.module.navigation
 
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.di.module.app.AppProgressBarModule
+import com.niksob.di.module.app.progressbar.AppProgressBarModule
 import com.niksob.di.module.app.FragmentManagerModule
 import com.niksob.app.navigation.FragmentNavigation
 import com.niksob.app.navigation.FragmentSetter

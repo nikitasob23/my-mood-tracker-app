@@ -17,10 +17,16 @@ class MainProgressBar(
     }
 
     override fun showProgress() {
+        if (progressBarFrameLayout.visibility == View.VISIBLE) {
+            return
+        }
         progressBarFrameLayout.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
+        if (progressBarFrameLayout.visibility == View.GONE) {
+            return
+        }
         progressBarFrameLayout.visibility = View.GONE
     }
 }

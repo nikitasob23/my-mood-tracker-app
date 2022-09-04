@@ -3,12 +3,14 @@ package com.niksob.di.module.navigation
 import android.content.Context
 import androidx.fragment.app.FragmentManager
 import com.niksob.app.application.App
+import com.niksob.app.navigation.AppFragmentNavigationWithProgressbar
 import com.niksob.app.navigation.FragmentSetter
-import com.niksob.app.navigation.LoggableAppFragmentNavigation
 import com.niksob.di.module.app.*
+import com.niksob.di.module.app.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.ScreenSetter
+import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 import com.niksob.domain.utils.logger.AppDebugLogger
@@ -19,6 +21,7 @@ import dagger.Provides
     includes = [
         ContextModule::class,
         AppDebugLoggerModule::class,
+        AppProgressBarFromContextModule::class,
     ]
 )
 class AppScreenNavigationModule {
@@ -28,11 +31,13 @@ class AppScreenNavigationModule {
         setFragmentUseCase: SetFragmentUseCase,
         popBackFragmentUseCase: PopBackFragmentUseCase,
         logger: AppDebugLogger,
+        progressbar: AppProgressBar,
     ): ScreenNavigation =
-        LoggableAppFragmentNavigation(
+        AppFragmentNavigationWithProgressbar(
             setFragmentUseCase = setFragmentUseCase,
             popBackFragmentUseCase = popBackFragmentUseCase,
             logger = logger,
+            progressbar = progressbar,
         )
 
     @Provides

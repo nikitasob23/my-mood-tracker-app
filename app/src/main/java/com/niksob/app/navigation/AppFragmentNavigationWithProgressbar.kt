@@ -1,30 +1,30 @@
 package com.niksob.app.navigation
 
 import com.niksob.domain.navigation.NavigationableScreen
+import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 import com.niksob.domain.utils.logger.AppDebugLogger
 
-private const val NAVIGATE_TO_NEXT_VIEW_PREFIX_MESSAGE = "Go to view: "
-private const val NAVIGATE_TO_PREVIOUS_VIEW_MESSAGE = "Go to previous view"
-
-open class LoggableAppFragmentNavigation(
+class AppFragmentNavigationWithProgressbar(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
-    private val logger: AppDebugLogger
-) : AppFragmentNavigation(
+    logger: AppDebugLogger,
+    private val progressbar: AppProgressBar,
+) : LoggableAppFragmentNavigation(
     setFragmentUseCase,
     popBackFragmentUseCase,
+    logger,
 ) {
-    private val tag get() = LoggableAppFragmentNavigation::class.simpleName!!
-
     override fun <T : NavigationableScreen> goToNextView(screenClass: Class<T>) {
+        progressbar.showProgress()
         super.goToNextView(screenClass)
-        logger.log(tag, NAVIGATE_TO_NEXT_VIEW_PREFIX_MESSAGE + screenClass.simpleName)
+        progressbar.hideProgress()
     }
 
     override fun goToPreviousView() {
+        progressbar.showProgress()
         super.goToPreviousView()
-        logger.log(tag, NAVIGATE_TO_PREVIOUS_VIEW_MESSAGE)
+        progressbar.hideProgress()
     }
 }

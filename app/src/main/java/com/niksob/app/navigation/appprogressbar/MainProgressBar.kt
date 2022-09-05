@@ -6,7 +6,7 @@ import android.widget.FrameLayout
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.app.R
 
-class MainProgressBar(
+open class MainProgressBar(
     private val progressBarFrameLayout: ViewGroup,
 ) : AppProgressBar {
 

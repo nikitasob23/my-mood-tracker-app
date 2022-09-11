@@ -5,14 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.AppCompatButton
-import com.niksob.di.component.view.auth.DaggerLoginViewComponent
 import com.niksob.app.R
 import com.niksob.app.view.main.activity.base.BaseView
+import com.niksob.di.component.view.auth.login.DaggerLoginViewComponent
 import com.niksob.domain.navigation.NavigationableScreen
 import javax.inject.Inject
 import javax.inject.Named
 
-open class LoginView : BaseView() {
+open class DeprecatedLoginView : BaseView() {
 
     override val layout = R.layout.login_view
 

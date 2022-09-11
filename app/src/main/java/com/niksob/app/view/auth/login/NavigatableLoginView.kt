@@ -1,27 +1,24 @@
 package com.niksob.app.view.auth.login
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.niksob.app.view.Injectable
-import com.niksob.di.component.view.DaggerNavigationInjectionComponent
-import com.niksob.di.module.app.ContextModule
+import com.niksob.domain.navigation.NavigationableScreen
+import com.niksob.domain.navigation.ScreenNavigation
+import javax.inject.Inject
+import javax.inject.Named
 
-class NavigatableLoginView : Injectable, LoginView() {
+open class NavigatableLoginView : InjectableLoginView() {
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        super.onCreateView(inflater, container, savedInstanceState)
-        inject()
-        return rootView
-    }
+    @Inject
+    lateinit var appNavigation: ScreenNavigation
 
-    override fun inject() {
-        navigation = DaggerNavigationInjectionComponent.builder()
-            .contextModule(contextModule)
-            .build()
-            .getNavigation()
-    }
+    @Inject
+    @Named("provide_login_in_view_class")
+    lateinit var loginInViewClass: Class<out NavigationableScreen>
 
-    private val contextModule get() = ContextModule(context = requireContext().applicationContext)
+    @Inject
+    @Named("provide_sign_up_view_class")
+    lateinit var signUpViewClass: Class<out NavigationableScreen>
+
+    protected open fun goToLoginView() = appNavigation.goToNextView(loginInViewClass)
+
+    protected open fun goToSignUpView() = appNavigation.goToNextView(signUpViewClass)
 }

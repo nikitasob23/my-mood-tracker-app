@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.app.view.auth.login.LoginView
+import com.niksob.app.view.auth.login.DeprecatedLoginView
 import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.app.viewmodel.main.factory.MainViewModelFactory
@@ -42,7 +42,7 @@ open class MainActivityViewModelModule {
         MainViewModelFactory(loadAuthorizeUserIdUseCase, signOutUseCase)
 
     @Provides
-    fun provideLoginViewClass() = LoginView::class.java
+    fun provideLoginViewClass() = DeprecatedLoginView::class.java
 
     @Provides
     fun provideMoodEntriesViewClass() = MoodEntriesView::class.java

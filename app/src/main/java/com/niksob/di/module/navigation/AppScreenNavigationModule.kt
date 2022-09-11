@@ -1,8 +1,6 @@
 package com.niksob.di.module.navigation
 
-import android.content.Context
 import androidx.fragment.app.FragmentManager
-import com.niksob.app.application.App
 import com.niksob.app.navigation.AppFragmentNavigationWithProgressbar
 import com.niksob.app.navigation.FragmentSetter
 import com.niksob.di.module.app.*
@@ -22,6 +20,7 @@ import dagger.Provides
         ContextModule::class,
         AppDebugLoggerModule::class,
         AppProgressBarFromContextModule::class,
+        AppFragmentManagerModule::class,
     ]
 )
 class AppScreenNavigationModule {
@@ -48,7 +47,4 @@ class AppScreenNavigationModule {
 
     @Provides
     fun provideFragmentSetter(manager: FragmentManager): ScreenSetter = FragmentSetter(manager)
-
-    @Provides
-    fun provideFragmentManager(context: Context) = (context as App).fragmentManager
 }

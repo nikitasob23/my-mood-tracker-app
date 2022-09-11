@@ -12,7 +12,7 @@ import com.niksob.di.module.view.moodentry.MoodEntriesViewModule
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.Query
 
-class MoodEntriesView : MVVMBaseView() {
+open class MoodEntriesView : MVVMBaseView() {
 
     override val layout get() = R.layout.entries_view
 

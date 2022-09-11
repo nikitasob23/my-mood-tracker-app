@@ -10,16 +10,12 @@ import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 
 open class NavigationableFragment : NavigationableScreen, Fragment() {
     var navigation: ScreenNavigation? = null
-        private set
 
     var progressBar: AppProgressBar? = null
-        private set
 
     var toolbar: Toolbar? = null
-        private set
 
     var viewModelStoreOwner: ViewModelStoreOwner = this
-        private set
 
     override fun attachNavigation(navigation: ScreenNavigation) {
         this.navigation = navigation

@@ -6,15 +6,17 @@ import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.application.App
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.app.view.auth.LoginView
+import com.niksob.app.view.auth.login.NavigatableLoginView
 import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.app.viewmodel.main.factory.MainViewModelFactory
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.usecase.auth.SignOutUseCaseModule
+import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.usecase.auth.SignOutUseCase
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module(
     includes = [
@@ -44,10 +46,12 @@ open class AppMainActivityViewModelModule {
         MainViewModelFactory(loadAuthorizeUserIdUseCase, signOutUseCase)
 
     @Provides
-    fun provideLoginViewClass() = LoginView::class.java
+    @Named("login_view_class")
+    fun provideLoginViewClass(): Class<out NavigationableScreen> = NavigatableLoginView::class.java
 
     @Provides
-    fun provideMoodEntriesViewClass() = MoodEntriesView::class.java
+    @Named("mood_entries_view_class")
+    fun provideMoodEntriesViewClass(): Class<out NavigationableScreen> = MoodEntriesView::class.java
 
     @Provides
     fun provideMainActivityViewModelStoreOwner(context: Context) = (context as App).mainViewModelStoreOwner

@@ -1,7 +1,7 @@
 package com.niksob.di.component.view.auth
 
 import com.niksob.di.module.view.login.LoginViewModule
-import com.niksob.app.view.auth.LoginView
+import com.niksob.app.view.auth.login.LoginView
 import dagger.Component
 
 @Component(modules = [LoginViewModule::class])

@@ -20,7 +20,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-            <com.niksob.app.view.mood.entry.ui.component.MoodTagView
+            <com.niksob.app.view.mood.entry.uicomponent.MoodTagView
                     android:id="@+id/addition_mood_entry_view_layout__add_tag_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
                     tools:listitem="@layout/mood_tag_layout"
                     android:orientation="horizontal"/>
 
-            <com.niksob.app.view.mood.entry.ui.component.MoodTagView
+            <com.niksob.app.view.mood.entry.uicomponent.MoodTagView
                     android:id="@+id/addition_mood_entry_view_layout__hide_tags_btn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

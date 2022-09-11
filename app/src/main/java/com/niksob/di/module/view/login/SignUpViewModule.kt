@@ -14,8 +14,10 @@ import com.niksob.domain.usecase.auth.ValidateEmailUseCase
 import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
 import com.niksob.app.viewmodel.auth.SignUpViewModel
 import com.niksob.app.viewmodel.auth.factory.SignUpViewModelFactory
+import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module(
     includes = [
@@ -55,5 +57,6 @@ class SignUpViewModule(
         )
 
     @Provides
-    fun provideMoodEntriesViewClass() = MoodEntriesView::class.java
+    @Named("mood_entries_view_class")
+    fun provideMoodEntriesViewClass(): Class<out NavigationableScreen> = MoodEntriesView::class.java
 }

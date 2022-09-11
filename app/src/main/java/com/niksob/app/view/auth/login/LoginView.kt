@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth
+package com.niksob.app.view.auth.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,17 +8,21 @@ import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.component.view.auth.DaggerLoginViewComponent
 import com.niksob.app.R
 import com.niksob.app.view.main.activity.base.BaseView
+import com.niksob.domain.navigation.NavigationableScreen
 import javax.inject.Inject
+import javax.inject.Named
 
-class LoginView : BaseView() {
+open class LoginView : BaseView() {
 
     override val layout = R.layout.login_view
 
     @Inject
-    lateinit var loginInViewClass: Class<LoginInView>
+    @Named("provide_login_in_view_class")
+    lateinit var loginInViewClass: Class<out NavigationableScreen>
 
     @Inject
-    lateinit var signUpViewClass: Class<SignUpView>
+    @Named("provide_sign_up_view_class")
+    lateinit var signUpViewClass: Class<out NavigationableScreen>
 
     override fun onCreateView(
         inflater: LayoutInflater,

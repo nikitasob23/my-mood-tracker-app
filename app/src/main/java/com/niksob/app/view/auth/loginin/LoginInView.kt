@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth
+package com.niksob.app.view.auth.loginin
 
 import android.os.Bundle
 import android.util.Log
@@ -14,11 +14,12 @@ import com.niksob.di.module.view.login.LoginInViewModule
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
 import com.niksob.app.view.main.activity.base.BaseView
-import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.auth.LoginInViewModel
+import com.niksob.domain.navigation.NavigationableScreen
 import javax.inject.Inject
+import javax.inject.Named
 
-class LoginInView : BaseView() {
+open class LoginInView : BaseView() {
 
     override val layout = R.layout.login_view_in
 
@@ -26,7 +27,8 @@ class LoginInView : BaseView() {
     lateinit var viewModel: LoginInViewModel
 
     @Inject
-    lateinit var moodEntriesViewClass: Class<MoodEntriesView>
+    @Named("mood_entries_view_class")
+    lateinit var moodEntriesViewClass: Class<out NavigationableScreen>
 
     private lateinit var emailEditText: EditText
     private lateinit var passwordEditText: EditText

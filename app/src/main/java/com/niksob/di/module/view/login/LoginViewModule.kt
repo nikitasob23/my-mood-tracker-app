@@ -1,16 +1,20 @@
 package com.niksob.di.module.view.login
 
-import com.niksob.app.view.auth.LoginInView
-import com.niksob.app.view.auth.SignUpView
+import com.niksob.app.view.auth.loginin.NavigationableLoginInView
+import com.niksob.app.view.auth.signup.NavigationableSignUpView
+import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 
 @Module
 class LoginViewModule {
 
     @Provides
-    fun provideLoginInViewClass() = LoginInView::class.java
+    @Named("provide_login_in_view_class")
+    fun provideLoginInViewClass(): Class<out NavigationableScreen> = NavigationableLoginInView::class.java
 
     @Provides
-    fun provideSignUpViewClass() = SignUpView::class.java
+    @Named("provide_sign_up_view_class")
+    fun provideSignUpViewClass(): Class<out NavigationableScreen> = NavigationableSignUpView::class.java
 }

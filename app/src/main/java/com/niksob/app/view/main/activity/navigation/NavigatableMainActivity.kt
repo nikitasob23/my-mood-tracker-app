@@ -1,10 +1,10 @@
 package com.niksob.app.view.main.activity.navigation
 
-import com.niksob.app.view.auth.LoginView
 import com.niksob.app.view.main.activity.injection.InjectableComponentInitializer
-import com.niksob.app.view.mood.entry.MoodEntriesView
+import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenNavigation
 import javax.inject.Inject
+import javax.inject.Named
 
 open class NavigatableMainActivity : InjectableComponentInitializer() {
 
@@ -12,8 +12,10 @@ open class NavigatableMainActivity : InjectableComponentInitializer() {
     lateinit var navigation: ScreenNavigation
 
     @Inject
-    lateinit var loginViewClass: Class<LoginView>
+    @Named("login_view_class")
+    lateinit var loginViewClass: Class<out NavigationableScreen>
 
     @Inject
-    lateinit var moodEntriesViewClass: Class<MoodEntriesView>
+    @Named("mood_entries_view_class")
+    lateinit var moodEntriesViewClass: Class<out NavigationableScreen>
 }

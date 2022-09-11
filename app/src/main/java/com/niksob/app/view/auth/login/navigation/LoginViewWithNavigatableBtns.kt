@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.login
+package com.niksob.app.view.auth.login.navigation
 
 import androidx.appcompat.widget.AppCompatButton
 import com.niksob.app.R

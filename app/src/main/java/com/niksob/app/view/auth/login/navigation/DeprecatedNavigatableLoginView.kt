@@ -1,10 +1,11 @@
-package com.niksob.app.view.auth.login
+package com.niksob.app.view.auth.login.navigation
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.niksob.app.view.Injectable
+import com.niksob.app.view.auth.login.DeprecatedLoginView
 import com.niksob.di.component.view.DaggerNavigationInjectionComponent
 import com.niksob.di.module.app.ContextModule
 

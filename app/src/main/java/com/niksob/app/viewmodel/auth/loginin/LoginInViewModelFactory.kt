@@ -1,8 +1,7 @@
-package com.niksob.app.viewmodel.auth.factory
+package com.niksob.app.viewmodel.auth.loginin
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.app.viewmodel.auth.LoginInViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase
@@ -17,7 +16,7 @@ class LoginInViewModelFactory(
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>) =
-        LoginInViewModel(
+        LoginInViewModelImpl(
             loginInUseCase,
             validateEmailUseCase,
             validatePasswordUseCase,

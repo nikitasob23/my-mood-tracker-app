@@ -2,7 +2,7 @@ package com.niksob.di.component.view.auth.login
 
 import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
 import com.niksob.di.module.navigation.AppScreenNavigationModule2
-import com.niksob.di.module.view.login.LoginViewModule2
+import com.niksob.di.module.view.auth.login.LoginViewModule2
 import dagger.Component
 
 @Component(

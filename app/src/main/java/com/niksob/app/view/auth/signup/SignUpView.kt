@@ -10,7 +10,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import com.niksob.di.component.view.auth.DaggerSignUpViewComponent
-import com.niksob.di.module.view.login.SignUpViewModule
+import com.niksob.di.module.view.auth.signup.SignUpViewModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.domain.model.User
 import com.niksob.domain.model.LoginData

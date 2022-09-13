@@ -1,6 +1,6 @@
 package com.niksob.di.component.view.auth
 
-import com.niksob.di.module.view.login.SignUpViewModule
+import com.niksob.di.module.view.auth.signup.SignUpViewModule
 import com.niksob.app.view.auth.signup.SignUpView
 import dagger.Component
 

@@ -8,7 +8,7 @@ import com.niksob.app.view.Injectable
 import com.niksob.di.component.view.DaggerNavigationInjectionComponent
 import com.niksob.di.module.app.ContextModule
 
-class NavigationableLoginInView : Injectable, LoginInView() {
+class NavigatableLoginInView : Injectable, LoginInView() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)

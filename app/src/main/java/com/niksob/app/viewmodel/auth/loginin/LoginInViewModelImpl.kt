@@ -1,32 +1,34 @@
-package com.niksob.app.viewmodel.auth
+package com.niksob.app.viewmodel.auth.loginin
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
-import com.niksob.domain.model.Query
 import com.niksob.domain.model.LoginData
+import com.niksob.domain.model.Query
 import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase
 import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
 
-
 private const val FAILED_REASON = "registration_failed"
 
-class LoginInViewModel(
+class LoginInViewModelImpl(
     private val loginInWithEmailAndPasswordUseCase: LoginInWithEmailAndPasswordUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val stringProvider: AppStringProvider,
-) : ViewModel() {
+) : LoginInViewModel, ViewModel() {
 
     private val _query = MutableLiveData<Query>()
 
-    val query: LiveData<Query> = _query
+    override val query: LiveData<Query> = _query
 
-    fun doLoginIn(loginData: LoginData) {
-        if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
+    override fun doLoginIn(loginData: LoginData) {
+        if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(
+                loginData.password
+            )
+        ) {
 
             _query.value = Query(
                 data = loginData,

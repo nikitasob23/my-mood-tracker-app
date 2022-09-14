@@ -9,14 +9,14 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import com.niksob.di.component.view.auth.DaggerSignUpViewComponent
-import com.niksob.di.module.view.auth.signup.SignUpViewModule
+import com.niksob.di.module.view.auth.signup.SignUpViewWithViewModelStoreOwnerModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.domain.model.User
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
 import com.niksob.app.view.main.activity.base.BaseView
 import com.niksob.app.viewmodel.auth.SignUpViewModel
+import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
 import com.niksob.domain.model.Uid
 import com.niksob.domain.navigation.NavigationableScreen
 import javax.inject.Inject
@@ -54,7 +54,7 @@ open class SignUpView : BaseView() {
     private fun inject() {
         DaggerSignUpViewComponent.builder()
             .contextModule(ContextModule(context = requireContext().applicationContext))
-            .signUpViewModule(SignUpViewModule(viewModelStoreOwner = this))
+            .signUpViewWithViewModelStoreOwnerModule(SignUpViewWithViewModelStoreOwnerModule(viewModelStoreOwner = this))
             .build()
             .inject(this)
     }
@@ -119,7 +119,7 @@ open class SignUpView : BaseView() {
                 email = userEmail,
                 password = passwordEditText.text.toString()
             )
-            viewModel.doLoginUp(loginData)
+            viewModel.doSignUp(loginData)
         }
     }
 

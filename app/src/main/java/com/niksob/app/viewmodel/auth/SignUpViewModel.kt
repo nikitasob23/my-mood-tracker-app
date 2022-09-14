@@ -31,7 +31,7 @@ class SignUpViewModel(
 
     val userAdditionQuery: LiveData<Query> = userAdditionQueryLive
 
-    fun doLoginUp(loginData: LoginData) {
+    fun doSignUp(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
             authQueryLive.value = Query(
                 reason = stringProvider.getString(FAILED_REASON)

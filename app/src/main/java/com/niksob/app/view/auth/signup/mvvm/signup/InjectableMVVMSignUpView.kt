@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.mvvm.signup
 
 import androidx.lifecycle.Observer
 import com.niksob.di.component.view.auth.signup.DaggerAppSignUpViewComponent

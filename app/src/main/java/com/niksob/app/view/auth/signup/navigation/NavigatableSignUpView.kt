@@ -1,5 +1,6 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.navigation
 
+import com.niksob.app.view.auth.signup.InjectableSignUpView
 import com.niksob.domain.model.NavigationableScreenClass
 import com.niksob.domain.navigation.AppScreenNavigation
 import javax.inject.Inject

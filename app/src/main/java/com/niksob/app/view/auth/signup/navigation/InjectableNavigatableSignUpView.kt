@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.navigation
 
 import com.niksob.di.component.view.auth.signup.DaggerAppSignUpViewComponent
 import com.niksob.di.module.app.ContextModule

@@ -1,5 +1,6 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.mvvm.signup
 
+import com.niksob.app.view.auth.signup.navigation.InjectableNavigatableSignUpView
 import com.niksob.app.viewmodel.auth.SignUpViewModel
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query

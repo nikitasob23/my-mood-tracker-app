@@ -1,5 +1,6 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.mvvm.useraddition
 
+import com.niksob.app.view.auth.signup.mvvm.signup.InjectableMVVMSignUpView
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.User
 

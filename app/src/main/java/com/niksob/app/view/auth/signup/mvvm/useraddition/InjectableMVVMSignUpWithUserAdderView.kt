@@ -1,6 +1,7 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.mvvm.useraddition
 
 import androidx.lifecycle.Observer
+import com.niksob.app.view.auth.signup.mvvm.useraddition.MVVMSignUpWithUserAdderView
 import com.niksob.di.component.view.auth.signup.DaggerAppSignUpViewComponent
 import com.niksob.di.module.view.auth.signup.SignUpViewWithAdditionUserObserverModule
 import com.niksob.domain.model.Query

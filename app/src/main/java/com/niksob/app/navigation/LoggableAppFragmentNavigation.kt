@@ -12,7 +12,7 @@ open class LoggableAppFragmentNavigation(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
     private val logger: AppDebugLogger
-) : AppFragmentNavigation2(
+) : AppFragmentNavigationWithNavScreenClass(
     setFragmentUseCase,
     popBackFragmentUseCase,
 ) {

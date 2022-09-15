@@ -5,7 +5,7 @@ import com.niksob.domain.navigation.AppScreenNavigation
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 
-open class AppFragmentNavigation2(
+open class AppFragmentNavigationWithNavScreenClass(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
 ) : AppScreenNavigation,

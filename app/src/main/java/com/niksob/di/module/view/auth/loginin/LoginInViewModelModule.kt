@@ -2,7 +2,7 @@ package com.niksob.di.module.view.auth.loginin
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.view.mood.entry.MoodEntriesView
+import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
 import com.niksob.app.viewmodel.auth.loginin.LoginInViewModel
 import com.niksob.app.viewmodel.auth.loginin.LoginInViewModelImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
@@ -25,7 +25,7 @@ class LoginInViewModelModule {
         viewModelFactory: ViewModelProvider.Factory,
         viewModelClassImpl: Class<LoginInViewModelImpl>,
         viewModelStoreOwner: ViewModelStoreOwner,
-    ) : LoginInViewModel =
+    ): LoginInViewModel =
         ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClassImpl]
 
     @Provides
@@ -33,5 +33,6 @@ class LoginInViewModelModule {
 
     @Provides
     @Named("mood_entries_view_class")
-    fun provideMoodEntriesViewClass() = NavigationableScreenClass(MoodEntriesView::class.java)
+    fun provideMoodEntriesViewClass() =
+        NavigationableScreenClass(InjectedMoodEntriesListView::class.java)
 }

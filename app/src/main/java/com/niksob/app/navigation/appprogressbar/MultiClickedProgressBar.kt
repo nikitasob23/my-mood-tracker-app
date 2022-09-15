@@ -9,18 +9,22 @@ class MultiClickedProgressBar(progressBarFrameLayout: ViewGroup) : MainProgressB
     private var clickedCounter = 0
 
     override fun showProgress() {
-        clickedCounter++
-        if (clickedCounter > 1) {
+        if (alreadyShow()) {
             return
         }
+        clickedCounter++
         super.showProgress()
     }
 
     override fun hideProgress() {
-        clickedCounter--
-        if (clickedCounter > 0) {
+        if (alreadyHide()) {
             return
         }
+        clickedCounter--
         super.hideProgress()
     }
+
+    private fun alreadyShow() = clickedCounter % 2 != 0
+
+    private fun alreadyHide() = clickedCounter % 2 == 0
 }

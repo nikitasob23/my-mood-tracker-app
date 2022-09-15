@@ -10,7 +10,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [AppScreenNavigationModule::class])
-class AppScreenNavigationModule2 {
+class AppScreenNavigationWithNavScreenClassModule {
     @Provides
     fun provideFragmentNavigation(
         setFragmentUseCase: SetFragmentUseCase,

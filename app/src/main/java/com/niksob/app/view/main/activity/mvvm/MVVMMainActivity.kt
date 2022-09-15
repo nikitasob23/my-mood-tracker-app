@@ -4,10 +4,9 @@ import com.niksob.app.view.main.activity.navigation.InjectableAppNavigationIniti
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.domain.model.Query
 import javax.inject.Inject
-import javax.inject.Named
 
 open class MVVMMainActivity : InjectableAppNavigationInitializer() {
-    @Named("main_activity_observable_view_model")
+
     @Inject
     lateinit var viewModel: MainActivityViewModel
 

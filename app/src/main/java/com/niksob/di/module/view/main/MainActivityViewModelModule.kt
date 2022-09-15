@@ -6,7 +6,7 @@ import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.app.view.auth.login.DeprecatedLoginView
 import com.niksob.app.view.mood.entry.MoodEntriesView
-import com.niksob.app.viewmodel.main.MainActivityViewModel
+import com.niksob.app.viewmodel.main.MainActivityViewModelImpl
 import com.niksob.app.viewmodel.main.factory.MainViewModelFactory
 import com.niksob.di.module.app.MainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.usecase.auth.SignOutUseCaseModule
@@ -26,13 +26,13 @@ open class MainActivityViewModelModule {
     @Provides
     fun provideViewModel(
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<MainActivityViewModel>,
+        viewModelClass: Class<MainActivityViewModelImpl>,
         viewModelStoreOwner: ViewModelStoreOwner,
     ) =
         ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
 
     @Provides
-    fun provideViewModelClass() = MainActivityViewModel::class.java
+    fun provideViewModelClass() = MainActivityViewModelImpl::class.java
 
     @Provides
     fun provideViewModelFactory(

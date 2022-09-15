@@ -16,7 +16,7 @@ import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.app.R
 import com.niksob.app.view.auth.login.DeprecatedLoginView
 import com.niksob.app.view.mood.entry.MoodEntriesView
-import com.niksob.app.viewmodel.main.MainActivityViewModel
+import com.niksob.app.viewmodel.main.MainActivityViewModelImpl
 import com.niksob.di.module.app.*
 import com.niksob.di.module.app.progressbar.AppProgressBarModule
 import com.niksob.domain.model.Query
@@ -31,7 +31,7 @@ import javax.inject.Inject
 class MainActivity : AppCompatActivity() {
 
     @Inject
-    lateinit var viewModel: MainActivityViewModel
+    lateinit var viewModel: MainActivityViewModelImpl
 
     @Inject
     lateinit var navigation: ScreenNavigation

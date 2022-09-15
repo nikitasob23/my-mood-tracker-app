@@ -7,7 +7,8 @@ import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
 import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
-import com.niksob.app.viewmodel.main.factory.MainViewModelFactory
+import com.niksob.app.viewmodel.main.MainActivityViewModelImpl
+import com.niksob.app.viewmodel.main.factory.MainSignOutViewModelWithStoreOwnerCleaningFactory
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.usecase.auth.SignOutUseCaseModule
@@ -25,25 +26,31 @@ import javax.inject.Named
         AppMainActivityViewModelStoreOwnerModule::class,
     ]
 )
-open class AppMainActivityViewModelModule {
+class AppMainActivityViewModelModule {
 
     @Provides
+    @Named("main_activity_view_model")
     fun provideViewModel(
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<MainActivityViewModel>,
+        viewModelClass: Class<MainActivityViewModelImpl>,
         viewModelStoreOwner: ViewModelStoreOwner,
-    ) =
+    ): MainActivityViewModel =
         ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
 
     @Provides
-    fun provideViewModelClass() = MainActivityViewModel::class.java
+    fun provideViewModelClass() = MainActivityViewModelImpl::class.java
 
     @Provides
     fun provideViewModelFactory(
         loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
         signOutUseCase: SignOutUseCase,
+        viewModelStoreOwner: ViewModelStoreOwner,
     ): ViewModelProvider.Factory =
-        MainViewModelFactory(loadAuthorizeUserIdUseCase, signOutUseCase)
+        MainSignOutViewModelWithStoreOwnerCleaningFactory(
+            loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
+            signOutUseCase = signOutUseCase,
+            viewModelStoreOwner = viewModelStoreOwner,
+        )
 
     @Provides
     @Named("login_view_class")

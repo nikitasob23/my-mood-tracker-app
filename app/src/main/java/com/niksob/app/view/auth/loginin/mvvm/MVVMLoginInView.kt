@@ -21,7 +21,7 @@ open class MVVMLoginInView : LoginInViewWithLoginComponent() {
         loginInViewModel.doLoginIn(loginData)
     }
 
-    protected fun onCompletedLoginIn(response: Query) {
+    protected open fun onCompletedLoginIn(response: Query) {
 
         if (!response.completed) {
             throw IllegalStateException()

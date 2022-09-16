@@ -1,6 +1,6 @@
 package com.niksob.di.module.view.auth.login
 
-import com.niksob.app.view.auth.loginin.NavigatableLoginInView
+import com.niksob.app.view.auth.loginin.deprecated.NavigatableLoginInView
 import com.niksob.app.view.auth.signup.NavigationableSignUpView
 import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module

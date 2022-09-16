@@ -1,6 +1,6 @@
 package com.niksob.app.view.auth.loginin.progressbar
 
-import com.niksob.app.view.auth.loginin.LoginInViewWithLoginComponent
+import com.niksob.app.view.auth.loginin.base.LoginInViewWithLoginComponent
 import com.niksob.domain.model.Query
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import javax.inject.Inject

@@ -1,6 +1,6 @@
 package com.niksob.app.view.auth.loginin.navigation
 
-import com.niksob.app.view.auth.loginin.InjectableLoginInView
+import com.niksob.app.view.auth.loginin.base.InjectableLoginInView
 import com.niksob.domain.model.NavigationableScreenClass
 import com.niksob.domain.navigation.AppScreenNavigation
 import javax.inject.Inject

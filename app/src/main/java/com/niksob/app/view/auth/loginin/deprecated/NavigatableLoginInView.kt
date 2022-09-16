@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.loginin
+package com.niksob.app.view.auth.loginin.deprecated
 
 import android.os.Bundle
 import android.view.LayoutInflater

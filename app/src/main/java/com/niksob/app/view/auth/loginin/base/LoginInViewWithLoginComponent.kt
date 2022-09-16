@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.loginin
+package com.niksob.app.view.auth.loginin.base
 
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton

@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.loginin
+package com.niksob.app.view.auth.loginin.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

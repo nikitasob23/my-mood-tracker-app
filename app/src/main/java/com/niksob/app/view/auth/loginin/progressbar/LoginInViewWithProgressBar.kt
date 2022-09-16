@@ -1,11 +1,11 @@
 package com.niksob.app.view.auth.loginin.progressbar
 
-import com.niksob.app.view.auth.loginin.mvvm.InjectableMVVMLoginInView
+import com.niksob.app.view.auth.loginin.LoginInViewWithLoginComponent
 import com.niksob.domain.model.Query
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import javax.inject.Inject
 
-open class LoginInViewWithProgressBar : InjectableMVVMLoginInView() {
+open class LoginInViewWithProgressBar : LoginInViewWithLoginComponent() {
 
     @Inject
     lateinit var appProgressBar: AppProgressBar
@@ -15,8 +15,8 @@ open class LoginInViewWithProgressBar : InjectableMVVMLoginInView() {
         super.onClickLoginInBtn()
     }
 
-    override fun onCompletedLoginIn(response: Query) {
-        super.onCompletedLoginIn(response)
+    override fun onLoginInCompleted(response: Query) {
+        super.onLoginInCompleted(response)
         appProgressBar.hideProgress()
     }
 }

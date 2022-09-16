@@ -23,7 +23,7 @@ open class InjectableMVVMLoginInView : MVVMLoginInView() {
 
     private val loginInViewModelObserver
         get() = Observer<Query> { response ->
-            onCompletedLoginIn(response)
+            onLoginInCompleted(response)
         }
 
     override fun inject() {

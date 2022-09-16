@@ -21,6 +21,7 @@ import javax.inject.Named
 )
 class LoginInViewModelModule {
     @Provides
+    @Named("login_in_view_model")
     fun provideLoginInViewModel(
         viewModelFactory: ViewModelProvider.Factory,
         viewModelClassImpl: Class<LoginInViewModelImpl>,

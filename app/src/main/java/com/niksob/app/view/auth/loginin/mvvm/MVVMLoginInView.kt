@@ -16,9 +16,8 @@ open class MVVMLoginInView : InjectableNavigatableLoginInView() {
 
     protected open fun onLoginInCompleted(response: Query) {
 
-        if (!response.completed) {
-            throw IllegalStateException()
+        if (response.completed) {
+            moveToMoodEntriesView()
         }
-        appNavigation.goToNextView(moodEntriesViewClass)
     }
 }

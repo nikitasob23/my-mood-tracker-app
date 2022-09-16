@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.loginin.progressbar
+package com.niksob.app.view.auth.loginin.logger
 
 open class InjectableLoggableLoginInView : LoggableLoginInView() {
 

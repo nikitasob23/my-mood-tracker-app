@@ -1,5 +1,6 @@
-package com.niksob.app.view.auth.loginin.progressbar
+package com.niksob.app.view.auth.loginin.logger
 
+import com.niksob.app.view.auth.loginin.progressbar.InjectableLoginInViewWithProgressBar
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
 import com.niksob.domain.utils.logger.AppDebugLogger

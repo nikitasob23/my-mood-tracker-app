@@ -14,4 +14,8 @@ open class NavigatableLoginInView : InjectableLoginInView() {
     @Inject
     @Named("mood_entries_view_class")
     lateinit var moodEntriesViewClass: NavigationableScreenClass
+
+    protected open fun moveToMoodEntriesView() = appNavigation.goToNextView(moodEntriesViewClass)
+
+    protected open fun moveToPreviousView() = appNavigation.goToPreviousView()
 }

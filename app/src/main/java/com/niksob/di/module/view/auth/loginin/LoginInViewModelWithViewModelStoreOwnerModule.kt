@@ -3,14 +3,14 @@ package com.niksob.di.module.view.auth.loginin
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.mood.entry.MoodEntriesView
-import com.niksob.app.viewmodel.auth.loginin.LoginInViewModelImpl
-import com.niksob.di.module.viewmodel.factory.LoginInViewModelFactoryModule
+import com.niksob.app.viewmodel.auth.loginin.deprecated.LoginInViewModelImpl
+import com.niksob.di.module.viewmodel.factory.loginin.DeprecatedLoginInViewModelFactoryModule
 import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 
-@Module(includes = [LoginInViewModelFactoryModule::class])
+@Module(includes = [DeprecatedLoginInViewModelFactoryModule::class])
 class LoginInViewModelWithViewModelStoreOwnerModule(
     private val viewModelStoreOwner: ViewModelStoreOwner,
 ) {

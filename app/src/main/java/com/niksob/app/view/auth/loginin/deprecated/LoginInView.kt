@@ -13,7 +13,7 @@ import com.niksob.di.module.view.auth.loginin.LoginInViewModelWithViewModelStore
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
 import com.niksob.app.view.main.activity.base.BaseView
-import com.niksob.app.viewmodel.auth.loginin.LoginInViewModelImpl
+import com.niksob.app.viewmodel.auth.loginin.deprecated.LoginInViewModelImpl
 import com.niksob.di.component.view.auth.loginin.DaggerLoginInViewComponent
 import com.niksob.domain.navigation.NavigationableScreen
 import javax.inject.Inject
@@ -58,7 +58,7 @@ open class LoginInView : BaseView() {
     }
 
     private fun initViewModelObserver() {
-        viewModel.query.observe(viewLifecycleOwner) { query ->
+        viewModel.response.observe(viewLifecycleOwner) { query ->
             Log.d(
                 this@LoginInView.javaClass.simpleName, "Authorize: success = ${query.completed}; "
                         + "reason = ${query.reason}"

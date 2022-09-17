@@ -1,4 +1,4 @@
-package com.niksob.di.module.viewmodel.factory
+package com.niksob.di.module.viewmodel.factory.loginin
 
 import androidx.lifecycle.ViewModelProvider
 import com.niksob.app.viewmodel.auth.loginin.LoginInViewModelFactory

@@ -6,7 +6,7 @@ import com.niksob.domain.model.LoginData
 
 interface LoginInViewModel {
 
-    val query: LiveData<Query>
+    val response: LiveData<Query>
 
     fun doLoginIn(loginData: LoginData)
 }

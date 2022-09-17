@@ -1,8 +1,9 @@
-package com.niksob.app.viewmodel.auth.loginin
+package com.niksob.app.viewmodel.auth.loginin.deprecated
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.niksob.app.viewmodel.auth.loginin.LoginInViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.LoginData
@@ -22,7 +23,7 @@ class LoginInViewModelImpl(
 
     private val _query = MutableLiveData<Query>()
 
-    override val query: LiveData<Query> = _query
+    override val response: LiveData<Query> = _query
 
     override fun doLoginIn(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(

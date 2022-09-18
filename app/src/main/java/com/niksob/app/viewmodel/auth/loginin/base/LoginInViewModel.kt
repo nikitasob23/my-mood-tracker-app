@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel.auth.loginin
+package com.niksob.app.viewmodel.auth.loginin.base
 
 import androidx.lifecycle.LiveData
 import com.niksob.domain.model.Query

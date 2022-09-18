@@ -1,7 +1,7 @@
 package com.niksob.di.module.viewmodel.factory.loginin
 
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.app.viewmodel.auth.loginin.LoginInViewModelFactory
+import com.niksob.app.viewmodel.auth.loginin.factory.LoginInViewModelFactory
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.storage.string.StringStorageModule
 import com.niksob.di.module.usecase.auth.LoginInWithEmailAndPasswordUseCaseModule

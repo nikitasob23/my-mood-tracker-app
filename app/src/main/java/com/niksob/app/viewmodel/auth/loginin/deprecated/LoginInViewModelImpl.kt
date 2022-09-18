@@ -3,7 +3,7 @@ package com.niksob.app.viewmodel.auth.loginin.deprecated
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.niksob.app.viewmodel.auth.loginin.LoginInViewModel
+import com.niksob.app.viewmodel.auth.loginin.base.LoginInViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.LoginData

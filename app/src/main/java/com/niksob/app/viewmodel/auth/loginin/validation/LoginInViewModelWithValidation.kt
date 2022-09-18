@@ -1,5 +1,6 @@
-package com.niksob.app.viewmodel.auth.loginin
+package com.niksob.app.viewmodel.auth.loginin.validation
 
+import com.niksob.app.viewmodel.auth.loginin.base.BaseLoginInViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query

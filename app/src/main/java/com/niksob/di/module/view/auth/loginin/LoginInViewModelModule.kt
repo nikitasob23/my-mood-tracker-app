@@ -3,7 +3,7 @@ package com.niksob.di.module.view.auth.loginin
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
-import com.niksob.app.viewmodel.auth.loginin.LoginInViewModel
+import com.niksob.app.viewmodel.auth.loginin.base.LoginInViewModel
 import com.niksob.app.viewmodel.auth.loginin.deprecated.LoginInViewModelImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.viewmodel.factory.loginin.LoginInViewModelFactoryModule

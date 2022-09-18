@@ -1,7 +1,8 @@
-package com.niksob.app.viewmodel.auth.loginin
+package com.niksob.app.viewmodel.auth.loginin.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.niksob.app.viewmodel.auth.loginin.validation.LoginInViewModelWithValidation
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
 import com.niksob.domain.usecase.auth.ValidateEmailUseCase

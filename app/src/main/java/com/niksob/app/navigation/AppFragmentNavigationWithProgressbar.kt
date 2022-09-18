@@ -1,7 +1,6 @@
 package com.niksob.app.navigation
 
 import com.niksob.domain.model.NavigationableScreenClass
-import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
@@ -11,7 +10,7 @@ class AppFragmentNavigationWithProgressbar(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
     logger: AppDebugLogger,
-    val progressbar: AppProgressBar, //
+    private val progressbar: AppProgressBar,
 ) : LoggableAppFragmentNavigation(
     setFragmentUseCase,
     popBackFragmentUseCase,

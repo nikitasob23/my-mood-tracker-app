@@ -5,7 +5,7 @@ import com.niksob.di.component.view.moodentry.AppMoodEntriesListViewComponent
 
 open class InjectedMoodEntriesListView : MoodEntriesListViewWithStartDataLoader() {
 
-    protected open val injectableComponent: AppMoodEntriesListViewComponent
+    override val injectableComponent: AppMoodEntriesListViewComponent
         get() = injectableComponentBuilder.build()
 
     override fun inject() {

@@ -1,6 +1,7 @@
 package com.niksob.di.component.view.auth.login
 
 import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
+import com.niksob.di.component.InjectableComponent
 import com.niksob.di.module.navigation.AppScreenNavigationWithNavScreenClassModule
 import com.niksob.di.module.view.auth.login.LoginViewModule2
 import dagger.Component
@@ -11,6 +12,6 @@ import dagger.Component
         AppScreenNavigationWithNavScreenClassModule::class,
     ]
 )
-interface AppLoginViewComponent {
+interface AppLoginViewComponent : InjectableComponent {
     fun inject(loginView: InjectedNavigatableLoginView)
 }

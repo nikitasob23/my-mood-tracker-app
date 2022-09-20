@@ -5,7 +5,7 @@ import com.niksob.di.component.view.auth.signup.AppSignUpViewComponent
 
 class InjectedSignUpView : SignUpViewWithSignComponent() {
 
-    private val injectableComponent: AppSignUpViewComponent
+    override val injectableComponent: AppSignUpViewComponent
         get() = injectableComponentBuilder.build()
 
     override fun inject() {

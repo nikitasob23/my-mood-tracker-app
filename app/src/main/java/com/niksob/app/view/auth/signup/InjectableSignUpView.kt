@@ -5,12 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.niksob.di.component.view.auth.signup.DaggerAppSignUpViewComponent
-import com.niksob.app.view.Injectable
+import com.niksob.app.view.base.inject.InjectableWithComponent
+import com.niksob.di.component.InjectableComponent
 
-open class InjectableSignUpView : Injectable, BaseSignUpView() {
+open class InjectableSignUpView : InjectableWithComponent, BaseSignUpView() {
 
     protected open val injectableComponentBuilder: DaggerAppSignUpViewComponent.Builder
         get() = DaggerAppSignUpViewComponent.builder()
+
+    override val injectableComponent: InjectableComponent? get() = null
 
     override fun onCreateView(
         inflater: LayoutInflater,

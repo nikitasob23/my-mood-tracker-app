@@ -4,7 +4,7 @@ import com.niksob.di.component.view.auth.login.AppLoginViewComponent
 
 open class InjectedNavigatableLoginView : InjectableNavigatableLoginView() {
 
-    protected open val injectableComponent: AppLoginViewComponent
+    override val injectableComponent: AppLoginViewComponent
         get() = super.injectableComponentBuilder.build()
 
     override fun inject() {

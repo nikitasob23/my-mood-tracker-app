@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.app.view.Injectable
+import com.niksob.app.view.base.inject.Injectable
 import com.niksob.di.component.view.DaggerNavigationInjectionComponent
 import com.niksob.di.component.view.NavigationInjectionComponent
 import com.niksob.di.module.app.ContextModule

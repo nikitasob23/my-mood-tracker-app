@@ -9,6 +9,7 @@ import javax.inject.Inject
 private const val LOGIN_IN_PREFIX_MESSAGE = "The authorization process has "
 private const val DO_LOGIN_IN_MESSAGE = LOGIN_IN_PREFIX_MESSAGE + "started"
 private const val ON_LOGIN_IN_COMPLETED_MESSAGE = LOGIN_IN_PREFIX_MESSAGE + "completed"
+private const val ON_LOGIN_IN_FAILED_MESSAGE = LOGIN_IN_PREFIX_MESSAGE + "executed successfully"
 
 open class LoggableLoginInView : InjectableLoginInViewWithProgressBar() {
 
@@ -24,6 +25,11 @@ open class LoggableLoginInView : InjectableLoginInViewWithProgressBar() {
 
     override fun onLoginInCompleted(response: Query) {
         super.onLoginInCompleted(response)
-        logger.log(logTag, ON_LOGIN_IN_COMPLETED_MESSAGE)
+
+        if (response.completed) {
+            logger.log(logTag, ON_LOGIN_IN_COMPLETED_MESSAGE)
+            return
+        }
+        logger.log(logTag, ON_LOGIN_IN_FAILED_MESSAGE)
     }
 }

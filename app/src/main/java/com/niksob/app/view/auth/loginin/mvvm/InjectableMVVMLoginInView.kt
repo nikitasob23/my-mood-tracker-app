@@ -12,7 +12,7 @@ open class InjectableMVVMLoginInView : MVVMLoginInView() {
         get() = super.injectableComponentBuilder
             .loginInViewModelWithObserverModule(loginInViewModule)
 
-    protected open val injectableComponent: AppLoginInViewComponent
+    override val injectableComponent: AppLoginInViewComponent
         get() = injectableComponentBuilder.build()
 
     private val loginInViewModule

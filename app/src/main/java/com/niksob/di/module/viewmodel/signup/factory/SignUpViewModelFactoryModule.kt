@@ -1,9 +1,9 @@
-package com.niksob.di.module.viewmodel.factory
+package com.niksob.di.module.viewmodel.signup.factory
 
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.app.viewmodel.auth.factory.SignUpViewModelFactory
+import com.niksob.app.viewmodel.auth.signup.factory.SignUpViewModelWithNewUserAdditionFactory
 import com.niksob.data.provider.AppStringProvider
-import com.niksob.di.module.storage.string.StringStorageModule
+import com.niksob.di.module.provider.AppStringProviderModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule
 import com.niksob.di.module.usecase.auth.LoginValidationModule
 import com.niksob.di.module.usecase.auth.SignUpWithEmailAndPasswordUseCaseModule
@@ -15,25 +15,25 @@ import dagger.Module
 import dagger.Provides
 
 @Module(includes = [
-    SignUpWithEmailAndPasswordUseCaseModule::class,
     AddUserUseCaseModule::class,
     LoginValidationModule::class,
-    StringStorageModule::class,
+    AppStringProviderModule::class,
+    SignUpWithEmailAndPasswordUseCaseModule::class,
 ])
 class SignUpViewModelFactoryModule {
     @Provides
     fun provideViewModelFactory(
-        signUpUseCase: SignUpWithEmailAndPasswordUseCase,
         addUserUseCase: AddUserUseCase,
         validateEmailUseCase: ValidateEmailUseCase,
         validatePasswordUseCase: ValidatePasswordUseCase,
         stringProvider: AppStringProvider,
+        signUpWithEmailAndPasswordUseCase: SignUpWithEmailAndPasswordUseCase,
     ): ViewModelProvider.Factory =
-        SignUpViewModelFactory(
-            signUpUseCase,
+        SignUpViewModelWithNewUserAdditionFactory(
             addUserUseCase,
             validateEmailUseCase,
             validatePasswordUseCase,
-            stringProvider
+            stringProvider,
+            signUpWithEmailAndPasswordUseCase,
         )
 }

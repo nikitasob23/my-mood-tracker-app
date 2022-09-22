@@ -1,11 +1,11 @@
 package com.niksob.app.view.auth.signup.navigation
 
-import com.niksob.di.component.view.auth.signup.DaggerAppSignUpViewComponent
+import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
 import com.niksob.di.module.app.ContextModule
 
 open class InjectableNavigatableSignUpView : NavigatableSignUpView() {
 
-    override val injectableComponentBuilder: DaggerAppSignUpViewComponent.Builder
+    override val injectableComponentBuilder: DaggerSignUpViewComponent.Builder
         get() = super.injectableComponentBuilder
             .contextModule(contextModule)
 

@@ -1,7 +1,7 @@
 package com.niksob.di.module.view.auth.login
 
 import com.niksob.app.view.auth.loginin.toast.InjectableLoginInViewWithToastMessages
-import com.niksob.di.module.view.auth.signup.InjectedSignUpView
+import com.niksob.app.viewmodel.auth.signup.base.InjectedSignUpView
 import com.niksob.domain.model.NavigationableScreenClass
 import dagger.Module
 import dagger.Provides

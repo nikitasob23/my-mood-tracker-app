@@ -1,4 +1,3 @@
-
 package com.niksob.app.view.auth.signup
 
 import android.os.Bundle
@@ -9,14 +8,11 @@ import android.view.ViewGroup
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import com.niksob.di.module.view.auth.signup.SignUpViewWithViewModelStoreOwnerModule
-import com.niksob.di.module.app.ContextModule
 import com.niksob.domain.model.User
 import com.niksob.domain.model.LoginData
 import com.niksob.app.R
 import com.niksob.app.view.main.activity.base.BaseView
-import com.niksob.app.viewmodel.auth.SignUpViewModel
-import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
+import com.niksob.app.viewmodel.auth.signup.deprecated.SignUpViewModelImpl
 import com.niksob.domain.model.Uid
 import com.niksob.domain.navigation.NavigationableScreen
 import javax.inject.Inject
@@ -27,7 +23,7 @@ open class SignUpView : BaseView() {
     override val layout = R.layout.sign_up_view
 
     @Inject
-    lateinit var viewModel: SignUpViewModel
+    lateinit var viewModel: SignUpViewModelImpl
 
     @Inject
     @Named("mood_entries_view_class")
@@ -52,11 +48,11 @@ open class SignUpView : BaseView() {
     }
 
     private fun inject() {
-        DaggerSignUpViewComponent.builder()
-            .contextModule(ContextModule(context = requireContext().applicationContext))
-            .signUpViewWithViewModelStoreOwnerModule(SignUpViewWithViewModelStoreOwnerModule(viewModelStoreOwner = this))
-            .build()
-            .inject(this)
+//        DaggerSignUpViewComponent.builder()
+//            .contextModule(ContextModule(context = requireContext().applicationContext))
+//            .signUpViewWithViewModelStoreOwnerModule(SignUpViewWithViewModelStoreOwnerModule(viewModelStoreOwner = this))
+//            .build()
+//            .inject(this)
     }
 
     private fun initViewModelObservers() {
@@ -65,7 +61,7 @@ open class SignUpView : BaseView() {
     }
 
     private fun initAuthResponseObserver() {
-        viewModel.authQuery.observe(viewLifecycleOwner) { query ->
+        viewModel.authResponse.observe(viewLifecycleOwner) { query ->
             Log.d(this@SignUpView.javaClass.simpleName, "Registration: success = ${query.completed}; "
                         + "reason = ${query.reason}")
 
@@ -89,7 +85,7 @@ open class SignUpView : BaseView() {
     }
 
     private fun initAdditionUserResponseObserver() {
-        viewModel.userAdditionQuery.observe(viewLifecycleOwner) { query ->
+        viewModel.userAdditionResponse.observe(viewLifecycleOwner) { query ->
             Log.d(this@SignUpView.javaClass.simpleName, "Addition user: success = ${query.completed}; "
                         + "reason = ${query.reason}")
 

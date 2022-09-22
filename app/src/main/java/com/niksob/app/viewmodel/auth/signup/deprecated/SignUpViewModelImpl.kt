@@ -1,8 +1,9 @@
-package com.niksob.app.viewmodel.auth
+package com.niksob.app.viewmodel.auth.signup.deprecated
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
@@ -15,25 +16,25 @@ import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
 
 private const val FAILED_REASON = "registration_failed"
 
-class SignUpViewModel(
+class SignUpViewModelImpl(
     private val loginUpWithEmailAndPasswordUseCase: SignUpWithEmailAndPasswordUseCase,
     private val addUserUseCase: AddUserUseCase,
     private val validateEmailUseCase: ValidateEmailUseCase,
     private val validatePasswordUseCase: ValidatePasswordUseCase,
     private val stringProvider: AppStringProvider,
-) : ViewModel() {
+) : SignUpViewModelWithNewUserAddition, ViewModel() {
 
-    private val authQueryLive = MutableLiveData<Query>()
+    private val _authResponse = MutableLiveData<Query>()
 
-    private val userAdditionQueryLive = MutableLiveData<Query>()
+    private val _userAdditionResponse = MutableLiveData<Query>()
 
-    val authQuery: LiveData<Query> = authQueryLive
+    override val authResponse: LiveData<Query> = _authResponse
 
-    val userAdditionQuery: LiveData<Query> = userAdditionQueryLive
+    override val userAdditionResponse: LiveData<Query> = _userAdditionResponse
 
-    fun doSignUp(loginData: LoginData) {
+    override fun doSignUp(loginData: LoginData) {
         if (validateEmailUseCase.execute(loginData.email) && validatePasswordUseCase.execute(loginData.password)) {
-            authQueryLive.value = Query(
+            _authResponse.value = Query(
                 reason = stringProvider.getString(FAILED_REASON)
             )
             return
@@ -42,17 +43,17 @@ class SignUpViewModel(
         val query = Query(
             data = loginData,
             callback = Callback { query ->
-                authQueryLive.value = query
+                _authResponse.value = query
             }
         )
         loginUpWithEmailAndPasswordUseCase.execute(query)
     }
 
-    fun addUser(user: User) {
+    override fun addUser(user: User) {
         val query = Query(
             data = user,
             callback = Callback { query ->
-                userAdditionQueryLive.value = query
+                _userAdditionResponse.value = query
             }
         )
         addUserUseCase.execute(query)

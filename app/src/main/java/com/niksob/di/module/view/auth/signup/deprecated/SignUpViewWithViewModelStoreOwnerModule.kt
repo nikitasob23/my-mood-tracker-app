@@ -1,10 +1,10 @@
-package com.niksob.di.module.view.auth.signup
+package com.niksob.di.module.view.auth.signup.deprecated
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.mood.entry.MoodEntriesView
-import com.niksob.app.viewmodel.auth.SignUpViewModel
-import com.niksob.di.module.viewmodel.factory.SignUpViewModelFactoryModule
+import com.niksob.app.viewmodel.auth.signup.deprecated.SignUpViewModelImpl
+import com.niksob.di.module.viewmodel.signup.factory.SignUpViewModelFactoryModule
 import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module
 import dagger.Provides
@@ -17,12 +17,12 @@ class SignUpViewWithViewModelStoreOwnerModule(
     @Provides
     fun provideViewModel(
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<SignUpViewModel>
+        viewModelClass: Class<SignUpViewModelImpl>
     ) =
         ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
 
     @Provides
-    fun provideViewModelClass() = SignUpViewModel::class.java
+    fun provideViewModelClass() = SignUpViewModelImpl::class.java
 
     @Provides
     @Named("mood_entries_view_class")

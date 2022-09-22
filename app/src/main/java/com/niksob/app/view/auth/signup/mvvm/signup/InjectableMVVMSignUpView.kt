@@ -1,18 +1,18 @@
 package com.niksob.app.view.auth.signup.mvvm.signup
 
 import androidx.lifecycle.Observer
-import com.niksob.di.component.view.auth.signup.DaggerAppSignUpViewComponent
-import com.niksob.di.module.view.auth.signup.SignUpViewWithAuthObserverModule
+import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
+import com.niksob.di.module.viewmodel.signup.SignUpViewModelWithAuthObserverModule
 import com.niksob.domain.model.Query
 
 open class InjectableMVVMSignUpView : MVVMSignUpView() {
 
-    override val injectableComponentBuilder: DaggerAppSignUpViewComponent.Builder
+    override val injectableComponentBuilder: DaggerSignUpViewComponent.Builder
         get() = super.injectableComponentBuilder
-            .signUpViewWithAuthObserverModule(signUpViewWithMVVMObserverModule)
+            .signUpViewModelWithAuthObserverModule(signUpViewModelWithAuthObserverModule)
 
-    private val signUpViewWithMVVMObserverModule
-        get() = SignUpViewWithAuthObserverModule(
+    private val signUpViewModelWithAuthObserverModule
+        get() = SignUpViewModelWithAuthObserverModule(
             authObserver = authObserver,
             lifecycleOwner = this,
         )

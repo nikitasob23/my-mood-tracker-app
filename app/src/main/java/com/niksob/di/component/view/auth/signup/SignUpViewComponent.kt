@@ -1,10 +1,15 @@
 package com.niksob.di.component.view.auth.signup
 
-import com.niksob.di.module.view.auth.signup.SignUpViewWithViewModelStoreOwnerModule
-import com.niksob.app.view.auth.signup.SignUpView
+import com.niksob.di.component.InjectableComponent
+import com.niksob.app.viewmodel.auth.signup.base.InjectedSignUpView
+import com.niksob.di.module.view.auth.signup.navigation.SignUpViewWithNavigationModule
+import com.niksob.di.module.viewmodel.signup.SignUpViewModelWithNewUserObserverModule
 import dagger.Component
 
-@Component(modules = [SignUpViewWithViewModelStoreOwnerModule::class])
-interface SignUpViewComponent {
-    fun inject(loginInView: SignUpView)
+@Component(modules = [
+    SignUpViewModelWithNewUserObserverModule::class,
+    SignUpViewWithNavigationModule::class,
+])
+interface SignUpViewComponent : InjectableComponent {
+    fun inject(signUpView: InjectedSignUpView)
 }

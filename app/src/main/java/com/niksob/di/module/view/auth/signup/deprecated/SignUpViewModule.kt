@@ -1,11 +1,12 @@
-package com.niksob.di.module.view.auth.signup
+package com.niksob.di.module.view.auth.signup.deprecated
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
-import com.niksob.app.viewmodel.auth.SignUpViewModel
+import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
+import com.niksob.app.viewmodel.auth.signup.deprecated.SignUpViewModelImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
-import com.niksob.di.module.viewmodel.factory.SignUpViewModelFactoryModule
+import com.niksob.di.module.viewmodel.signup.factory.SignUpViewModelFactoryModule
 import com.niksob.domain.model.NavigationableScreenClass
 import dagger.Module
 import dagger.Provides
@@ -22,16 +23,15 @@ class SignUpViewModule {
     @Named("sign_up_view_model")
     fun provideViewModel(
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<SignUpViewModel>,
+        viewModelClass: Class<SignUpViewModelImpl>,
         viewModelStoreOwner: ViewModelStoreOwner,
-    ) =
+    ): SignUpViewModelWithNewUserAddition =
         ViewModelProvider(viewModelStoreOwner, viewModelFactory)[viewModelClass]
 
     @Provides
-    fun provideViewModelClass() = SignUpViewModel::class.java
+    fun provideViewModelClass(): Class<SignUpViewModelImpl> = SignUpViewModelImpl::class.java
 
     @Provides
-    @Named("mood_entries_view_class")
     fun provideMoodEntriesViewClass() =
         NavigationableScreenClass(InjectedMoodEntriesListView::class.java)
 }

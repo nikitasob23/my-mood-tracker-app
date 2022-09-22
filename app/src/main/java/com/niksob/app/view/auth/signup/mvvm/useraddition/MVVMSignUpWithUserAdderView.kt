@@ -1,7 +1,7 @@
 package com.niksob.app.view.auth.signup.mvvm.useraddition
 
 import com.niksob.app.view.auth.signup.mvvm.signup.InjectableMVVMSignUpView
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
+import com.niksob.app.viewmodel.auth.signup.base.useraddition.SignUpViewModelWithNewUserAddition
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.User
 

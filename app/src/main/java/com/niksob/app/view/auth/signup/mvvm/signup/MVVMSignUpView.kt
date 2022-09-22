@@ -1,7 +1,7 @@
 package com.niksob.app.view.auth.signup.mvvm.signup
 
 import com.niksob.app.view.auth.signup.navigation.InjectableNavigatableSignUpView
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModel
+import com.niksob.app.viewmodel.auth.signup.base.signup.SignUpViewModel
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
 import javax.inject.Inject

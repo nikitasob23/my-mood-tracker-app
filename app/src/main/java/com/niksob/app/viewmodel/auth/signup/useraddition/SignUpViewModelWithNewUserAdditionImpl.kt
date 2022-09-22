@@ -2,7 +2,7 @@ package com.niksob.app.viewmodel.auth.signup.useraddition
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
+import com.niksob.app.viewmodel.auth.signup.base.useraddition.SignUpViewModelWithNewUserAddition
 import com.niksob.app.viewmodel.auth.signup.validation.SignUpViewModelWithLoginDataValidation
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.Callback

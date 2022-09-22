@@ -2,7 +2,7 @@ package com.niksob.di.module.view.auth.signup.deprecated
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
+import com.niksob.app.viewmodel.auth.signup.base.useraddition.SignUpViewModelWithNewUserAddition
 import com.niksob.domain.model.Query
 import dagger.Module
 import dagger.Provides

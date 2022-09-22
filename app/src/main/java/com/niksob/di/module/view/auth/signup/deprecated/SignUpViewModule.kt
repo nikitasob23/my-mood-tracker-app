@@ -3,7 +3,7 @@ package com.niksob.di.module.view.auth.signup.deprecated
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
+import com.niksob.app.viewmodel.auth.signup.base.useraddition.SignUpViewModelWithNewUserAddition
 import com.niksob.app.viewmodel.auth.signup.deprecated.SignUpViewModelImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.viewmodel.signup.factory.SignUpViewModelFactoryModule

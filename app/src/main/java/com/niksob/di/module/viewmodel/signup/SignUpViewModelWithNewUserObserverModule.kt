@@ -2,8 +2,8 @@ package com.niksob.di.module.viewmodel.signup
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModel
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModelWithNewUserAddition
+import com.niksob.app.viewmodel.auth.signup.base.signup.SignUpViewModel
+import com.niksob.app.viewmodel.auth.signup.base.useraddition.SignUpViewModelWithNewUserAddition
 import com.niksob.domain.model.Query
 import dagger.Module
 import dagger.Provides

@@ -2,7 +2,7 @@ package com.niksob.di.module.viewmodel.signup
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModel
+import com.niksob.app.viewmodel.auth.signup.base.signup.SignUpViewModel
 import com.niksob.app.viewmodel.auth.signup.useraddition.SignUpViewModelWithNewUserAdditionImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.viewmodel.signup.factory.SignUpViewModelFactoryModule

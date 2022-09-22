@@ -14,9 +14,13 @@ open class SignUpViewWithToastMessages : SignUpViewWithProgressbar() {
 
     private val authFailedMessage get() = requireContext().getString(R.string.registration_failed)
 
+    private val signOutMessage get() = requireContext().getString(R.string.sign_out)
+
     protected open fun showAuthCompletedMessage() = toastMessage.showShortToast(authCompletedMessage)
 
     protected open fun showAuthFailedMessage() = toastMessage.showShortToast(authFailedMessage)
+
+    protected open fun showSignOutMessage() = toastMessage.showShortToast(signOutMessage)
 
     override fun onSignUpCompleted(response: Query) {
         super.onSignUpCompleted(response)
@@ -28,5 +32,8 @@ open class SignUpViewWithToastMessages : SignUpViewWithProgressbar() {
         }
     }
 
-
+    override fun moveToPreviousScreen() {
+        super.moveToPreviousScreen()
+        showSignOutMessage()
+    }
 }

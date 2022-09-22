@@ -15,13 +15,32 @@ open class LoginInViewWithToastMessages : InjectableLoggableLoginInView() {
 
     private val authFailedMessage get() = requireContext().getString(R.string.authorize_failed)
 
+    private val signOutMessage get() = requireContext().getString(R.string.sign_out)
+
+    protected open fun showAuthCompletedToastMessage() {
+        toastMessage.showShortToast(authCompletedMessage)
+    }
+
+    protected open fun showAuthFailedToastMessage() {
+        toastMessage.showShortToast(authFailedMessage)
+    }
+
+    protected open fun showSignOutToastMessage() {
+        toastMessage.showShortToast(signOutMessage)
+    }
+
     override fun onLoginInCompleted(response: Query) {
         super.onLoginInCompleted(response)
 
         if (response.completed) {
-            toastMessage.showShortToast(authCompletedMessage)
+            showAuthCompletedToastMessage()
         } else {
-            toastMessage.showShortToast(authFailedMessage)
+            showAuthFailedToastMessage()
         }
+    }
+
+    override fun moveToPreviousView() {
+        super.moveToPreviousView()
+        showSignOutToastMessage()
     }
 }

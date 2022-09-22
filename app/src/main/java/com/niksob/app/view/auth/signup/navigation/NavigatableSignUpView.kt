@@ -12,5 +12,7 @@ open class NavigatableSignUpView : InjectableSignUpView() {
     @Inject
     lateinit var moodEntriesViewClass: NavigationableScreenClass
 
-    protected fun moveToMoodEntriesScreen() = appNavigation.goToNextView(moodEntriesViewClass)
+    protected open fun moveToMoodEntriesScreen() = appNavigation.goToNextView(moodEntriesViewClass)
+
+    protected open fun moveToPreviousScreen() = appNavigation.goToPreviousView()
 }

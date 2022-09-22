@@ -1,8 +1,8 @@
 package com.niksob.di.module.navigation
 
 import androidx.fragment.app.FragmentManager
-import com.niksob.app.navigation.AppFragmentNavigationWithProgressbar
-import com.niksob.app.navigation.FragmentSetter
+import com.niksob.app.navigation.progressbar.FragmentNavigationWithProgressbar
+import com.niksob.app.navigation.fragmentsetter.FragmentSetter
 import com.niksob.di.module.app.*
 import com.niksob.di.module.app.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
@@ -32,7 +32,7 @@ class AppScreenNavigationModule {
         logger: AppDebugLogger,
         progressbar: AppProgressBar,
     ): ScreenNavigation =
-        AppFragmentNavigationWithProgressbar(
+        FragmentNavigationWithProgressbar(
             setFragmentUseCase = setFragmentUseCase,
             popBackFragmentUseCase = popBackFragmentUseCase,
             logger = logger,

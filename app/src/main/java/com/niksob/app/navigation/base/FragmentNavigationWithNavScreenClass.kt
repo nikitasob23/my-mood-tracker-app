@@ -1,15 +1,15 @@
-package com.niksob.app.navigation
+package com.niksob.app.navigation.base
 
 import com.niksob.domain.model.NavigationableScreenClass
-import com.niksob.domain.navigation.AppScreenNavigation
+import com.niksob.domain.navigation.ScreenNavigationWithNavScreenClass
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 
-open class AppFragmentNavigationWithNavScreenClass(
+open class FragmentNavigationWithNavScreenClass(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
-) : AppScreenNavigation,
-    AppFragmentNavigation(
+) : ScreenNavigationWithNavScreenClass,
+    FragmentNavigation(
         setFragmentUseCase,
         popBackFragmentUseCase,
     ) {

@@ -2,7 +2,7 @@ package com.niksob.di.module.app.progressbar
 
 import android.view.ViewGroup
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
-import com.niksob.app.navigation.appprogressbar.MainProgressBar
+import com.niksob.app.progressbar.base.MainProgressBar
 import dagger.Module
 import dagger.Provides
 

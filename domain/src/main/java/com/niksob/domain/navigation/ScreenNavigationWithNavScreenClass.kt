@@ -2,8 +2,6 @@ package com.niksob.domain.navigation
 
 import com.niksob.domain.model.NavigationableScreenClass
 
-interface AppScreenNavigation {
+interface ScreenNavigationWithNavScreenClass : ScreenNavigation {
     fun goToNextView(screenClass: NavigationableScreenClass)
-
-    fun goToPreviousView()
 }

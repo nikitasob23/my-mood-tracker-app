@@ -1,6 +1,7 @@
-package com.niksob.app.navigation.appprogressbar
+package com.niksob.app.progressbar.multiclicked
 
 import android.view.ViewGroup
+import com.niksob.app.progressbar.base.MainProgressBar
 
 //If first view invoke hiding progress, but another process had already invoked showing progress,
 // then showing progress won t stop. It will stop, when all views invoke hiding progress.

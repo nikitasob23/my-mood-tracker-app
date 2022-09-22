@@ -1,7 +1,7 @@
 package com.niksob.di.module.navigation
 
-import com.niksob.app.navigation.AppFragmentNavigationWithProgressbar
-import com.niksob.domain.navigation.AppScreenNavigation
+import com.niksob.app.navigation.progressbar.FragmentNavigationWithProgressbar
+import com.niksob.domain.navigation.ScreenNavigationWithNavScreenClass
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
@@ -17,8 +17,8 @@ class AppScreenNavigationWithNavScreenClassModule {
         popBackFragmentUseCase: PopBackFragmentUseCase,
         logger: AppDebugLogger,
         progressbar: AppProgressBar,
-    ): AppScreenNavigation =
-        AppFragmentNavigationWithProgressbar(
+    ): ScreenNavigationWithNavScreenClass =
+        FragmentNavigationWithProgressbar(
             setFragmentUseCase = setFragmentUseCase,
             popBackFragmentUseCase = popBackFragmentUseCase,
             logger = logger,

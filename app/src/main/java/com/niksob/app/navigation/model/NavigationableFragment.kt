@@ -1,4 +1,4 @@
-package com.niksob.app.navigation
+package com.niksob.app.navigation.model
 
 import android.view.View
 import androidx.appcompat.widget.Toolbar

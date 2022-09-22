@@ -2,12 +2,12 @@ package com.niksob.app.view.auth.signup.navigation
 
 import com.niksob.app.view.auth.signup.base.InjectableSignUpView
 import com.niksob.domain.model.NavigationableScreenClass
-import com.niksob.domain.navigation.AppScreenNavigation
+import com.niksob.domain.navigation.ScreenNavigationWithNavScreenClass
 import javax.inject.Inject
 
 open class NavigatableSignUpView : InjectableSignUpView() {
     @Inject
-    lateinit var appNavigation: AppScreenNavigation
+    lateinit var appNavigation: ScreenNavigationWithNavScreenClass
 
     @Inject
     lateinit var moodEntriesViewClass: NavigationableScreenClass

@@ -1,4 +1,4 @@
-package com.niksob.app.navigation.appprogressbar
+package com.niksob.app.progressbar.base
 
 import android.view.View
 import android.view.ViewGroup

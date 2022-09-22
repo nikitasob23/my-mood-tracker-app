@@ -1,9 +1,10 @@
-package com.niksob.app.navigation
+package com.niksob.app.navigation.fragmentsetter
 
 import androidx.fragment.app.FragmentManager
+import com.niksob.app.R
+import com.niksob.app.navigation.model.NavigationableFragment
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenSetter
-import com.niksob.app.R
 
 private const val FRAGMENT_CONTAINER_ID = R.id.main_layout__fragment_container
 

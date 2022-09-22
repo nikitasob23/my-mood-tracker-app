@@ -1,7 +1,7 @@
 package com.niksob.di.module.view.auth.login
 
 import com.niksob.app.view.auth.loginin.deprecated.NavigatableLoginInView
-import com.niksob.app.view.auth.signup.NavigationableSignUpView
+import com.niksob.app.view.auth.signup.deprecated.NavigatableSignUpView
 import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module
 import dagger.Provides
@@ -16,5 +16,5 @@ class LoginViewModule {
 
     @Provides
     @Named("provide_sign_up_view_class")
-    fun provideSignUpViewClass(): Class<out NavigationableScreen> = NavigationableSignUpView::class.java
+    fun provideSignUpViewClass(): Class<out NavigationableScreen> = NavigatableSignUpView::class.java
 }

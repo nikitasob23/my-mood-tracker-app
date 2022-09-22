@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.uicomponent
 
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
@@ -9,7 +9,7 @@ import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
 import com.niksob.domain.model.User
 
-open class SignUpViewWithSignComponent : InjectableMVVMSignUpWithUserAdderView() {
+open class SignUpViewWithSignUpComponent : InjectableMVVMSignUpWithUserAdderView() {
 
     protected lateinit var emailEditText: EditText
     protected lateinit var passwordEditText: EditText

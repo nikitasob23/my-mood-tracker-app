@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.deprecated
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import com.niksob.app.view.base.inject.Injectable
 import com.niksob.di.component.view.DaggerNavigationInjectionComponent
 import com.niksob.di.module.app.ContextModule
 
-class NavigationableSignUpView : Injectable, SignUpView() {
+class NavigatableSignUpView : Injectable, SignUpView() {
+
+    private val contextModule get() = ContextModule(context = requireContext().applicationContext)
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         super.onCreateView(inflater, container, savedInstanceState)
@@ -22,6 +24,4 @@ class NavigationableSignUpView : Injectable, SignUpView() {
             .build()
             .getNavigation()
     }
-
-    private val contextModule get() = ContextModule(context = requireContext().applicationContext)
 }

@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.base
 
 import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
 

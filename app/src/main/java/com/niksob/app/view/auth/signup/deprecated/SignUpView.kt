@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup
+package com.niksob.app.view.auth.signup.deprecated
 
 import android.os.Bundle
 import android.util.Log

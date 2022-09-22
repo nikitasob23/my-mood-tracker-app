@@ -1,9 +1,9 @@
 package com.niksob.app.viewmodel.auth.signup.base
 
-import com.niksob.app.view.auth.signup.SignUpViewWithSignComponent
+import com.niksob.app.view.auth.signup.uicomponent.SignUpViewWithSignUpComponent
 import com.niksob.di.component.view.auth.signup.SignUpViewComponent
 
-class InjectedSignUpView : SignUpViewWithSignComponent() {
+class InjectedSignUpView : SignUpViewWithSignUpComponent() {
 
     override val injectableComponent: SignUpViewComponent
         get() = injectableComponentBuilder.build()

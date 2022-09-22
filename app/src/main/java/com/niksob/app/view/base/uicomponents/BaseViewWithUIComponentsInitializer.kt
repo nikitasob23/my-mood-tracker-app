@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.app.view.main.activity.base.BaseView
+import com.niksob.app.view.base.BaseView
 
 abstract class BaseViewWithUIComponentsInitializer : ViewComponentsInitializer, BaseView() {
 

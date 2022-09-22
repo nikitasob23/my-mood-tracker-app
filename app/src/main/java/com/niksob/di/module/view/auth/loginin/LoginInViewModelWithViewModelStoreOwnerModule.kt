@@ -2,7 +2,7 @@ package com.niksob.di.module.view.auth.loginin
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.view.mood.entry.MoodEntriesView
+import com.niksob.app.view.mood.entry.list.mvvm.InjectableMVVMMoodEntriesListView
 import com.niksob.app.viewmodel.auth.loginin.deprecated.LoginInViewModelImpl
 import com.niksob.di.module.viewmodel.factory.loginin.DeprecatedLoginInViewModelFactoryModule
 import com.niksob.domain.navigation.NavigationableScreen
@@ -26,5 +26,5 @@ class LoginInViewModelWithViewModelStoreOwnerModule(
 
     @Provides
     @Named("mood_entries_view_class")
-    fun provideMoodEntriesViewClass(): Class<out NavigationableScreen> = MoodEntriesView::class.java
+    fun provideMoodEntriesViewClass(): Class<out NavigationableScreen> = InjectableMVVMMoodEntriesListView::class.java
 }

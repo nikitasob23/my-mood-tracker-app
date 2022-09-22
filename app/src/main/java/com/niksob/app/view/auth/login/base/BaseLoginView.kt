@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.login
+package com.niksob.app.view.auth.login.base
 
 import com.niksob.app.R
 import com.niksob.app.view.base.inject.BaseInjectableView

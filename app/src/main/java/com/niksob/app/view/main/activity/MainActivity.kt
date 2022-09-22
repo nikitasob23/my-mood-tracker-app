@@ -14,7 +14,7 @@ import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import com.niksob.di.component.view.main.DaggerDeprecatedMainActivityComponent
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.app.R
-import com.niksob.app.view.auth.login.DeprecatedLoginView
+import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
 import com.niksob.app.view.mood.entry.MoodEntriesView
 import com.niksob.app.viewmodel.main.MainActivityViewModelImpl
 import com.niksob.di.module.app.*
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainProgressBar: AppProgressBar
 
     @Inject
-    lateinit var loginViewClass: Class<DeprecatedLoginView>
+    lateinit var loginViewClass: Class<InjectedNavigatableLoginView>
 
     @Inject
     lateinit var moodEntriesViewClass: Class<MoodEntriesView>

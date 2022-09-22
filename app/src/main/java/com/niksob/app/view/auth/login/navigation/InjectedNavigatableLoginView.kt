@@ -1,10 +1,10 @@
 package com.niksob.app.view.auth.login.navigation
 
-import com.niksob.di.component.view.auth.login.AppLoginViewComponent
+import com.niksob.di.component.view.auth.login.LoginViewComponent
 
 open class InjectedNavigatableLoginView : InjectableNavigatableLoginView() {
 
-    override val injectableComponent: AppLoginViewComponent
+    override val injectableComponent: LoginViewComponent
         get() = super.injectableComponentBuilder.build()
 
     override fun inject() {

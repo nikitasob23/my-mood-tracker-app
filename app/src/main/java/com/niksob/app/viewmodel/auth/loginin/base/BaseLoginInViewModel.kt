@@ -22,10 +22,14 @@ open class BaseLoginInViewModel(
         loginInWithEmailAndPasswordUseCase.execute(response)
     }
 
+    protected open fun onLoginInCompleted(response: Query) {
+        mutableResponse.value = response
+    }
+
     private fun getSucceedResponse(loginData: LoginData) =
         Query(
             data = loginData,
             completed = true,
-            callback = Callback { query -> mutableResponse.value = query }
+            callback = Callback { response -> onLoginInCompleted(response) }
         )
 }

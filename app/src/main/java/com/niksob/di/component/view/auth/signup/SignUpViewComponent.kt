@@ -4,7 +4,7 @@ import com.niksob.app.view.auth.signup.progressbar.InjectedSignUpViewWithProgres
 import com.niksob.app.view.auth.signup.toast.InjectedSignUpViewWithToastMessages
 import com.niksob.di.component.InjectableComponent
 import com.niksob.app.view.auth.signup.uicomponent.InjectedSignUpViewWithSignUpComponent
-import com.niksob.di.module.app.progressbar.AppProgressBarFromContextModule
+import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
 import com.niksob.di.module.view.auth.signup.navigation.SignUpViewWithNavigationModule
 import com.niksob.di.module.viewmodel.auth.signup.SignUpViewModelWithNewUserObserverModule

@@ -4,7 +4,7 @@ import androidx.fragment.app.FragmentManager
 import com.niksob.app.navigation.progressbar.FragmentNavigationWithProgressbar
 import com.niksob.app.navigation.fragmentsetter.FragmentSetter
 import com.niksob.di.module.app.*
-import com.niksob.di.module.app.progressbar.AppProgressBarFromContextModule
+import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
 import com.niksob.domain.navigation.ScreenNavigation
 import com.niksob.domain.navigation.ScreenSetter

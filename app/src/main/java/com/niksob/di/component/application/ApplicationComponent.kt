@@ -2,7 +2,7 @@ package com.niksob.di.component.application
 
 import com.niksob.app.application.App
 import com.niksob.di.module.app.*
-import com.niksob.di.module.app.progressbar.AppProgressBarLayoutComponentModule
+import com.niksob.di.module.progressbar.AppProgressBarLayoutComponentModule
 import dagger.Component
 
 @Component(modules = [

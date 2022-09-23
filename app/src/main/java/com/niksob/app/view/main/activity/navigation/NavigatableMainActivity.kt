@@ -1,6 +1,6 @@
 package com.niksob.app.view.main.activity.navigation
 
-import com.niksob.app.view.main.activity.injection.InjectableComponentInitializer
+import com.niksob.app.view.main.activity.base.injection.InjectableComponentInitializer
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.navigation.ScreenNavigation
 import javax.inject.Inject

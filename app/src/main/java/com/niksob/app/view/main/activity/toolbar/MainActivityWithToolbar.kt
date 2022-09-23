@@ -4,7 +4,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.niksob.app.R
-import com.niksob.app.view.main.activity.progressbar.InjectableAppMainActivityWithProgressBar
+import com.niksob.app.view.main.activity.progressbar.app.injection.InjectableAppMainActivityWithProgressBar
 
 open class MainActivityWithToolbar : InjectableAppMainActivityWithProgressBar() {
 

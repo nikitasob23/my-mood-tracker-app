@@ -1,7 +1,8 @@
-package com.niksob.app.view.auth.login.navigation
+package com.niksob.app.view.auth.login.uicomponent
 
 import androidx.appcompat.widget.AppCompatButton
 import com.niksob.app.R
+import com.niksob.app.view.auth.login.navigation.NavigatableLoginView
 
 open class LoginViewWithNavigatableBtns : NavigatableLoginView() {
 

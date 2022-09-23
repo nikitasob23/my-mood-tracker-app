@@ -2,9 +2,9 @@ package com.niksob.di.module.view.main
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
+import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
 import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.app.viewmodel.main.MainActivityViewModelImpl

@@ -1,11 +1,11 @@
-package com.niksob.di.module.view.moodentry
+package com.niksob.di.module.viewmodel.moodentry
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
-import com.niksob.di.module.viewmodel.auth.moodentry.factory.MoodEntriesListViewModelFactoryModule
+import com.niksob.di.module.viewmodel.moodentry.factory.MoodEntriesListViewModelFactoryModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -14,7 +14,7 @@ import javax.inject.Named
     MoodEntriesListViewModelFactoryModule::class,
     AppMainActivityViewModelStoreOwnerModule::class,
 ])
-class AppMoodEntriesListViewModule {
+class MoodEntriesListViewModule {
     @Provides
     @Named("mood_entries_view_model")
     fun provideViewModel(

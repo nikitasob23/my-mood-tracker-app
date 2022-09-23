@@ -3,7 +3,7 @@ package com.niksob.di.module.view.main
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
-import com.niksob.app.view.mood.entry.list.mvvm.InjectableMVVMMoodEntriesListView
+import com.niksob.app.view.mood.entry.list.mvvm.loadmoodentries.InjectedMVVMMoodEntriesListView
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.app.viewmodel.main.MainActivityViewModelImpl
@@ -45,5 +45,5 @@ open class MainActivityViewModelModule {
     fun provideLoginViewClass() = InjectedNavigatableLoginView::class.java
 
     @Provides
-    fun provideMoodEntriesViewClass() = InjectableMVVMMoodEntriesListView::class.java
+    fun provideMoodEntriesViewClass() = InjectedMVVMMoodEntriesListView::class.java
 }

@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list
+package com.niksob.app.view.mood.entry.list.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import com.niksob.app.view.base.inject.InjectableWithComponent
 import com.niksob.di.component.InjectableComponent
-import com.niksob.di.component.view.moodentry.DaggerAppMoodEntriesListViewComponent
+import com.niksob.di.component.view.moodentry.DaggerMoodEntriesListViewComponent
 
-open class InjectableMoodEntriesListView : InjectableWithComponent, BaseMoodEntriesListView() {
+open class InjectedMoodEntriesListView : InjectableWithComponent, BaseMoodEntriesListView() {
 
-    protected open val injectableComponentBuilder: DaggerAppMoodEntriesListViewComponent.Builder
-        get() = DaggerAppMoodEntriesListViewComponent.builder()
+    protected open val injectableComponentBuilder: DaggerMoodEntriesListViewComponent.Builder
+        get() = DaggerMoodEntriesListViewComponent.builder()
 
     override val injectableComponent: InjectableComponent? get() = null
 

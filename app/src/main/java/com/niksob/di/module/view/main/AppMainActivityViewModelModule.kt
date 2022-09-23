@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.app.view.mood.entry.list.InjectedMoodEntriesListView
+import com.niksob.app.view.mood.entry.list.mvvm.startdataloader.InjectedMoodEntriesListViewWithStartDataLoader
 import com.niksob.app.viewmodel.main.MainActivityViewModel
 import com.niksob.app.viewmodel.main.MainActivityViewModelImpl
 import com.niksob.app.viewmodel.main.factory.MainSignOutViewModelWithStoreOwnerCleaningFactory
@@ -60,5 +60,5 @@ class AppMainActivityViewModelModule {
     @Provides
     @Named("mood_entries_view_class")
     fun provideMoodEntriesViewClass(): Class<out NavigationableScreen> =
-        InjectedMoodEntriesListView::class.java
+        InjectedMoodEntriesListViewWithStartDataLoader::class.java
 }

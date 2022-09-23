@@ -1,4 +1,4 @@
-package com.niksob.di.module.viewmodel.auth.moodentry.factory
+package com.niksob.di.module.viewmodel.moodentry.factory
 
 import androidx.lifecycle.ViewModelProvider
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelFactory

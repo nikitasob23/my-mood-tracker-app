@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.mvvm
+package com.niksob.app.view.mood.entry.list.mvvm.startdataloader
 
 import android.os.Bundle
 import android.view.LayoutInflater

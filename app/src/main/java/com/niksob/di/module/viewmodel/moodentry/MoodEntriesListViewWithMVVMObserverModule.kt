@@ -1,4 +1,4 @@
-package com.niksob.di.module.view.moodentry
+package com.niksob.di.module.viewmodel.moodentry
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
@@ -8,8 +8,8 @@ import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 
-@Module(includes = [AppMoodEntriesListViewModule::class])
-class AppMoodEntriesListViewWithMVVMObserverModule(
+@Module(includes = [MoodEntriesListViewModule::class])
+class MoodEntriesListViewWithMVVMObserverModule(
     private val moodEntriesObserver: Observer<Query>,
     private val lifecycleOwner: LifecycleOwner,
 ) {

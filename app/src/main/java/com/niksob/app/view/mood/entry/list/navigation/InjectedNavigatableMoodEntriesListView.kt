@@ -1,12 +1,12 @@
 package com.niksob.app.view.mood.entry.list.navigation
 
-import com.niksob.di.component.view.moodentry.DaggerAppMoodEntriesListViewComponent
+import com.niksob.di.component.view.moodentry.DaggerMoodEntriesListViewComponent
 import com.niksob.di.module.app.ContextModule
 
 
-open class InjectableNavigatableMoodEntriesListView : NavigatableMoodEntriesListView() {
+open class InjectedNavigatableMoodEntriesListView : NavigatableMoodEntriesListView() {
 
-    override val injectableComponentBuilder: DaggerAppMoodEntriesListViewComponent.Builder
+    override val injectableComponentBuilder: DaggerMoodEntriesListViewComponent.Builder
         get() = super.injectableComponentBuilder
             .contextModule(contextModule)
 

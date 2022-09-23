@@ -3,7 +3,6 @@ package com.niksob.app.viewmodel.auth.signup.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.niksob.app.viewmodel.auth.signup.base.signup.SignUpViewModel
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query

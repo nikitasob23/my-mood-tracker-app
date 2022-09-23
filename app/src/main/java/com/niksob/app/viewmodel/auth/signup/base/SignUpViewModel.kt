@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel.auth.signup.base.signup
+package com.niksob.app.viewmodel.auth.signup.base
 
 import androidx.lifecycle.LiveData
 import com.niksob.domain.model.LoginData

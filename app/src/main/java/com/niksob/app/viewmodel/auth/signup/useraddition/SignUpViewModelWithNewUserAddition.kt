@@ -1,7 +1,7 @@
-package com.niksob.app.viewmodel.auth.signup.base.useraddition
+package com.niksob.app.viewmodel.auth.signup.useraddition
 
 import androidx.lifecycle.LiveData
-import com.niksob.app.viewmodel.auth.signup.base.signup.SignUpViewModel
+import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModel
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.User
 

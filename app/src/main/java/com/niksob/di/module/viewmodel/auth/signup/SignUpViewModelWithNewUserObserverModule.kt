@@ -1,4 +1,4 @@
-package com.niksob.di.module.viewmodel.signup
+package com.niksob.di.module.viewmodel.auth.signup
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer

@@ -1,4 +1,4 @@
-package com.niksob.di.module.viewmodel.signup.factory
+package com.niksob.di.module.viewmodel.auth.signup.factory
 
 import androidx.lifecycle.ViewModelProvider
 import com.niksob.app.viewmodel.auth.signup.factory.SignUpViewModelWithNewUserAdditionFactory

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.viewmodel.ViewModelWithLoadingStatus
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelImpl
-import com.niksob.di.module.viewmodel.factory.MoodEntriesListViewModelFactoryModule
+import com.niksob.di.module.viewmodel.auth.moodentry.factory.MoodEntriesListViewModelFactoryModule
 import com.niksob.domain.model.Query
 import dagger.Module
 import dagger.Provides

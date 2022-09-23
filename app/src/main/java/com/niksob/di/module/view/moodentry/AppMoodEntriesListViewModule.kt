@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
 import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelImpl
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
-import com.niksob.di.module.viewmodel.factory.MoodEntriesListViewModelFactoryModule
+import com.niksob.di.module.viewmodel.auth.moodentry.factory.MoodEntriesListViewModelFactoryModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

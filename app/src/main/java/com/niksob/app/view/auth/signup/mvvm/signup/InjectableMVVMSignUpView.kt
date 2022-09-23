@@ -2,7 +2,7 @@ package com.niksob.app.view.auth.signup.mvvm.signup
 
 import androidx.lifecycle.Observer
 import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
-import com.niksob.di.module.viewmodel.signup.SignUpViewModelWithAuthObserverModule
+import com.niksob.di.module.viewmodel.auth.signup.SignUpViewModelWithAuthObserverModule
 import com.niksob.domain.model.Query
 
 open class InjectableMVVMSignUpView : MVVMSignUpView() {

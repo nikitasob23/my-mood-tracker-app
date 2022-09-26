@@ -3,7 +3,7 @@ package com.niksob.app.viewmodel.moodentry.base
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.MutableLiveData
-import com.niksob.app.viewmodel.moodentry.auth.AuthorizeUserViewModelImpl
+import com.niksob.app.viewmodel.base.auth.AuthorizeUserViewModelImpl
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Query

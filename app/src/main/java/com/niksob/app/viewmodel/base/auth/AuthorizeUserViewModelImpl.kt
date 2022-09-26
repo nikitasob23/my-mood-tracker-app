@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel.moodentry.auth
+package com.niksob.app.viewmodel.base.auth
 
 import androidx.lifecycle.ViewModel
 import com.niksob.domain.model.Callback

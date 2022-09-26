@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel.moodentry
+package com.niksob.app.viewmodel.moodentry.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -7,7 +7,7 @@ import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
 import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdAndDateUseCase
 
 @Suppress("UNCHECKED_CAST")
-class MoodEntriesViewModelFactory(
+class MoodEntriesListViewModelFactory(
     private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
     private val loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
 ) : ViewModelProvider.Factory {

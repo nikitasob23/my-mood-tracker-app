@@ -1,7 +1,7 @@
 package com.niksob.di.module.viewmodel.moodentry.factory
 
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModelFactory
+import com.niksob.app.viewmodel.moodentry.factory.MoodEntriesListViewModelFactory
 import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdUseCaseModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
@@ -19,7 +19,7 @@ class MoodEntriesListViewModelFactoryModule {
         loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
         loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
     ): ViewModelProvider.Factory =
-        MoodEntriesViewModelFactory(
+        MoodEntriesListViewModelFactory(
             loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
             loadMoodEntriesByUserIdAndDateUseCase = loadMoodEntriesByUserIdAndDateUseCase,
         )

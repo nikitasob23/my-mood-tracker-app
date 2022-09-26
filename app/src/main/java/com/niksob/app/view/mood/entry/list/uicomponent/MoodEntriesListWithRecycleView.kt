@@ -20,7 +20,9 @@ open class MoodEntriesListWithRecycleView : InjectedMVVMMoodEntriesListView() {
     }
 
     override fun onLoadMoodEntriesCompleted(response: Query) {
-        super.onLoadMoodEntriesCompleted(response)
+        if (!response.completed) {
+            return
+        }
         initMoodEntriesList(response.data as MoodEntries)
     }
 

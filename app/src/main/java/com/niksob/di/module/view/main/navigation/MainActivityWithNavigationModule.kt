@@ -1,7 +1,7 @@
 package com.niksob.di.module.view.main.navigation
 
 import com.niksob.app.view.auth.login.navigation.InjectedNavigatableLoginView
-import com.niksob.app.view.mood.entry.list.progressbar.InjectedMoodEntriesListViewWithProgressbar
+import com.niksob.app.view.mood.entry.list.toast.InjectableMoodEntriesListViewWithToastMessage
 import com.niksob.di.module.navigation.AppScreenNavigationWithNavScreenClassModule
 import com.niksob.domain.navigation.NavigationableScreen
 import dagger.Module
@@ -18,5 +18,5 @@ class MainActivityWithNavigationModule {
     @Provides
     @Named("mood_entries_view_class")
     fun provideMoodEntriesViewClass(): Class<out NavigationableScreen> =
-        InjectedMoodEntriesListViewWithProgressbar::class.java
+        InjectableMoodEntriesListViewWithToastMessage::class.java
 }

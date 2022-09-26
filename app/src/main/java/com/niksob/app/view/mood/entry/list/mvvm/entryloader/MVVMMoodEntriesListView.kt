@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.mvvm.loadmoodentries
+package com.niksob.app.view.mood.entry.list.mvvm.entryloader
 
 import com.niksob.app.view.mood.entry.list.navigation.InjectedNavigatableMoodEntriesListView
 import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel

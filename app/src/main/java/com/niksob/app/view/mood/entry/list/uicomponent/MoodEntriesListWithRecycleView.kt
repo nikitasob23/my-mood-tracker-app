@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
 import com.niksob.app.view.mood.entry.MoodEntryAdapter
-import com.niksob.app.view.mood.entry.list.mvvm.loadmoodentries.InjectedMVVMMoodEntriesListView
+import com.niksob.app.view.mood.entry.list.mvvm.entryloader.InjectedMVVMMoodEntriesListView
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.Query
 

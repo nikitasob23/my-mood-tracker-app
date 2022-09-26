@@ -2,7 +2,7 @@ package com.niksob.di.module.viewmodel.moodentry
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.niksob.app.viewmodel.moodentry.MoodEntriesViewModel
+import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
 import com.niksob.domain.model.Query
 import dagger.Module
 import dagger.Provides
@@ -15,8 +15,8 @@ class MoodEntriesListViewWithMVVMObserverModule(
 ) {
     @Provides
     fun provideViewModelWithObserver(
-        @Named("mood_entries_view_model") viewModel: MoodEntriesViewModel
-    ): MoodEntriesViewModel {
+        @Named("mood_entries_view_model") viewModel: MoodEntriesListViewModel
+    ): MoodEntriesListViewModel {
         viewModel.moodEntriesResponse.observe(lifecycleOwner, moodEntriesObserver)
         return viewModel
     }

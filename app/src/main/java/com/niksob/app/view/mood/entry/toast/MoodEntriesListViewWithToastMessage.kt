@@ -1,8 +1,8 @@
-package com.niksob.app.view.mood.entry.list.toast
+package com.niksob.app.view.mood.entry.toast
 
 import com.niksob.app.R
 import com.niksob.app.toast.ToastMessage
-import com.niksob.app.view.mood.entry.list.progressbar.InjectedMoodEntriesListViewWithProgressbar
+import com.niksob.app.view.mood.entry.progressbar.InjectedMoodEntriesListViewWithProgressbar
 import com.niksob.domain.model.Query
 import javax.inject.Inject
 

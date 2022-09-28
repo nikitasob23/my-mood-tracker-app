@@ -1,6 +1,6 @@
-package com.niksob.app.view.mood.entry.list.progressbar
+package com.niksob.app.view.mood.entry.progressbar
 
-import com.niksob.app.view.mood.entry.list.mvvm.startdataloader.InjectedMoodEntriesListViewWithStartDataLoader
+import com.niksob.app.view.mood.entry.mvvm.startdataloader.InjectedMoodEntriesListViewWithStartDataLoader
 import com.niksob.domain.model.Query
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import javax.inject.Inject

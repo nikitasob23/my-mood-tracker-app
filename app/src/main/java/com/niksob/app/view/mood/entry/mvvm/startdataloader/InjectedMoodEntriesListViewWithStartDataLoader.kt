@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.mvvm.startdataloader
+package com.niksob.app.view.mood.entry.mvvm.startdataloader
 
 import com.niksob.di.component.view.moodentry.MoodEntriesListViewComponent
 

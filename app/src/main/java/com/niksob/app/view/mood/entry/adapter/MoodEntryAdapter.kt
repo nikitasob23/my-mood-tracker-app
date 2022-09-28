@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry
+package com.niksob.app.view.mood.entry.adapter
 
 import android.graphics.drawable.Drawable
 import android.view.LayoutInflater

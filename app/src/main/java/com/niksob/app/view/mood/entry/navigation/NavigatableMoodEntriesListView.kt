@@ -1,6 +1,6 @@
-package com.niksob.app.view.mood.entry.list.navigation
+package com.niksob.app.view.mood.entry.navigation
 
-import com.niksob.app.view.mood.entry.list.base.InjectedMoodEntriesListView
+import com.niksob.app.view.mood.entry.base.InjectedMoodEntriesListView
 import com.niksob.domain.navigation.ScreenNavigationWithNavScreenClass
 import javax.inject.Inject
 

@@ -1,10 +1,10 @@
-package com.niksob.app.view.mood.entry.list.mvvm.startdataloader
+package com.niksob.app.view.mood.entry.mvvm.startdataloader
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.app.view.mood.entry.list.uicomponent.MoodEntriesListWithRecycleView
+import com.niksob.app.view.mood.entry.uicomponent.MoodEntriesListWithRecycleView
 
 open class MoodEntriesListViewWithStartDataLoader : MoodEntriesListWithRecycleView() {
 

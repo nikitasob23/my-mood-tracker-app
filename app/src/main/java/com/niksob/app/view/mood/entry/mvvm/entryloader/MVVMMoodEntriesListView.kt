@@ -1,6 +1,6 @@
-package com.niksob.app.view.mood.entry.list.mvvm.entryloader
+package com.niksob.app.view.mood.entry.mvvm.entryloader
 
-import com.niksob.app.view.mood.entry.list.navigation.InjectedNavigatableMoodEntriesListView
+import com.niksob.app.view.mood.entry.navigation.InjectedNavigatableMoodEntriesListView
 import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
 import com.niksob.domain.model.Query
 import javax.inject.Inject

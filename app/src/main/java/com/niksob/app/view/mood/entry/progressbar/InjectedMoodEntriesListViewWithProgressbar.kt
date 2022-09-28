@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.progressbar
+package com.niksob.app.view.mood.entry.progressbar
 
 import com.niksob.di.component.view.moodentry.MoodEntriesListViewComponent
 

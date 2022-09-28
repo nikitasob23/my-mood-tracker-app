@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry
+package com.niksob.app.view.mood.entry.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +8,6 @@ import com.niksob.app.R
 import com.niksob.app.view.mood.entry.uicomponent.MoodTagView
 import com.niksob.app.view.mood.entry.uicomponent.TAG_NOT_ENVELOP_OTHER_TAGS
 import com.niksob.domain.model.MoodTag
-
 
 class MoodTagAdapter(
     private val moodTags: List<MoodTag>,

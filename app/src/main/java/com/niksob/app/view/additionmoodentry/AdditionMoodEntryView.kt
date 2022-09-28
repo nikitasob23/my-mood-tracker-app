@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry
+package com.niksob.app.view.additionmoodentry
 
 import com.niksob.app.R
 import com.niksob.app.view.base.BaseView

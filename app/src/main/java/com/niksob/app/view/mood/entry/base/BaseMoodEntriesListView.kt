@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.base
+package com.niksob.app.view.mood.entry.base
 
 import com.niksob.app.R
 import com.niksob.app.view.base.inject.BaseInjectableView

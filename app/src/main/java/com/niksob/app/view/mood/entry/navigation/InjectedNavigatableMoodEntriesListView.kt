@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.navigation
+package com.niksob.app.view.mood.entry.navigation
 
 import com.niksob.di.component.view.moodentry.DaggerMoodEntriesListViewComponent
 import com.niksob.di.module.app.ContextModule

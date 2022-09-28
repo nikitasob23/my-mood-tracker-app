@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.mvvm.entryloader
+package com.niksob.app.view.mood.entry.mvvm.entryloader
 
 import androidx.lifecycle.Observer
 import com.niksob.di.component.view.moodentry.DaggerMoodEntriesListViewComponent

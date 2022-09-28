@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood.entry.list.toast
+package com.niksob.app.view.mood.entry.toast
 
 import com.niksob.di.component.view.moodentry.MoodEntriesListViewComponent
 

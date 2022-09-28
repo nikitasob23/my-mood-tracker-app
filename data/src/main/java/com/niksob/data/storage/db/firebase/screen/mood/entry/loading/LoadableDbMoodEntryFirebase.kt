@@ -11,18 +11,16 @@ open class LoadableDbMoodEntryFirebase(
     private val loader: FirebaseLoader,
 ) : LoadableMoodEntryStorage {
     
-    private lateinit var requestDtoData: MoodEntriesDataDto
+    override fun loadByUserIdAndDate(requestDto: Query) =
+        loader.load(
+            requestDto,
+            firebaseQuery(requestDto.data as MoodEntriesDataDto)
+        )
 
-    private val firebaseQuery
-        get() = moodEntryDbProvider.ref
+    private fun firebaseQuery(requestDtoData: MoodEntriesDataDto) =
+        moodEntryDbProvider.ref
             .child(requestDtoData.uid.data)
             .orderByKey()
             .startAt(requestDtoData.startDate)
             .endAt(requestDtoData.endDate)
-
-    override fun loadByUserIdAndDate(requestDto: Query) {
-
-        requestDtoData = requestDto.data as MoodEntriesDataDto
-        loader.load(requestDto, firebaseQuery)
-    }
 }

@@ -1,11 +1,11 @@
 package com.niksob.data.repository
 
-import com.niksob.data.storage.db.MoodEntryStorage
+import com.niksob.data.storage.db.UpdatableMoodEntryStorage
 import com.niksob.domain.data.repository.MoodEntryRepository
 import com.niksob.domain.model.Query
 
 class MoodEntryRepositoryImpl(
-    private val storage: MoodEntryStorage
+    private val storage: UpdatableMoodEntryStorage
 ) : MoodEntryRepository {
     override fun loadByUserIdAndDate(request: Query) {
         storage.loadByUserIdAndDate(request)

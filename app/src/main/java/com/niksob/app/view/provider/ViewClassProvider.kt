@@ -7,8 +7,12 @@ import com.niksob.app.view.mood.entry.list.toast.InjectableMoodEntriesListViewWi
 import com.niksob.domain.navigation.NavigationableScreen
 
 enum class ViewClassProvider(val clazz : Class<out NavigationableScreen>) {
+
     LOGIN_VIEW(InjectedNavigatableLoginView::class.java),
+
     LOGIN_IN_VIEW(InjectableLoginInViewWithToastMessages::class.java),
+
     SIGN_UP_VIEW(InjectedSignUpViewWithToastMessages::class.java),
+
     MOOD_ENTRIES_LIST_VIEW(InjectableMoodEntriesListViewWithToastMessage::class.java)
 }

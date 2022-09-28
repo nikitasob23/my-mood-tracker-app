@@ -1,5 +1,6 @@
 package com.niksob.di.module.storage.db
 
+import com.niksob.data.storage.db.UserStorage
 import com.niksob.data.storage.db.firebase.provider.UserFirebaseRefProvider
 import com.niksob.data.storage.db.firebase.screen.auth.DbUserFirebase
 import com.niksob.data.storage.provider.AppStringStorage
@@ -13,7 +14,7 @@ class DbUserFirebaseModule {
     fun provideDbUserStorage(
         dbProvider: UserFirebaseRefProvider,
         stringStorage: AppStringStorage,
-    ): DbUserFirebase =
+    ): UserStorage =
         DbUserFirebase(dbProvider, stringStorage)
 
     @Provides

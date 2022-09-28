@@ -1,9 +1,10 @@
 package com.niksob.di.module.storage.db
 
+import com.niksob.data.storage.db.UpdatableMoodEntryStorage
 import com.niksob.data.storage.db.firebase.loader.FirebaseLoaderImpl
 import com.niksob.data.storage.db.firebase.provider.MoodEntryFirebaseRefProvider
 import com.niksob.data.storage.db.firebase.saver.FirebaseSaverImpl
-import com.niksob.data.storage.db.firebase.screen.mood.entry.DbMoodEntryFirebase
+import com.niksob.data.storage.db.firebase.screen.mood.entry.DbUpdatableMoodEntryFirebase
 import com.niksob.data.storage.db.firebase.screen.mood.entry.loading.MoodEntryLoadResponseReasonProvider
 import com.niksob.data.storage.db.firebase.screen.mood.entry.loading.MoodEntryOnDataLoadedAction
 import com.niksob.data.storage.db.firebase.screen.mood.entry.saving.MoodEntryOnDataSavedAction
@@ -21,8 +22,8 @@ class DbMoodEntryFirebaseModule {
         dbProvider: MoodEntryFirebaseRefProvider,
         @Named("mood_tag_on_data_loaded_action") loader: FirebaseLoaderImpl,
         @Named("mood_tag_on_data_saved_action") saver: FirebaseSaverImpl,
-    ): DbMoodEntryFirebase =
-        DbMoodEntryFirebase(
+    ): UpdatableMoodEntryStorage =
+        DbUpdatableMoodEntryFirebase(
             moodEntryDbProvider = dbProvider,
             loader = loader,
             saver = saver,

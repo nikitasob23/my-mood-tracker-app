@@ -3,4 +3,9 @@
     <string name="start_loading_mood_entries">Loading of mood entries has started</string>
     <string name="successful_loading_mood_entries">Loading mood entries is succeed</string>
     <string name="failure_loading_mood_entries">Loading mood entries is failed</string>
+
+    <string name="login_in_prefix_message">The authorization process has </string>
+    <string name="started_keyword">started</string>
+    <string name="completed_keyword">completed</string>
+    <string name="failed_keyword">failed</string>
 </resources>

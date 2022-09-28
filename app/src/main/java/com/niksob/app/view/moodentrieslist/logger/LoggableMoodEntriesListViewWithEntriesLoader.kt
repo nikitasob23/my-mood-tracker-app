@@ -16,9 +16,10 @@ open class LoggableMoodEntriesListViewWithEntriesLoader :
 
     private val startLoadingMoodEntriesMessage get() = requireContext().getString(R.string.start_loading_mood_entries)
 
-    private val successfulLoadingMoodEntries get() = requireContext().getString(R.string.successful_loading_mood_entries)
+    private val successfulLoadingMoodEntriesMessage
+        get() = requireContext().getString(R.string.successful_loading_mood_entries)
 
-    private val failureLoadingMoodEntries get() = requireContext().getString(R.string.failure_loading_mood_entries)
+    private val failureLoadingMoodEntriesMessage get() = requireContext().getString(R.string.failure_loading_mood_entries)
 
     override fun loadMoodEntriesByUserId() {
         logger.log(logTag, startLoadingMoodEntriesMessage)
@@ -29,9 +30,9 @@ open class LoggableMoodEntriesListViewWithEntriesLoader :
         super.onLoadMoodEntriesCompleted(response)
 
         if (!response.completed) {
-            logger.log(logTag, failureLoadingMoodEntries)
+            logger.log(logTag, failureLoadingMoodEntriesMessage)
             return
         }
-        logger.log(logTag, successfulLoadingMoodEntries)
+        logger.log(logTag, successfulLoadingMoodEntriesMessage)
     }
 }

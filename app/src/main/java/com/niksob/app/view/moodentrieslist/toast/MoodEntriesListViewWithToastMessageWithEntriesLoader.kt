@@ -2,11 +2,11 @@ package com.niksob.app.view.moodentrieslist.toast
 
 import com.niksob.app.R
 import com.niksob.app.toast.ToastMessage
-import com.niksob.app.view.moodentrieslist.progressbar.InjectedMoodEntriesListViewWithProgressbar
+import com.niksob.app.view.moodentrieslist.progressbar.InjectedMoodEntriesListViewWithEntriesLoaderWithProgressbar
 import com.niksob.domain.model.Query
 import javax.inject.Inject
 
-open class MoodEntriesListViewWithToastMessage : InjectedMoodEntriesListViewWithProgressbar() {
+open class MoodEntriesListViewWithToastMessageWithEntriesLoader : InjectedMoodEntriesListViewWithEntriesLoaderWithProgressbar() {
 
     @Inject
     lateinit var toastMessage: ToastMessage

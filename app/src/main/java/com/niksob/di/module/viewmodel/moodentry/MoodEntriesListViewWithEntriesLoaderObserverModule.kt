@@ -9,7 +9,7 @@ import dagger.Provides
 import javax.inject.Named
 
 @Module(includes = [MoodEntriesListViewModule::class])
-class MoodEntriesListViewWithMVVMObserverModule(
+class MoodEntriesListViewWithEntriesLoaderObserverModule(
     private val moodEntriesObserver: Observer<Query>,
     private val lifecycleOwner: LifecycleOwner,
 ) {

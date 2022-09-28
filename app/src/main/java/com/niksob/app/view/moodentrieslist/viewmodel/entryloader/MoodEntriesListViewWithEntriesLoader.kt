@@ -1,11 +1,11 @@
-package com.niksob.app.view.moodentrieslist.mvvm.entryloader
+package com.niksob.app.view.moodentrieslist.viewmodel.entryloader
 
 import com.niksob.app.view.moodentrieslist.navigation.InjectedNavigatableMoodEntriesListView
 import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
 import com.niksob.domain.model.Query
 import javax.inject.Inject
 
-open class MVVMMoodEntriesListView : InjectedNavigatableMoodEntriesListView() {
+open class MoodEntriesListViewWithEntriesLoader : InjectedNavigatableMoodEntriesListView() {
 
     @Inject
     lateinit var moodEntriesViewModel: MoodEntriesListViewModel

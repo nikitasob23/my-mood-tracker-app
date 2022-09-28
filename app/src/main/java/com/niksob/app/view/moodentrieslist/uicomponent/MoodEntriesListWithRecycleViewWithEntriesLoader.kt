@@ -4,11 +4,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
 import com.niksob.app.view.moodentrieslist.adapter.MoodEntryAdapter
-import com.niksob.app.view.moodentrieslist.mvvm.entryloader.InjectedMVVMMoodEntriesListView
+import com.niksob.app.view.moodentrieslist.viewmodel.entryloader.InjectedMoodEntriesListViewWithEntriesLoader
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.Query
 
-open class MoodEntriesListWithRecycleView : InjectedMVVMMoodEntriesListView() {
+open class MoodEntriesListWithRecycleViewWithEntriesLoader : InjectedMoodEntriesListViewWithEntriesLoader() {
 
     protected lateinit var moodEntryRecycleView: RecyclerView
 

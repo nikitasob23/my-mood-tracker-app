@@ -1,12 +1,12 @@
-package com.niksob.app.view.moodentrieslist.mvvm.startdataloader
+package com.niksob.app.view.moodentrieslist.viewmodel.startdataloader
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.app.view.moodentrieslist.uicomponent.MoodEntriesListWithRecycleView
+import com.niksob.app.view.moodentrieslist.uicomponent.MoodEntriesListWithRecycleViewWithEntriesLoader
 
-open class MoodEntriesListViewWithStartDataLoader : MoodEntriesListWithRecycleView() {
+open class MoodEntriesListViewWithStartDataLoaderWithEntriesLoader : MoodEntriesListWithRecycleViewWithEntriesLoader() {
 
     override fun onCreateView(
         inflater: LayoutInflater,

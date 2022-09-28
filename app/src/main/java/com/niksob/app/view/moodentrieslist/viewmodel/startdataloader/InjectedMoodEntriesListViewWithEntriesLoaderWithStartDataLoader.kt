@@ -1,8 +1,8 @@
-package com.niksob.app.view.moodentrieslist.mvvm.startdataloader
+package com.niksob.app.view.moodentrieslist.viewmodel.startdataloader
 
 import com.niksob.di.component.view.moodentry.MoodEntriesListViewComponent
 
-open class InjectedMoodEntriesListViewWithStartDataLoader : MoodEntriesListViewWithStartDataLoader() {
+open class InjectedMoodEntriesListViewWithEntriesLoaderWithStartDataLoader : MoodEntriesListViewWithStartDataLoaderWithEntriesLoader() {
 
     override val injectableComponent: MoodEntriesListViewComponent
         get() = super.injectableComponentBuilder.build()

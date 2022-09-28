@@ -2,7 +2,7 @@ package com.niksob.app.view.moodentrieslist.progressbar
 
 import com.niksob.di.component.view.moodentry.MoodEntriesListViewComponent
 
-open class InjectedMoodEntriesListViewWithProgressbar : MoodEntriesListViewWithProgressbar() {
+open class InjectedMoodEntriesListViewWithEntriesLoaderWithProgressbar : MoodEntriesListViewWithProgressbarWithEntriesLoader() {
 
     override val injectableComponent: MoodEntriesListViewComponent
         get() = injectableComponentBuilder.build()

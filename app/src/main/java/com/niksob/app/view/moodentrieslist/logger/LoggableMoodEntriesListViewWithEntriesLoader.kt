@@ -1,23 +1,27 @@
 package com.niksob.app.view.moodentrieslist.logger
 
+import com.niksob.app.R
 import com.niksob.app.view.moodentrieslist.toast.InjectableMoodEntriesListViewWithEntriesLoaderWithToastMessage
 import com.niksob.domain.model.Query
 import com.niksob.domain.utils.logger.AppDebugLogger
 import javax.inject.Inject
 
-private const val START_LOADING_MOOD_ENTRIES_MESSAGE = "Loading of mood entries has started"
-private const val SUCCESSFUL_LOADING_MOOD_ENTRIES_MESSAGE = "Loading mood entries is succeed"
-private const val FAILURE_LOADING_MOOD_ENTRIES_MESSAGE = "Loading mood entries is failed"
-
-open class LoggableMoodEntriesListViewWithEntriesLoader : InjectableMoodEntriesListViewWithEntriesLoaderWithToastMessage() {
+open class LoggableMoodEntriesListViewWithEntriesLoader :
+    InjectableMoodEntriesListViewWithEntriesLoaderWithToastMessage() {
 
     @Inject
     lateinit var logger: AppDebugLogger
 
     private val logTag get() = LoggableMoodEntriesListViewWithEntriesLoader::class.simpleName!!
 
+    private val startLoadingMoodEntriesMessage get() = requireContext().getString(R.string.start_loading_mood_entries)
+
+    private val successfulLoadingMoodEntries get() = requireContext().getString(R.string.successful_loading_mood_entries)
+
+    private val failureLoadingMoodEntries get() = requireContext().getString(R.string.failure_loading_mood_entries)
+
     override fun loadMoodEntriesByUserId() {
-        logger.log(logTag, START_LOADING_MOOD_ENTRIES_MESSAGE)
+        logger.log(logTag, startLoadingMoodEntriesMessage)
         super.loadMoodEntriesByUserId()
     }
 
@@ -25,9 +29,9 @@ open class LoggableMoodEntriesListViewWithEntriesLoader : InjectableMoodEntriesL
         super.onLoadMoodEntriesCompleted(response)
 
         if (!response.completed) {
-            logger.log(logTag, FAILURE_LOADING_MOOD_ENTRIES_MESSAGE)
+            logger.log(logTag, failureLoadingMoodEntries)
             return
         }
-        logger.log(logTag, SUCCESSFUL_LOADING_MOOD_ENTRIES_MESSAGE)
+        logger.log(logTag, successfulLoadingMoodEntries)
     }
 }

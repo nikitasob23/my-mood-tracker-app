@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="start_loading_mood_entries">Loading of mood entries has started</string>
+    <string name="successful_loading_mood_entries">Loading mood entries is succeed</string>
+    <string name="failure_loading_mood_entries">Loading mood entries is failed</string>
+</resources>

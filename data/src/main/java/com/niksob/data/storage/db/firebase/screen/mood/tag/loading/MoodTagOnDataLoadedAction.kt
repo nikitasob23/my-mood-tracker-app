@@ -9,9 +9,8 @@ import com.niksob.domain.data.dto.MoodTagDto
 import com.niksob.domain.data.dto.MoodTagsDto
 import com.niksob.domain.model.MoodTagId
 import com.niksob.domain.model.Query
-
-private const val DEGREE_KEY = "degree"
-private const val NAME_KEY = "name"
+import com.niksob.data.model.DbFirebaseMoodTagKey.DEGREE
+import com.niksob.data.model.DbFirebaseMoodTagKey.NAME
 
 class MoodTagOnDataLoadedAction(
     private val loadReasonProvider: ResponseReasonProvider,
@@ -44,9 +43,9 @@ class MoodTagOnDataLoadedAction(
         return (request.data as MoodTagDataDto).tagToEntryIds[id]!!.map { entryId ->
             MoodTagDto(
                 id = id,
-                degree = idSnapshot.child(DEGREE_KEY)
+                degree = idSnapshot.child(DEGREE.key)
                     .getValue(Int::class.java)!!,
-                name = idSnapshot.child(NAME_KEY)
+                name = idSnapshot.child(NAME.key)
                     .getValue(String::class.java)!!,
                 entryId = entryId,
             )

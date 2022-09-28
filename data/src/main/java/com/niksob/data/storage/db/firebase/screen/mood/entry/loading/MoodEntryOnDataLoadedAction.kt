@@ -10,10 +10,9 @@ import com.niksob.domain.model.MoodEntryId
 import com.niksob.domain.model.MoodTagId
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
-
-private const val DEGREE_KEY = "degree"
-private const val TIME_KEY = "time"
-private const val TAG_IDS_KEY = "tagIds"
+import com.niksob.data.model.DbFirebaseMoodEntryKey.DEGREE
+import com.niksob.data.model.DbFirebaseMoodEntryKey.TIME
+import com.niksob.data.model.DbFirebaseMoodEntryKey.TAG_IDS
 
 class MoodEntryOnDataLoadedAction(
     private val reasonProvider: ResponseReasonProvider,
@@ -26,11 +25,11 @@ class MoodEntryOnDataLoadedAction(
                 MoodEntryDto(
                     id = MoodEntryId(idSnapshot.key!!),
                     date = dateSnapshot.key!!,
-                    degree = idSnapshot.child(DEGREE_KEY)
+                    degree = idSnapshot.child(DEGREE.key)
                         .getValue(Int::class.java)!!,
-                    time = idSnapshot.child(TIME_KEY)
+                    time = idSnapshot.child(TIME.key)
                         .getValue(String::class.java)!!,
-                    tagIds = idSnapshot.child(TAG_IDS_KEY).children
+                    tagIds = idSnapshot.child(TAG_IDS.key).children
                         .map { tagIdSnapshot -> MoodTagId(tagIdSnapshot.key!!) },
                 )
             }

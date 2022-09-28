@@ -8,10 +8,9 @@ import com.niksob.data.storage.db.firebase.screen.mood.entry.loading.LoadableDbM
 import com.niksob.domain.data.dto.MoodEntryDto
 import com.niksob.domain.data.dto.MoodEntryForSaveDto
 import com.niksob.domain.model.*
-
-private const val DEGREE_KEY = "degree"
-private const val TIME_KEY = "time"
-private const val TAG_IDS_KEY = "tagIds"
+import com.niksob.data.model.DbFirebaseMoodEntryKey.DEGREE
+import com.niksob.data.model.DbFirebaseMoodEntryKey.TIME
+import com.niksob.data.model.DbFirebaseMoodEntryKey.TAG_IDS
 
 open class DbUpdatableMoodEntryFirebase(
     private val moodEntryDbProvider: DbFirebaseRefProvider,
@@ -46,9 +45,9 @@ open class DbUpdatableMoodEntryFirebase(
 
     private val entryMap
         get() = mapOf(
-            DEGREE_KEY to moodEntryDto.degree,
-            TIME_KEY to moodEntryDto.time,
-            TAG_IDS_KEY to moodEntryDto.tagIds,
+            DEGREE.key to moodEntryDto.degree,
+            TIME.key to moodEntryDto.time,
+            TAG_IDS.key to moodEntryDto.tagIds,
         )
 
     override fun save(request: Query) {

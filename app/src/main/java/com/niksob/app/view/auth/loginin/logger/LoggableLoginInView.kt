@@ -1,6 +1,6 @@
 package com.niksob.app.view.auth.loginin.logger
 
-import com.niksob.app.view.auth.loginin.logger.message.LoginInLoggerMessage
+import com.niksob.app.R
 import com.niksob.app.view.auth.loginin.progressbar.InjectableLoginInViewWithProgressBar
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
@@ -12,13 +12,22 @@ open class LoggableLoginInView : InjectableLoginInViewWithProgressBar() {
     @Inject
     lateinit var logger: AppDebugLogger
 
-    @Inject
-    lateinit var loginInLoggerMessage: LoginInLoggerMessage
-
     private val logTag get() = LoggableLoginInView::class.simpleName!!
 
+    private lateinit var startedMessage: String
+    private lateinit var succeedMessage: String
+    private lateinit var failureMessage: String
+
+    override fun initComponents() {
+        super.initComponents()
+
+        startedMessage = requireContext().getString(R.string.started_login_in)
+        succeedMessage = requireContext().getString(R.string.succeed_login_in)
+        failureMessage = requireContext().getString(R.string.failed_login_in)
+    }
+
     override fun doLoginIn(loginData: LoginData) {
-        logger.log(logTag, loginInLoggerMessage.startedMessage)
+        logger.log(logTag, startedMessage)
         super.doLoginIn(loginData)
     }
 
@@ -26,9 +35,9 @@ open class LoggableLoginInView : InjectableLoginInViewWithProgressBar() {
         super.onLoginInCompleted(response)
 
         if (!response.completed) {
-            logger.log(logTag, loginInLoggerMessage.failureMessage)
+            logger.log(logTag, failureMessage)
             return
         }
-        logger.log(logTag, loginInLoggerMessage.completedMessage)
+        logger.log(logTag, succeedMessage)
     }
 }

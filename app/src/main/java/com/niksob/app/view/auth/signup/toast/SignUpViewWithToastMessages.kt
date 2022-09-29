@@ -2,11 +2,11 @@ package com.niksob.app.view.auth.signup.toast
 
 import com.niksob.app.R
 import com.niksob.app.toast.ToastMessage
-import com.niksob.app.view.auth.signup.progressbar.SignUpViewWithProgressbar
+import com.niksob.app.view.auth.signup.progressbar.InjectedSignUpViewWithProgressbar
 import com.niksob.domain.model.Query
 import javax.inject.Inject
 
-open class SignUpViewWithToastMessages : SignUpViewWithProgressbar() {
+open class SignUpViewWithToastMessages : InjectedSignUpViewWithProgressbar() {
     @Inject
     lateinit var toastMessage: ToastMessage
 

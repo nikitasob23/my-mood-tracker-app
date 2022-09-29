@@ -14,15 +14,20 @@ open class LoggableMoodEntriesListViewWithEntriesLoader :
 
     private val logTag get() = LoggableMoodEntriesListViewWithEntriesLoader::class.simpleName!!
 
-    private val startLoadingMoodEntriesMessage get() = requireContext().getString(R.string.start_loading_mood_entries)
+    private lateinit var startedMessage: String
+    private lateinit var succeedMessage: String
+    private lateinit var failureMessage: String
 
-    private val successfulLoadingMoodEntriesMessage
-        get() = requireContext().getString(R.string.successful_loading_mood_entries)
+    override fun initComponents() {
+        super.initComponents()
 
-    private val failureLoadingMoodEntriesMessage get() = requireContext().getString(R.string.failure_loading_mood_entries)
+        startedMessage = requireContext().getString(R.string.started_load_mood_entries)
+        succeedMessage = requireContext().getString(R.string.succeed_load_mood_entries)
+        failureMessage = requireContext().getString(R.string.failure_load_mood_entries)
+    }
 
     override fun loadMoodEntriesByUserId() {
-        logger.log(logTag, startLoadingMoodEntriesMessage)
+        logger.log(logTag, startedMessage)
         super.loadMoodEntriesByUserId()
     }
 
@@ -30,9 +35,9 @@ open class LoggableMoodEntriesListViewWithEntriesLoader :
         super.onLoadMoodEntriesCompleted(response)
 
         if (!response.completed) {
-            logger.log(logTag, failureLoadingMoodEntriesMessage)
+            logger.log(logTag, failureMessage)
             return
         }
-        logger.log(logTag, successfulLoadingMoodEntriesMessage)
+        logger.log(logTag, succeedMessage)
     }
 }

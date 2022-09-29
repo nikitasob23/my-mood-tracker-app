@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="start_loading_mood_entries">Loading of mood entries has started</string>
-    <string name="successful_loading_mood_entries">Loading mood entries is succeed</string>
-    <string name="failure_loading_mood_entries">Loading mood entries is failed</string>
+    <string name="started_load_mood_entries">Loading mood entries was started</string>
+    <string name="succeed_load_mood_entries">Loading mood entries was successful</string>
+    <string name="failure_load_mood_entries">Loading mood entries was failed</string>
 
-    <string name="login_in_prefix_message">The authorization process has </string>
-    <string name="started_keyword">started</string>
-    <string name="completed_keyword">completed</string>
-    <string name="failed_keyword">failed</string>
+    <string name="started_login_in">Login in was started</string>
+    <string name="succeed_login_in">Login in was successful</string>
+    <string name="failed_login_in">Login in was failed</string>
+
+    <string name="started_sign_up">Sign up was started</string>
+    <string name="succeed_sign_up">Sign up was successful</string>
+    <string name="failed_sign_up">Sign up was failed</string>
 </resources>

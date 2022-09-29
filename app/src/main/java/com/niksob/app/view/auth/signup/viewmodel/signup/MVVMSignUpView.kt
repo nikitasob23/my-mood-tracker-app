@@ -1,4 +1,4 @@
-package com.niksob.app.view.auth.signup.mvvm.signup
+package com.niksob.app.view.auth.signup.viewmodel.signup
 
 import com.niksob.app.view.auth.signup.navigation.InjectableNavigatableSignUpView
 import com.niksob.app.viewmodel.auth.signup.base.SignUpViewModel

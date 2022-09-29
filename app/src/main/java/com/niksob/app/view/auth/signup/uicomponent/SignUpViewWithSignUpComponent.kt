@@ -3,7 +3,7 @@ package com.niksob.app.view.auth.signup.uicomponent
 import android.widget.EditText
 import androidx.appcompat.widget.AppCompatButton
 import com.niksob.app.R
-import com.niksob.app.view.auth.signup.mvvm.useraddition.InjectableMVVMSignUpWithUserAdderView
+import com.niksob.app.view.auth.signup.viewmodel.useraddition.InjectableMVVMSignUpWithUserAdderView
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid

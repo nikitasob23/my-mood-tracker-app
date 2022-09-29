@@ -2,7 +2,7 @@ package com.niksob.app.view.auth.signup.progressbar
 
 import com.niksob.di.component.view.auth.signup.SignUpViewComponent
 
-class InjectedSignUpViewWithProgressbar : SignUpViewWithProgressbar() {
+open class InjectedSignUpViewWithProgressbar : SignUpViewWithProgressbar() {
 
     override val injectableComponent: SignUpViewComponent
         get() = injectableComponentBuilder.build()

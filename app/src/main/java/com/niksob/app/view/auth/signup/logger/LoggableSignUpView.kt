@@ -21,9 +21,9 @@ open class LoggableSignUpView : InjectedSignUpViewWithToastMessages() {
     override fun initComponents() {
         super.initComponents()
 
-        startedMessage = requireContext().getString(R.string.started_sign_up)
-        succeedMessage = requireContext().getString(R.string.succeed_sign_up)
-        failureMessage = requireContext().getString(R.string.failed_sign_up)
+        startedMessage = getString(R.string.started_sign_up)
+        succeedMessage = getString(R.string.succeed_sign_up)
+        failureMessage = getString(R.string.failed_sign_up)
     }
 
     override fun doSignUp(loginData: LoginData) {

@@ -21,9 +21,9 @@ open class LoggableMoodEntriesListViewWithEntriesLoader :
     override fun initComponents() {
         super.initComponents()
 
-        startedMessage = requireContext().getString(R.string.started_load_mood_entries)
-        succeedMessage = requireContext().getString(R.string.succeed_load_mood_entries)
-        failureMessage = requireContext().getString(R.string.failure_load_mood_entries)
+        startedMessage = getString(R.string.started_load_mood_entries)
+        succeedMessage = getString(R.string.succeed_load_mood_entries)
+        failureMessage = getString(R.string.failure_load_mood_entries)
     }
 
     override fun loadMoodEntriesByUserId() {

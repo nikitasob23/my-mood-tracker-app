@@ -21,9 +21,9 @@ open class LoggableLoginInView : InjectableLoginInViewWithProgressBar() {
     override fun initComponents() {
         super.initComponents()
 
-        startedMessage = requireContext().getString(R.string.started_login_in)
-        succeedMessage = requireContext().getString(R.string.succeed_login_in)
-        failureMessage = requireContext().getString(R.string.failed_login_in)
+        startedMessage = getString(R.string.started_login_in)
+        succeedMessage = getString(R.string.succeed_login_in)
+        failureMessage = getString(R.string.failed_login_in)
     }
 
     override fun doLoginIn(loginData: LoginData) {

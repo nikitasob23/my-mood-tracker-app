@@ -10,7 +10,9 @@ open class MoodEntriesListViewWithEntriesLoader : InjectedNavigatableMoodEntries
     @Inject
     lateinit var moodEntriesViewModel: MoodEntriesListViewModel
 
-    protected open fun loadMoodEntriesByUserId() = moodEntriesViewModel.loadMoodEntriesByUserId()
+    protected open fun loadMoodEntriesByUserId() {
+        moodEntriesViewModel.loadMoodEntriesByUserId()
+    }
 
     protected open fun onLoadMoodEntriesCompleted(response: Query) {
         if (!response.completed) {

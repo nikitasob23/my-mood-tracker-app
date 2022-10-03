@@ -1,7 +1,7 @@
 package com.niksob.di.module.storage.auth
 
 import com.niksob.data.provider.AuthProvider
-import com.niksob.data.storage.db.firebase.provider.FirebaseAuthProvider
+import com.niksob.data.storage.firebase.base.provider.FirebaseAuthProvider
 import dagger.Module
 import dagger.Provides
 

@@ -18,5 +18,7 @@ open class MoodEntriesListViewWithStartDataLoaderWithEntriesLoader : MoodEntries
         return rootView
     }
 
-    private fun onCreateViewDataLoading() = loadMoodEntriesByUserId()
+    private fun onCreateViewDataLoading() {
+        loadMoodEntriesByUserId()
+    }
 }

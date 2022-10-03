@@ -1,7 +1,7 @@
 package com.niksob.di.module.repository
 
 import com.niksob.data.repository.MoodTagRepositoryImpl
-import com.niksob.data.storage.db.MoodTagStorage
+import com.niksob.data.storage.mood.tag.saving.UpdatableMoodTagStorage
 import com.niksob.di.module.storage.StorageModule
 import com.niksob.domain.data.repository.MoodTagRepository
 import dagger.Module
@@ -11,5 +11,5 @@ import dagger.Provides
 class MoodTagRepositoryModule {
 
     @Provides
-    fun provideRepository(storage: MoodTagStorage): MoodTagRepository = MoodTagRepositoryImpl(storage)
+    fun provideRepository(storage: UpdatableMoodTagStorage): MoodTagRepository = MoodTagRepositoryImpl(storage)
 }

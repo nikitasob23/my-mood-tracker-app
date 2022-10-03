@@ -1,6 +1,6 @@
 package com.niksob.data.repository
 
-import com.niksob.data.storage.db.UserStorage
+import com.niksob.data.storage.user.UserStorage
 import com.niksob.domain.data.repository.UserRepository
 import com.niksob.domain.model.Query
 

@@ -4,5 +4,5 @@ import com.niksob.domain.model.Query
 
 interface UserRepository {
 
-    fun add(query: Query)
+    fun add(request: Query)
 }

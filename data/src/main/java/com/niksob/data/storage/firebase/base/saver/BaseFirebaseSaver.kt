@@ -4,7 +4,7 @@ import com.google.android.gms.tasks.Task
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
-class FirebaseSaverImpl(
+class BaseFirebaseSaver(
     private val action: OnDataSavedAction,
 ) : FirebaseSaver {
 

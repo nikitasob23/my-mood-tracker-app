@@ -5,7 +5,7 @@ import com.niksob.data.storage.provider.AppStringStorage
 
 private const val EXCEPTION_MESSAGE_PREFIX = ". Exception message: "
 
-abstract class ResponseReasonProviderImpl(
+abstract class BaseResponseReasonProvider(
     private val stringStorage: AppStringStorage,
 ) : ResponseReasonProvider {
 

@@ -2,11 +2,12 @@ package com.niksob.di.module.storage.db.moodentry
 
 import com.niksob.data.storage.firebase.base.loader.FirebaseLoaderImpl
 import com.niksob.data.storage.firebase.base.provider.MoodEntryFirebaseRefProvider
-import com.niksob.data.storage.firebase.base.saver.FirebaseSaverImpl
+import com.niksob.data.storage.firebase.base.saver.BaseFirebaseSaver
 import com.niksob.data.storage.firebase.mood.entry.loading.data_loaded_action.MoodEntryOnDataLoadedAction
 import com.niksob.data.storage.firebase.mood.entry.loading.reason.MoodEntryLoadResponseReasonProvider
 import com.niksob.data.storage.firebase.mood.entry.saving.DbUpdatableMoodEntryFirebase
-import com.niksob.data.storage.firebase.mood.entry.saving.data_loaded_action.MoodEntryOnDataSavedAction
+import com.niksob.data.storage.firebase.base.saver.BaseOnDataSavedAction
+import com.niksob.data.storage.firebase.base.saver.FirebaseSaver
 import com.niksob.data.storage.firebase.mood.entry.saving.reason.MoodEntrySaveResponseReasonProvider
 import com.niksob.data.storage.mood.entry.saving.UpdatableMoodEntryStorage
 import com.niksob.data.storage.provider.AppStringStorage
@@ -21,7 +22,7 @@ class DbMoodEntryFirebaseModule {
     fun provideMoodEntryStorage(
         dbProvider: MoodEntryFirebaseRefProvider,
         @Named("mood_tag_on_data_loaded_action") loader: FirebaseLoaderImpl,
-        @Named("mood_tag_on_data_saved_action") saver: FirebaseSaverImpl,
+        @Named("mood_tag_on_data_saved_action") saver: FirebaseSaver,
     ): UpdatableMoodEntryStorage =
         DbUpdatableMoodEntryFirebase(
             moodEntryDbProvider = dbProvider,
@@ -38,15 +39,17 @@ class DbMoodEntryFirebaseModule {
 
     @Named("mood_tag_on_data_saved_action")
     @Provides
-    fun provideFirebaseSaver(action: MoodEntryOnDataSavedAction) = FirebaseSaverImpl(action)
+    fun provideFirebaseSaver(@Named("mood_entry_on_data_saved_action") action: BaseOnDataSavedAction): FirebaseSaver =
+        BaseFirebaseSaver(action)
 
     @Provides
     fun provideOnDataLoadedAction(reasonProvider: MoodEntryLoadResponseReasonProvider) =
         MoodEntryOnDataLoadedAction(reasonProvider)
 
     @Provides
+    @Named("mood_entry_on_data_saved_action")
     fun provideOnDataSavedAction(reasonProvider: MoodEntrySaveResponseReasonProvider) =
-        MoodEntryOnDataSavedAction(reasonProvider)
+        BaseOnDataSavedAction(reasonProvider)
 
     @Provides
     fun provideMoodEntryLoadResponseReasonProvider(stringStorage: AppStringStorage) =

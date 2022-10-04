@@ -1,12 +1,11 @@
-package com.niksob.data.storage.firebase.mood.entry.saving.data_loaded_action
+package com.niksob.data.storage.firebase.base.saver
 
 import com.google.android.gms.tasks.Task
 import com.niksob.data.provider.ResponseReasonProvider
-import com.niksob.data.storage.firebase.base.saver.OnDataSavedAction
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
-class MoodEntryOnDataSavedAction(
+class BaseOnDataSavedAction(
     private val reasonProvider: ResponseReasonProvider,
 ) : OnDataSavedAction {
 

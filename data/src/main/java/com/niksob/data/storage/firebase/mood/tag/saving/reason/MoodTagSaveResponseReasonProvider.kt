@@ -1,6 +1,6 @@
 package com.niksob.data.storage.firebase.mood.tag.saving.reason
 
-import com.niksob.data.storage.firebase.base.reason.ResponseReasonProviderImpl
+import com.niksob.data.storage.firebase.base.reason.BaseResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage
 
 private const val SUCCESS_SAVING_TAGS_REASON_STR_ID = "success_saving"
@@ -8,7 +8,7 @@ private const val FAILURE_SAVING_TAGS_REASON_STR_ID = "failure_saving"
 
 class MoodTagSaveResponseReasonProvider(
     stringStorage: AppStringStorage,
-) : ResponseReasonProviderImpl(stringStorage) {
+) : BaseResponseReasonProvider(stringStorage) {
 
     override val successReasonId = SUCCESS_SAVING_TAGS_REASON_STR_ID
 

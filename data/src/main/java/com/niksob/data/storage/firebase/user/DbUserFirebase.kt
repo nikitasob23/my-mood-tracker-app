@@ -41,10 +41,10 @@ class DbUserFirebase(
         callback?.call?.invoke(query)
     }
 
-    override fun addUser(query: Query) {
+    override fun addUser(request: Query) {
 
-        val user = query.data as UserDto
-        callback = query.callback
+        val user = request.data as UserDto
+        callback = request.callback
 
         setUserId(user)
         setEmailKey(user)

@@ -7,8 +7,8 @@ import com.niksob.domain.model.Query
 class UserRepositoryImpl(
     private val storage: UserStorage
 ) : UserRepository {
-    override fun add(query: Query) {
-        storage.addUser(query)
+    override fun add(request: Query) {
+        storage.addUser(request)
     }
 
 }

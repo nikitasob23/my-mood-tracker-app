@@ -18,5 +18,6 @@ open class MVVMSignUpView : InjectableNavigatableSignUpView() {
         if (!response.completed) {
             throw IllegalStateException()
         }
+        moveToMoodEntriesScreen()
     }
 }

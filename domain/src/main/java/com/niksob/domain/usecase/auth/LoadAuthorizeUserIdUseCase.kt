@@ -1,11 +1,11 @@
 package com.niksob.domain.usecase.auth
 
-import com.niksob.domain.data.repository.AuthRepository
+import com.niksob.domain.data.repository.auth.AuthRepositoryWithAuthorizedUserIdLoader
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
 class LoadAuthorizeUserIdUseCase(
-    private val authRepo: AuthRepository
+    private val authRepo: AuthRepositoryWithAuthorizedUserIdLoader
 ) {
 
     fun execute(callback: Callback<Query>) {

@@ -1,14 +1,13 @@
 package com.niksob.domain.usecase.auth
 
-import com.niksob.domain.data.repository.AuthRepository
+import com.niksob.domain.data.repository.auth.AuthRepositoryWithSignOutMaker
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
 class SignOutUseCase(
-    private val repo: AuthRepository
+    private val repo: AuthRepositoryWithSignOutMaker,
 ) {
-
     fun execute(callback: Callback<Query>) {
-        repo.loginOut(callback)
+        repo.signOut(callback)
     }
 }

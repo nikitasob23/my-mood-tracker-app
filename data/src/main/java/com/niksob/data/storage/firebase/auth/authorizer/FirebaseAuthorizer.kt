@@ -11,7 +11,7 @@ import com.niksob.domain.model.Query
 
 open class FirebaseAuthorizer(
     authProvider: AuthProvider,
-    protected open val authorizerOnCompletedAction: AuthorizerOnCompletedAction,
+    private val authOnCompletedAction: AuthorizerOnCompletedAction,
 ) : Authorizer {
 
     protected val auth: FirebaseAuth = authProvider.auth
@@ -19,9 +19,9 @@ open class FirebaseAuthorizer(
     protected fun getOnAuthCompletedListener(request: Query) =
         OnCompleteListener<AuthResult> { task ->
             if (task.isSuccessful) {
-                authorizerOnCompletedAction.onSucceed(request)
+                authOnCompletedAction.onSucceed(request)
             } else {
-                authorizerOnCompletedAction.onFailure(request = request, exceptionMessage = task.exception?.message)
+                authOnCompletedAction.onFailure(request = request, exceptionMessage = task.exception?.message)
             }
         }
 

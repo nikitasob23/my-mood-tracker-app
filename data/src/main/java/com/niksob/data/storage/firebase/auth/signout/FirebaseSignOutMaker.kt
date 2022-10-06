@@ -3,16 +3,16 @@ package com.niksob.data.storage.firebase.auth.signout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.niksob.data.provider.AuthProvider
-import com.niksob.data.storage.auth.signout.SignOut
+import com.niksob.data.storage.auth.signout.SignOutMaker
 import com.niksob.data.storage.firebase.auth.authorizer.FirebaseAuthorizer
 import com.niksob.data.storage.firebase.auth.signout.data_loaded_action.SignOutOnCompletedAction
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
-open class FirebaseSignOut(
+open class FirebaseSignOutMaker(
     authProvider: AuthProvider,
-    signOutOnCompletedAction: SignOutOnCompletedAction,
-) : SignOut, FirebaseAuthorizer(authProvider, signOutOnCompletedAction) {
+    private val signOutOnCompletedAction: SignOutOnCompletedAction,
+) : SignOutMaker, FirebaseAuthorizer(authProvider, signOutOnCompletedAction) {
 
     override fun signOut(callback: Callback<Query>) {
         val listener = getAuthStateListener(callback)
@@ -35,10 +35,10 @@ open class FirebaseSignOut(
             callback = callback,
         )
         if (!isSucceedSignOut(firebaseAuth)) {
-            authorizerOnCompletedAction.onFailure(request)
+            signOutOnCompletedAction.onFailure(request)
             return
         }
-        authorizerOnCompletedAction.onSucceed(request)
+        signOutOnCompletedAction.onSucceed(request)
     }
 
     private fun isSucceedSignOut(firebaseAuth: FirebaseAuth) = firebaseAuth.currentUser == null

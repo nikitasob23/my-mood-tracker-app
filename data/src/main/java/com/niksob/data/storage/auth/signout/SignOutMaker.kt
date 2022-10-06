@@ -4,6 +4,6 @@ import com.niksob.data.storage.auth.authorizer.Authorizer
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 
-interface SignOut : Authorizer {
+interface SignOutMaker : Authorizer {
     fun signOut(callback: Callback<Query>)
 }

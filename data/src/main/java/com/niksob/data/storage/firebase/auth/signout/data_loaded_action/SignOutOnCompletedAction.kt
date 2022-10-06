@@ -4,5 +4,5 @@ import com.niksob.data.storage.firebase.auth.authorizer.data_loaded_action.Autho
 import com.niksob.data.storage.firebase.auth.signout.response.SignOutResponseReasonProvider
 
 open class SignOutOnCompletedAction(
-    private val reasonProvider: SignOutResponseReasonProvider,
+    reasonProvider: SignOutResponseReasonProvider,
 ) : AuthorizerOnCompletedAction(reasonProvider)

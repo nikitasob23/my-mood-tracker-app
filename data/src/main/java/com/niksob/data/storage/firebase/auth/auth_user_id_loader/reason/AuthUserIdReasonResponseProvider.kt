@@ -4,7 +4,7 @@ import com.niksob.data.model.ResponseReasonName
 import com.niksob.data.storage.firebase.auth.signout.response.SignOutResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage
 
-class AuthUserIdReasonResponseProvider(
+open class AuthUserIdReasonResponseProvider(
     stringStorage: AppStringStorage,
 ) : SignOutResponseReasonProvider(stringStorage) {
 

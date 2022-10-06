@@ -1,13 +1,13 @@
 package com.niksob.domain.usecase.auth
 
-import com.niksob.domain.data.repository.AuthRepository
+import com.niksob.domain.data.repository.auth.AuthRepositoryWithAuthorizer
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.LoginData
 
 
 class LoginInWithEmailAndPasswordUseCase(
-    private val repo: AuthRepository
+    private val repo: AuthRepositoryWithAuthorizer
 ) {
     fun execute(query: Query) {
 

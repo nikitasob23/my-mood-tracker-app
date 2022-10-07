@@ -4,7 +4,7 @@ import com.niksob.data.provider.DbFirebaseRefProvider
 import com.niksob.data.storage.firebase.base.loader.FirebaseLoader
 import com.niksob.data.storage.firebase.base.saver.FirebaseSaver
 import com.niksob.data.storage.firebase.mood.tag.loading.LoadableDbMoodTagFirebase
-import com.niksob.data.storage.mood.tag.saving.UpdatableMoodTagStorage
+import com.niksob.data.storage.base.mood.tag.saving.UpdatableMoodTagStorage
 import com.niksob.domain.model.Query
 
 class DbUpdatableMoodTagFirebase(

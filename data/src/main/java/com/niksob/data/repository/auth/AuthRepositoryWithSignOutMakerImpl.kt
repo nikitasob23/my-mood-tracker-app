@@ -1,6 +1,6 @@
 package com.niksob.data.repository.auth
 
-import com.niksob.data.storage.auth.signout.SignOutMaker
+import com.niksob.data.storage.base.auth.signout.SignOutMaker
 import com.niksob.domain.data.repository.auth.AuthRepositoryWithSignOutMaker
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query

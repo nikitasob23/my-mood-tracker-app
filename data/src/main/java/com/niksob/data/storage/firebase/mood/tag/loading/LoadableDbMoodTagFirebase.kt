@@ -2,7 +2,7 @@ package com.niksob.data.storage.firebase.mood.tag.loading
 
 import com.niksob.data.provider.DbFirebaseRefProvider
 import com.niksob.data.storage.firebase.base.loader.FirebaseLoader
-import com.niksob.data.storage.mood.tag.loading.LoadableMoodTagStorage
+import com.niksob.data.storage.base.mood.tag.loading.LoadableMoodTagStorage
 import com.niksob.domain.data.dto.MoodTagDataDto
 import com.niksob.domain.model.Query
 

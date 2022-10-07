@@ -1,4 +1,4 @@
-package com.niksob.data.storage.user
+package com.niksob.data.storage.base.user
 
 import com.niksob.domain.model.Query
 

@@ -2,7 +2,7 @@ package com.niksob.data.storage.firebase.auth.registrar
 
 import com.niksob.data.base.OnCompletedAction
 import com.niksob.data.provider.AuthProvider
-import com.niksob.data.storage.auth.auth_registrar.AuthRegistrar
+import com.niksob.data.storage.base.auth.auth_registrar.AuthRegistrar
 import com.niksob.data.storage.firebase.auth.auth_user_id_loader.FirebaseAuthorizedUserIdLoader
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Query

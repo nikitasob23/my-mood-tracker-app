@@ -1,6 +1,6 @@
 package com.niksob.data.repository
 
-import com.niksob.data.storage.mood.entry.saving.UpdatableMoodEntryStorage
+import com.niksob.data.storage.base.mood.entry.saving.UpdatableMoodEntryStorage
 import com.niksob.domain.data.repository.MoodEntryRepository
 import com.niksob.domain.model.Query
 

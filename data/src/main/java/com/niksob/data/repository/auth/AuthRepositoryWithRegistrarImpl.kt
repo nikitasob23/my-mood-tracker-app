@@ -1,6 +1,6 @@
 package com.niksob.data.repository.auth
 
-import com.niksob.data.storage.auth.auth_registrar.AuthRegistrar
+import com.niksob.data.storage.base.auth.auth_registrar.AuthRegistrar
 import com.niksob.domain.data.repository.auth.AuthRepositoryWithRegistrar
 import com.niksob.domain.model.Query
 

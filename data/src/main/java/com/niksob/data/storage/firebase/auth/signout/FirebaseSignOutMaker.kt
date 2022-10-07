@@ -4,7 +4,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuth.AuthStateListener
 import com.niksob.data.base.OnCompletedAction
 import com.niksob.data.provider.AuthProvider
-import com.niksob.data.storage.auth.signout.SignOutMaker
+import com.niksob.data.storage.base.auth.signout.SignOutMaker
 import com.niksob.data.storage.firebase.auth.authorizer.FirebaseAuthorizer
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query

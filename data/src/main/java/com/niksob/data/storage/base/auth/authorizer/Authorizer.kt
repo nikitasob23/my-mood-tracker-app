@@ -1,4 +1,4 @@
-package com.niksob.data.storage.auth.authorizer
+package com.niksob.data.storage.base.auth.authorizer
 
 import com.niksob.domain.model.Query
 

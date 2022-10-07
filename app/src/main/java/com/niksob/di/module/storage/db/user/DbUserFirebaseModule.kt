@@ -9,7 +9,7 @@ import com.niksob.data.storage.firebase.base.saver.BaseOnDataSavedAction
 import com.niksob.data.storage.firebase.user.SavableDbUserFirebase
 import com.niksob.data.storage.firebase.user.reason.UserSaveResponseReasonProvider
 import com.niksob.data.storage.provider.AppStringStorage
-import com.niksob.data.storage.user.UserStorage
+import com.niksob.data.storage.base.user.UserStorage
 import com.niksob.di.module.storage.string.StringStorageModule
 import dagger.Module
 import dagger.Provides

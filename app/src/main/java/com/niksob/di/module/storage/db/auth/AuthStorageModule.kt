@@ -2,10 +2,10 @@ package com.niksob.di.module.storage.db.auth
 
 import com.niksob.data.base.OnCompletedAction
 import com.niksob.data.provider.AuthProvider
-import com.niksob.data.storage.auth.auth_registrar.AuthRegistrar
-import com.niksob.data.storage.auth.auth_user_id_loader.AuthorizedUserIdLoader
-import com.niksob.data.storage.auth.authorizer.Authorizer
-import com.niksob.data.storage.auth.signout.SignOutMaker
+import com.niksob.data.storage.base.auth.auth_registrar.AuthRegistrar
+import com.niksob.data.storage.base.auth.auth_user_id_loader.AuthorizedUserIdLoader
+import com.niksob.data.storage.base.auth.authorizer.Authorizer
+import com.niksob.data.storage.base.auth.signout.SignOutMaker
 import com.niksob.data.storage.firebase.auth.auth_user_id_loader.FirebaseAuthorizedUserIdLoader
 import com.niksob.data.storage.firebase.auth.authorizer.FirebaseAuthorizer
 import com.niksob.data.storage.firebase.auth.registrar.FirebaseAuthRegistrar

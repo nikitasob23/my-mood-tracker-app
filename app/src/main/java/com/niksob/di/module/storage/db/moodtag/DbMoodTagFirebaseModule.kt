@@ -9,7 +9,7 @@ import com.niksob.data.storage.firebase.mood.tag.loading.data_loaded_action.Mood
 import com.niksob.data.storage.firebase.mood.tag.loading.reason.MoodTagLoadResponseReasonProvider
 import com.niksob.data.storage.firebase.mood.tag.saving.DbUpdatableMoodTagFirebase
 import com.niksob.data.storage.firebase.mood.tag.saving.reason.MoodTagSaveResponseReasonProvider
-import com.niksob.data.storage.mood.tag.saving.UpdatableMoodTagStorage
+import com.niksob.data.storage.base.mood.tag.saving.UpdatableMoodTagStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.di.module.storage.string.StringStorageModule
 import dagger.Module

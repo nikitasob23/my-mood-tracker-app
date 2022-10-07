@@ -3,7 +3,7 @@ package com.niksob.data.storage.firebase.user
 import com.niksob.data.model.user.UserDataKey.EMAIL
 import com.niksob.data.provider.DbFirebaseRefProvider
 import com.niksob.data.storage.firebase.base.saver.FirebaseSaver
-import com.niksob.data.storage.user.UserStorage
+import com.niksob.data.storage.base.user.UserStorage
 import com.niksob.domain.data.dto.UserDto
 import com.niksob.domain.model.Query
 

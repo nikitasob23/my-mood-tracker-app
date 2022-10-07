@@ -1,7 +1,7 @@
 package com.niksob.di.module.repository
 
 import com.niksob.data.repository.UserRepositoryImpl
-import com.niksob.data.storage.user.UserStorage
+import com.niksob.data.storage.base.user.UserStorage
 import com.niksob.di.module.storage.StorageModule
 import com.niksob.domain.data.repository.UserRepository
 import dagger.Module

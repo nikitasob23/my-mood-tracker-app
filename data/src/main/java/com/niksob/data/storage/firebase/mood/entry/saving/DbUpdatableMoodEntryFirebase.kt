@@ -10,7 +10,7 @@ import com.niksob.data.model.DbFirebaseMoodEntryKey.TAG_IDS
 import com.niksob.data.storage.firebase.base.loader.FirebaseLoader
 import com.niksob.data.storage.firebase.base.saver.FirebaseSaver
 import com.niksob.data.storage.firebase.mood.entry.loading.LoadableDbMoodEntryFirebase
-import com.niksob.data.storage.mood.entry.saving.UpdatableMoodEntryStorage
+import com.niksob.data.storage.base.mood.entry.saving.UpdatableMoodEntryStorage
 
 open class DbUpdatableMoodEntryFirebase(
     private val moodEntryDbProvider: DbFirebaseRefProvider,

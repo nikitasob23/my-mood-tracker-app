@@ -5,7 +5,7 @@ import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.niksob.data.base.OnCompletedAction
 import com.niksob.data.provider.AuthProvider
-import com.niksob.data.storage.auth.authorizer.Authorizer
+import com.niksob.data.storage.base.auth.authorizer.Authorizer
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid

@@ -1,6 +1,6 @@
-package com.niksob.data.storage.auth.auth_user_id_loader
+package com.niksob.data.storage.base.auth.auth_user_id_loader
 
-import com.niksob.data.storage.auth.signout.SignOutMaker
+import com.niksob.data.storage.base.auth.signout.SignOutMaker
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
 

@@ -9,7 +9,7 @@ import com.niksob.data.storage.firebase.mood.entry.saving.DbUpdatableMoodEntryFi
 import com.niksob.data.storage.firebase.base.saver.BaseOnDataSavedAction
 import com.niksob.data.storage.firebase.base.saver.FirebaseSaver
 import com.niksob.data.storage.firebase.mood.entry.saving.reason.MoodEntrySaveResponseReasonProvider
-import com.niksob.data.storage.mood.entry.saving.UpdatableMoodEntryStorage
+import com.niksob.data.storage.base.mood.entry.saving.UpdatableMoodEntryStorage
 import com.niksob.data.storage.provider.AppStringStorage
 import com.niksob.di.module.storage.string.StringStorageModule
 import dagger.Module

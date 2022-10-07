@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.User
 
-interface UserViewModel {
+interface UserAdditionViewModel {
 
     val userAdditionResponse: LiveData<Query>
 

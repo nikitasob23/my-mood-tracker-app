@@ -8,6 +8,7 @@ import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
 import com.niksob.domain.model.User
+import java.lang.IllegalStateException
 
 open class SignUpViewWithSignUpComponent : InjectableMVVMSignUpWithUserAdderView() {
 
@@ -39,7 +40,10 @@ open class SignUpViewWithSignUpComponent : InjectableMVVMSignUpWithUserAdderView
     }
 
     override fun onSignUpCompleted(response: Query) {
-        super.onSignUpCompleted(response)
+
+        if (!response.completed) {
+            throw IllegalStateException()
+        }
 
         val user = User(
             id = response.data as Uid,

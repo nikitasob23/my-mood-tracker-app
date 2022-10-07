@@ -14,7 +14,6 @@ class SignUpViewModelWithAuthObserverModule(
     private val lifecycleOwner: LifecycleOwner,
 ) {
     @Provides
-    @Named("sign_up_view_model_with_auth_observer")
     fun provideViewModelWithAuthObserver(
         @Named("sign_up_view_model") viewModel: SignUpViewModel
     ): SignUpViewModel {

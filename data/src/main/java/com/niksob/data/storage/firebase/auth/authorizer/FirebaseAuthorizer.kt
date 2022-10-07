@@ -8,6 +8,7 @@ import com.niksob.data.provider.AuthProvider
 import com.niksob.data.storage.auth.authorizer.Authorizer
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Query
+import com.niksob.domain.model.Uid
 
 open class FirebaseAuthorizer(
     authProvider: AuthProvider,
@@ -16,10 +17,13 @@ open class FirebaseAuthorizer(
 
     protected val auth: FirebaseAuth = authProvider.auth
 
+    private val uid get() = Uid(auth.currentUser?.uid!!)
+
     protected fun getOnAuthCompletedListener(request: Query) =
         OnCompleteListener<AuthResult> { task ->
             if (task.isSuccessful) {
-                authOnCompletedAction.onSucceed(request)
+                val response = Query(data = uid, callback = request.callback)
+                authOnCompletedAction.onSucceed(response)
             } else {
                 authOnCompletedAction.onFailure(request = request, exceptionMessage = task.exception?.message)
             }

@@ -25,11 +25,11 @@ open class FirebaseSignOutMaker(
             override fun onAuthStateChanged(firebaseAuth: FirebaseAuth) {
                 auth.removeAuthStateListener(this)
 
-                checkAuthState(firebaseAuth, callback)
+                changeAuthState(firebaseAuth, callback)
             }
         }
 
-    private fun checkAuthState(firebaseAuth: FirebaseAuth, callback: Callback<Query>) {
+    private fun changeAuthState(firebaseAuth: FirebaseAuth, callback: Callback<Query>) {
         val request = Query(
             data = firebaseAuth.currentUser,
             callback = callback,

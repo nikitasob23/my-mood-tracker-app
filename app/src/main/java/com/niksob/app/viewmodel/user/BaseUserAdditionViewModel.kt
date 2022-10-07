@@ -1,6 +1,5 @@
 package com.niksob.app.viewmodel.user
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.domain.model.Callback
@@ -8,12 +7,11 @@ import com.niksob.domain.model.Query
 import com.niksob.domain.model.User
 import com.niksob.domain.usecase.db.AddUserUseCase
 
-open class UserViewModelWithAddition(
+open class BaseUserAdditionViewModel(
     private val addUserUseCase: AddUserUseCase,
-) : UserViewModel, ViewModel() {
+) : UserAdditionViewModel, ViewModel() {
 
-    override val userAdditionResponse: LiveData<Query>
-        get() = mutableUserAdditionResponse
+    override val userAdditionResponse get() = mutableUserAdditionResponse
 
     protected val mutableUserAdditionResponse = MutableLiveData<Query>()
 

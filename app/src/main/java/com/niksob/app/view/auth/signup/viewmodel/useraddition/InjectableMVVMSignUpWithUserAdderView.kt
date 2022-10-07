@@ -2,22 +2,22 @@ package com.niksob.app.view.auth.signup.viewmodel.useraddition
 
 import androidx.lifecycle.Observer
 import com.niksob.di.component.view.auth.signup.DaggerSignUpViewComponent
-import com.niksob.di.module.viewmodel.auth.signup.SignUpViewModelWithNewUserObserverModule
+import com.niksob.di.module.viewmodel.user.UserAdditionViewModelWithObserverModule
 import com.niksob.domain.model.Query
 
 open class InjectableMVVMSignUpWithUserAdderView : MVVMSignUpWithUserAdderView() {
 
     override val injectableComponentBuilder: DaggerSignUpViewComponent.Builder
         get() = super.injectableComponentBuilder
-            .signUpViewModelWithNewUserObserverModule(signUpViewWithNewAdditionUserObserverModule)
+            .userAdditionViewModelWithObserverModule(userAdditionViewModelWithObserverModule)
 
-    private val signUpViewWithNewAdditionUserObserverModule
-        get() = SignUpViewModelWithNewUserObserverModule(
+    private val userAdditionViewModelWithObserverModule
+        get() = UserAdditionViewModelWithObserverModule(
             lifecycleOwner = this,
-            userAdditionObserver = userAdditionQuery,
+            userAdditionObserver = userAdditionObserver,
         )
 
-    private val userAdditionQuery
+    private val userAdditionObserver
         get() = Observer<Query> { response ->
             onAddUserCompleted(response)
         }

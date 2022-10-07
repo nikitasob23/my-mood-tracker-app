@@ -8,12 +8,14 @@ import com.niksob.app.view.auth.signup.uicomponent.InjectedSignUpViewWithSignUpC
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
 import com.niksob.di.module.view.auth.signup.navigation.SignUpViewWithNavigationModule
-import com.niksob.di.module.viewmodel.auth.signup.SignUpViewModelWithNewUserObserverModule
+import com.niksob.di.module.viewmodel.auth.signup.SignUpViewModelWithAuthObserverModule
+import com.niksob.di.module.viewmodel.user.UserAdditionViewModelWithObserverModule
 import dagger.Component
 
 @Component(
     modules = [
-        SignUpViewModelWithNewUserObserverModule::class,
+        SignUpViewModelWithAuthObserverModule::class,
+        UserAdditionViewModelWithObserverModule::class,
         SignUpViewWithNavigationModule::class,
         AppProgressBarFromContextModule::class,
         ShortToastMessageModule::class,

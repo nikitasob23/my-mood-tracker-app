@@ -3,15 +3,15 @@ package com.niksob.data.storage.firebase.auth.authorizer
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.niksob.data.base.OnCompletedAction
 import com.niksob.data.provider.AuthProvider
 import com.niksob.data.storage.auth.authorizer.Authorizer
-import com.niksob.data.storage.firebase.auth.authorizer.data_loaded_action.AuthorizerOnCompletedAction
 import com.niksob.domain.data.dto.LoginDataDto
 import com.niksob.domain.model.Query
 
 open class FirebaseAuthorizer(
     authProvider: AuthProvider,
-    private val authOnCompletedAction: AuthorizerOnCompletedAction,
+    protected val authOnCompletedAction: OnCompletedAction,
 ) : Authorizer {
 
     protected val auth: FirebaseAuth = authProvider.auth

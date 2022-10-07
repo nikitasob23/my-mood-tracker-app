@@ -4,7 +4,7 @@ import com.niksob.data.base.OnCompletedAction
 import com.niksob.data.storage.firebase.auth.authorizer.reason.AuthorizerResponseReasonProvider
 import com.niksob.domain.model.Query
 
-open class AuthorizerOnCompletedAction(
+open class AuthOnCompletedAction(
     private val reasonProvider: AuthorizerResponseReasonProvider,
 ) : OnCompletedAction {
 

@@ -19,7 +19,7 @@ open class NavigatableLoginView : InjectableBaseLoginView() {
     @Named("sign_up_view_class")
     lateinit var signUpViewClass: NavigationableScreenClass
 
-    protected open fun goToLoginView() = appNavigation.goToNextView(loginInViewClass)
+    protected open fun goToLoginView() = appNavigation.moveToNextScreen(loginInViewClass)
 
-    protected open fun goToSignUpView() = appNavigation.goToNextView(signUpViewClass)
+    protected open fun goToSignUpView() = appNavigation.moveToNextScreen(signUpViewClass)
 }

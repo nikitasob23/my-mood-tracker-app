@@ -7,12 +7,12 @@ import javax.inject.Inject
 
 open class NavigatableSignUpView : InjectableSignUpView() {
     @Inject
-    lateinit var appNavigation: ScreenNavigationWithNavScreenClass
+    lateinit var navigation: ScreenNavigationWithNavScreenClass
 
     @Inject
     lateinit var moodEntriesViewClass: NavigationableScreenClass
 
-    protected open fun moveToMoodEntriesScreen() = appNavigation.goToNextView(moodEntriesViewClass)
+    protected open fun moveToMoodEntriesScreen() = navigation.moveToNextScreen(moodEntriesViewClass)
 
-    protected open fun moveToPreviousScreen() = appNavigation.goToPreviousView()
+    protected open fun moveToPreviousScreen() = navigation.moveToPreviousScreen()
 }

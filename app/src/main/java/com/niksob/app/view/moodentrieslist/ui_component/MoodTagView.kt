@@ -1,4 +1,4 @@
-package com.niksob.app.view.moodentrieslist.uicomponent
+package com.niksob.app.view.moodentrieslist.ui_component
 
 import android.content.Context
 import android.util.AttributeSet
@@ -10,7 +10,6 @@ import android.widget.TextView
 import com.niksob.app.R
 
 const val TAG_ENVELOP_OTHER_TAGS = true
-const val TAG_NOT_ENVELOP_OTHER_TAGS = false
 private const val DEF_COLOR = R.color.grey
 private const val DEF_TEXT = ""
 private const val ENVELOP_TAG_MARGIN_START_IN_DP = -16f

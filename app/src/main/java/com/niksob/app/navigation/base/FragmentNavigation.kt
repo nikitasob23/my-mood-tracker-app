@@ -10,10 +10,10 @@ open class FragmentNavigation(
     private val popBackFragmentUseCase: PopBackFragmentUseCase,
 ) : ScreenNavigation {
 
-    override fun <T : NavigationableScreen> goToNextView(screenClass: Class<T>) {
+    override fun <T : NavigationableScreen> moveToNextScreen(screenClass: Class<T>) {
         val screen = screenClass.newInstance()
         setFragmentUseCase.execute(screen)
     }
 
-    override fun goToPreviousView() = popBackFragmentUseCase.execute()
+    override fun moveToPreviousScreen() = popBackFragmentUseCase.execute()
 }

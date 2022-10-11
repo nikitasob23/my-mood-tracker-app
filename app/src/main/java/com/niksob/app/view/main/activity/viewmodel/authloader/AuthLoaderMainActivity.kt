@@ -16,14 +16,14 @@ open class AuthLoaderMainActivity : InjectableAppNavigationInitializer() {
 
     protected open fun onAuthUserResponseLoaded(response: Query) =
         if (response.completed) {
-            navigation.goToNextView(moodEntriesViewClass)
+            navigation.moveToNextScreen(moodEntriesViewClass)
         } else {
-            navigation.goToNextView(loginViewClass)
+            navigation.moveToNextScreen(loginViewClass)
         }
 
     protected open fun onSignOutResponseLoaded(response: Query) {
         if (response.completed) {
-            navigation.goToNextView(loginViewClass)
+            navigation.moveToNextScreen(loginViewClass)
         }
     }
 }

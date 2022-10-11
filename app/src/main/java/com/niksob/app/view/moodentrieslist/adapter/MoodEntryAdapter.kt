@@ -50,6 +50,7 @@ class MoodEntryAdapter(
             setEmoji(entry.emojiId)
             setTime(entry.dateTime.localTime)
             initMoodTagAdapter(entry.tags)
+            entry.clickCallback?.apply { setOnClickAction(action = this) }
         }
 
         private fun setBackgroundColor(colorId: Int) {
@@ -63,6 +64,10 @@ class MoodEntryAdapter(
 
         private fun setTime(time: String) {
             timeTextView.text = time
+        }
+
+        private fun setOnClickAction(action: () -> Unit) {
+            containerLinearLayout.setOnClickListener { action.invoke() }
         }
 
         private fun initMoodTagAdapter(tags: List<MoodTag>) {

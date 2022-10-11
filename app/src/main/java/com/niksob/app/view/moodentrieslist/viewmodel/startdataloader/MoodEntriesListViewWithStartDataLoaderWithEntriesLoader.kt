@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.app.view.moodentrieslist.uicomponent.MoodEntriesListWithRecycleViewWithEntriesLoader
+import com.niksob.app.view.moodentrieslist.ui_component.MoodEntriesListWithRecycleViewWithEntriesLoader
 
 open class MoodEntriesListViewWithStartDataLoaderWithEntriesLoader : MoodEntriesListWithRecycleViewWithEntriesLoader() {
 

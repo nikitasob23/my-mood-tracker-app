@@ -13,7 +13,7 @@ open class FragmentNavigationWithNavScreenClass(
         setFragmentUseCase,
         popBackFragmentUseCase,
     ) {
-    override fun goToNextView(screenClass: NavigationableScreenClass) {
-        super.goToNextView(screenClass.clazz)
+    override fun moveToNextScreen(screenClass: NavigationableScreenClass) {
+        super.moveToNextScreen(screenClass.clazz)
     }
 }

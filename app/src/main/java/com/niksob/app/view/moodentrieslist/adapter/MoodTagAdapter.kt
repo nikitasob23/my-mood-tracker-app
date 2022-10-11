@@ -5,8 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.app.view.moodentrieslist.uicomponent.MoodTagView
-import com.niksob.app.view.moodentrieslist.uicomponent.TAG_NOT_ENVELOP_OTHER_TAGS
+import com.niksob.app.view.mood_entry_addition.ui_component.moodtagview.MoodTagView
 import com.niksob.domain.model.MoodTag
 
 class MoodTagAdapter(
@@ -40,7 +39,7 @@ class MoodTagAdapter(
         fun bindFirstTagView(moodTag: MoodTag) {
 
             bindTagView(moodTag)
-            tagView.isEnvelopsOtherTags = TAG_NOT_ENVELOP_OTHER_TAGS
+//            tagView.isEnvelopsOtherTags = TAG_NOT_ENVELOP_OTHER_TAGS
         }
 
         fun bindTagView(moodTag: MoodTag) {

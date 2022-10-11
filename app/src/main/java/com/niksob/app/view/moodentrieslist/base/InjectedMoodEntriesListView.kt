@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.niksob.app.view.base.inject.InjectableWithComponent
-import com.niksob.di.component.InjectableComponent
+import com.niksob.di.component.base.InjectableComponent
 import com.niksob.di.component.view.moodentry.DaggerMoodEntriesListViewComponent
 
 open class InjectedMoodEntriesListView : InjectableWithComponent, BaseMoodEntriesListView() {

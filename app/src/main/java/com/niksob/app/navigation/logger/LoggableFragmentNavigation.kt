@@ -1,6 +1,6 @@
 package com.niksob.app.navigation.logger
 
-import com.niksob.app.navigation.base.FragmentNavigationWithNavScreenClass
+import com.niksob.app.navigation.base.FragmentNavigationWithScreenFactory
 import com.niksob.domain.navigation.NavigationableScreen
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
@@ -13,19 +13,19 @@ open class LoggableFragmentNavigation(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
     private val logger: AppDebugLogger
-) : FragmentNavigationWithNavScreenClass(
+) : FragmentNavigationWithScreenFactory(
     setFragmentUseCase,
     popBackFragmentUseCase,
 ) {
     private val tag get() = LoggableFragmentNavigation::class.simpleName!!
 
-    override fun <T : NavigationableScreen> goToNextView(screenClass: Class<T>) {
-        super.goToNextView(screenClass)
+    override fun <T : NavigationableScreen> moveToNextScreen(screenClass: Class<T>) {
+        super.moveToNextScreen(screenClass)
         logger.log(tag, NAVIGATE_TO_NEXT_VIEW_PREFIX_MESSAGE + screenClass.simpleName)
     }
 
-    override fun goToPreviousView() {
-        super.goToPreviousView()
+    override fun moveToPreviousScreen() {
+        super.moveToPreviousScreen()
         logger.log(tag, NAVIGATE_TO_PREVIOUS_VIEW_MESSAGE)
     }
 }

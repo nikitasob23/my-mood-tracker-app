@@ -7,7 +7,7 @@ import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 import com.niksob.domain.utils.logger.AppDebugLogger
 
-class FragmentNavigationWithProgressbar(
+open class FragmentNavigationByProgressbar(
     setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
     logger: AppDebugLogger,
@@ -17,15 +17,15 @@ class FragmentNavigationWithProgressbar(
     popBackFragmentUseCase,
     logger,
 ) {
-    override fun goToNextView(screenClass: NavigationableScreenClass) {
+    override fun moveToNextScreen(screenClass: NavigationableScreenClass) {
         progressbar.showProgress()
-        super.goToNextView(screenClass)
+        super.moveToNextScreen(screenClass)
         progressbar.hideProgress()
     }
 
-    override fun goToPreviousView() {
+    override fun moveToPreviousScreen() {
         progressbar.showProgress()
-        super.goToPreviousView()
+        super.moveToPreviousScreen()
         progressbar.hideProgress()
     }
 }

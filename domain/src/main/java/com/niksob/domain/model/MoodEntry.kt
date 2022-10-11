@@ -10,4 +10,5 @@ data class MoodEntry(
     val colorId: Int = -1,
     val emojiId: Int = -1,
     val tags: List<MoodTag> = ArrayList(),
+    var clickCallback: (() -> Unit)? = null,
 )

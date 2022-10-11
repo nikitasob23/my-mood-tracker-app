@@ -3,7 +3,7 @@ package com.niksob.di.component.view.auth.signup
 import com.niksob.app.view.auth.signup.logger.InjectedLoggableSignUpView
 import com.niksob.app.view.auth.signup.progressbar.InjectedSignUpViewWithProgressbar
 import com.niksob.app.view.auth.signup.toast.InjectedSignUpViewWithToastMessages
-import com.niksob.di.component.InjectableComponent
+import com.niksob.di.component.base.InjectableComponent
 import com.niksob.app.view.auth.signup.uicomponent.InjectedSignUpViewWithSignUpComponent
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule

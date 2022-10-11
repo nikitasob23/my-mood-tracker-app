@@ -4,7 +4,7 @@ import com.niksob.app.view.auth.loginin.mvvm.InjectableMVVMLoginInView
 import com.niksob.app.view.auth.loginin.logger.InjectableLoggableLoginInView
 import com.niksob.app.view.auth.loginin.progressbar.InjectableLoginInViewWithProgressBar
 import com.niksob.app.view.auth.loginin.toast.InjectableLoginInViewWithToastMessages
-import com.niksob.di.component.InjectableComponent
+import com.niksob.di.component.base.InjectableComponent
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
 import com.niksob.di.module.view.auth.loginin.navigation.NavigatableLoginInViewModule

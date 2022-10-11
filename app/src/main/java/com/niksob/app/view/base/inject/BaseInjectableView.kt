@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.niksob.app.view.base.uicomponents.BaseViewWithUIComponentsInitializer
-import com.niksob.di.component.InjectableComponent
+import com.niksob.di.component.base.InjectableComponent
 
 abstract class BaseInjectableView : InjectableWithComponent, BaseViewWithUIComponentsInitializer() {
 

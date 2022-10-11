@@ -4,7 +4,7 @@ import com.niksob.di.component.view.moodentry.DaggerMoodEntriesListViewComponent
 import com.niksob.di.module.app.ContextModule
 
 
-open class InjectedNavigatableMoodEntriesListView : NavigatableMoodEntriesListView() {
+open class InjectedNavigatableMoodEntriesListView : InjectableNavigatableMoodEntriesListView() {
 
     override val injectableComponentBuilder: DaggerMoodEntriesListViewComponent.Builder
         get() = super.injectableComponentBuilder

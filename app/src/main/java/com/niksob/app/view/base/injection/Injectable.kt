@@ -1,4 +1,4 @@
-package com.niksob.app.view.base.inject
+package com.niksob.app.view.base.injection
 
 interface Injectable {
     fun inject()

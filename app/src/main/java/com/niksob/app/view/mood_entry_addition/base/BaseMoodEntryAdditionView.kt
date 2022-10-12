@@ -1,7 +1,7 @@
 package com.niksob.app.view.mood_entry_addition.base
 
 import com.niksob.app.R
-import com.niksob.app.view.base.inject.BaseInjectableView
+import com.niksob.app.view.base.injection.BaseInjectableView
 import com.niksob.domain.model.MoodEntry
 
 open class BaseMoodEntryAdditionView(

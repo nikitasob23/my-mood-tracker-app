@@ -1,10 +1,10 @@
-package com.niksob.app.view.base.inject
+package com.niksob.app.view.base.injection
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.niksob.app.view.base.uicomponents.BaseViewWithUIComponentsInitializer
+import com.niksob.app.view.base.ui_components.BaseViewWithUIComponentsInitializer
 import com.niksob.di.component.base.InjectableComponent
 
 abstract class BaseInjectableView : InjectableWithComponent, BaseViewWithUIComponentsInitializer() {

@@ -2,7 +2,6 @@ package com.niksob.app.view.mood_entry_addition.logger
 
 import com.niksob.app.R
 import com.niksob.app.view.mood_entry_addition.toast.ToastMessageMoodEntryAdditionView
-import com.niksob.app.view.moodentrieslist.logger.LoggableMoodEntriesListViewWithEntriesLoader
 import com.niksob.domain.model.Query
 import com.niksob.domain.utils.logger.AppDebugLogger
 import javax.inject.Inject
@@ -12,7 +11,7 @@ open class LoggableMoodEntryAdditionView : ToastMessageMoodEntryAdditionView() {
     @Inject
     lateinit var logger: AppDebugLogger
 
-    private val logTag get() = LoggableMoodEntriesListViewWithEntriesLoader::class.simpleName!!
+    private val logTag get() = this::class.simpleName!!
 
     private lateinit var startedMessage: String
     private lateinit var succeedMessage: String

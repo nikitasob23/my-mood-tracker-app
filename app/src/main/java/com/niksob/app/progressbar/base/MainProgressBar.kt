@@ -11,7 +11,6 @@ open class MainProgressBar(
 ) : AppProgressBar {
 
     init {
-        hideProgress()
         val background = progressBarFrameLayout.findViewById<FrameLayout>(R.id.main_progress_bar_layout__background)
         progressBarFrameLayout.bringChildToFront(background)
     }

@@ -12,4 +12,6 @@ abstract class NavigationableView : BaseInjectableView() {
 
     protected open fun moveToNextScreen(screenClass: NavigationableScreenClass) =
         navigation.moveToNextScreen(screenClass)
+
+    protected open fun moveToPreviousScreen() = navigation.moveToPreviousScreen()
 }

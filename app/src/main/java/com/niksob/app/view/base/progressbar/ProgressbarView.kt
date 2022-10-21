@@ -10,13 +10,13 @@ abstract class ProgressbarView : StartDataLoaderView() {
     @Inject
     lateinit var progressbar: AppProgressBar
 
-    override fun loadData(request: Query?) {
+    override fun loadData(request: Query?, loadDataCallback: () -> Unit) {
         showProgress()
-        super.loadData(request)
+        super.loadData(request, loadDataCallback)
     }
 
-    override fun onDataLoaded(response: Query?) {
-        super.onDataLoaded(response)
+    override fun onDataLoaded(response: Query?, onDataLoadedCallback: () -> Unit) {
+        super.onDataLoaded(response, onDataLoadedCallback)
         hideProgress()
     }
 

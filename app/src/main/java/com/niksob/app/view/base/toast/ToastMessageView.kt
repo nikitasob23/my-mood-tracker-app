@@ -10,12 +10,8 @@ abstract class ToastMessageView : ProgressbarView() {
     @Inject
     lateinit var toastMessage: ToastMessage
 
-    abstract val successLoadMessage: String
-
-    abstract val failedLoadMessage: String
-
-    override fun onDataLoaded(response: Query?) {
-        super.onDataLoaded(response)
+    override fun onDataLoaded(response: Query?, onDataLoadedCallback: () -> Unit) {
+        super.onDataLoaded(response, onDataLoadedCallback)
 
         if (response == null) {
             return

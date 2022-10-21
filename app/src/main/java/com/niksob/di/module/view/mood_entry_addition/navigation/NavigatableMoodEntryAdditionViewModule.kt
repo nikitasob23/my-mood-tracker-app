@@ -9,6 +9,5 @@ import dagger.Provides
 @Module(includes = [ScreenNavigationModule::class])
 class NavigatableMoodEntryAdditionViewModule {
     @Provides
-    fun provideMoodEntriesListScreenViewClass() =
-        NavigationableScreenClass(ViewClassProvider.MOOD_ENTRY_ADDITION_VIEW.clazz)
+    fun provideMoodEntriesListScreenClass() = NavigationableScreenClass(ViewClassProvider.MOOD_ENTRIES_LIST_VIEW.clazz)
 }

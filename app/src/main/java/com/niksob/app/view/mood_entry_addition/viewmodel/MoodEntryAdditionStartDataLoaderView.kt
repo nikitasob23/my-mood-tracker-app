@@ -1,6 +1,5 @@
 package com.niksob.app.view.mood_entry_addition.viewmodel
 
-import com.niksob.domain.model.Query
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,5 +15,5 @@ open class MoodEntryAdditionStartDataLoaderView : StartDataLoader, InjectableMoo
         return rootView
     }
 
-    override fun onCreateViewDataLoading(response: Query?) = loadMoodEntryByUserId()
+    override fun onCreateViewDataLoading() = loadMoodEntryByUserId()
 }

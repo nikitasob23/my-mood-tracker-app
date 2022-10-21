@@ -4,7 +4,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
 import com.niksob.app.view.mood_entry_addition.viewmodel.MoodEntryAdditionStartDataLoaderView
-import com.niksob.app.view.moodentrieslist.adapter.MoodTagAdapter
+import com.niksob.app.view.mood_entries_list.adapter.MoodTagAdapter
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.MoodTag
 import com.niksob.domain.model.Query

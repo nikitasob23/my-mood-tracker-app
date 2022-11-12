@@ -8,4 +8,6 @@ interface DbMoodTagConverter {
     fun toDto(data: Any): MoodTagDataDto
 
     fun fromDto(data: Any): MoodTags
+
+    fun fromFirebaseDto(tagsFirebaseDto: MoodTagsFirebaseDto, entriesDataDto: MoodEntriesDto): MoodTags
 }

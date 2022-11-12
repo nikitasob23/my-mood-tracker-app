@@ -37,9 +37,9 @@ class DbMoodEntryConverterImpl(
         )
     }
 
-    override fun fromDto(moodEntriesDataDto: Any, moodTagsDataDto: Any) =
+    override fun fromDto(moodEntriesDto: Any, moodTagsDataDto: Any) =
         MoodEntries(
-            (moodEntriesDataDto as MoodEntriesDto).data.map { entryDto ->
+            (moodEntriesDto as MoodEntriesDto).data.map { entryDto ->
 
                 val tagsGroupByEntry = moodTagConverter.fromDto(moodTagsDataDto).data
                     .groupBy({ it.entryId }, { it })
@@ -53,4 +53,25 @@ class DbMoodEntryConverterImpl(
                 )
             }
         )
+
+    override fun fromFirebaseDto(moodEntriesDto: Any, moodTagsDto: Any): MoodEntries {
+        moodEntriesDto as MoodEntriesDto
+        moodTagsDto as MoodTagsFirebaseDto
+
+        return MoodEntries(
+            moodEntriesDto.data.map { entryDto ->
+
+                val tagsGroupByEntry = moodTagConverter.fromFirebaseDto(moodTagsDto, moodEntriesDto).data
+                    .groupBy({ it.entryId }, { it })
+
+                MoodEntry(
+                    id = entryDto.id,
+                    dateTime = ZonedDateTimeUtil.fromDateAndTime(entryDto.date, entryDto.time),
+                    colorId = moodColorIdConverter.getColorIdByMoodDegree(entryDto.degree),
+                    emojiId = moodEmojiIdConverter.getEmojiIdByMoodDegree(entryDto.degree),
+                    tags = tagsGroupByEntry[entryDto.id]!!,
+                )
+            }
+        )
+    }
 }

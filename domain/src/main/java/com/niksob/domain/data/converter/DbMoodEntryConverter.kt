@@ -7,5 +7,7 @@ import com.niksob.domain.model.MoodEntries
 interface DbMoodEntryConverter {
     fun toDto(moodEntriesData: MoodEntriesData): MoodEntriesDataDto
 
-    fun fromDto(moodEntriesDataDto: Any, moodTagsDataDto: Any): MoodEntries
+    fun fromDto(moodEntriesDto: Any, moodTagsDataDto: Any): MoodEntries
+
+    fun fromFirebaseDto(moodEntriesDto: Any, moodTagsDto: Any): MoodEntries
 }

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase</OriginalElement>
+  <nodes>
+    <node x="-86.28717041015614" y="84.837646484375">com.niksob.domain.data.repository.auth.observable.AuthRepository</node>
+    <node x="-79.8861083984375" y="184.1960523398056">com.niksob.data.repository.auth.observable.AuthRepositoryImpl</node>
+    <node x="-115.3861083984375" y="635.7712699060974">com.niksob.data.storage.firebase.base.loader.FirebaseAuthorizedUserLoaderImpl</node>
+    <node x="-89.3861083984375" y="528.2712699060974">com.niksob.data.storage.firebase.base.loader.FirebaseAuthorizedUserLoader</node>
+    <node x="-177.5" y="-37.52075937105559">com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase</node>
+    <node x="-79.8861083984375" y="306.5544581952362">com.niksob.data.storage.base.auth.observable.AuthStorage</node>
+    <node x="-113.8861083984375" y="405.91286405066677">com.niksob.data.storage.firebase.auth.observable.AuthStorageImpl</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.niksob.data.repository.auth.observable.AuthRepositoryImpl" target="com.niksob.domain.data.repository.auth.observable.AuthRepository" relationship="REALIZATION">
+      <point x="0.6890952088724589" y="-37.18441765339813" />
+      <point x="62.80298681043496" y="161.11923021794559" />
+      <point x="62.21600783866097" y="161.11923021794559" />
+      <point x="6.5031782488171075" y="25.88917926510871" />
+    </edge>
+    <edge source="com.niksob.data.storage.firebase.base.loader.FirebaseAuthorizedUserLoaderImpl" target="com.niksob.data.storage.firebase.base.loader.FirebaseAuthorizedUserLoader" relationship="REALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase" target="com.niksob.domain.data.repository.auth.observable.AuthRepository" relationship="TO_ONE">
+      <point x="222.58482869466138" y="6.994903564453125" />
+      <point x="322.4910329182942" y="7.474144193397535" />
+      <point x="322.4910329182942" y="114.34783935546875" />
+      <point x="140.997060139974" y="3.01019287109375" />
+    </edge>
+    <edge source="com.niksob.data.storage.firebase.auth.observable.AuthStorageImpl" target="com.niksob.data.storage.base.auth.observable.AuthStorage" relationship="REALIZATION">
+      <point x="0.0" y="-38.0" />
+      <point x="0.0" y="26.5" />
+    </edge>
+    <edge source="com.niksob.data.repository.auth.observable.AuthRepositoryImpl" target="com.niksob.data.storage.base.auth.observable.AuthStorage" relationship="TO_ONE">
+      <point x="142.20366192924462" y="4.509641531447869" />
+      <point x="322.4910329182942" y="226.70569387125346" />
+      <point x="322.4910329182942" y="335.2219500805079" />
+      <point x="142.20366192924462" y="2.1674918852717155" />
+    </edge>
+    <edge source="com.niksob.data.storage.firebase.auth.observable.AuthStorageImpl" target="com.niksob.data.storage.firebase.base.loader.FirebaseAuthorizedUserLoader" relationship="TO_ONE">
+      <point x="176.6651159432118" y="4.361690791769149" />
+      <point x="322.4910329182942" y="448.2745548424359" />
+      <point x="322.4910329182942" y="558.0705773084359" />
+      <point x="151.36649325519335" y="3.2993074023385134" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.9838221848665062" showDependencies="true" x="-14.760144405408482" y="437.33881440930315" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

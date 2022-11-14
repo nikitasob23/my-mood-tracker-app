@@ -1,6 +1,6 @@
 package com.niksob.di.module.viewmodel.mood_entry.factory.observable
 
-import com.niksob.app.viewmodel.moodentry.factory.ObservableMoodEntriesListViewModelFactory
+import com.niksob.app.viewmodel.mood_entry.factory.ObservableMoodEntriesListViewModelFactory
 import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdAndDateUseCaseModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase

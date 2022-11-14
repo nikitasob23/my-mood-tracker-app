@@ -1,19 +1,20 @@
 package com.niksob.app.navigation.base
 
-import com.niksob.domain.navigation.NavigationableScreen
-import com.niksob.domain.navigation.ScreenNavigation
+import com.niksob.domain.model.NavigationableScreenClass
+import com.niksob.domain.navigation.navigatable_screen_class.ScreenNavigation
 import com.niksob.domain.usecase.navigation.PopBackFragmentUseCase
 import com.niksob.domain.usecase.navigation.SetFragmentUseCase
 
 open class FragmentNavigation(
     private val setFragmentUseCase: SetFragmentUseCase,
-    private val popBackFragmentUseCase: PopBackFragmentUseCase,
-) : ScreenNavigation {
-
-    override fun <T : NavigationableScreen> moveToNextScreen(screenClass: Class<T>) {
-        val screen = screenClass.newInstance()
+    popBackFragmentUseCase: PopBackFragmentUseCase,
+) : ScreenNavigation,
+    BaseFragmentNavigation(
+        setFragmentUseCase,
+        popBackFragmentUseCase,
+    ) {
+    override fun moveToNextScreen(screenClass: NavigationableScreenClass) {
+        val screen = screenClass.newInstance
         setFragmentUseCase.execute(screen)
     }
-
-    override fun moveToPreviousScreen() = popBackFragmentUseCase.execute()
 }

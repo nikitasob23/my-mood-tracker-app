@@ -2,8 +2,8 @@ package com.niksob.di.module.viewmodel.mood_entry
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
-import com.niksob.app.viewmodel.moodentry.transfer.TransferObservableMoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.MoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.transfer.TransferObservableMoodEntriesListViewModel
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.viewmodel.mood_entry.factory.transfer.TransferObservableMoodEntriesListViewModelFactoryModule

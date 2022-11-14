@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel.moodentry.base
+package com.niksob.app.viewmodel.mood_entry.base
 
 import androidx.lifecycle.LiveData
 import com.niksob.domain.model.Query

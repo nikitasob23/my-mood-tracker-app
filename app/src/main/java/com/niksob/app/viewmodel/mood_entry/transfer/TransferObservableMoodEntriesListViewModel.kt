@@ -1,9 +1,9 @@
-package com.niksob.app.viewmodel.moodentry.transfer
+package com.niksob.app.viewmodel.mood_entry.transfer
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
-import com.niksob.app.viewmodel.moodentry.base.observation.ObservableMoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.MoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.Query
 import io.reactivex.android.schedulers.AndroidSchedulers

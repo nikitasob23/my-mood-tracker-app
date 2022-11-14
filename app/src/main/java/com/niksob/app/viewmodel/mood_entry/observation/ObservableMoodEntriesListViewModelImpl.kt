@@ -1,9 +1,9 @@
-package com.niksob.app.viewmodel.moodentry.observation
+package com.niksob.app.viewmodel.mood_entry.observation
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl
-import com.niksob.app.viewmodel.moodentry.base.observation.ObservableMoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Uid

@@ -9,7 +9,7 @@ open class FragmentNavigationWithScreenFactory(
     private val setFragmentUseCase: SetFragmentUseCase,
     popBackFragmentUseCase: PopBackFragmentUseCase,
 ) : ScreenNavigationByScreenFactory,
-    FragmentNavigationWithNavScreenClass(
+    FragmentNavigation(
         setFragmentUseCase = setFragmentUseCase,
         popBackFragmentUseCase = popBackFragmentUseCase,
     ) {

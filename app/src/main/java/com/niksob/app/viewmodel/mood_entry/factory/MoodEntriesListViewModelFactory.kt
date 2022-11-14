@@ -1,8 +1,8 @@
-package com.niksob.app.viewmodel.moodentry.factory
+package com.niksob.app.viewmodel.mood_entry.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.niksob.app.viewmodel.moodentry.base.BaseMoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.BaseMoodEntriesListViewModel
 import com.niksob.domain.usecase.auth.loading_auth_user.LoadAuthorizeUserIdUseCase
 import com.niksob.domain.usecase.db.mood_entry.LoadMoodEntriesByUserIdAndDateUseCase
 

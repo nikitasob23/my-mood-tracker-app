@@ -1,7 +1,7 @@
 package com.niksob.app.view.base.viewmodel.mood_entry
 
 import com.niksob.app.view.base.logger.LoggableView
-import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.MoodEntriesListViewModel
 import com.niksob.domain.model.Query
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.niksob.app.viewmodel.moodentry.base
+package com.niksob.app.viewmodel.mood_entry.base
 
 import android.os.Build
 import androidx.annotation.RequiresApi

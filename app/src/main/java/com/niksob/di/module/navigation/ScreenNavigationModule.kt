@@ -7,8 +7,8 @@ import com.niksob.app.navigation.fragmentsetter.FragmentSetter
 import com.niksob.di.module.app.*
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
-import com.niksob.domain.navigation.ScreenNavigation
-import com.niksob.domain.navigation.ScreenNavigationWithNavScreenClass
+import com.niksob.domain.navigation.BaseScreenNavigation
+import com.niksob.domain.navigation.navigatable_screen_class.ScreenNavigation
 import com.niksob.domain.navigation.ScreenNavigationByScreenFactory
 import com.niksob.domain.navigation.ScreenSetter
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
@@ -34,7 +34,7 @@ class ScreenNavigationModule {
         popBackFragmentUseCase: PopBackFragmentUseCase,
         logger: AppDebugLogger,
         progressbar: AppProgressBar,
-    ): ScreenNavigationWithNavScreenClass =
+    ): ScreenNavigation =
         FragmentNavigationByProgressbar(
             setFragmentUseCase = setFragmentUseCase,
             popBackFragmentUseCase = popBackFragmentUseCase,
@@ -44,14 +44,14 @@ class ScreenNavigationModule {
 
     @Provides
     fun provideFragmentNavigation(
-        navigation: ScreenNavigationWithNavScreenClass,
+        navigation: ScreenNavigation,
     ): ScreenNavigationByScreenFactory =
         navigation as FragmentNavigationWithScreenFactory
 
     @Provides
     fun provideScreenNavigation(
-        navigation: ScreenNavigationWithNavScreenClass,
-    ): ScreenNavigation =
+        navigation: ScreenNavigation,
+    ): BaseScreenNavigation =
         navigation as FragmentNavigationWithScreenFactory
 
     @Provides

@@ -2,7 +2,7 @@ package com.niksob.di.module.viewmodel.mood_entry
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
-import com.niksob.app.viewmodel.moodentry.base.MoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.MoodEntriesListViewModel
 import com.niksob.domain.model.Query
 import dagger.Module
 import dagger.Provides

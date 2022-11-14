@@ -1,6 +1,6 @@
 package com.niksob.domain.navigation
 
-interface ScreenNavigation {
+interface BaseScreenNavigation {
     fun <T : NavigationableScreen> moveToNextScreen(screenClass: Class<T>)
 
     fun moveToPreviousScreen()

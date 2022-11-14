@@ -4,9 +4,9 @@ import com.niksob.app.viewmodel.auth.loginin.base.BaseLoginInViewModel
 import com.niksob.data.provider.AppStringProvider
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
-import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
-import com.niksob.domain.usecase.auth.ValidateEmailUseCase
-import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
+import com.niksob.domain.usecase.auth.login_in.LoginInWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.validation.ValidateEmailUseCase
+import com.niksob.domain.usecase.auth.validation.ValidatePasswordUseCase
 
 private const val FAILED_REASON = "registration_failed"
 

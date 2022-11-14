@@ -5,8 +5,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.Query
-import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.auth.SignOutUseCase
+import com.niksob.domain.usecase.auth.loading_auth_user.LoadAuthorizeUserIdUseCase
+import com.niksob.domain.usecase.auth.sign_out.SignOutUseCase
 
 open class MainActivityViewModelImpl(
     private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,

@@ -6,7 +6,7 @@ import com.niksob.di.module.logger.AppDebugLoggerModule
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
 import com.niksob.di.module.view.mood_entry_addition.navigation.NavigatableMoodEntryAdditionViewModule
-import com.niksob.di.module.viewmodel.moodentry.MoodEntriesListViewWithEntriesLoaderObserverModule
+import com.niksob.di.module.viewmodel.mood_entry.MoodEntriesListViewWithEntriesLoaderObserverModule
 import dagger.Component
 
 @Component(

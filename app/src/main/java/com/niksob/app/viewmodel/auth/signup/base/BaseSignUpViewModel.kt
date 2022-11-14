@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.niksob.domain.model.Callback
 import com.niksob.domain.model.LoginData
 import com.niksob.domain.model.Query
-import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.sign_up.SignUpWithEmailAndPasswordUseCase
 
 open class BaseSignUpViewModel(
     private val signUpWithEmailAndPasswordUseCase: SignUpWithEmailAndPasswordUseCase,

@@ -9,7 +9,7 @@ import com.niksob.app.view.base.viewmodel.mood_entry.MoodEntriesLoaderView
 import com.niksob.di.component.view.mood_entry.DaggerMoodEntriesListViewComponent
 import com.niksob.di.component.view.mood_entry.MoodEntriesListViewComponent
 import com.niksob.di.module.app.ContextModule
-import com.niksob.di.module.viewmodel.moodentry.MoodEntriesListViewWithEntriesLoaderObserverModule
+import com.niksob.di.module.viewmodel.mood_entry.MoodEntriesListViewWithEntriesLoaderObserverModule
 import com.niksob.domain.model.Query
 
 abstract class InjectedMoodEntriesLoaderView : MoodEntriesLoaderView() {

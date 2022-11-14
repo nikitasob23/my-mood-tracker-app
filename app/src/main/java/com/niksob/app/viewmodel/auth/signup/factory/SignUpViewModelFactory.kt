@@ -4,9 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.niksob.app.viewmodel.auth.signup.validation.SignUpViewModelWithLoginDataValidation
 import com.niksob.data.provider.AppStringProvider
-import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
-import com.niksob.domain.usecase.auth.ValidateEmailUseCase
-import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
+import com.niksob.domain.usecase.auth.sign_up.SignUpWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.validation.ValidateEmailUseCase
+import com.niksob.domain.usecase.auth.validation.ValidatePasswordUseCase
 
 class SignUpViewModelFactory(
     private val validateEmailUseCase: ValidateEmailUseCase,

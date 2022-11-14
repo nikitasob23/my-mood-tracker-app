@@ -6,9 +6,9 @@ import com.niksob.data.provider.AppStringProvider
 import com.niksob.di.module.storage.string.StringStorageModule
 import com.niksob.di.module.usecase.auth.LoginInWithEmailAndPasswordUseCaseModule
 import com.niksob.di.module.usecase.auth.LoginValidationModule
-import com.niksob.domain.usecase.auth.LoginInWithEmailAndPasswordUseCase
-import com.niksob.domain.usecase.auth.ValidateEmailUseCase
-import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
+import com.niksob.domain.usecase.auth.login_in.LoginInWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.validation.ValidateEmailUseCase
+import com.niksob.domain.usecase.auth.validation.ValidatePasswordUseCase
 import dagger.Module
 import dagger.Provides
 

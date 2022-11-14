@@ -6,8 +6,8 @@ import com.niksob.app.viewmodel.main.factory.MainSignOutViewModelWithStoreOwnerC
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
 import com.niksob.di.module.usecase.auth.SignOutUseCaseModule
-import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.auth.SignOutUseCase
+import com.niksob.domain.usecase.auth.loading_auth_user.LoadAuthorizeUserIdUseCase
+import com.niksob.domain.usecase.auth.sign_out.SignOutUseCase
 import dagger.Module
 import dagger.Provides
 

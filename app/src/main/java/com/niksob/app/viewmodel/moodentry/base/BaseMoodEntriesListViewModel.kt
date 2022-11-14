@@ -8,8 +8,8 @@ import com.niksob.domain.model.Callback
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Query
 import com.niksob.domain.model.Uid
-import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.db.LoadMoodEntriesByUserIdAndDateUseCase
+import com.niksob.domain.usecase.auth.loading_auth_user.LoadAuthorizeUserIdUseCase
+import com.niksob.domain.usecase.db.mood_entry.LoadMoodEntriesByUserIdAndDateUseCase
 import java.time.ZonedDateTime
 
 private const val LOADED_DAYS_INTERVAL = 5

@@ -3,10 +3,11 @@ package com.niksob.di.component.view.mood_entry
 import com.niksob.app.view.base.viewmodel.mood_entry.injection.InjectedMoodEntriesLoaderView
 import com.niksob.di.component.base.InjectableComponent
 import com.niksob.di.module.logger.AppDebugLoggerModule
+import com.niksob.di.module.message.MoodEntriesListViewMessageModule
 import com.niksob.di.module.navigation.ScreenNavigationModule
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
-import com.niksob.di.module.viewmodel.moodentry.MoodEntriesListViewWithEntriesLoaderObserverModule
+import com.niksob.di.module.viewmodel.mood_entry.MoodEntriesListViewWithEntriesLoaderObserverModule
 import dagger.Component
 
 @Component(
@@ -16,6 +17,7 @@ import dagger.Component
         AppProgressBarFromContextModule::class,
         ShortToastMessageModule::class,
         AppDebugLoggerModule::class,
+        MoodEntriesListViewMessageModule::class,
     ]
 )
 interface MoodEntriesListViewComponent : InjectableComponent {

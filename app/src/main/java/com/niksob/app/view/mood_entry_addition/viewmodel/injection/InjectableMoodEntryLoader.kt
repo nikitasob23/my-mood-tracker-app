@@ -3,7 +3,7 @@ package com.niksob.app.view.mood_entry_addition.viewmodel.injection
 import androidx.lifecycle.Observer
 import com.niksob.app.view.mood_entry_addition.viewmodel.MoodEntryLoader
 import com.niksob.di.component.view.mood_entry_addition.DaggerAdditionMoodEntryViewComponent
-import com.niksob.di.module.viewmodel.moodentry.MoodEntriesListViewWithEntriesLoaderObserverModule
+import com.niksob.di.module.viewmodel.mood_entry.MoodEntriesListViewWithEntriesLoaderObserverModule
 import com.niksob.domain.model.Query
 
 open class InjectableMoodEntryLoader : MoodEntryLoader() {

@@ -3,24 +3,25 @@
   <ID>JAVA</ID>
   <OriginalElement>com.niksob.data.storage.firebase.base.loader.FirebaseLoaderImpl</OriginalElement>
   <nodes>
-    <node x="400.68340250807694" y="-124.10340786361567">com.niksob.app.viewmodel.mood_entry.observation.ObservableMoodEntriesListViewModelImpl</node>
-    <node x="855.1470333625434" y="608.1098381780413">com.niksob.data.storage.firebase.mood_entry.loading.observation.ObservableLoadableMoodEntryStorage</node>
-    <node x="-1890.9151966856907" y="749.116736588718">com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorageImpl</node>
+    <node x="379.34134244030577" y="-81.80051386712728">com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl</node>
     <node x="-1198.8360236165902" y="436.2772658370248">com.niksob.domain.data.repository.mood_tag.observation.loading.ObservableLoadableMoodTagRepository</node>
-    <node x="400.68340250807694" y="59.83315749171817">com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl</node>
-    <node x="455.68340250807694" y="-263.0399732189495">com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel</node>
-    <node x="-504.62605619736564" y="761.2999214770216">com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoader</node>
-    <node x="400.18340250807694" y="-491.9765385742834">com.niksob.app.viewmodel.mood_entry.transfer.TransferObservableMoodEntriesListViewModel</node>
-    <node x="-546.6260561973656" y="221.69967623385628">com.niksob.domain.usecase.db.mood_entry.observation.LoadMoodEntriesByUserIdAndDateUseCase</node>
     <node x="-442.12605619736564" y="1199.5536636813802">com.niksob.data.model.OnDataLoadedAction</node>
-    <node x="182.53477607269122" y="596.6098381780413">com.niksob.data.repository.mood_entry.observation.loading.ObservableLoadableMoodEntryRepositoryImpl</node>
-    <node x="1297.8438775583325" y="255.6605370723537">com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase</node>
+    <node x="-1890.9151966856907" y="749.116736588718">com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorageImpl</node>
+    <node x="1297.8438775583325" y="220.73716605236427">com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase</node>
+    <node x="202.03477607269122" y="425.7721866874854">com.niksob.domain.data.repository.mood_entry.observation.loading.ObservableLoadableMoodEntryRepository</node>
+    <node x="479.34134244030577" y="69.90795484679325">com.niksob.app.viewmodel.base.auth.observable.AuthorizeUserViewModel</node>
+    <node x="-539.1260561973658" y="877.5417866168622">com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoaderImpl</node>
     <node x="-555.6260561973656" y="1058.1036358144388">com.niksob.data.storage.firebase.base.loader.observation.BaseObservableStorage</node>
     <node x="-1853.2702693895626" y="614.3211534178018">com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorage</node>
-    <node x="-539.1260561973658" y="877.5417866168622">com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoaderImpl</node>
     <node x="-1228.3360236165902" y="597.5512699821587">com.niksob.data.repository.mood_tag.observation.loading.ObservableLoadableMoodTagRepositoryImpl</node>
-    <node x="202.03477607269122" y="425.7721866874854">com.niksob.domain.data.repository.mood_entry.observation.loading.ObservableLoadableMoodEntryRepository</node>
+    <node x="855.1470333625434" y="608.1098381780413">com.niksob.data.storage.firebase.mood_entry.loading.observation.ObservableLoadableMoodEntryStorage</node>
+    <node x="182.53477607269122" y="596.6098381780413">com.niksob.data.repository.mood_entry.observation.loading.ObservableLoadableMoodEntryRepositoryImpl</node>
     <node x="836.6470333625434" y="738.6167365887179">com.niksob.data.storage.firebase.mood_entry.loading.observation.ObservableLoadableMoodEntryStorageImpl</node>
+    <node x="-504.62605619736564" y="761.2999214770216">com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoader</node>
+    <node x="434.34134244030577" y="-404.67364457779496">com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel</node>
+    <node x="-546.6260561973656" y="221.69967623385628">com.niksob.domain.usecase.db.mood_entry.observation.LoadMoodEntriesByUserIdAndDateUseCase</node>
+    <node x="378.84134244030577" y="-633.6102099331288">com.niksob.app.viewmodel.mood_entry.transfer.TransferObservableMoodEntriesListViewModel</node>
+    <node x="379.34134244030577" y="-265.73707922246115">com.niksob.app.viewmodel.mood_entry.observation.ObservableMoodEntriesListViewModelImpl</node>
   </nodes>
   <notes />
   <edges>
@@ -32,8 +33,8 @@
     </edge>
     <edge source="com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl" target="com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase" relationship="TO_ONE">
       <point x="226.0" y="0.0" />
-      <point x="1232.3690524336785" y="97.83315749171817" />
-      <point x="1232.3690524336785" y="295.41605347674897" />
+      <point x="1232.3690524336785" y="-41.80051386712728" />
+      <point x="1232.3690524336785" y="262.49268245675955" />
       <point x="-224.61233719912752" y="1.75551640439528" />
     </edge>
     <edge source="com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorageImpl" target="com.niksob.data.storage.firebase.base.loader.observation.BaseObservableStorage" relationship="GENERALIZATION">
@@ -44,8 +45,8 @@
     </edge>
     <edge source="com.niksob.app.viewmodel.mood_entry.transfer.TransferObservableMoodEntriesListViewModel" target="com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel" relationship="TO_ONE">
       <point x="-222.09805184389484" y="-0.20746093861896497" />
-      <point x="354.6201104092386" y="-420.68399951290235" />
-      <point x="354.6201104092386" y="-236.37383848540986" />
+      <point x="333.2780503414674" y="-558.3176708717477" />
+      <point x="333.2780503414674" y="-378.0075098442553" />
       <point x="-166.91734764125755" y="0.16613473353964991" />
     </edge>
     <edge source="com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorageImpl" target="com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoader" relationship="TO_ONE">
@@ -56,7 +57,6 @@
     </edge>
     <edge source="com.niksob.app.viewmodel.mood_entry.observation.ObservableMoodEntriesListViewModelImpl" target="com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl" relationship="GENERALIZATION">
       <point x="3.4295678327433734" y="48.92563946061145" />
-      <point x="627.1129703408203" y="60.0409654536752" />
       <point x="0.4295678327433734" y="-37.79219203804297" />
     </edge>
     <edge source="com.niksob.data.repository.mood_tag.observation.loading.ObservableLoadableMoodTagRepositoryImpl" target="com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorage" relationship="TO_ONE">
@@ -67,24 +67,16 @@
     </edge>
     <edge source="com.niksob.app.viewmodel.mood_entry.observation.ObservableMoodEntriesListViewModelImpl" target="com.niksob.domain.usecase.db.mood_entry.observation.LoadMoodEntriesByUserIdAndDateUseCase" relationship="TO_ONE">
       <point x="-223.0" y="0.0" />
-      <point x="-46.52287211526624" y="-75.10340786361567" />
-      <point x="-46.52287211526624" y="243.96545321956017" />
-      <point x="232.51098078776158" y="-37.734223014296106" />
+      <point x="-121.17365032263052" y="-214.73707922246115" />
+      <point x="-121.17365032263052" y="256.53408897371054" />
+      <point x="187.53196254710838" y="8.334412739854258" />
     </edge>
     <edge source="com.niksob.data.repository.mood_tag.observation.loading.ObservableLoadableMoodTagRepositoryImpl" target="com.niksob.domain.data.repository.mood_tag.observation.loading.ObservableLoadableMoodTagRepository" relationship="REALIZATION">
       <point x="0.0" y="-39.0" />
       <point x="0.0" y="26.5" />
     </edge>
-    <edge source="com.niksob.domain.usecase.db.mood_entry.observation.LoadMoodEntriesByUserIdAndDateUseCase" target="com.niksob.domain.data.repository.mood_entry.observation.loading.ObservableLoadableMoodEntryRepository" relationship="TO_ONE">
-      <point x="230.75605799394054" y="24.2291720824212" />
-      <point x="-46.52287211526624" y="305.9288483162775" />
-      <point x="-46.52287211526624" y="463.98532163890343" />
-      <point x="-206.0323313548488" y="0.7131349514180556" />
-    </edge>
     <edge source="com.niksob.data.storage.firebase.mood_entry.loading.observation.ObservableLoadableMoodEntryStorageImpl" target="com.niksob.data.storage.firebase.mood_entry.loading.observation.ObservableLoadableMoodEntryStorage" relationship="REALIZATION">
       <point x="4.931122809599401" y="-47.2089341888543" />
-      <point x="1058.0781561721428" y="740.4078023998636" />
-      <point x="1058.0781561721428" y="711.1192330451133" />
       <point x="6.931122809599401" y="36.445080830994584" />
     </edge>
     <edge source="com.niksob.data.storage.firebase.mood_entry.loading.observation.ObservableLoadableMoodEntryStorageImpl" target="com.niksob.data.storage.firebase.base.loader.observation.BaseObservableStorage" relationship="GENERALIZATION">
@@ -97,10 +89,14 @@
       <point x="-211.9862746428446" y="0.1831848883036855" />
       <point x="190.0" y="0.0" />
     </edge>
+    <edge source="com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl" target="com.niksob.app.viewmodel.base.auth.observable.AuthorizeUserViewModel" relationship="REALIZATION">
+      <point x="0.0" y="40.0" />
+      <point x="0.0" y="-26.5" />
+    </edge>
     <edge source="com.niksob.app.viewmodel.mood_entry.observation.ObservableMoodEntriesListViewModelImpl" target="com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel" relationship="REALIZATION">
       <point x="0.10661226364345566" y="-47.3257104580517" />
-      <point x="623.7900147717204" y="-220.13819510048532" />
-      <point x="623.6834025080769" y="-220.13819510048532" />
+      <point x="602.4479547039492" y="-361.7718664593308" />
+      <point x="602.3413424403058" y="-361.7718664593308" />
       <point x="0.0" y="26.5" />
     </edge>
     <edge source="com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorageImpl" target="com.niksob.data.storage.firebase.mood_tag.loading.observation.ObservableLoadableMoodTagStorage" relationship="REALIZATION">
@@ -109,7 +105,6 @@
     </edge>
     <edge source="com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoaderImpl" target="com.niksob.data.storage.firebase.base.loader.FirebaseStorageLoader" relationship="REALIZATION">
       <point x="0.0" y="-52.0" />
-      <point x="-314.62605619736576" y="883.7698528823443" />
       <point x="-314.62605619736564" y="883.7698528823443" />
       <point x="0.0" y="32.5" />
     </edge>
@@ -118,14 +113,8 @@
       <point x="409.0347760726912" y="596.6098381780413" />
       <point x="0.0" y="37.5" />
     </edge>
-    <edge source="com.niksob.domain.usecase.db.mood_entry.observation.LoadMoodEntriesByUserIdAndDateUseCase" target="com.niksob.domain.data.repository.mood_tag.observation.loading.ObservableLoadableMoodTagRepository" relationship="TO_ONE">
-      <point x="-232.43838230857182" y="6.492814067324616" />
-      <point x="-589.9691618872293" y="288.1924903011809" />
-      <point x="-589.9691618872293" y="463.2721866874854" />
-      <point x="200.81401603441554" y="0.49492085046057355" />
-    </edge>
   </edges>
-  <settings layout="Hierarchic" zoom="0.40631408929886914" showDependencies="true" x="192.14117209655205" y="514.1992179842161" />
+  <settings layout="Hierarchic" zoom="0.5154141617571004" showDependencies="true" x="695.6499149731548" y="24.45348936148787" />
   <SelectedNodes />
   <Categories>
     <Category>Constructors</Category>

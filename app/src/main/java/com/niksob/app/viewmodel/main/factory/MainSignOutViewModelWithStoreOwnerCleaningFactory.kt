@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.viewmodel.main.MainActivitySignOutViewModelWithStoreOwnerCleaning
-import com.niksob.domain.usecase.auth.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.auth.SignOutUseCase
+import com.niksob.domain.usecase.auth.loading_auth_user.LoadAuthorizeUserIdUseCase
+import com.niksob.domain.usecase.auth.sign_out.SignOutUseCase
 
 class MainSignOutViewModelWithStoreOwnerCleaningFactory(
     private val loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,

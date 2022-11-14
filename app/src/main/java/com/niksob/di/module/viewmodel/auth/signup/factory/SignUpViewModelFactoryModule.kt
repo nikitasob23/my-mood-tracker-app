@@ -7,9 +7,9 @@ import com.niksob.di.module.provider.AppStringProviderModule
 import com.niksob.di.module.usecase.AddUserUseCaseModule
 import com.niksob.di.module.usecase.auth.LoginValidationModule
 import com.niksob.di.module.usecase.auth.SignUpWithEmailAndPasswordUseCaseModule
-import com.niksob.domain.usecase.auth.SignUpWithEmailAndPasswordUseCase
-import com.niksob.domain.usecase.auth.ValidateEmailUseCase
-import com.niksob.domain.usecase.auth.ValidatePasswordUseCase
+import com.niksob.domain.usecase.auth.sign_up.SignUpWithEmailAndPasswordUseCase
+import com.niksob.domain.usecase.auth.validation.ValidateEmailUseCase
+import com.niksob.domain.usecase.auth.validation.ValidatePasswordUseCase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

@@ -3,7 +3,7 @@ package com.niksob.app.viewmodel.mood_entry.transfer
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.niksob.app.viewmodel.mood_entry.base.MoodEntriesListViewModel
-import com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.observation.MoodEntryDayViewModel
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.Query
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -11,7 +11,7 @@ import io.reactivex.observers.DisposableSingleObserver
 import io.reactivex.schedulers.Schedulers
 
 class TransferObservableMoodEntriesListViewModel(
-    private val observableViewModel: ObservableMoodEntriesListViewModel,
+    private val observableViewModel: MoodEntryDayViewModel,
 ) : MoodEntriesListViewModel, ViewModel() {
 
     override val moodEntriesResponse get() = _moodEntriesResponse

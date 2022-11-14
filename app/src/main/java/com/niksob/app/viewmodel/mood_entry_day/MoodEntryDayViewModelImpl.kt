@@ -1,9 +1,9 @@
-package com.niksob.app.viewmodel.mood_entry.observation
+package com.niksob.app.viewmodel.mood_entry_day
 
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl
-import com.niksob.app.viewmodel.mood_entry.base.observation.ObservableMoodEntriesListViewModel
+import com.niksob.app.viewmodel.mood_entry.base.observation.MoodEntryDayViewModel
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Uid
@@ -14,10 +14,10 @@ import java.time.ZonedDateTime
 
 private const val LOADED_DAYS_INTERVAL = 5
 
-class ObservableMoodEntriesListViewModelImpl(
+class MoodEntryDayViewModelImpl(
     private val loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
     loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
-) : ObservableMoodEntriesListViewModel, BaseAuthorizeUserViewModelImpl(loadAuthorizeUserIdUseCase) {
+) : MoodEntryDayViewModel, BaseAuthorizeUserViewModelImpl(loadAuthorizeUserIdUseCase) {
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun loadByDateInterval(): Single<MoodEntries> =

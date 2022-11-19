@@ -3,10 +3,11 @@ package com.niksob.di.module.view.mood_entry_day.toast_message
 import android.content.Context
 import com.niksob.app.R
 import com.niksob.app.toast.ToastMessage
-import com.niksob.app.view.mood_entry_day.common.toast_message.ViewToastMessage
-import com.niksob.app.view.mood_entry_day.common.toast_message.ViewToastMessageImpl
+import com.niksob.app.view.base.loader.observation.toast_message.ViewToastMessage
+import com.niksob.app.view.base.loader.observation.toast_message.ViewToastMessageImpl
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
+import com.niksob.domain.model.MoodEntries
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -23,7 +24,7 @@ class MoodEntryViewToastMessageModule {
         toastMessage: ToastMessage,
         @Named("success_load_toast_message") successLoadMessage: String,
         @Named("cancelled_load_toast_message") cancelledLoadMessage: String,
-    ): ViewToastMessage = ViewToastMessageImpl(
+    ): ViewToastMessage<MoodEntries> = ViewToastMessageImpl(
         toastMessage = toastMessage,
         successLoadMessage = successLoadMessage,
         cancelledLoadMessage = cancelledLoadMessage,

@@ -1,13 +1,14 @@
 package com.niksob.di.module.view.mood_entry_day.loader
 
-import com.niksob.app.view.mood_entry_day.common.logger.ViewLogger
-import com.niksob.app.view.mood_entry_day.common.toast_message.ViewToastMessage
+import com.niksob.app.view.base.loader.observation.logger.ViewLogger
+import com.niksob.app.view.base.loader.observation.toast_message.ViewToastMessage
 import com.niksob.app.view.mood_entry_day.loader.MoodEntryViewLoader
 import com.niksob.app.viewmodel.mood_entry.base.observation.MoodEntryDayViewModel
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.view.mood_entry_day.logger.MoodEntryDayViewLoggerModule
 import com.niksob.di.module.view.mood_entry_day.toast_message.MoodEntryViewToastMessageModule
 import com.niksob.di.module.viewmodel.mood_entry_day.MoodEntryDayViewModelModule
+import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
 import dagger.Module
 import dagger.Provides
@@ -17,7 +18,7 @@ import dagger.Provides
         MoodEntryDayViewModelModule::class,
         AppProgressBarFromContextModule::class,
         MoodEntryDayViewLoggerModule::class,
-        MoodEntryViewToastMessageModule::class
+        MoodEntryViewToastMessageModule::class,
     ]
 )
 class MoodEntryViewLoaderModule {
@@ -25,8 +26,8 @@ class MoodEntryViewLoaderModule {
     fun provideMoodEntryViewLoader(
         viewModel: MoodEntryDayViewModel,
         progressbar: AppProgressBar,
-        logger: ViewLogger,
-        toastMessage: ViewToastMessage,
+        logger: ViewLogger<MoodEntries>,
+        toastMessage: ViewToastMessage<MoodEntries>,
     ) = MoodEntryViewLoader(
         viewModel = viewModel,
         progressbar = progressbar,

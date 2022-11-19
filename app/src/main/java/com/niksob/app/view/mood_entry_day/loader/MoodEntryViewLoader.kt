@@ -1,7 +1,7 @@
 package com.niksob.app.view.mood_entry_day.loader
 
-import com.niksob.app.view.mood_entry_day.common.logger.ViewLogger
-import com.niksob.app.view.mood_entry_day.common.toast_message.ViewToastMessage
+import com.niksob.app.view.base.loader.observation.logger.ViewLogger
+import com.niksob.app.view.base.loader.observation.toast_message.ViewToastMessage
 import com.niksob.app.viewmodel.mood_entry.base.observation.MoodEntryDayViewModel
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.navigation.appprogressbar.AppProgressBar
@@ -12,8 +12,8 @@ import io.reactivex.schedulers.Schedulers
 open class MoodEntryViewLoader(
     private val viewModel: MoodEntryDayViewModel,
     private val progressbar: AppProgressBar,
-    private val logger: ViewLogger,
-    private val toastMessage: ViewToastMessage,
+    private val logger: ViewLogger<MoodEntries>,
+    private val toastMessage: ViewToastMessage<MoodEntries>,
 ) {
 
     fun loadByDateInterval() =
@@ -41,18 +41,18 @@ open class MoodEntryViewLoader(
     }
 
     private fun logSuccessLoadMessage(moodEntries: MoodEntries) {
-        logger.logSuccessLoadMessage()
+        logger.logSuccessLoadMessage(moodEntries)
     }
 
     private fun logCancelledLoadMessage(t: Throwable) {
-        logger.logCancelledLoadMessage()
+        logger.logCancelledLoadMessage(t)
     }
 
     private fun showSuccessLoadingToastMessage(moodEntries: MoodEntries) {
-        toastMessage.showSuccessLoadingToastMessage()
+        toastMessage.showSuccessLoadingToastMessage(moodEntries)
     }
 
     private fun showCancelledLoadingToastMessage(t: Throwable) {
-        toastMessage.showCancelledLoadingToastMessage()
+        toastMessage.showCancelledLoadingToastMessage(t)
     }
 }

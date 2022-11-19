@@ -2,10 +2,11 @@ package com.niksob.di.module.view.mood_entry_day.logger
 
 import android.content.Context
 import com.niksob.app.R
-import com.niksob.app.view.mood_entry_day.common.logger.ViewLogger
-import com.niksob.app.view.mood_entry_day.common.logger.ViewLoggerImpl
+import com.niksob.app.view.base.loader.observation.logger.ViewLogger
+import com.niksob.app.view.base.loader.observation.logger.ViewLoggerImpl
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
+import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.utils.logger.AppDebugLogger
 import dagger.Module
 import dagger.Provides
@@ -25,7 +26,7 @@ class MoodEntryDayViewLoggerModule {
         @Named("start_load_logger_message") startLoadMessage: String,
         @Named("success_load_logger_message") successLoadMessage: String,
         @Named("cancelled_load_logger_message") cancelledLoadMessage: String,
-    ): ViewLogger = ViewLoggerImpl(
+    ): ViewLogger<MoodEntries> = ViewLoggerImpl(
         logger = logger,
         startLoadMessage = startLoadMessage,
         successLoadMessage = successLoadMessage,

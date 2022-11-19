@@ -2,8 +2,8 @@ package com.niksob.di.module.view.mood_entry_day.loader.logger
 
 import android.content.Context
 import com.niksob.app.R
-import com.niksob.app.view.base.loader.observation.loader.logger.LoggableViewDataLoader
-import com.niksob.app.view.base.loader.observation.loader.progressbar.ViewDataLoaderWithProgressbar
+import com.niksob.app.view.base.loader.logger.LoggableViewDataLoader
+import com.niksob.app.view.base.loader.progressbar.ViewDataLoaderWithProgressbar
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
 import com.niksob.di.module.view.mood_entry_day.loader.progressbar.MoodEntryDayViewDataLoaderWithProgressbarModule

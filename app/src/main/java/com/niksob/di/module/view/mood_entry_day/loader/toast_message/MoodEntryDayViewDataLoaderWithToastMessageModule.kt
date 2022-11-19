@@ -3,9 +3,9 @@ package com.niksob.di.module.view.mood_entry_day.loader.toast_message
 import android.content.Context
 import com.niksob.app.R
 import com.niksob.app.toast.ToastMessage
-import com.niksob.app.view.base.loader.observation.loader.ViewDataLoader
-import com.niksob.app.view.base.loader.observation.loader.logger.LoggableViewDataLoader
-import com.niksob.app.view.base.loader.observation.loader.toast_message.ViewDataLoaderWithToastMessage
+import com.niksob.app.view.base.loader.base.ViewDataLoader
+import com.niksob.app.view.base.loader.logger.LoggableViewDataLoader
+import com.niksob.app.view.base.loader.toast_message.ViewDataLoaderWithToastMessage
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
 import com.niksob.di.module.view.mood_entry_day.loader.logger.LoggableMoodEntryDayViewDataLoaderModule

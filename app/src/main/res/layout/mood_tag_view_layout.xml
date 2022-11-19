@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.niksob.app.view.mood_entry_addition.ui_component.moodtagview.MoodTagView
+<com.niksob.app.view.mood_entry_day.ui_component.MoodTagView
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>

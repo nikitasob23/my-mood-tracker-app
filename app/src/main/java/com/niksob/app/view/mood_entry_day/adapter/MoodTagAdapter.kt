@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.app.view.mood_entry_addition.ui_component.moodtagview.MoodTagView
+import com.niksob.app.view.mood_entry_day.ui_component.MoodTagView
 import com.niksob.domain.model.MoodTag
 
 class MoodTagAdapter(

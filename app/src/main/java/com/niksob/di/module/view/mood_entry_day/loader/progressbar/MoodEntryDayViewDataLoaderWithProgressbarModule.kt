@@ -1,6 +1,6 @@
 package com.niksob.di.module.view.mood_entry_day.loader.progressbar
 
-import com.niksob.app.view.base.loader.observation.loader.progressbar.ViewDataLoaderWithProgressbar
+import com.niksob.app.view.base.loader.progressbar.ViewDataLoaderWithProgressbar
 import com.niksob.app.view.mood_entry_day.loader.MoodEntryDayViewDataLoader
 import com.niksob.di.module.progressbar.AppProgressBarFromContextModule
 import com.niksob.di.module.view.mood_entry_day.loader.viewmodel.MoodEntryViewDataLoaderModule

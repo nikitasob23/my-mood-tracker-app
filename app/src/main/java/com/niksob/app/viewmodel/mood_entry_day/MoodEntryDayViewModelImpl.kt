@@ -3,7 +3,6 @@ package com.niksob.app.viewmodel.mood_entry_day
 import android.os.Build
 import androidx.annotation.RequiresApi
 import com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelImpl
-import com.niksob.app.viewmodel.mood_entry.base.observation.MoodEntryDayViewModel
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Uid
 import com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase

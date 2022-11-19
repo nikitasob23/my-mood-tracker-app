@@ -1,5 +1,6 @@
 package com.niksob.di.module.viewmodel.mood_entry.factory.observable
 
+import androidx.lifecycle.ViewModelProvider
 import com.niksob.app.viewmodel.mood_entry_day.factory.MoodEntryDayViewModelFactory
 import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdAndDateUseCaseModule
 import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
@@ -14,13 +15,14 @@ import dagger.Provides
         LoadAuthorizeUserIdUseCaseModule::class,
     ]
 )
-class ObservableMoodEntriesListViewModelFactoryModule {
+class MoodEntryDayViewModelFactoryModule {
     @Provides
     fun provideObservableMoodEntriesListViewModelFactory(
         loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
         loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
-    ) = MoodEntryDayViewModelFactory(
-        loadMoodEntriesByUserIdAndDateUseCase = loadMoodEntriesByUserIdAndDateUseCase,
-        loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
-    )
+    ): ViewModelProvider.Factory =
+        MoodEntryDayViewModelFactory(
+            loadMoodEntriesByUserIdAndDateUseCase = loadMoodEntriesByUserIdAndDateUseCase,
+            loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
+        )
 }

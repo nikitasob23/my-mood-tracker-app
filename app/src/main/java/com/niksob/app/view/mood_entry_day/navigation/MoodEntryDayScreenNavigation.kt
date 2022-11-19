@@ -5,7 +5,7 @@ import com.niksob.domain.model.MoodEntryId
 import com.niksob.domain.model.NavigationableScreenClass
 import com.niksob.domain.navigation.navigatable_screen_class.ScreenNavigation
 
-open class MoodEntryDayNavigation(
+open class MoodEntryDayScreenNavigation(
     private val navigation: ScreenNavigation,
     private val moodEntryViewClass: NavigationableScreenClass,
 ) : PreviousViewNavigation(navigation) {

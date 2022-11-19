@@ -1,4 +1,4 @@
-package com.niksob.app.view.mood_entries_list.adapter
+package com.niksob.app.view.mood_entry_day.adapter
 
 import android.view.LayoutInflater
 import android.view.View

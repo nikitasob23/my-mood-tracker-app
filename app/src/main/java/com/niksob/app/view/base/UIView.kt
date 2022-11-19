@@ -11,7 +11,7 @@ abstract class UIView : NavigationableFragment() {
 
     protected lateinit var rootView: View
 
-    protected abstract val layoutId: LayoutId
+    protected lateinit var layoutId: LayoutId
 
     override fun onCreateView(
         inflater: LayoutInflater,

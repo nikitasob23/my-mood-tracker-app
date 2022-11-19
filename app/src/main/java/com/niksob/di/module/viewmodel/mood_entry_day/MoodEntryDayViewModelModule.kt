@@ -1,28 +1,29 @@
 package com.niksob.di.module.viewmodel.mood_entry_day
 
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelStoreOwner
 import com.niksob.app.viewmodel.mood_entry.base.observation.MoodEntryDayViewModel
 import com.niksob.app.viewmodel.mood_entry_day.MoodEntryDayViewModelImpl
-import com.niksob.di.module.usecase.LoadMoodEntriesByUserIdAndDateUseCaseModule
-import com.niksob.di.module.usecase.auth.LoadAuthorizeUserIdUseCaseModule
-import com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase
-import com.niksob.domain.usecase.db.mood_entry.observation.LoadMoodEntriesByUserIdAndDateUseCase
+import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
+import com.niksob.di.module.viewmodel.mood_entry.factory.observable.MoodEntryDayViewModelFactoryModule
 import dagger.Module
 import dagger.Provides
 
 @Module(
     includes = [
-        LoadMoodEntriesByUserIdAndDateUseCaseModule::class,
-        LoadAuthorizeUserIdUseCaseModule::class,
+        MoodEntryDayViewModelFactoryModule::class,
+        AppMainActivityViewModelStoreOwnerModule::class,
     ]
 )
 class MoodEntryDayViewModelModule {
     @Provides
     fun provideMoodEntryDayViewModel(
-        loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
-        loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
+        owner: ViewModelStoreOwner,
+        viewModelFactory: ViewModelProvider.Factory,
+        viewModelClass: Class<MoodEntryDayViewModelImpl>,
     ): MoodEntryDayViewModel =
-        MoodEntryDayViewModelImpl(
-            loadMoodEntriesByUserIdAndDateUseCase = loadMoodEntriesByUserIdAndDateUseCase,
-            loadAuthorizeUserIdUseCase = loadAuthorizeUserIdUseCase,
-        )
+        ViewModelProvider(owner, viewModelFactory)[viewModelClass]
+
+    @Provides
+    fun provideViewModelClass() = MoodEntryDayViewModelImpl::class.java
 }

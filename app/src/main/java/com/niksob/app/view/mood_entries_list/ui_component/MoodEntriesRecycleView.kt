@@ -3,7 +3,7 @@ package com.niksob.app.view.mood_entries_list.ui_component
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.app.view.mood_entries_list.adapter.MoodEntryAdapter
+import com.niksob.app.view.mood_entry_day.adapter.MoodEntryAdapter
 import com.niksob.app.view.mood_entries_list.navigation.injection.InjectableNavigatableMoodEntriesListView
 import com.niksob.domain.model.MoodEntries
 import com.niksob.domain.model.MoodEntry

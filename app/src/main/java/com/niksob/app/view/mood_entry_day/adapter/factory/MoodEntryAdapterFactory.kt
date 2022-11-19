@@ -1,7 +1,7 @@
-package com.niksob.app.view.mood_entries_list.adapter.factory
+package com.niksob.app.view.mood_entry_day.adapter.factory
 
 import androidx.recyclerview.widget.RecyclerView
-import com.niksob.app.view.mood_entries_list.adapter.MoodEntryAdapter
+import com.niksob.app.view.mood_entry_day.adapter.MoodEntryAdapter
 import com.niksob.domain.model.MoodEntries
 
 interface MoodEntryAdapterFactory {

@@ -1,5 +1,6 @@
 package com.niksob.data.converter
 
+import com.niksob.domain.model.ColorId
 import com.niksob.domain.data.converter.MoodColorIdConverter
 import com.niksob.domain.data.provider.AppColorIdProvider
 
@@ -25,4 +26,9 @@ class MoodColorIdConverterImpl(
             else -> throw IllegalArgumentException()
         }
     }
+
+    override fun getColorByMoodDegree(degree: Int) =
+        ColorId(
+            getColorIdByMoodDegree(degree)
+        )
 }

@@ -1,6 +1,7 @@
 package com.niksob.domain.utils.date
 
 import java.time.LocalDate
+import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
@@ -12,16 +13,36 @@ const val TIME_PATTERN = "HH:mm"
 class ZonedDateTimeUtil {
     companion object {
         @Suppress("NewApi")
-        fun fromDateAndTime(utcDateStr: String, utcTimeStr: String): ZonedDateTime {
-            val utcDate = LocalDate.parse(utcDateStr, dateFormatter)
-            val utcTime = LocalTime.parse(utcTimeStr, timeFormatter)
-            val utcDateTime = utcTime.atDate(utcDate)
+        fun fromDateAndTime(utcDateStr: String, utcTimeStr: String): ZonedDateTime =
+            sequenceOf(utcDateStr to utcTimeStr)
+                .map(this::toUtcDateTimePair)
+                .map(this::toUtcDateTime)
+                .map(this::toZonedDateTime)
+                .map(this::addZoneOffset)
+                .first()
 
-            val zonedDateTime = ZonedDateTime.of(utcDateTime, ZonedDateTime.now().zone)
-            val offsetInSeconds = ZonedDateTime.now().offset.totalSeconds
+        @Suppress("NewApi")
+        private fun toUtcDateTimePair(dateTimePair: Pair<String, String>) =
+            Pair(
+                LocalDate.parse(dateTimePair.first, dateFormatter),
+                LocalTime.parse(dateTimePair.second, timeFormatter),
+            )
 
-            return zonedDateTime.plusSeconds(offsetInSeconds.toLong())
-        }
+        @Suppress("NewApi")
+        private fun toUtcDateTime(dateTimePair: Pair<LocalDate, LocalTime>) =
+            dateTimePair.second
+                .atDate(dateTimePair.first)
+
+        @Suppress("NewApi")
+        private fun toZonedDateTime(utcDateTime: LocalDateTime) =
+            ZonedDateTime.of(utcDateTime, ZonedDateTime.now().zone)
+
+        @Suppress("NewApi")
+        private fun addZoneOffset(zonedDateTime: ZonedDateTime) =
+            zonedDateTime.plusSeconds(offsetInSeconds.toLong())
+
+        @Suppress("NewApi")
+        private val offsetInSeconds = ZonedDateTime.now().offset.totalSeconds
     }
 }
 

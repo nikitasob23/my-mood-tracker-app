@@ -14,5 +14,5 @@ class MainActivityWithNavigationModule {
 
     @Provides
     @Named("mood_entries_view_class")
-    fun provideMoodEntriesViewClass() = ViewClassProvider.MOOD_ENTRIES_LIST_VIEW.clazz
+    fun provideMoodEntriesViewClass() = ViewClassProvider.MOOD_ENTRY_DAY_VIEW.clazz
 }

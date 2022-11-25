@@ -14,7 +14,5 @@ enum class ViewClassProvider(val clazz : Class<out NavigationableScreen>) {
 
     SIGN_UP_VIEW(InjectedLoggableSignUpView::class.java),
 
-    MOOD_ENTRIES_LIST_VIEW(InjectedMoodEntryDayUIView::class.java),
-
-//    MOOD_ENTRY_ADDITION_VIEW(InjectedLoggableMoodEntryAdditionView::class.java),
+    MOOD_ENTRY_DAY_VIEW(InjectedMoodEntryDayUIView::class.java),
 }

@@ -10,5 +10,5 @@ import dagger.Provides
 class NavigatableLoginInViewModule {
     @Provides
     fun provideMoodEntriesViewClass() =
-        NavigationableScreenClass(ViewClassProvider.MOOD_ENTRIES_LIST_VIEW.clazz)
+        NavigationableScreenClass(ViewClassProvider.MOOD_ENTRY_DAY_VIEW.clazz)
 }

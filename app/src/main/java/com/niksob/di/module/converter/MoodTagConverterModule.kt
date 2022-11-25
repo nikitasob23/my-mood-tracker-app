@@ -6,7 +6,7 @@ import com.niksob.domain.data.converter.MoodColorIdConverter
 import dagger.Module
 import dagger.Provides
 
-@Module(includes = [MoodColorConverterModule::class])
+@Module(includes = [MoodColorIdConverterModule::class])
 class MoodTagConverterModule {
 
     @Provides

@@ -9,7 +9,7 @@ import com.niksob.app.view.base.loader.toast_message.with_param.ViewDataLoaderWi
 import com.niksob.data.model.UIMoodEntries
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.toast.ShortToastMessageModule
-import com.niksob.di.module.view.mood_entry_day.loader.logger.LoggableMoodEntryDayViewDataLoaderModule
+import com.niksob.di.module.view.mood_entry_day.loader.logger.with_param.LoggableMoodEntryDayViewDataLoaderModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

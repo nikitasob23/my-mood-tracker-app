@@ -7,19 +7,19 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
-import com.niksob.domain.model.MoodEntries
-import com.niksob.domain.model.MoodEntry
-import com.niksob.domain.model.MoodTag
+import com.niksob.data.model.UIMoodEntries
+import com.niksob.data.model.UIMoodEntry
+import com.niksob.data.model.UIMoodTags
+import com.niksob.domain.model.ColorId
 import com.niksob.domain.utils.date.localTime
 
 private const val LAYOUT_IS_REVERSED = false
 
 class MoodEntryAdapter(
-    private val moodEntries: MoodEntries,
+    private val moodEntries: UIMoodEntries,
 ) : RecyclerView.Adapter<MoodEntryAdapter.MoodEntryViewHolder>() {
 
     private val layout = R.layout.mood_entry_layout
@@ -45,21 +45,32 @@ class MoodEntryAdapter(
         private val moodTagRecyclerView: RecyclerView =
             itemView.findViewById(R.id.mood_entry_layout__mood_tag_recycle_view)
 
-        fun bindView(entry: MoodEntry) {
+        fun bindView(entry: UIMoodEntry) {
             setBackgroundColor(entry.colorId)
-            setEmoji(entry.emojiId)
+            setEmoji(entry.emoji)
+            setTitle(entry.title)
             setTime(entry.dateTime.localTime)
             initMoodTagAdapter(entry.tags)
-            entry.clickCallback?.apply { setOnClickAction(action = this) }
+            entry.onClick?.apply { setOnClickAction(action = this) }
         }
 
-        private fun setBackgroundColor(colorId: Int) {
+        private fun setBackgroundColor(colorId: ColorId?) {
+            if (colorId == null) {
+                return
+            }
             val container = containerLinearLayout.background as Drawable
-            container.setTint(colorId)
+            container.setTint(colorId.data)
         }
 
-        private fun setEmoji(emojiId: Int) {
-            emojiImageView.background = AppCompatResources.getDrawable(itemView.context, emojiId)
+        private fun setEmoji(emoji: Drawable?) {
+            if (emoji == null) {
+                return
+            }
+            emojiImageView.background = emoji
+        }
+
+        private fun setTitle(title: String) {
+            timeTextView.text = title
         }
 
         private fun setTime(time: String) {
@@ -70,7 +81,7 @@ class MoodEntryAdapter(
             containerLinearLayout.setOnClickListener { action.invoke() }
         }
 
-        private fun initMoodTagAdapter(tags: List<MoodTag>) {
+        private fun initMoodTagAdapter(tags: UIMoodTags) {
 
             moodTagRecyclerView.apply {
                 layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, LAYOUT_IS_REVERSED)

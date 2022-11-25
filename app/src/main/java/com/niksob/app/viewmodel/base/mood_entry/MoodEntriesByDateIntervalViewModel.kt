@@ -6,7 +6,7 @@ import com.niksob.app.viewmodel.base.auth.observable.BaseAuthorizeUserViewModelI
 import com.niksob.app.viewmodel.mood_entry_day.mood_entry.MoodEntryDayViewModel
 import com.niksob.data.converter.DataConverter
 import com.niksob.data.model.UIMoodEntries
-import com.niksob.domain.model.MoodEntries
+import com.niksob.domain.model.mood_entry.MoodEntries
 import com.niksob.domain.model.MoodEntriesData
 import com.niksob.domain.model.Uid
 import com.niksob.domain.usecase.auth.loading_auth_user.observation.LoadAuthorizeUserIdUseCase

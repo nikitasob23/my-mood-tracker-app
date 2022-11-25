@@ -7,7 +7,7 @@ import com.niksob.app.view.base.loader.progressbar.with_param.ViewDataLoaderWith
 import com.niksob.data.model.UIMoodEntries
 import com.niksob.di.module.app.ContextModule
 import com.niksob.di.module.logger.AppDebugLoggerModule
-import com.niksob.di.module.view.mood_entry_day.loader.progressbar.MoodEntryDayViewDataLoaderWithProgressbarModule
+import com.niksob.di.module.view.mood_entry_day.loader.progressbar.with_param.MoodEntryDayViewDataLoaderWithProgressbarModule
 import com.niksob.domain.utils.logger.AppDebugLogger
 import dagger.Module
 import dagger.Provides

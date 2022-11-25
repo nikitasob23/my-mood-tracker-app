@@ -1,7 +1,7 @@
 package com.niksob.domain.usecase.db.mood_entry
 
-import com.niksob.domain.data.converter.DbMoodEntryConverter
-import com.niksob.domain.data.converter.DbMoodTagConverter
+import com.niksob.domain.data.converter.mood_entry.DbMoodEntryConverter
+import com.niksob.domain.data.converter.mood_tag.DbMoodTagConverter
 import com.niksob.domain.data.repository.mood_entry.MoodEntryRepository
 import com.niksob.domain.data.repository.mood_tag.MoodTagRepository
 import com.niksob.domain.model.*

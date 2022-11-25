@@ -2,7 +2,7 @@ package com.niksob.app.view.mood_entry_day.loader
 
 import com.niksob.app.view.base.loader.base.ViewDataLoader
 import com.niksob.app.viewmodel.mood_entry_day.MoodEntryDayViewModel
-import com.niksob.domain.model.MoodEntries
+import com.niksob.domain.model.mood_entry.MoodEntries
 
 class MoodEntryDayViewDataLoader(
     private val viewModel: MoodEntryDayViewModel,

@@ -18,7 +18,7 @@ import dagger.Provides
 class MoodEntryDayViewModelFactoryModule {
     @Provides
     fun provideObservableMoodEntriesListViewModelFactory(
-        loadMoodEntriesByUserIdAndDateUseCase: LoadMoodEntriesByUserIdAndDateUseCase,
+        loadMoodEntriesByUserIdAndDateUseCase : LoadMoodEntriesByUserIdAndDateUseCase,
         loadAuthorizeUserIdUseCase: LoadAuthorizeUserIdUseCase,
     ): ViewModelProvider.Factory =
         MoodEntryDayViewModelFactory(

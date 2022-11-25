@@ -2,16 +2,16 @@ package com.niksob.di.module.viewmodel.mood_entry_day
 
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
-import com.niksob.app.viewmodel.mood_entry_day.MoodEntryDayViewModel
-import com.niksob.app.viewmodel.mood_entry_day.MoodEntryDayViewModelImpl
+import com.niksob.app.viewmodel.base.mood_entry.MoodEntriesByDateIntervalViewModel
+import com.niksob.app.viewmodel.mood_entry_day.mood_entry.MoodEntryDayViewModel
 import com.niksob.di.module.app.AppMainActivityViewModelStoreOwnerModule
-import com.niksob.di.module.viewmodel.mood_entry_day.factory.MoodEntryDayViewModelFactoryModule
+import com.niksob.di.module.viewmodel.mood_entry.factory.MoodEntryViewModelFactoryModule
 import dagger.Module
 import dagger.Provides
 
 @Module(
     includes = [
-        MoodEntryDayViewModelFactoryModule::class,
+        MoodEntryViewModelFactoryModule::class,
         AppMainActivityViewModelStoreOwnerModule::class,
     ]
 )
@@ -20,10 +20,10 @@ class MoodEntryDayViewModelModule {
     fun provideMoodEntryDayViewModel(
         owner: ViewModelStoreOwner,
         viewModelFactory: ViewModelProvider.Factory,
-        viewModelClass: Class<MoodEntryDayViewModelImpl>,
+        viewModelClass: Class<MoodEntriesByDateIntervalViewModel>,
     ): MoodEntryDayViewModel =
         ViewModelProvider(owner, viewModelFactory)[viewModelClass]
 
     @Provides
-    fun provideViewModelClass() = MoodEntryDayViewModelImpl::class.java
+    fun provideViewModelClass() = MoodEntriesByDateIntervalViewModel::class.java
 }

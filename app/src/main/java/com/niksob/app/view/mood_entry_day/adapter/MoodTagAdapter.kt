@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.niksob.app.R
 import com.niksob.app.view.mood_entry_day.ui_component.MoodTagView
-import com.niksob.domain.model.MoodTag
+import com.niksob.data.model.UIMoodTag
+import com.niksob.data.model.UIMoodTags
 
 class MoodTagAdapter(
-    private val moodTags: List<MoodTag>,
+    private val moodTags: UIMoodTags,
 ) : RecyclerView.Adapter<MoodTagAdapter.MoodTagViewHolder>() {
 
     private val layout = R.layout.mood_tag_view_layout
@@ -24,25 +25,25 @@ class MoodTagAdapter(
     override fun onBindViewHolder(holder: MoodTagViewHolder, position: Int) {
 
         if (position == 0) {
-            holder.bindFirstTagView(moodTags[position])
+            holder.bindFirstTagView(moodTags.data[position])
             return
         }
-        holder.bindTagView(moodTags[position])
+        holder.bindTagView(moodTags.data[position])
     }
 
-    override fun getItemCount() = moodTags.size
+    override fun getItemCount() = moodTags.data.size
 
     class MoodTagViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         private val tagView = view as MoodTagView
 
-        fun bindFirstTagView(moodTag: MoodTag) {
+        fun bindFirstTagView(moodTag: UIMoodTag) {
 
             bindTagView(moodTag)
 //            tagView.isEnvelopsOtherTags = TAG_NOT_ENVELOP_OTHER_TAGS
         }
 
-        fun bindTagView(moodTag: MoodTag) {
+        fun bindTagView(moodTag: UIMoodTag) {
             tagView.text = moodTag.name
             tagView.color = moodTag.colorId
         }

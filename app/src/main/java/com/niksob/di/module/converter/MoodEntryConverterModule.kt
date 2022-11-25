@@ -11,7 +11,7 @@ import dagger.Provides
 @Module(
     includes = [
         MoodTagConverterModule::class,
-        MoodColorConverterModule::class,
+        MoodColorIdConverterModule::class,
         MoodEmojiIdConverterModule::class,
     ]
 )

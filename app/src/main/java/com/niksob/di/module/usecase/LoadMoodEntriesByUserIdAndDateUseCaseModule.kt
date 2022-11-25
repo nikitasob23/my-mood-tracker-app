@@ -1,11 +1,11 @@
 package com.niksob.di.module.usecase
 
 import com.niksob.di.module.repository.MoodEntryRepositoryModule
-import com.niksob.domain.data.converter.DbMoodEntryConverter
-import com.niksob.di.module.converter.MoodEntryConverterModule
-import com.niksob.di.module.converter.MoodTagConverterModule
+import com.niksob.domain.data.converter.mood_entry.DbMoodEntryConverter
+import com.niksob.di.module.converter.mood_entry.MoodEntryConverterModule
+import com.niksob.di.module.converter.mood_tag.MoodTagConverterModule
 import com.niksob.di.module.repository.MoodTagRepositoryModule
-import com.niksob.domain.data.converter.DbMoodTagConverter
+import com.niksob.domain.data.converter.mood_tag.DbMoodTagConverter
 import com.niksob.domain.data.dto.*
 import com.niksob.domain.data.repository.mood_entry.MoodEntryRepository
 import com.niksob.domain.data.repository.mood_entry.observation.loading.ObservableLoadableMoodEntryRepository

@@ -216,4 +216,7 @@
     <string name="test_text">text</string>
     <string name="mood_tag_tail_image">mood tag tail image</string>
     <string name="mood_tag_head_image">mood tag head image</string>
+
+    <string name="start_moving_navigation_message">Move to view: </string>
+    <string name="end_moving_navigation_message">Move to previous view: </string>
 </resources>

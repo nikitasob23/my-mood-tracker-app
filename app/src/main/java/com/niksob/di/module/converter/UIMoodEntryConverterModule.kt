@@ -7,7 +7,7 @@ import com.niksob.data.model.ClickAction
 import com.niksob.data.model.UIMoodEntries
 import com.niksob.data.model.UIMoodTag
 import com.niksob.di.module.app.ContextModule
-import com.niksob.di.module.view.mood_entry_day.ui_component.MoodEntryClickActionModule
+import com.niksob.di.module.view.mood_entry_day.ui_component.click_action.NavigateToMoodEntryUIViewActionModule
 import com.niksob.domain.data.converter.MoodColorIdConverter
 import com.niksob.domain.data.converter.MoodEmojiIdConverter
 import com.niksob.domain.model.mood_entry.MoodEntries
@@ -22,7 +22,7 @@ import dagger.Provides
     MoodEntryDegreeToTitleConverterModule::class,
     MoodEmojiIdConverterModule::class,
     MoodColorIdConverterModule::class,
-    MoodEntryClickActionModule::class,
+    NavigateToMoodEntryUIViewActionModule::class,
 ])
 class UIMoodEntryConverterModule {
     @Provides

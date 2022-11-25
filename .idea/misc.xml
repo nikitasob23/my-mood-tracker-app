@@ -74,7 +74,7 @@
         <entry key="app/src/main/res/drawable/transparent_bg.xml" value="0.2390625" />
         <entry key="app/src/main/res/font/roboto.xml" value="0.2462962962962963" />
         <entry key="app/src/main/res/layout-v31/terrible_emoji_layout.xml" value="0.3967391304347826" />
-        <entry key="app/src/main/res/layout/addition_mood_entry_panel_layout.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/addition_mood_entry_panel_layout.xml" value="0.1" />
         <entry key="app/src/main/res/layout/addition_mood_entry_view.xml" value="0.452445652173913" />
         <entry key="app/src/main/res/layout/addition_mood_entry_view_layout.xml" value="0.335" />
         <entry key="app/src/main/res/layout/check_btn_layout.xml" value="0.5" />
